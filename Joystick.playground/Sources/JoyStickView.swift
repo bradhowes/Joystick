@@ -85,7 +85,7 @@ public final class JoyStickView: UIView {
     private var originalFrame: CGRect?
 
     /// Tap gesture recognizer for double-taps which will reset the joystick position
-    private var tapGestureRecognizer: UITapGestureRecognizer?
+    private var tapGestureRecognizer: UITapGestureRecognizer!
 
     /**
      Initialize new joystick view using the given frame.
@@ -121,17 +121,6 @@ public final class JoyStickView: UIView {
         makeHandleImage()
         addSubview(handleImageView)
         handleImageView.frame = bounds.insetBy(dx: 0.15 * bounds.width, dy: 0.15 * bounds.height)
-    }
-
-    /**
-     Notification  that this view is now installed in another view.
-     */
-    override public func didMoveToSuperview() {
-        super.didMoveToSuperview()
-
-        if tapGestureRecognizer != nil {
-            removeGestureRecognizer(tapGestureRecognizer!)
-        }
 
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(resetFrame))
         tapGestureRecognizer!.numberOfTapsRequired = 2
@@ -139,25 +128,21 @@ public final class JoyStickView: UIView {
     }
 
     /**
-     Generate a new handle image using the current `tintColor` value and install.
+     Generate a new handle image using the current `tintColor` value and install. Uses CoreImage filter to apply a 
+     tint to the grey handle image.
      */
     private func makeHandleImage() {
         guard handleImageView != nil else { return }
-
-        let color = CIColor(color: handleTintColor!)
-
-        // Colorize the 'handle' image using the tint color.
-        //
-        let filterConfig: [String:Any] = [kCIInputIntensityKey: 1.0, kCIInputColorKey: color]
-        guard let filter = CIFilter(name: "CIColorMonochrome", withInputParameters: filterConfig) else {
-            fatalError("failed to create CIFilter CIColorMonochrome")
-        }
-
         guard let inputImage = CIImage(image: handleImage) else {
             fatalError("failed to create input CIImage")
         }
 
-        filter.setValue(inputImage, forKey: kCIInputImageKey)
+        let filterConfig: [String:Any] = [kCIInputIntensityKey: 1.0,
+                                          kCIInputColorKey: CIColor(color: handleTintColor!),
+                                          kCIInputImageKey: inputImage]
+        guard let filter = CIFilter(name: "CIColorMonochrome", withInputParameters: filterConfig) else {
+            fatalError("failed to create CIFilter CIColorMonochrome")
+        }
 
         guard let outputImage = filter.outputImage else {
             fatalError("failed to obtain output CIImage")
