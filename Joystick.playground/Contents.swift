@@ -7,8 +7,12 @@ let rect = CGRect(x:0 , y:0, width: 300, height: 400)
 let view = UIView(frame: rect)
 view.translatesAutoresizingMaskIntoConstraints = true
 view.backgroundColor = UIColor.yellow
-
 PlaygroundPage.current.liveView = view
+
+let movableBounds = view.bounds.insetBy(dx: 30.0, dy: 30.0)
+let boundsView = UIView(frame: movableBounds)
+boundsView.backgroundColor = UIColor.white.withAlphaComponent(0.75)
+view.addSubview(boundsView)
 
 // Label to show a joystick's direction
 //
@@ -45,6 +49,7 @@ joystick1.monitor = { (angle: CGFloat, displacement: CGFloat) in
 let joystick2 = JoyStickView(frame: CGRect(x: 100.0, y: 220.0, width: 100.0, height: 100.0))
 view.addSubview(joystick2)
 joystick2.movable = true
+joystick2.movableBounds = movableBounds
 joystick2.alpha = 0.3 // Blend in background with whole view
 joystick2.handleTintColor = UIColor.red
 
@@ -54,3 +59,4 @@ joystick2.monitor = { (angle: CGFloat, displacement: CGFloat) in
     angleLabel.text = "\(Int(angle))°"
     displacementLabel.text = "\(displacement)"
 }
+

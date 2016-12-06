@@ -10,4 +10,32 @@ instances, one for the base and one for the handle. Moving the handle generates 
 
 The view supports an option (`movable`) where the view will move when the user moves the handle to a
 displacement beyond 1.0. This can be useful when the initial position of the joystick in an app is not ideal for
-the user's thumb.
+the user's thumb. Double-tapping on the joystick moves it back to its original position.
+
+In the animation above, there are two joysticks, one green and one red. The green is *fixed* and does not move
+even when the touch motion would cause a displacement larger than 1.0. The red joystick however is *movable*,
+with the base following the touch motion.
+
+# Code
+
+The Xcode playground code sets up the display environemnt and installs two joysticks, one that is fixed (green)
+and the other that is movable (red). Both joysticks report out their positions in two labels, one for angles and
+the other for displacement.
+
+The [JoyStickView.swift](./Joystick.playground/Sources/JoyStickView.swift) file that defines the joystick view
+and behavior resides inside the playground in the [Sources](./Joystick.playground/Sources) directory inside of
+the playground package. There is also a file there
+([CoreGraphics+Additions.swift](./Joystick.playground/Sources/CoreGraphics+Additions.swift)) that contains
+various extensions to some CoreGraphics structs that allow for some simplified mathematical expressions in the
+joystick code.
+
+The `JoyStickView.swift` depends on two image assets found in the [Resources](./Joystick.playground/Resources)
+folder:
+
+* JoyStickBase*.png — the image to use for the base of the joystick
+* JoyStickHandle*.png — the image to use for the handle of the joystick
+
+Both exist in three resolutions for the various iOS devices out today. They were generated using the great
+[Opacity](http://likethought.com/opacity/) app. The Opacity documents are included in this repository at
+the top-level ([JoyStickBase.opacity](./JoyStickBase.opacity) and
+[JoyStickHandle.opacity](./JoyStickHandle.opacity))

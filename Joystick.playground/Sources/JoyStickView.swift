@@ -38,6 +38,7 @@ public final class JoyStickView: UIView {
     /// If `true` the joystick will move around in the parant's view so that the joystick handle is always at a
     /// displacement of 1.0. This is the default mode of operation. Setting to `false` will keep the view fixed.
     public var movable: Bool = true
+    public var movableBounds: CGRect?
 
     /// The opacity of the base of the joystick. Note that this is different than the view's overall opacity setting.
     /// The end result will be a base image with an opacity of `baseAlpha` * `view.alpha`
@@ -82,7 +83,7 @@ public final class JoyStickView: UIView {
     private var lastAngleRadians: Float = 0.0
 
     /// The original location of the joystick. Used to restore its position when user double-taps on it.
-    private var originalFrame: CGRect?
+    private var originalCenter: CGPoint?
 
     /// Tap gesture recognizer for double-taps which will reset the joystick position
     private var tapGestureRecognizer: UITapGestureRecognizer!
@@ -109,7 +110,7 @@ public final class JoyStickView: UIView {
      Common initialization of view. Creates UIImageView instances for base and handle.
      */
     private func initialize() {
-        originalFrame = frame
+
         handleTintColor = tintColor
 
         baseImageView = UIImageView(image: baseImage)
@@ -194,9 +195,9 @@ public final class JoyStickView: UIView {
      Reset our position.
      */
     public func resetFrame() {
-        if originalFrame != nil {
-            frame = originalFrame!
-            originalFrame = nil
+        if displacement < 0.5 && originalCenter != nil {
+            center = originalCenter!
+            originalCenter = nil
         }
     }
 
@@ -240,8 +241,8 @@ public final class JoyStickView: UIView {
         if movable {
             if newDisplacement > 1.0 {
 
-                if originalFrame == nil {
-                    originalFrame = frame
+                if originalCenter == nil {
+                    originalCenter = center
                 }
 
                 // Calculate point that should be on the circumference of the base image.
@@ -252,7 +253,14 @@ public final class JoyStickView: UIView {
                 // Calculate the origin of our frame, working backwards from the given location, and move to it.
                 //
                 let origin = location - end - frame.size / 2.0
-                frame.origin = origin
+
+                if movableBounds != nil {
+                    frame.origin = CGPoint(x: min(max(origin.x, movableBounds!.minX), movableBounds!.maxX - frame.width),
+                                           y: min(max(origin.y, movableBounds!.minY), movableBounds!.maxY - frame.height))
+                }
+                else {
+                    frame.origin = origin
+                }
             }
 
             // Update location of handle
@@ -291,3 +299,66 @@ public final class JoyStickView: UIView {
         }
     }
 }
+
+public func LiangBarsky(rect: CGRect, p0: CGPoint, p1: CGPoint) -> (p0: CGPoint, p1: CGPoint, inRect: Bool) {
+    let edgeLeft = rect.minX
+    let edgeRight = rect.maxX
+    let edgeBottom = rect.minY
+    let edgeTop = rect.maxY
+
+    var t0: CGFloat = 0.0
+    var t1: CGFloat = 1.0
+    let xd = p1.x - p0.x
+    let yd = p1.y - p0.y
+    let cases = [(-xd, -(edgeLeft -   p0.x)),
+                 ( xd,   edgeRight -  p0.x),
+                 (-yd, -(edgeBottom - p0.y)),
+                 ( yd,   edgeTop -    p0.y)]
+
+    // Check edges against the appropriate coordinate delta
+    //
+    let epsilon: CGFloat = 1.0e-8
+
+    for (p, q) in cases {
+
+        // Protect from explosion when calculating 'r' below with 'p' in denominator
+        //
+        if abs(p) < epsilon {
+            if q < 0.0 {
+
+                // Horizontal or vertical line that is outside of the rectangle
+                //
+                return (p0: p0, p1: p1, inRect: false)
+            }
+        }
+        else {
+
+            // Safe to do since 'p' is not zero here. However, maybe we should do better since very small 'p' will lead
+            // to a very large 'r'. We can do 'q > t1 * p' for instance in the condition below, but we then need to
+            // change use of 't0' in the parametric equation at the bottom.
+            //
+            let r: CGFloat = q / p
+            if p < 0.0 {
+                if r > t1 {
+                    return (p0: p0, p1: p1, inRect: false)
+                }
+                else if r > t0 {
+                    t0 = r
+                }
+            }
+            else if p > 0.0 {
+                if r < t0 {
+                    return (p0: p0, p1: p1, inRect: false)
+                }
+                else if r < t1 {
+                    t1 = r
+                }
+            }
+        }
+    }
+
+    return (p0: CGPoint(x: p0.x + t0 * xd, y: p0.y + t0 * yd),
+            p1: CGPoint(x: p0.x + t1 * xd, y: p0.y + t1 * yd),
+            inRect: true)
+}
+
