@@ -34,7 +34,7 @@ The `JoyStickView.swift` depends on two image assets found in the [Resources](./
 folder:
 
 * JoyStickBase\*.png — the image to use for the base of the joystick
-* JoyStickHandle\*.png — the image to use for the handle of the joystick. **Note**: this will bec tinted with
+* JoyStickHandle\*.png — the image to use for the handle of the joystick. **Note**: this will be tinted with
   the `handleTintColor` setting (defaults to the view's `tintColor` parameter)
 
 Both exist in three resolutions for the various iOS devices out today. They were generated using the great
