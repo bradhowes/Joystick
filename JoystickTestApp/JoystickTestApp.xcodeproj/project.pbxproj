@@ -1,0 +1,343 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1495BCEF1F4F736F00B2C738 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495BCEE1F4F736F00B2C738 /* AppDelegate.swift */; };
+		1495BCF11F4F736F00B2C738 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495BCF01F4F736F00B2C738 /* ViewController.swift */; };
+		1495BCF41F4F736F00B2C738 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1495BCF21F4F736F00B2C738 /* Main.storyboard */; };
+		1495BCF61F4F736F00B2C738 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1495BCF51F4F736F00B2C738 /* Assets.xcassets */; };
+		1495BCF91F4F736F00B2C738 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1495BCF71F4F736F00B2C738 /* LaunchScreen.storyboard */; };
+		1495BD021F4F741200B2C738 /* CoreGraphics+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495BD001F4F741200B2C738 /* CoreGraphics+Additions.swift */; };
+		1495BD031F4F741200B2C738 /* JoyStickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495BD011F4F741200B2C738 /* JoyStickView.swift */; };
+		1495BD0B1F4F75F000B2C738 /* JoyStickBase@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1495BD051F4F75F000B2C738 /* JoyStickBase@1x.png */; };
+		1495BD0C1F4F75F000B2C738 /* JoyStickBase@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1495BD061F4F75F000B2C738 /* JoyStickBase@2x.png */; };
+		1495BD0D1F4F75F000B2C738 /* JoyStickBase@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1495BD071F4F75F000B2C738 /* JoyStickBase@3x.png */; };
+		1495BD0E1F4F75F000B2C738 /* JoyStickHandle@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1495BD081F4F75F000B2C738 /* JoyStickHandle@1x.png */; };
+		1495BD0F1F4F75F000B2C738 /* JoyStickHandle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1495BD091F4F75F000B2C738 /* JoyStickHandle@2x.png */; };
+		1495BD101F4F75F100B2C738 /* JoyStickHandle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1495BD0A1F4F75F000B2C738 /* JoyStickHandle@3x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1495BCEB1F4F736F00B2C738 /* JoystickTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JoystickTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1495BCEE1F4F736F00B2C738 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1495BCF01F4F736F00B2C738 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1495BCF31F4F736F00B2C738 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1495BCF51F4F736F00B2C738 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1495BCF81F4F736F00B2C738 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1495BCFA1F4F736F00B2C738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1495BD001F4F741200B2C738 /* CoreGraphics+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CoreGraphics+Additions.swift"; path = "../../Joystick.playground/Sources/CoreGraphics+Additions.swift"; sourceTree = "<group>"; };
+		1495BD011F4F741200B2C738 /* JoyStickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JoyStickView.swift; path = ../../Joystick.playground/Sources/JoyStickView.swift; sourceTree = "<group>"; };
+		1495BD051F4F75F000B2C738 /* JoyStickBase@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "JoyStickBase@1x.png"; path = "../../Joystick.playground/Resources/JoyStickBase@1x.png"; sourceTree = "<group>"; };
+		1495BD061F4F75F000B2C738 /* JoyStickBase@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "JoyStickBase@2x.png"; path = "../../Joystick.playground/Resources/JoyStickBase@2x.png"; sourceTree = "<group>"; };
+		1495BD071F4F75F000B2C738 /* JoyStickBase@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "JoyStickBase@3x.png"; path = "../../Joystick.playground/Resources/JoyStickBase@3x.png"; sourceTree = "<group>"; };
+		1495BD081F4F75F000B2C738 /* JoyStickHandle@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "JoyStickHandle@1x.png"; path = "../../Joystick.playground/Resources/JoyStickHandle@1x.png"; sourceTree = "<group>"; };
+		1495BD091F4F75F000B2C738 /* JoyStickHandle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "JoyStickHandle@2x.png"; path = "../../Joystick.playground/Resources/JoyStickHandle@2x.png"; sourceTree = "<group>"; };
+		1495BD0A1F4F75F000B2C738 /* JoyStickHandle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "JoyStickHandle@3x.png"; path = "../../Joystick.playground/Resources/JoyStickHandle@3x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1495BCE81F4F736E00B2C738 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1495BCE21F4F736E00B2C738 = {
+			isa = PBXGroup;
+			children = (
+				1495BCED1F4F736F00B2C738 /* JoystickTestApp */,
+				1495BCEC1F4F736F00B2C738 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1495BCEC1F4F736F00B2C738 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1495BCEB1F4F736F00B2C738 /* JoystickTestApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1495BCED1F4F736F00B2C738 /* JoystickTestApp */ = {
+			isa = PBXGroup;
+			children = (
+				1495BD051F4F75F000B2C738 /* JoyStickBase@1x.png */,
+				1495BD061F4F75F000B2C738 /* JoyStickBase@2x.png */,
+				1495BD071F4F75F000B2C738 /* JoyStickBase@3x.png */,
+				1495BD081F4F75F000B2C738 /* JoyStickHandle@1x.png */,
+				1495BD091F4F75F000B2C738 /* JoyStickHandle@2x.png */,
+				1495BD0A1F4F75F000B2C738 /* JoyStickHandle@3x.png */,
+				1495BD001F4F741200B2C738 /* CoreGraphics+Additions.swift */,
+				1495BD011F4F741200B2C738 /* JoyStickView.swift */,
+				1495BCEE1F4F736F00B2C738 /* AppDelegate.swift */,
+				1495BCF01F4F736F00B2C738 /* ViewController.swift */,
+				1495BCF21F4F736F00B2C738 /* Main.storyboard */,
+				1495BCF51F4F736F00B2C738 /* Assets.xcassets */,
+				1495BCF71F4F736F00B2C738 /* LaunchScreen.storyboard */,
+				1495BCFA1F4F736F00B2C738 /* Info.plist */,
+			);
+			path = JoystickTestApp;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1495BCEA1F4F736E00B2C738 /* JoystickTestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1495BCFD1F4F736F00B2C738 /* Build configuration list for PBXNativeTarget "JoystickTestApp" */;
+			buildPhases = (
+				1495BCE71F4F736E00B2C738 /* Sources */,
+				1495BCE81F4F736E00B2C738 /* Frameworks */,
+				1495BCE91F4F736E00B2C738 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JoystickTestApp;
+			productName = JoystickTestApp;
+			productReference = 1495BCEB1F4F736F00B2C738 /* JoystickTestApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1495BCE31F4F736E00B2C738 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Bradl Howes";
+				TargetAttributes = {
+					1495BCEA1F4F736E00B2C738 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = Z7R62JH5A8;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 1495BCE61F4F736E00B2C738 /* Build configuration list for PBXProject "JoystickTestApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1495BCE21F4F736E00B2C738;
+			productRefGroup = 1495BCEC1F4F736F00B2C738 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1495BCEA1F4F736E00B2C738 /* JoystickTestApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1495BCE91F4F736E00B2C738 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1495BD101F4F75F100B2C738 /* JoyStickHandle@3x.png in Resources */,
+				1495BCF91F4F736F00B2C738 /* LaunchScreen.storyboard in Resources */,
+				1495BD0E1F4F75F000B2C738 /* JoyStickHandle@1x.png in Resources */,
+				1495BCF61F4F736F00B2C738 /* Assets.xcassets in Resources */,
+				1495BD0C1F4F75F000B2C738 /* JoyStickBase@2x.png in Resources */,
+				1495BD0B1F4F75F000B2C738 /* JoyStickBase@1x.png in Resources */,
+				1495BD0D1F4F75F000B2C738 /* JoyStickBase@3x.png in Resources */,
+				1495BD0F1F4F75F000B2C738 /* JoyStickHandle@2x.png in Resources */,
+				1495BCF41F4F736F00B2C738 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1495BCE71F4F736E00B2C738 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1495BD031F4F741200B2C738 /* JoyStickView.swift in Sources */,
+				1495BCF11F4F736F00B2C738 /* ViewController.swift in Sources */,
+				1495BD021F4F741200B2C738 /* CoreGraphics+Additions.swift in Sources */,
+				1495BCEF1F4F736F00B2C738 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1495BCF21F4F736F00B2C738 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1495BCF31F4F736F00B2C738 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1495BCF71F4F736F00B2C738 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1495BCF81F4F736F00B2C738 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1495BCFB1F4F736F00B2C738 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1495BCFC1F4F736F00B2C738 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1495BCFE1F4F736F00B2C738 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Z7R62JH5A8;
+				INFOPLIST_FILE = JoystickTestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brhcode.JoystickTestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		1495BCFF1F4F736F00B2C738 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Z7R62JH5A8;
+				INFOPLIST_FILE = JoystickTestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brhcode.JoystickTestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1495BCE61F4F736E00B2C738 /* Build configuration list for PBXProject "JoystickTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1495BCFB1F4F736F00B2C738 /* Debug */,
+				1495BCFC1F4F736F00B2C738 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1495BCFD1F4F736F00B2C738 /* Build configuration list for PBXNativeTarget "JoystickTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1495BCFE1F4F736F00B2C738 /* Debug */,
+				1495BCFF1F4F736F00B2C738 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1495BCE31F4F736E00B2C738 /* Project object */;
+}
