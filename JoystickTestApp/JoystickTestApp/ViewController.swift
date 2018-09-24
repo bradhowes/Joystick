@@ -9,63 +9,74 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+    let joystickOffset: CGFloat = 60.0
+    let joystickSpan: CGFloat = 80.0
+
     @IBOutlet weak var leftMagnitude: UILabel!
     @IBOutlet weak var leftTheta: UILabel!
     @IBOutlet weak var rightMagnitude: UILabel!
     @IBOutlet weak var rightTheta: UILabel!
 
+    var joystick1: JoyStickView!
+    var joystick2: JoyStickView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
 
-        super.viewWillAppear(animated)
-
-        // Create 'fixed' joystick
-        //
-        let rect = view.frame
-        let size = CGSize(width: 80.0, height: 80.0)
-        let joystick1Frame = CGRect(origin: CGPoint(x: 40.0,
-                                                    y: (rect.height - size.height - 40.0)),
-                                    size: size)
-        let joystick1 = JoyStickView(frame: joystick1Frame)
-        joystick1.monitor = { angle, displacement in
+        joystick1 = makeJoystick(tintColor: UIColor.green) { angle, displacement in
             self.leftTheta.text = "\(angle)"
             self.leftMagnitude.text = "\(displacement)"
         }
-
-        view.addSubview(joystick1)
-
-        joystick1.movable = false
-        joystick1.alpha = 1.0
-        joystick1.baseAlpha = 0.5 // let the background bleed thru the base
-        joystick1.handleTintColor = UIColor.green // Colorize the handle
-
-        let joystick2Frame = CGRect(origin: CGPoint(x: (rect.width - size.width - 40.0),
-                                                    y: (rect.height - size.height - 40.0)),
-                                    size: size)
-        let joystick2 = JoyStickView(frame: joystick2Frame)
-        joystick2.monitor = { angle, displacement in
+        
+        joystick2 = makeJoystick(tintColor: UIColor.blue) { angle, displacement in
             self.rightTheta.text = "\(angle)"
             self.rightMagnitude.text = "\(displacement)"
         }
+    }
 
-        view.addSubview(joystick2)
+    private func makeJoystick(tintColor: UIColor, monitor: @escaping JoyStickViewMonitor) -> JoyStickView {
+        let frame = CGRect(origin: CGPoint(x: 0.0, y: 0.0), size: CGSize(width: joystickSpan, height: joystickSpan))
+        let joystick = JoyStickView(frame: frame)
+        view.addSubview(joystick)
+        joystick.monitor = monitor
+        joystick.movable = true
+        joystick.alpha = 1.0
+        joystick.baseAlpha = 0.5
+        joystick.handleTintColor = tintColor
 
-        joystick2.movable = false
-        joystick2.alpha = 1.0
-        joystick2.baseAlpha = 0.5 // let the background bleed thru the base
-        joystick2.handleTintColor = UIColor.blue // Colorize the handle
+        return joystick
+    }
+
+    private func repositionJoysticks(size: CGSize, offset1: CGSize, offset2: CGSize) {
+        joystick1.center = CGPoint(x:              offset1.width, y: size.height - offset1.height)
+        joystick2.center = CGPoint(x: size.width - offset2.width, y: size.height - offset2.height)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let span = joystickOffset + joystickSpan / 2.0
+        let offset = CGSize(width: span, height: span)
+        repositionJoysticks(size: view.bounds.size, offset1: offset, offset2: offset)
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+
+        // Record the offsets of each joystick so we can put them in the same place after the rotation.
+        let offset1 = CGSize(width:                     joystick1.center.x, height: view.bounds.height - joystick1.center.y)
+        let offset2 = CGSize(width: view.bounds.width - joystick2.center.x, height: view.bounds.height - joystick2.center.y)
+
+        coordinator.animate(alongsideTransition: { context in
+            self.repositionJoysticks(size: size, offset1: offset1, offset2: offset2)
+        }, completion: { _ in
+            // Just to make sure that we end up at the right spot
+            self.repositionJoysticks(size: size, offset1: offset1, offset2: offset2)
+        })
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
