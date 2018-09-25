@@ -1,0 +1,357 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BDCA40B3215A427100578F67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA40B2215A427100578F67 /* AppDelegate.swift */; };
+		BDCA40B5215A427100578F67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA40B4215A427100578F67 /* ViewController.swift */; };
+		BDCA40B8215A427100578F67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDCA40B6215A427100578F67 /* Main.storyboard */; };
+		BDCA40BA215A427200578F67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDCA40B9215A427200578F67 /* Assets.xcassets */; };
+		BDCA40BD215A427200578F67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDCA40BB215A427200578F67 /* LaunchScreen.storyboard */; };
+		BDCA40C6215A44E900578F67 /* JoyStickView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDCA40C5215A44E900578F67 /* JoyStickView.framework */; };
+		BDCA40CD215A4A9D00578F67 /* JoyStickBaseCustom.opacity in Resources */ = {isa = PBXBuildFile; fileRef = BDCA40C9215A4A9D00578F67 /* JoyStickBaseCustom.opacity */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BDCA40AF215A427100578F67 /* JoyStickView App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JoyStickView App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDCA40B2215A427100578F67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BDCA40B4215A427100578F67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BDCA40B7215A427100578F67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BDCA40B9215A427200578F67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BDCA40BC215A427200578F67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BDCA40BE215A427200578F67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDCA40C5215A44E900578F67 /* JoyStickView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JoyStickView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDCA40C9215A4A9D00578F67 /* JoyStickBaseCustom.opacity */ = {isa = PBXFileReference; lastKnownFileType = file; path = JoyStickBaseCustom.opacity; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BDCA40AC215A427100578F67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDCA40C6215A44E900578F67 /* JoyStickView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BDCA40A6215A427100578F67 = {
+			isa = PBXGroup;
+			children = (
+				BDCA40B1215A427100578F67 /* Src */,
+				BDCA40B0215A427100578F67 /* Products */,
+				BDCA40C4215A44E900578F67 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BDCA40B0215A427100578F67 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BDCA40AF215A427100578F67 /* JoyStickView App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BDCA40B1215A427100578F67 /* Src */ = {
+			isa = PBXGroup;
+			children = (
+				BDCA40C9215A4A9D00578F67 /* JoyStickBaseCustom.opacity */,
+				BDCA40B2215A427100578F67 /* AppDelegate.swift */,
+				BDCA40B4215A427100578F67 /* ViewController.swift */,
+				BDCA40B6215A427100578F67 /* Main.storyboard */,
+				BDCA40B9215A427200578F67 /* Assets.xcassets */,
+				BDCA40BB215A427200578F67 /* LaunchScreen.storyboard */,
+				BDCA40BE215A427200578F67 /* Info.plist */,
+			);
+			path = Src;
+			sourceTree = "<group>";
+		};
+		BDCA40C4215A44E900578F67 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BDCA40C5215A44E900578F67 /* JoyStickView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BDCA40AE215A427100578F67 /* JoyStickView App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDCA40C1215A427200578F67 /* Build configuration list for PBXNativeTarget "JoyStickView App" */;
+			buildPhases = (
+				BDCA40AB215A427100578F67 /* Sources */,
+				BDCA40AC215A427100578F67 /* Frameworks */,
+				BDCA40AD215A427100578F67 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "JoyStickView App";
+			productName = JoyStickViewApp;
+			productReference = BDCA40AF215A427100578F67 /* JoyStickView App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BDCA40A7215A427100578F67 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Brad Howes";
+				TargetAttributes = {
+					BDCA40AE215A427100578F67 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = BDCA40AA215A427100578F67 /* Build configuration list for PBXProject "JoyStickView App" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BDCA40A6215A427100578F67;
+			productRefGroup = BDCA40B0215A427100578F67 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BDCA40AE215A427100578F67 /* JoyStickView App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BDCA40AD215A427100578F67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDCA40BD215A427200578F67 /* LaunchScreen.storyboard in Resources */,
+				BDCA40BA215A427200578F67 /* Assets.xcassets in Resources */,
+				BDCA40B8215A427100578F67 /* Main.storyboard in Resources */,
+				BDCA40CD215A4A9D00578F67 /* JoyStickBaseCustom.opacity in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BDCA40AB215A427100578F67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDCA40B5215A427100578F67 /* ViewController.swift in Sources */,
+				BDCA40B3215A427100578F67 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BDCA40B6215A427100578F67 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDCA40B7215A427100578F67 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BDCA40BB215A427200578F67 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDCA40BC215A427200578F67 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BDCA40BF215A427200578F67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BDCA40C0215A427200578F67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BDCA40C2215A427200578F67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z7R62JH5A8;
+				INFOPLIST_FILE = "$(SRCROOT)/Src/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.braysoft.JoyStickViewApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BDCA40C3215A427200578F67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z7R62JH5A8;
+				INFOPLIST_FILE = "$(SRCROOT)/Src/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.braysoft.JoyStickViewApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BDCA40AA215A427100578F67 /* Build configuration list for PBXProject "JoyStickView App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDCA40BF215A427200578F67 /* Debug */,
+				BDCA40C0215A427200578F67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDCA40C1215A427200578F67 /* Build configuration list for PBXNativeTarget "JoyStickView App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDCA40C2215A427200578F67 /* Debug */,
+				BDCA40C3215A427200578F67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BDCA40A7215A427100578F67 /* Project object */;
+}
