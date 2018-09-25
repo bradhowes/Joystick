@@ -19,18 +19,21 @@ the demonstration animation above where the yellow joystick cannot move into the
 
 # Code
 
+The Xcode workspace contains three components: a framework called `JoyStickView`, a simple application called 
+`JoyStickViewApp`, and a playground called `JoyStickView Playground`. Both the playground and the app rely on the \
+framework for the JoyStickView UIView.
+
 The Xcode playground code sets up the display environemnt and installs two joysticks, one that is fixed (green)
 and the other that is movable (red). Both joysticks report out their positions in two labels, one for angles and
 the other for displacement.
 
-The [JoyStickView.swift](./Joystick.playground/Sources/JoyStickView.swift) file that defines the joystick view
-and behavior resides inside the playground in the [Sources](./Joystick.playground/Sources) directory inside of
-the playground package. There is also a file there
-([CoreGraphics+Additions.swift](./Joystick.playground/Sources/CoreGraphics+Additions.swift)) that contains
+The [JoyStickView.swift](./JoyStickView/Src/JoyStickView.swift) file defines the joystick view
+and behavior. It resides inside JoyStickView framework (./JoyStickView/Src). There you will also find a file 
+called [CoreGraphics+Additions.swift](./JoyStickView/Src/CoreGraphics+Additions.swift) that contains
 various extensions to some CoreGraphics structs that allow for some simplified mathematical expressions in the
-joystick code.
+JoyStickView code.
 
-The `JoyStickView.swift` depends on two image assets found in the [Resources](./Joystick.playground/Resources)
+The `JoyStickView.swift` depends on two image assets found in the [Images](./JoyStickView/Src/Images)
 folder:
 
 * JoyStickBase\*.png — the image to use for the base of the joystick
@@ -38,6 +41,4 @@ folder:
   the `handleTintColor` setting (defaults to the view's `tintColor` parameter)
 
 Both exist in three resolutions for the various iOS devices out today. They were generated using the great
-[Opacity](http://likethought.com/opacity/) app. The Opacity documents are included in this repository at
-the top-level ([JoyStickBase.opacity](./JoyStickBase.opacity) and
-[JoyStickHandle.opacity](./JoyStickHandle.opacity))
+[Opacity](http://likethought.com/opacity/) app. The Opacity documents are included in this repository in the [Resources](./JoyStickView/Resources) directory.
