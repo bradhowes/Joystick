@@ -19,11 +19,11 @@ the demonstration animation above where the yellow joystick cannot move into the
 
 # Code
 
-The Xcode workspace contains three components: 
+The Xcode workspace contains three components:
 
-- a framework called [JoyStickView](./JoyStickView)
-- a simple iOS application called [JoyStickViewApp](./JoyStickViewApp)
-- a playground called [JoyStickView Playground](./JoyStickView%20Playground.playground/Contents.swift)
+- a framework called [JoyStickView](https://github.com/bradhowes/Joystick/master/JoyStickView)
+- a simple iOS application called [JoyStickViewApp](https://github.com/bradhowes/Joystick/master/JoyStickViewApp)
+- a playground called [JoyStickView Playground](https://github.com/bradhowes/Joystick/master/JoyStickView%20Playground.playground/Contents.swift)
 
 Both the playground and the app rely on the framework for the JoyStickView UIView.
 
@@ -31,13 +31,13 @@ The Xcode playground code sets up the display environemnt and installs two joyst
 and the other that is movable (red). Both joysticks report out their positions in two labels, one for angles and
 the other for displacement.
 
-The [JoyStickView.swift](./JoyStickView/Src/JoyStickView.swift) file defines the joystick view
-and behavior. It resides inside JoyStickView framework (./JoyStickView/Src). There you will also find a file 
-called [CoreGraphics+Additions.swift](./JoyStickView/Src/CoreGraphics+Additions.swift) that contains
+The [JoyStickView.swift](https://github.com/bradhowes/Joystick/master/JoyStickView/Src/JoyStickView.swift) file defines the joystick view
+and behavior. It resides inside JoyStickView framework (./JoyStickView/Src). There you will also find a file
+called [CoreGraphics+Additions.swift](https://github.com/bradhowes/Joystick/master/JoyStickView/Src/CoreGraphics+Additions.swift) that contains
 various extensions to some CoreGraphics structs that allow for some simplified mathematical expressions in the
 JoyStickView code.
 
-The `JoyStickView.swift` depends on two image assets found in the [Images](./JoyStickView/Images)
+The `JoyStickView.swift` depends on two image assets found in the [Images](https://github.com/bradhowes/Joystick/master/JoyStickView/Images)
 folder:
 
 * JoyStickBase\*.png — the image to use for the base of the joystick
@@ -45,4 +45,5 @@ folder:
   the `handleTintColor` setting (defaults to the view's `tintColor` parameter)
 
 Both exist in three resolutions for the various iOS devices out today. They were generated using the great
-[Opacity](http://likethought.com/opacity/) app. The Opacity documents are included in this repository in the [Resources](./JoyStickView/Resources) directory.
+[Opacity](http://likethought.com/opacity/) app. The Opacity documents are included in this repository in the
+[Resources](https://github.com/bradhowes/Joystick/master/JoyStickView/Resources) directory.
