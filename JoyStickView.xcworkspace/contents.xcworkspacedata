@@ -2,12 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/howes/Desktop/JoyStickView/JoyStickView Playground.playground">
+      location = "group:README.md">
    </FileRef>
    <FileRef
-      location = "group:/Users/howes/Desktop/JoyStickView/JoyStickViewApp/JoyStickViewApp.xcodeproj">
+      location = "group:animation.gif">
    </FileRef>
    <FileRef
-      location = "group:/Users/howes/Desktop/JoyStickView/JoyStickView/JoyStickView.xcodeproj">
+      location = "group:JoyStickView Playground.playground">
+   </FileRef>
+   <FileRef
+      location = "group:JoyStickViewApp/JoyStickView App.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:JoyStickView/JoyStickView.xcodeproj">
    </FileRef>
 </Workspace>

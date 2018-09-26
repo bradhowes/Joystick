@@ -14,9 +14,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD758009215B66F000B787D2 /* JoyStickBase.opacity */ = {isa = PBXFileReference; lastKnownFileType = file; path = JoyStickBase.opacity; sourceTree = "<group>"; };
+		BD75800A215B66F000B787D2 /* JoyStickHandle.opacity */ = {isa = PBXFileReference; lastKnownFileType = file; path = JoyStickHandle.opacity; sourceTree = "<group>"; };
+		BD75800B215B66F000B787D2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDCA4093215A3AEE00578F67 /* JoyStickView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JoyStickView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCA4096215A3AEE00578F67 /* JoyStickView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JoyStickView.h; sourceTree = "<group>"; };
-		BDCA4097215A3AEE00578F67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDCA409E215A3B3700578F67 /* JoyStickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoyStickView.swift; sourceTree = "<group>"; };
 		BDCA409F215A3B3700578F67 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 		BDCA40A0215A3B3700578F67 /* CoreGraphics+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+Additions.swift"; sourceTree = "<group>"; };
@@ -33,10 +35,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD758008215B66F000B787D2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BD758009215B66F000B787D2 /* JoyStickBase.opacity */,
+				BD75800A215B66F000B787D2 /* JoyStickHandle.opacity */,
+				BD75800B215B66F000B787D2 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		BDCA4089215A3AED00578F67 = {
 			isa = PBXGroup;
 			children = (
+				BDCA409F215A3B3700578F67 /* Images */,
 				BDCA4095215A3AEE00578F67 /* Src */,
+				BD758008215B66F000B787D2 /* Resources */,
 				BDCA4094215A3AEE00578F67 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,11 +66,9 @@
 		BDCA4095215A3AEE00578F67 /* Src */ = {
 			isa = PBXGroup;
 			children = (
-				BDCA409F215A3B3700578F67 /* Images */,
 				BDCA40A0215A3B3700578F67 /* CoreGraphics+Additions.swift */,
 				BDCA409E215A3B3700578F67 /* JoyStickView.swift */,
 				BDCA4096215A3AEE00578F67 /* JoyStickView.h */,
-				BDCA4097215A3AEE00578F67 /* Info.plist */,
 			);
 			path = Src;
 			sourceTree = "<group>";
@@ -282,7 +294,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/Src/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -309,7 +321,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/Src/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
