@@ -34,8 +34,6 @@ public typealias JoyStickViewMonitor = (_ angle: CGFloat, _ displacement: CGFloa
  */
 public final class JoyStickView: UIView {
 
-    // override class var requiresConstraintBasedLayout: Bool { return true }
-
     /// Holds a function to call when joystick orientation changes
     public var monitor: JoyStickViewMonitor? = nil
 
@@ -182,7 +180,8 @@ public final class JoyStickView: UIView {
     }
 
     /**
-     Reset our position.
+     Reset our base to the initial location before the user moved it. By default, this will take place
+     whenever the user double-taps on the joystick handle.
      */
     @objc public func resetFrame() {
         guard let originalCenter = self.originalCenter, displacement < 0.5 else { return }
