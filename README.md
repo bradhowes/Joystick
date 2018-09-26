@@ -19,9 +19,13 @@ the demonstration animation above where the yellow joystick cannot move into the
 
 # Code
 
-The Xcode workspace contains three components: a framework called `JoyStickView`, a simple application called 
-`JoyStickViewApp`, and a playground called `JoyStickView Playground`. Both the playground and the app rely on the \
-framework for the JoyStickView UIView.
+The Xcode workspace contains three components: 
+
+- a framework called `JoyStickView`
+- a simple application called `JoyStickViewApp`
+- a playground called `JoyStickView Playground`
+
+Both the playground and the app rely on the framework for the JoyStickView UIView.
 
 The Xcode playground code sets up the display environemnt and installs two joysticks, one that is fixed (green)
 and the other that is movable (red). Both joysticks report out their positions in two labels, one for angles and
