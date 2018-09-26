@@ -3,7 +3,7 @@
 set -x
 rm -rf ./docs
 mkdir ./docs
-# cp README.md docs/
+cp animation.gif docs/
 
 JAZZY=$(type -p jazzy)
 [[ -n "${JAZZY}" ]] && ${JAZZY} -x -workspace,JoyStickView.xcworkspace,-scheme,JoyStickView
