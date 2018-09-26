@@ -54,3 +54,7 @@ Both exist in three resolutions for the various iOS devices out today. They were
 
 To use your own images, simple set `baseImage` and/or `handleImage` attributes with the `UIImage` you wish to
 use.
+
+# Documentation
+
+Please see the [code documentation](https://bradhowes.github.io/Joystick/index.html) for additional information.
