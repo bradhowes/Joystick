@@ -37,7 +37,7 @@ called [CoreGraphics+Additions.swift](./JoyStickView/Src/CoreGraphics+Additions.
 various extensions to some CoreGraphics structs that allow for some simplified mathematical expressions in the
 JoyStickView code.
 
-The `JoyStickView.swift` depends on two image assets found in the [Images](./JoyStickView/Src/Images)
+The `JoyStickView.swift` depends on two image assets found in the [Images](./JoyStickView/Images)
 folder:
 
 * JoyStickBase\*.png — the image to use for the base of the joystick
