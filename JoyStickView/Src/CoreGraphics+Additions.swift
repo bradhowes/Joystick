@@ -10,7 +10,7 @@ import CoreGraphics
 
 /// Convenience functions for CGRect.
 public extension CGRect {
-    /// Obtain the center of a CGRect
+    /// Obtain the center of a CGRect.
     var mid: CGPoint {
         return CGPoint(x: midX, y: midY)
     }
@@ -19,8 +19,8 @@ public extension CGRect {
 /// Convenience functions for CGVector.
 public extension CGVector {
     /**
-     Multiply the components of a vector by a scalar
-     - parameter lhs: the vector to multiply
+     Multiply the components of a CGVector by a scalar
+     - parameter lhs: the CGVector to multiply
      - parameter rhs: the scalar to muliply
      - returns new CGVector
      */
@@ -29,8 +29,8 @@ public extension CGVector {
     }
 
     /**
-     Multiply the components of a vector by a scalar
-     - parameter lhs: the vector to multiply
+     Multiply the components of a CGVector by a scalar
+     - parameter lhs: the CGVector to multiply
      - parameter rhs: the scalar to muliply
      - returns new CGVector
      */
@@ -38,16 +38,16 @@ public extension CGVector {
         return lhs * CGFloat(rhs)
     }
 
-    /// Obtain the squared magnitude of the vector
+    /// Obtain the squared magnitude of the CGVector
     var magnitude2: CGFloat { return dx * dx + dy * dy }
-    /// Obtain the magnitude of the vector
+    /// Obtain the magnitude of the CGVector
     var magnitude: CGFloat { return sqrt(magnitude2) }
 }
 
 /// Convenience functions for CGPoint.
 public extension CGPoint {
     /**
-     Add the components of a CGPoint and a CGVector together
+     Add the components of a CGPoint and a CGVector
      - parameter lhs: the CGPoint to add
      - parameter rhs: the CGVector to add
      - returns: new CGPoint representing the sum
@@ -57,7 +57,7 @@ public extension CGPoint {
     }
 
     /**
-     Add the components of a point and a CGSize together
+     Add the components of a CGPoint and a CGSize
      - parameter lhs: the CGPoint to add
      - parameter rhs: the CGSize to add
      - returns: new CGPoint representing the sum
