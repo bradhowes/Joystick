@@ -20,13 +20,17 @@ public typealias JoyStickViewMonitor = (_ angle: CGFloat, _ displacement: CGFloa
  * displacement: how far from the view center the joystick is moved in the above direction. Unitless but
  is the ratio of distance moved from center over the radius of the joystick base. Always in range 0.0-1.0
 
- The view has two settable parameters:
+ The view has several settable parameters that be used to configure a joystick's appearance and behavior:
 
- * monitor: a function of type `JoyStickViewMonitor` that will receive updates when the joystick's angle and/or
+ - monitor: a function of type `JoyStickViewMonitor` that will receive updates when the joystick's angle and/or
  displacement values change.
- * movable: a boolean that when true lets the joystick move around in its parent's view when there joystick moves
+ - movable: a boolean that when true lets the joystick move around in its parent's view when there joystick moves
  beyond displacement of 1.0.
-
+ - movableBounds: a CGRect which limits where a movable joystick may travel
+ - baseImage: a UIImage to use for the joystick's base
+ - handleImage: a UIImage to use for the joystick's handle
+ 
+ Additional documentation is available via the attribute names below.
  */
 public final class JoyStickView: UIView {
 
@@ -232,10 +236,11 @@ extension JoyStickView {
         let filterConfig: [String:Any] = [kCIInputIntensityKey: 1.0,
                                           kCIInputColorKey: CIColor(color: handleTintColor!),
                                           kCIInputImageKey: inputImage]
+
         guard let filter = CIFilter(name: "CIColorMonochrome", parameters: filterConfig) else {
             fatalError("failed to create CIFilter CIColorMonochrome")
         }
-        
+
         guard let outputImage = filter.outputImage else {
             fatalError("failed to obtain output CIImage")
         }

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html"> Docs</a> (0% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html"> Reference</a>
+        <img id="carat" src="img/carat.png" />
+          Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/JoyStickView.html">JoyStickView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/CGPoint.html">CGPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/CGRect.html">CGRect</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/CGSize.html">CGSize</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/CGVector.html">CGVector</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/JoyStickViewMonitor">JoyStickViewMonitor</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='joystick' class='heading'>Joystick</h1>
+
+<p><img src="animation.gif" alt=""></p>
+
+<p>A custom UIView in Swift that presents a simple joystick interface. The custom view consists of two UIImageView
+instances, one for the base and one for the handle. Moving the handle generates two values</p>
+
+<ul>
+<li>angle — the direction the handle is point, given in degrees, where north/up is 0° and east/right is 90°</li>
+<li>displacement — the distance from the center the handle moved, from 0.0 to 1.0 with 1.0.</li>
+</ul>
+
+<p>The view supports an option (<code>movable</code>) where the view will move when the user moves the handle to a
+displacement beyond 1.0. This can be useful when the initial position of the joystick in an app is not ideal for
+the user&rsquo;s thumb. Double-tapping on the joystick moves it back to its original position.</p>
+
+<p>In the animation above, there are two joysticks, one green and one red. The green is <em>fixed</em> and does not move
+even when the touch motion would cause a displacement larger than 1.0. The yello joystick however is <em>movable</em>,
+with the base following the touch motion. Base motion is optionally restricted to a <code>CGRect</code>, as is the case in
+the demonstration animation above where the yellow joystick cannot move into the red band.</p>
+<h1 id='code' class='heading'>Code</h1>
+
+<p>The Xcode workspace contains three components: </p>
+
+<ul>
+<li>a framework called <a href="./JoyStickView">JoyStickView</a></li>
+<li>a simple iOS application called <a href="./JoyStickViewApp">JoyStickViewApp</a></li>
+<li>a playground called <a href="./JoyStickView%20Playground.playground/Contents.swift">JoyStickView Playground</a></li>
+</ul>
+
+<p>Both the playground and the app rely on the framework for the JoyStickView UIView.</p>
+
+<p>The Xcode playground code sets up the display environemnt and installs two joysticks, one that is fixed (green)
+and the other that is movable (red). Both joysticks report out their positions in two labels, one for angles and
+the other for displacement.</p>
+
+<p>The <a href="./JoyStickView/Src/JoyStickView.swift">JoyStickView.swift</a> file defines the joystick view
+and behavior. It resides inside JoyStickView framework (./JoyStickView/Src). There you will also find a file 
+called <a href="./JoyStickView/Src/CoreGraphics+Additions.swift">CoreGraphics+Additions.swift</a> that contains
+various extensions to some CoreGraphics structs that allow for some simplified mathematical expressions in the
+JoyStickView code.</p>
+
+<p>The <code>JoyStickView.swift</code> depends on two image assets found in the <a href="./JoyStickView/Src/Images">Images</a>
+folder:</p>
+
+<ul>
+<li>JoyStickBase*.png — the image to use for the base of the joystick</li>
+<li>JoyStickHandle*.png — the image to use for the handle of the joystick. <strong>Note</strong>: this will be tinted with
+the <code>handleTintColor</code> setting (defaults to the view&rsquo;s <code>tintColor</code> parameter)</li>
+</ul>
+
+<p>Both exist in three resolutions for the various iOS devices out today. They were generated using the great
+<a href="http://likethought.com/opacity/">Opacity</a> app. The Opacity documents are included in this repository in the <a href="./JoyStickView/Resources">Resources</a> directory.</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-09-26)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
