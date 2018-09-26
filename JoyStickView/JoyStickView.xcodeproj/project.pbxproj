@@ -95,7 +95,6 @@
 				BDCA408F215A3AEE00578F67 /* Sources */,
 				BDCA4090215A3AEE00578F67 /* Frameworks */,
 				BDCA4091215A3AEE00578F67 /* Resources */,
-				BD5D390F215B753300016710 /* Generate Documentation */,
 			);
 			buildRules = (
 			);
@@ -148,27 +147,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		BD5D390F215B753300016710 /* Generate Documentation */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Generate Documentation";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nset -x\ncd ${SRCROOT}/.. && bash docgen.sh\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BDCA408F215A3AEE00578F67 /* Sources */ = {
