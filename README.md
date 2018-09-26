@@ -23,7 +23,7 @@ The Xcode workspace contains three components:
 
 - a framework called [JoyStickView](./JoyStickView)
 - a simple iOS application called [JoyStickViewApp](./JoyStickViewApp)
-- a playground called [JoyStickView Playground](./JoyStickView Playground.playground/Contents.swift)
+- a playground called [JoyStickView Playground](./JoyStickView%20Playground.playground/Contents.swift)
 
 Both the playground and the app rely on the framework for the JoyStickView UIView.
 
