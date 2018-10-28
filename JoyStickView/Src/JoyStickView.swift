@@ -248,10 +248,15 @@ extension JoyStickView {
         let filterConfig: [String:Any] = [kCIInputIntensityKey: 1.0,
                                           kCIInputColorKey: CIColor(color: handleTintColor!),
                                           kCIInputImageKey: inputImage]
-
+#if swift(>=4.2)
+        guard let filter = CIFilter(name: "CIColorMonochrome", parameters: filterConfig) else {
+            fatalError("failed to create CIFilter CIColorMonochrome")
+        }
+#else
         guard let filter = CIFilter(name: "CIColorMonochrome", withInputParameters: filterConfig) else {
             fatalError("failed to create CIFilter CIColorMonochrome")
         }
+#endif
 
         guard let outputImage = filter.outputImage else {
             fatalError("failed to obtain output CIImage")
