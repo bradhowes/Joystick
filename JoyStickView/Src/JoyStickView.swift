@@ -4,6 +4,7 @@ import CoreGraphics
 /**
  Type definition for a function that will receive updates from the JoyStickView when the handle moves. Takes two
  values, both CGFloats.
+ 
  - parameter angle: the direction the handle is pointing. Unit is degrees with 0° pointing up (north), and 90° pointing
  right (east).
  - parameter displacement: how far from the view center the joystick is moved in the above direction. Unitless but
@@ -68,6 +69,17 @@ public final class JoyStickView: UIView {
         }
         set {
             baseImageView.alpha = newValue
+        }
+    }
+
+    /// The opacity of the handle of the joystick. Note that this is different than the view's overall opacity setting.
+    /// The end result will be a handle image with an opacity of `handleAlpha` * `view.alpha`
+    public var handleAlpha: CGFloat {
+        get {
+            return handleImageView.alpha
+        }
+        set {
+            handleImageView.alpha = newValue
         }
     }
 
@@ -215,6 +227,7 @@ extension JoyStickView {
         handleImageView = UIImageView(image: handleImage)
         tintHandleImage()
         handleImageView.frame = bounds.insetBy(dx: 0.15 * bounds.width, dy: 0.15 * bounds.height)
+        handleImageView.alpha = handleAlpha
         addSubview(handleImageView)
 
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(resetFrame))
@@ -281,9 +294,16 @@ extension JoyStickView {
 
         if movable {
             if newDisplacement > 1.0 {
-                repositionBase(location: location, angle: newAngleRadians)
+                if repositionBase(location: location, angle: newAngleRadians) {
+                    repositionHandle(angle: newAngleRadians)
+                }
+                else {
+                    handleImageView.center = bounds.mid + delta
+                }
             }
-            handleImageView.center = bounds.mid + delta
+            else {
+                handleImageView.center = bounds.mid + delta
+            }
         }
         else if newDisplacement > 1.0 {
             repositionHandle(angle: newAngleRadians)
@@ -303,7 +323,7 @@ extension JoyStickView {
         }
     }
     
-    private func repositionBase(location: CGPoint, angle: Float) {
+    private func repositionBase(location: CGPoint, angle: Float) -> Bool {
         if originalCenter == nil {
             originalCenter = center
         }
@@ -317,6 +337,7 @@ extension JoyStickView {
         let origin = location - end - frame.size / 2.0
 
         frame.origin = self.originClamper(origin)
+        return frame.origin != origin
     }
 
     private func repositionHandle(angle: Float) {
