@@ -320,6 +320,12 @@ extension JoyStickView {
         reportPosition(angleRadians: newAngleRadians, displacement: min(newDisplacement, 1.0))
     }
 
+    /**
+     Report the current joystick values to any registered `monitor`.
+    
+     - parameter angleRadians: the current angle of the joystick handle
+     - parameter displacement: the current displacement of the joystick handle
+     */
     private func reportPosition(angleRadians: Float, displacement: CGFloat) {
         if displacement != self.displacement || angleRadians != self.lastAngleRadians {
             self.displacement = displacement
@@ -328,6 +334,16 @@ extension JoyStickView {
         }
     }
     
+    /**
+     Move the base so that the handle displacement is <= 1.0 from the base. THe last step of this operation is
+     a clamping of the base origin so that it stays within a configured boundary. Such clamping can result in
+     a joystick handle whose displacement is > 1.0 from the base, so the caller should account for that by looking
+     for a `true` return value.
+    
+     - parameter location: the current joystick handle center position
+     - parameter angle: the angle the handle makes with the center of the base
+     - returns: true if the base cannot move sufficiently to keep the displacement of the handle <= 1.0
+     */
     private func repositionBase(location: CGPoint, angle: Float) -> Bool {
         if originalCenter == nil {
             originalCenter = center
@@ -345,6 +361,12 @@ extension JoyStickView {
         return frame.origin != origin
     }
 
+    /**
+     Move the joystick handle so that the angle made up of the triangle from the base 12:00 position on its circumference, the base center,
+     and the joystick center is the given value.
+    
+     - parameter angle: the angle (radians) to conform to
+     */
     private func repositionHandle(angle: Float) {
 
         // Keep handle on the circumference of the base image
