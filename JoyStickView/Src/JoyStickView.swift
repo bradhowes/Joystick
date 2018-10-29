@@ -89,6 +89,13 @@ public final class JoyStickView: UIView {
         didSet { tintHandleImage() }
     }
 
+    /// Controls how far the handle can travel along the radius of the base. A value of 1.0 (default) will let the handle travel
+    /// the full radius, with maximum travel leaving the center of the handle lying on the circumference of the base. A value
+    /// greater than 1.0 will let the handle travel beyond the circumference of the base, while a value less than 1.0 will
+    /// reduce the travel to values within the circumference. Note that regardless of this value, handle movements will always
+    /// report displacement values between 0.0 and 1.0 inclusive.
+    public var travel: CGFloat = 1.0
+
     /// The last-reported angle from the joystick handle. Unit is degrees, with 0° up (north) and 90° right (east)
     public var angle: CGFloat { return displacement != 0.0 ? CGFloat(180.0 - lastAngleRadians * 180.0 / Float.pi) : 0.0 }
 
@@ -96,8 +103,9 @@ public final class JoyStickView: UIView {
     /// the radius of the joystick base. Always falls between 0.0 and 1.0
     public private(set) var displacement: CGFloat = 0.0
 
-    /// The radius of the base of the joystick, the max distance the handle may move in any direction.
-    private lazy var radius: CGFloat = { return self.bounds.size.width / 2.0 }()
+    /// The max distance the handle may move in any direction, where the start is the center of the joystick base and the end
+    /// is on the circumference of the base when travel is 1.0.
+    private var radius: CGFloat { return self.bounds.size.width / 2.0 * travel }
 
     /// The image to use for the base of the joystick
     public var baseImage: UIImage? {

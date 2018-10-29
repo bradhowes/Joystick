@@ -65,6 +65,12 @@ joystick1.baseAlpha = 1.0
 joystick1.handleAlpha = 0.75
 joystick1.handleTintColor = UIColor.green // Colorize the handle
 
+/*:
+ Let the center of the green handle travel beyond the circumference of the base, by
+ increasing travel radius by 25%.
+ */
+joystick1.travel = 1.25
+
 // Show the joystick's orientation in the labels
 //
 joystick1.monitor = { (angle: CGFloat, displacement: CGFloat) in
