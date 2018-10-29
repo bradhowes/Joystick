@@ -48,7 +48,7 @@ public final class JoyStickView: UIView {
             if let mb = movableBounds {
 
                 // Create filter that constrains a point to the rectangle set in movableBounds
-                originClamper = {
+                centerClamper = {
                     CGPoint(x: min(max($0.x, mb.minX), mb.maxX - self.frame.width),
                             y: min(max($0.y, mb.minY), mb.maxY - self.frame.height))
                 }
@@ -56,7 +56,7 @@ public final class JoyStickView: UIView {
             else {
 
                 // Identity filter
-                originClamper = { $0 }
+                centerClamper = { $0 }
             }
         }
     }
@@ -140,7 +140,8 @@ public final class JoyStickView: UIView {
     /// Tap gesture recognizer for double-taps which will reset the joystick position
     private var tapGestureRecognizer: UITapGestureRecognizer!
 
-    private var originClamper: (CGPoint) -> CGPoint = { $0 }
+    /// A filter for joystick handle centers. Used to restrict handle movements.
+    private var centerClamper: (CGPoint) -> CGPoint = { $0 }
     
     /**
      Initialize new joystick view using the given frame.
@@ -159,7 +160,11 @@ public final class JoyStickView: UIView {
         super.init(coder: coder)
         initialize()
     }
+}
 
+// MARK: - Touch Handling
+
+extension JoyStickView {
     /**
      A touch began in the joystick view
      - parameter touches: the set of UITouch instances, one for each touch event
@@ -209,6 +214,8 @@ public final class JoyStickView: UIView {
         self.originalCenter = nil
     }
 }
+
+// MARK: - Implementation Details
 
 extension JoyStickView {
     
@@ -365,7 +372,7 @@ extension JoyStickView {
         //
         let origin = location - end - frame.size / 2.0
 
-        frame.origin = self.originClamper(origin)
+        frame.origin = self.centerClamper(origin)
         return frame.origin != origin
     }
 

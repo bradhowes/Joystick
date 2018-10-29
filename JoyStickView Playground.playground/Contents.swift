@@ -1,8 +1,8 @@
 /*:
  # Demo
  
- We will create a simple view with two joysticks: a green on the left which is fixed, and a
- yellow one on the right which can move. For the demo to work, you will need to perform a
+ We will create a simple view with two joysticks: a green one on the left which has a fixed base, and a
+ yellow one on the right which has a base that can move. For the demo to work, you will need to perform a
  couple of steps:
  
  * Build the JoyStickView framework -- select "Product > Build" menu item
@@ -53,7 +53,7 @@ displacementLabel.textColor = UIColor.black
 view.addSubview(displacementLabel)
 
 /*:
- Create the green, 'fixed' joystick.
+ Create the green *fixed* joystick.
 */
 let size = CGSize(width: 100.0, height: 100.0)
 let joystickFrame = CGRect(origin: CGPoint(x: 0.0, y: (rect.height - size.height) / 2.0), size: size)
@@ -71,15 +71,16 @@ joystick1.handleTintColor = UIColor.green // Colorize the handle
  */
 joystick1.travel = 1.25
 
-// Show the joystick's orientation in the labels
-//
+/*:
+ Show the joystick's orientation in the labels
+*/
 joystick1.monitor = { (angle: CGFloat, displacement: CGFloat) in
     angleLabel.text = "\(Int(angle))°"
     displacementLabel.text = "\(displacement)"
 }
 
 /*:
- Finally, create the yellow, 'movable' joystick.
+ Finally, create the yellow *movable* joystick.
 */
 let joystick2 = JoyStickView(frame: joystickFrame.offsetBy(dx: rect.width - 60.0 - size.width, dy: 0.0))
 view.addSubview(joystick2)
@@ -89,8 +90,9 @@ joystick2.baseAlpha = 0.5
 joystick2.handleAlpha = 0.75
 joystick2.handleTintColor = UIColor.yellow
 
-// Show the joystick's orientation in the labels
-//
+/*:
+ Same as before, show the orientation in the labels
+*/
 joystick2.monitor = { (angle: CGFloat, displacement: CGFloat) in
     angleLabel.text = "\(Int(angle))°"
     displacementLabel.text = "\(displacement)"
