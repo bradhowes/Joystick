@@ -12,7 +12,7 @@ The view supports an option (`movable`) where the view will move when the user m
 displacement beyond 1.0. This can be useful when the initial position of the joystick in an app is not ideal for
 the user's thumb. Double-tapping on the joystick moves it back to its original position.
 
-In the animation above, there are two joysticks, one green and one red. The green is *fixed* and does not move
+In the animation above, there are two joysticks, one green and one yellow. The green is *fixed* and does not move
 even when the touch motion would cause a displacement larger than 1.0. The yello joystick however is *movable*,
 with the base following the touch motion. Base motion is optionally restricted to a `CGRect`, as is the case in
 the demonstration animation above where the yellow joystick cannot move into the red band.
