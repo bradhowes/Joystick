@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         joystick1.travel = 1.25
         joystick1.accessibilityLabel = "leftJoystick"
         
-        joystick2 = makeJoystick(tintColor: UIColor.blue) { angle, displacement in
+        joystick2 = makeJoystick(tintColor: UIColor.yellow) { angle, displacement in
             if displacement > 0.0 {
                 self.rightTheta.text = "\(angle)"
                 self.rightMagnitude.text = "\(displacement)"
