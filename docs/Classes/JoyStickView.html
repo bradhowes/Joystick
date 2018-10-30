@@ -185,6 +185,33 @@ displacement of 1.0. This is the default mode of operation. Setting to <code>fal
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:12JoyStickViewAAC13movableCenterSo7CGPointVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/movableCenter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12JoyStickViewAAC13movableCenterSo7CGPointVSgvp">movableCenter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The original location of a movable joystick. Used to restore its position when user double-taps on it.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">movableCenter</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:12JoyStickViewAAC9baseAlpha12CoreGraphics7CGFloatVvp"></a>
                     <a name="//apple_ref/swift/Property/baseAlpha" class="dashAnchor"></a>
                     <a class="token" href="#/s:12JoyStickViewAAC9baseAlpha12CoreGraphics7CGFloatVvp">baseAlpha</a>
@@ -213,6 +240,34 @@ The end result will be a base image with an opacity of <code>baseAlpha</code> * 
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:12JoyStickViewAAC11handleAlpha12CoreGraphics7CGFloatVvp"></a>
+                    <a name="//apple_ref/swift/Property/handleAlpha" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12JoyStickViewAAC11handleAlpha12CoreGraphics7CGFloatVvp">handleAlpha</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The opacity of the handle of the joystick. Note that this is different than the view&rsquo;s overall opacity setting.
+The end result will be a handle image with an opacity of <code>handleAlpha</code> * <code>view.alpha</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">handleAlpha</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:12JoyStickViewAAC15handleTintColorSo7UIColorCSgvp"></a>
                     <a name="//apple_ref/swift/Property/handleTintColor" class="dashAnchor"></a>
                     <a class="token" href="#/s:12JoyStickViewAAC15handleTintColorSo7UIColorCSgvp">handleTintColor</a>
@@ -232,6 +287,37 @@ is visible will update the handle image.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">handleTintColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12JoyStickViewAAC6travel12CoreGraphics7CGFloatVvp"></a>
+                    <a name="//apple_ref/swift/Property/travel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12JoyStickViewAAC6travel12CoreGraphics7CGFloatVvp">travel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Controls how far the handle can travel along the radius of the base. A value of 1.0 (default) will let the handle travel
+the full radius, with maximum travel leaving the center of the handle lying on the circumference of the base. A value
+greater than 1.0 will let the handle travel beyond the circumference of the base, while a value less than 1.0 will
+reduce the travel to values within the circumference. Note that regardless of this value, handle movements will always
+report displacement values between 0.0 and 1.0 inclusive.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">travel</span><span class="p">:</span> <span class="kt">CGFloat</span></code></pre>
 
                         </div>
                       </div>
@@ -350,6 +436,34 @@ the radius of the joystick base. Always falls between 0.0 and 1.0</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:12JoyStickViewAAC28enableDoubleTapForFrameResetSbvp"></a>
+                    <a name="//apple_ref/swift/Property/enableDoubleTapForFrameReset" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12JoyStickViewAAC28enableDoubleTapForFrameResetSbvp">enableDoubleTapForFrameReset</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Control whether view will recognize a double-tap gesture and move the joystick base to its original location
+when it happens. Note that this is only useful if <code>moveable</code> is true.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">enableDoubleTapForFrameReset</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@M@JoyStickView@objc(cs)JoyStickView(im)initWithFrame:"></a>
                     <a name="//apple_ref/swift/Method/init(frame:)" class="dashAnchor"></a>
                     <a class="token" href="#/c:@M@JoyStickView@objc(cs)JoyStickView(im)initWithFrame:">init(frame:)</a>
@@ -439,12 +553,23 @@ the radius of the joystick base. Always falls between 0.0 and 1.0</p>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Touch%20Handling"></a>
+                <a name="//apple_ref/swift/Section/Touch Handling" class="dashAnchor"></a>
+                <a href="#/Touch%20Handling">
+                  <h3 class="section-name">Touch Handling</h3>
+                </a>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@JoyStickView@objc(cs)JoyStickView(im)touchesBegan:withEvent:"></a>
+                    <a name="/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesBegan:withEvent:"></a>
                     <a name="//apple_ref/swift/Method/touchesBegan(_:with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@JoyStickView@objc(cs)JoyStickView(im)touchesBegan:withEvent:">touchesBegan(_:with:)</a>
+                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesBegan:withEvent:">touchesBegan(_:with:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -500,9 +625,9 @@ the radius of the joystick base. Always falls between 0.0 and 1.0</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@JoyStickView@objc(cs)JoyStickView(im)touchesMoved:withEvent:"></a>
+                    <a name="/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesMoved:withEvent:"></a>
                     <a name="//apple_ref/swift/Method/touchesMoved(_:with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@JoyStickView@objc(cs)JoyStickView(im)touchesMoved:withEvent:">touchesMoved(_:with:)</a>
+                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesMoved:withEvent:">touchesMoved(_:with:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -558,9 +683,9 @@ the radius of the joystick base. Always falls between 0.0 and 1.0</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@JoyStickView@objc(cs)JoyStickView(im)touchesCancelled:withEvent:"></a>
+                    <a name="/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesCancelled:withEvent:"></a>
                     <a name="//apple_ref/swift/Method/touchesCancelled(_:with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@JoyStickView@objc(cs)JoyStickView(im)touchesCancelled:withEvent:">touchesCancelled(_:with:)</a>
+                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesCancelled:withEvent:">touchesCancelled(_:with:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -617,9 +742,9 @@ center of base.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@JoyStickView@objc(cs)JoyStickView(im)touchesEnded:withEvent:"></a>
+                    <a name="/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesEnded:withEvent:"></a>
                     <a name="//apple_ref/swift/Method/touchesEnded(_:with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@JoyStickView@objc(cs)JoyStickView(im)touchesEnded:withEvent:">touchesEnded(_:with:)</a>
+                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesEnded:withEvent:">touchesEnded(_:with:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -675,9 +800,9 @@ center of base.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@JoyStickView@objc(cs)JoyStickView(im)resetFrame"></a>
+                    <a name="/c:@CM@JoyStickView@objc(cs)JoyStickView(im)resetFrame"></a>
                     <a name="//apple_ref/swift/Method/resetFrame()" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@JoyStickView@objc(cs)JoyStickView(im)resetFrame">resetFrame()</a>
+                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)resetFrame">resetFrame()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -706,7 +831,7 @@ whenever the user double-taps on the joystick handle.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-09-26)</p>
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-10-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
