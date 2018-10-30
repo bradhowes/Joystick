@@ -61,6 +61,9 @@ public final class JoyStickView: UIView {
         }
     }
 
+    /// The original location of a movable joystick. Used to restore its position when user double-taps on it.
+    public var movableCenter: CGPoint? = nil
+
     /// The opacity of the base of the joystick. Note that this is different than the view's overall opacity setting.
     /// The end result will be a base image with an opacity of `baseAlpha` * `view.alpha`
     public var baseAlpha: CGFloat {
@@ -97,7 +100,7 @@ public final class JoyStickView: UIView {
     public var travel: CGFloat = 1.0
 
     /// The last-reported angle from the joystick handle. Unit is degrees, with 0° up (north) and 90° right (east)
-    public var angle: CGFloat { return displacement != 0.0 ? CGFloat(180.0 - lastAngleRadians * 180.0 / Float.pi) : 0.0 }
+    public var angle: CGFloat { return displacement != 0.0 ? CGFloat(180.0 - angleRadians * 180.0 / Float.pi) : 0.0 }
 
     /// The last-reported displacement from the joystick handle. Dimensionless but is the ratio of movement over
     /// the radius of the joystick base. Always falls between 0.0 and 1.0
@@ -125,6 +128,20 @@ public final class JoyStickView: UIView {
         }
     }
 
+    /// Control whether view will recognize a double-tap gesture and move the joystick base to its original location
+    /// when it happens. Note that this is only useful if `moveable` is true.
+    public var enableDoubleTapForFrameReset = true {
+        didSet {
+            if let dtgr = doubleTapGestureRecognizer {
+                removeGestureRecognizer(dtgr)
+                doubleTapGestureRecognizer = nil
+            }
+            if enableDoubleTapForFrameReset {
+                installDoubleTapGestureRecognizer()
+            }
+        }
+    }
+
     /// The image to use to show the base of the joystick
     private var baseImageView: UIImageView!
 
@@ -132,16 +149,16 @@ public final class JoyStickView: UIView {
     private var handleImageView: UIImageView!
 
     /// Cache of the last joystick angle in radians
-    private var lastAngleRadians: Float = 0.0
-
-    /// The original location of the joystick. Used to restore its position when user double-taps on it.
-    private var originalCenter: CGPoint?
+    private var angleRadians: Float = 0.0
 
     /// Tap gesture recognizer for double-taps which will reset the joystick position
     private var tapGestureRecognizer: UITapGestureRecognizer!
 
     /// A filter for joystick handle centers. Used to restrict handle movements.
     private var centerClamper: (CGPoint) -> CGPoint = { $0 }
+
+    /// Tap gesture recognizer for detecting double-taps. Only present if `enableDoubleTapForFrameReset` is true
+    private var doubleTapGestureRecognizer: UITapGestureRecognizer?
     
     /**
      Initialize new joystick view using the given frame.
@@ -192,7 +209,7 @@ extension JoyStickView {
      - parameter event: additional event info (ignored)
      */
     public override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        resetPosition()
+        homePosition()
     }
 
     /**
@@ -201,7 +218,7 @@ extension JoyStickView {
      - parameter event: additional event info (ignored)
      */
     public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        resetPosition()
+        homePosition()
     }
 
     /**
@@ -209,9 +226,8 @@ extension JoyStickView {
      whenever the user double-taps on the joystick handle.
      */
     @objc public func resetFrame() {
-        guard let originalCenter = self.originalCenter, displacement < 0.5 else { return }
-        center = originalCenter
-        self.originalCenter = nil
+        guard let movableCenter = self.movableCenter, displacement < 0.5 else { return }
+        center = movableCenter
     }
 }
 
@@ -244,12 +260,21 @@ extension JoyStickView {
         handleImageView.frame = bounds.insetBy(dx: 0.15 * bounds.width, dy: 0.15 * bounds.height)
         handleImageView.alpha = handleAlpha
         addSubview(handleImageView)
+        
+        if enableDoubleTapForFrameReset {
+            installDoubleTapGestureRecognizer()
+        }
+    }
 
+    /**
+     Install a UITapGestureRecognizer to detect and process double-tap activity on the joystick.
+     */
+    private func installDoubleTapGestureRecognizer() {
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(resetFrame))
         tapGestureRecognizer!.numberOfTapsRequired = 2
         addGestureRecognizer(tapGestureRecognizer!)
     }
-    
+
     /**
      Generate a new handle image using the current `tintColor` value and install. Uses CoreImage filter to apply a
      tint to the grey handle image.
@@ -283,8 +308,9 @@ extension JoyStickView {
     /**
      Reset handle position so that it is in the center of the base.
      */
-    private func resetPosition() {
-        updateLocation(location: CGPoint(x: frame.midX, y: frame.midY))
+    private func homePosition() {
+        handleImageView.center = bounds.mid
+        reportPosition(angleRadians: 0.0, displacement: 0.0)
     }
 
     /**
@@ -313,13 +339,8 @@ extension JoyStickView {
         let newAngleRadians = atan2f(Float(delta.dx), Float(delta.dy))
 
         if movable {
-            if newDisplacement > 1.0 {
-                if repositionBase(location: location, angle: newAngleRadians) {
-                    repositionHandle(angle: newAngleRadians)
-                }
-                else {
-                    handleImageView.center = bounds.mid + delta
-                }
+            if newDisplacement > 1.0 && repositionBase(location: location, angle: newAngleRadians) {
+                repositionHandle(angle: newAngleRadians)
             }
             else {
                 handleImageView.center = bounds.mid + delta
@@ -342,9 +363,9 @@ extension JoyStickView {
      - parameter displacement: the current displacement of the joystick handle
      */
     private func reportPosition(angleRadians: Float, displacement: CGFloat) {
-        if displacement != self.displacement || angleRadians != self.lastAngleRadians {
+        if displacement != self.displacement || angleRadians != self.angleRadians {
             self.displacement = displacement
-            self.lastAngleRadians = angleRadians
+            self.angleRadians = angleRadians
             monitor?(self.angle, displacement)
         }
     }
@@ -360,8 +381,8 @@ extension JoyStickView {
      - returns: true if the base cannot move sufficiently to keep the displacement of the handle <= 1.0
      */
     private func repositionBase(location: CGPoint, angle: Float) -> Bool {
-        if originalCenter == nil {
-            originalCenter = center
+        if movableCenter == nil {
+            movableCenter = center
         }
         
         // Calculate point that should be on the circumference of the base image.
