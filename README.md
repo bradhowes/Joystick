@@ -1,3 +1,6 @@
+[![Build
+Status](https://travis-ci.org/bradhowes/Joystick.svg?branch=master)](https://travis-ci.org/bradhowes/Joystick)
+
 # Joystick
 
 ![](animation.gif)
