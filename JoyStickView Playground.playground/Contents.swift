@@ -98,3 +98,8 @@ joystick2.monitor = { (angle: CGFloat, displacement: CGFloat) in
     displacementLabel.text = "\(displacement)"
 }
 
+/*:
+ Try moving the yellow joystick handle away from its base. As long as the handle lies within the white area, the base should move to keep the center of the handle on the circumference of the base (due to the `travel` property being 1.0).
+ 
+ You can always reset the joystick to the original location by double-tapping on it.
+*/
