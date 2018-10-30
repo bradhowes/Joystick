@@ -49,8 +49,7 @@ public final class JoyStickView: UIView {
 
                 // Create filter that constrains a point to the rectangle set in movableBounds
                 centerClamper = {
-                    CGPoint(x: min(max($0.x, mb.minX), mb.maxX - self.frame.width),
-                            y: min(max($0.y, mb.minY), mb.maxY - self.frame.height))
+                    CGPoint(x: min(max($0.x, mb.minX), mb.maxX), y: min(max($0.y, mb.minY), mb.maxY))
                 }
             }
             else {
@@ -378,23 +377,22 @@ extension JoyStickView {
     
      - parameter location: the current joystick handle center position
      - parameter angle: the angle the handle makes with the center of the base
-     - returns: true if the base cannot move sufficiently to keep the displacement of the handle <= 1.0
+     - returns: true if the base **cannot** move sufficiently to keep the displacement of the handle <= 1.0
      */
     private func repositionBase(location: CGPoint, angle: Float) -> Bool {
         if movableCenter == nil {
-            movableCenter = center
+            movableCenter = self.center
         }
-        
+
         // Calculate point that should be on the circumference of the base image.
         //
         let end = CGVector(dx: CGFloat(sinf(angle)) * radius, dy: CGFloat(cosf(angle)) * radius)
 
         // Calculate the origin of our frame, working backwards from the given location, and move to it.
         //
-        let origin = location - end - frame.size / 2.0
-
-        frame.origin = self.centerClamper(origin)
-        return frame.origin != origin
+        let desiredCenter = location - end //  - frame.size / 2.0
+        self.center = centerClamper(desiredCenter)
+        return self.center != desiredCenter
     }
 
     /**
