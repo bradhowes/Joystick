@@ -17,7 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var leftTheta: UILabel!
     @IBOutlet weak var rightMagnitude: UILabel!
     @IBOutlet weak var rightTheta: UILabel!
-
+    @IBOutlet weak var constraint: UIView!
+    
     var joystick1: JoyStickView!
     var joystick2: JoyStickView!
 
@@ -25,20 +26,27 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         joystick1 = makeJoystick(tintColor: UIColor.green) { angle, displacement in
-            self.leftTheta.text = "\(angle)"
-            self.leftMagnitude.text = "\(displacement)"
+            if displacement > 0.0 {
+                self.leftTheta.text = "\(angle)"
+                self.leftMagnitude.text = "\(displacement)"
+            }
         }
         joystick1.movable = false
         joystick1.travel = 1.25
-
+        joystick1.accessibilityLabel = "leftJoystick"
+        
         joystick2 = makeJoystick(tintColor: UIColor.blue) { angle, displacement in
-            self.rightTheta.text = "\(angle)"
-            self.rightMagnitude.text = "\(displacement)"
+            if displacement > 0.0 {
+                self.rightTheta.text = "\(angle)"
+                self.rightMagnitude.text = "\(displacement)"
+            }
         }
 
         // Show that we can customize the image shown in the view.
         let customImage = UIImage(named: "JoyStickBaseCustom")
+        joystick2.movable = true
         joystick2.baseImage = customImage
+        joystick2.accessibilityLabel = "rightJoystick"
     }
 
     private func makeJoystick(tintColor: UIColor, monitor: @escaping JoyStickViewMonitor) -> JoyStickView {
@@ -49,34 +57,35 @@ class ViewController: UIViewController {
         joystick.alpha = 1.0
         joystick.baseAlpha = 0.5
         joystick.handleTintColor = tintColor
-
         return joystick
     }
 
-    private func repositionJoysticks(size: CGSize, offset1: CGSize, offset2: CGSize) {
-        joystick1.center = CGPoint(x:              offset1.width, y: size.height - offset1.height)
-        joystick2.center = CGPoint(x: size.width - offset2.width, y: size.height - offset2.height)
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    private func repositionJoysticks(size: CGSize) {
+        
+        // First joystick is fixed, so it always resides a fixed distance from the left and bottom edges of the device view
+        //
         let span = joystickOffset + joystickSpan / 2.0
         let offset = CGSize(width: span, height: span)
-        repositionJoysticks(size: view.bounds.size, offset1: offset, offset2: offset)
+        joystick1.center = CGPoint(x: offset.width, y: size.height - offset.height)
+
+        // Second joystick is movable, but we constrain it to the view which is colored orange.
+        //
+        joystick2.movableBounds = constraint.frame
+        joystick2.movableCenter = constraint.frame.mid
+        joystick2.center = constraint.frame.mid
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        repositionJoysticks(size: view.bounds.size)
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-
-        // Record the offsets of each joystick so we can put them in the same place after the rotation.
-        let offset1 = CGSize(width:                     joystick1.center.x, height: view.bounds.height - joystick1.center.y)
-        let offset2 = CGSize(width: view.bounds.width - joystick2.center.x, height: view.bounds.height - joystick2.center.y)
-
-        coordinator.animate(alongsideTransition: { context in
-            self.repositionJoysticks(size: size, offset1: offset1, offset2: offset2)
+        coordinator.animate(alongsideTransition: { _ in
+            
         }, completion: { _ in
-            // Just to make sure that we end up at the right spot
-            self.repositionJoysticks(size: size, offset1: offset1, offset2: offset2)
+            self.repositionJoysticks(size: size)
         })
     }
 

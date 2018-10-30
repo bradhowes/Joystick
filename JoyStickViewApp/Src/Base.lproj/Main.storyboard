@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JoystickTestApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JoyStickView_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -33,14 +32,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="go5-th-EPR" userLabel="leftTheta">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="go5-th-EPR">
                                 <rect key="frame" x="130" y="88.5" width="24" height="21"/>
+                                <accessibility key="accessibilityConfiguration" identifier="leftAngle"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1w-eW-a5s" userLabel="leftMagnitude">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1w-eW-a5s">
                                 <rect key="frame" x="130" y="60" width="24" height="21"/>
+                                <accessibility key="accessibilityConfiguration" identifier="leftDisp"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -57,18 +58,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROF-fn-qIB" userLabel="rightTheta">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROF-fn-qIB">
                                 <rect key="frame" x="130.5" y="156" width="24" height="21"/>
+                                <accessibility key="accessibilityConfiguration" identifier="rightAngle"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLD-44-POl" userLabel="rightMagnitude">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLD-44-POl">
                                 <rect key="frame" x="130" y="127.5" width="24" height="21"/>
+                                <accessibility key="accessibilityConfiguration" identifier="rightDisp"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ceB-76-pFc">
+                                <rect key="frame" x="187.5" y="216" width="171.5" height="371"/>
+                                <color key="backgroundColor" red="0.92941176469999998" green="0.062745098040000002" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -78,16 +85,20 @@
                             <constraint firstItem="go5-th-EPR" firstAttribute="baseline" secondItem="L9v-26-g7P" secondAttribute="baseline" id="8hP-QQ-D5p"/>
                             <constraint firstItem="L9v-26-g7P" firstAttribute="leading" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="32" id="958-qz-uHv"/>
                             <constraint firstItem="YLD-44-POl" firstAttribute="baseline" secondItem="9g4-ba-DWI" secondAttribute="baseline" id="CK6-Iu-Ayk"/>
-                            <constraint firstItem="A1w-eW-a5s" firstAttribute="baseline" secondItem="Htk-yA-zh6" secondAttribute="baseline" id="Cfl-zq-p9w"/>
+                            <constraint firstItem="A1w-eW-a5s" firstAttribute="baseline" secondItem="Htk-yA-zh6" secondAttribute="baseline" id="Cfl-zq-p9w" userLabel="leftDisplacement"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="YLD-44-POl" secondAttribute="trailing" constant="32" id="Cli-rI-4iz"/>
+                            <constraint firstItem="ceB-76-pFc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Ed5-6X-wuN"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ceB-76-pFc" secondAttribute="bottom" constant="80" id="HJT-OF-2SC"/>
                             <constraint firstItem="L9v-26-g7P" firstAttribute="top" secondItem="Htk-yA-zh6" secondAttribute="bottom" constant="8" id="I0s-hE-6Yr"/>
                             <constraint firstItem="ROF-fn-qIB" firstAttribute="baseline" secondItem="f1R-96-0kI" secondAttribute="baseline" id="MEQ-qk-cnO"/>
                             <constraint firstItem="A1w-eW-a5s" firstAttribute="leading" secondItem="L9v-26-g7P" secondAttribute="trailing" constant="8" id="Wim-EZ-f5g"/>
                             <constraint firstItem="YLD-44-POl" firstAttribute="leading" secondItem="9g4-ba-DWI" secondAttribute="trailing" constant="8" id="X1y-sm-jfH"/>
+                            <constraint firstItem="ceB-76-pFc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="centerXWithinMargins" id="Xg1-Pb-fXc"/>
                             <constraint firstItem="f1R-96-0kI" firstAttribute="leading" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="32" id="bDd-Xt-5AW"/>
                             <constraint firstItem="f1R-96-0kI" firstAttribute="top" secondItem="9g4-ba-DWI" secondAttribute="bottom" constant="8" id="cHl-yv-WD8"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="go5-th-EPR" secondAttribute="trailing" constant="32" id="eLY-33-sjE"/>
                             <constraint firstItem="9g4-ba-DWI" firstAttribute="top" secondItem="L9v-26-g7P" secondAttribute="bottom" constant="18" id="i9G-Qk-NRx"/>
+                            <constraint firstItem="ceB-76-pFc" firstAttribute="top" secondItem="ROF-fn-qIB" secondAttribute="top" constant="60" id="jGG-7Y-LSu"/>
                             <constraint firstItem="f1R-96-0kI" firstAttribute="trailing" secondItem="9g4-ba-DWI" secondAttribute="trailing" id="kyY-96-MKN"/>
                             <constraint firstItem="Htk-yA-zh6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="wJk-Qn-aVR"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="A1w-eW-a5s" secondAttribute="trailing" constant="32" id="wj9-aK-dK2"/>
@@ -98,6 +109,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="constraint" destination="ceB-76-pFc" id="7fs-Db-DFo"/>
                         <outlet property="leftMagnitude" destination="A1w-eW-a5s" id="nFM-Z5-mxN"/>
                         <outlet property="leftTheta" destination="go5-th-EPR" id="jYD-Cm-6pP"/>
                         <outlet property="rightMagnitude" destination="YLD-44-POl" id="6dY-Ds-kBo"/>
