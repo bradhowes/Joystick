@@ -1,5 +1,6 @@
 [![Build
 Status](https://travis-ci.org/bradhowes/Joystick.svg?branch=master)](https://travis-ci.org/bradhowes/Joystick)
+![Swift 4.2](https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat)
 
 # Joystick
 
