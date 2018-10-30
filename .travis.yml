@@ -1,5 +1,5 @@
-language: swift
+language: objective-c
 osx_image: xcode10
-xcode_project: MyNewProject.xcodeproj # path to your xcodeproj folder
-xcode_scheme: MyNewProjectTests
+xcode_workspace: JoyStickView.xcworkspace
+xcode_scheme: JoyStickView App
 xcode_destination: platform=iOS Simulator,OS=12.0,name=iPhone 5s
