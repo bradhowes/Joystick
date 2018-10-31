@@ -5,7 +5,7 @@ Status](https://travis-ci.org/bradhowes/Joystick.svg?branch=master)](https://tra
 
 # Joystick
 
-![](https://github.com/bradhowes/Joystick/animation.gif)
+![](https://github.com/bradhowes/Joystick/blob/master/animation.gif?raw=true)
 
 A custom UIView in Swift that presents a simple joystick interface. The custom view consists of two UIImageView
 instances, one for the base and one for the handle. Moving the handle generates two values
