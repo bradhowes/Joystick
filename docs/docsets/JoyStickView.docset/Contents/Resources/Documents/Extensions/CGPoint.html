@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>CGSize Extension Reference</title>
+    <title>CGPoint Extension Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,18 +10,18 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Extension/CGSize" class="dashAnchor"></a>
-    <a title="CGSize Extension Reference"></a>
+    <a name="//apple_ref/swift/Extension/CGPoint" class="dashAnchor"></a>
+    <a title="CGPoint Extension Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+        <p><a href="../index.html">JoyStickView Docs</a> (95% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
-        <a href="../index.html"> Reference</a>
+        <a href="../index.html">JoyStickView Reference</a>
         <img id="carat" src="../img/carat.png" />
-        CGSize Extension Reference
+        CGPoint Extension Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -65,14 +65,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>CGSize</h1>
+            <h1>CGPoint</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">CGSize</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">CGPoint</span></code></pre>
 
                 </div>
               </div>
-            <p>Convenience functions for CGSize.</p>
+            <p>Convenience functions for CGPoint.</p>
 
           </section>
           <section class="section task-group-section">
@@ -81,9 +81,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:So6CGSizeV12JoyStickViewE1poiyA2B_ABtFZ"></a>
+                    <a name="/s:So7CGPointV12JoyStickViewE1poiyA2B_So8CGVectorVtFZ"></a>
                     <a name="//apple_ref/swift/Method/+(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So6CGSizeV12JoyStickViewE1poiyA2B_ABtFZ">+(_:_:)</a>
+                    <a class="token" href="#/s:So7CGPointV12JoyStickViewE1poiyA2B_So8CGVectorVtFZ">+(_:_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -91,14 +91,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Add two CGSize values</p>
+                        <p>Add the components of a CGPoint and a CGVector</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="o">+</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGSize</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="o">+</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">CGVector</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGPoint</span></code></pre>
 
                         </div>
                       </div>
@@ -110,6 +110,80 @@
                               <td>
                                 <code>
                                 <em>lhs</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the CGPoint to add</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>rhs</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the CGVector to add</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>new CGPoint representing the sum</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:So7CGPointV12JoyStickViewE1poiyA2B_So6CGSizeVtFZ"></a>
+                    <a name="//apple_ref/swift/Method/+(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So7CGPointV12JoyStickViewE1poiyA2B_So6CGSizeVtFZ">+(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add the components of a CGPoint and a CGSize</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="o">+</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGPoint</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>lhs</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the CGPoint to add</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>rhs</em>
                                 </code>
                               </td>
                               <td>
@@ -118,24 +192,12 @@
                                 </div>
                               </td>
                             </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>rhs</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>the CGSize to add</p>
-                                </div>
-                              </td>
-                            </tr>
                           </tbody>
                         </table>
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>new CGSize representing the sum</p>
+                        <p>new CGPoint representing the sum</p>
                       </div>
                     </section>
                   </div>
@@ -143,9 +205,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:So6CGSizeV12JoyStickViewE1moiyA2B_12CoreGraphics7CGFloatVtFZ"></a>
-                    <a name="//apple_ref/swift/Method/*(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So6CGSizeV12JoyStickViewE1moiyA2B_12CoreGraphics7CGFloatVtFZ">*(_:_:)</a>
+                    <a name="/s:So7CGPointV12JoyStickViewE1soiyA2B_So8CGVectorVtFZ"></a>
+                    <a name="//apple_ref/swift/Method/-(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So7CGPointV12JoyStickViewE1soiyA2B_So8CGVectorVtFZ">-(_:_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -153,14 +215,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Multiply the components of a CGSize value by a scalar</p>
+                        <p>Subtract the components of a CGPoint and a CGVector</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="o">*</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGSize</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="o">-</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">CGVector</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGPoint</span></code></pre>
 
                         </div>
                       </div>
@@ -176,7 +238,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>the CGSize to multiply</p>
+                                  <p>the CGPoint to subtract</p>
                                 </div>
                               </td>
                             </tr>
@@ -188,7 +250,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>the scalar to multiply</p>
+                                  <p>the CGVector to subtract</p>
                                 </div>
                               </td>
                             </tr>
@@ -197,7 +259,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>new CGSize representing the result</p>
+                        <p>new CGPoint representing the difference</p>
                       </div>
                     </section>
                   </div>
@@ -205,9 +267,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:So6CGSizeV12JoyStickViewE1doiyA2B_12CoreGraphics7CGFloatVtFZ"></a>
-                    <a name="//apple_ref/swift/Method//(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So6CGSizeV12JoyStickViewE1doiyA2B_12CoreGraphics7CGFloatVtFZ">/(_:_:)</a>
+                    <a name="/s:So7CGPointV12JoyStickViewE1soiyA2B_So6CGSizeVtFZ"></a>
+                    <a name="//apple_ref/swift/Method/-(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So7CGPointV12JoyStickViewE1soiyA2B_So6CGSizeVtFZ">-(_:_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -215,14 +277,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Divide the components of a CGSize value by a scalar</p>
+                        <p>Subtract the components of a CGPoint and a CGSize</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="o">/</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGSize</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="o">-</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGPoint</span></code></pre>
 
                         </div>
                       </div>
@@ -238,7 +300,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>the CGSize to divide</p>
+                                  <p>the CGPoint to subtract</p>
                                 </div>
                               </td>
                             </tr>
@@ -250,7 +312,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>the scalar to divide</p>
+                                  <p>the CGSize to subtract</p>
                                 </div>
                               </td>
                             </tr>
@@ -259,7 +321,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>new CGSize representing the result</p>
+                        <p>new CGPoint representing the difference</p>
                       </div>
                     </section>
                   </div>
@@ -267,9 +329,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:So6CGSizeV12JoyStickViewE1doiyA2B_ABtFZ"></a>
-                    <a name="//apple_ref/swift/Method//(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So6CGSizeV12JoyStickViewE1doiyA2B_ABtFZ">/(_:_:)</a>
+                    <a name="/s:So7CGPointV12JoyStickViewE1soiySo8CGVectorVAB_ABtFZ"></a>
+                    <a name="//apple_ref/swift/Method/-(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So7CGPointV12JoyStickViewE1soiySo8CGVectorVAB_ABtFZ">-(_:_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -277,14 +339,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Divide the components of two CGSize values</p>
+                        <p>Subtract the components of two CGPoint values</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="o">/</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGSize</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="o">-</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGVector</span></code></pre>
 
                         </div>
                       </div>
@@ -300,7 +362,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>the CGSize to divide</p>
+                                  <p>the CGPoint to subtract</p>
                                 </div>
                               </td>
                             </tr>
@@ -312,7 +374,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>the CGSize to divide</p>
+                                  <p>the CGPoint to subtract</p>
                                 </div>
                               </td>
                             </tr>
@@ -321,7 +383,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>new CGSize representing the result</p>
+                        <p>new CGVector representing the difference</p>
                       </div>
                     </section>
                   </div>
@@ -331,7 +393,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-10-30)</p>
+          <p>&copy; 2018 <a class="link" href="https://github.com/bradhowes/Joystick" target="_blank" rel="external">bradhowes</a>. All rights reserved. (Last updated: 2018-10-31)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
