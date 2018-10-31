@@ -24,8 +24,8 @@ class JoyStickView_AppUITests: XCTestCase {
     func testFixedDirection(dx: CGFloat, dy: CGFloat, disp: Double, angle: Double, msg: String) {
         let app = XCUIApplication()
         let joystick = app.otherElements["leftJoystick"]
-        let dispLabel = app.staticTexts["leftDisp"]
-        let angleLabel = app.staticTexts["leftAngle"]
+        let dispLabel = app.staticTexts["disp"]
+        let angleLabel = app.staticTexts["angle"]
 
         // Press on the joystick and then drag it `dx/dy` points
         //
@@ -34,8 +34,8 @@ class JoyStickView_AppUITests: XCTestCase {
 
         // Make sure that joystick report what we expect in displacement and angle
         //
-        XCTAssertEqual(Double(dispLabel.label)!, disp, accuracy: 0.001, msg)
-        XCTAssertEqual(Double(angleLabel.label)!, angle, accuracy: 0.001, msg)
+        XCTAssertEqual(Double(dispLabel.label)!, disp, accuracy: 0.01, msg)
+        XCTAssertEqual(Double(angleLabel.label)!, angle, accuracy: 0.01, msg)
 
         // Touch something else so we don't interfere with the joystick view while it moves back to its
         // home position. NOTE: for some reason putting the duration value too low will cause tests to fail.
@@ -71,8 +71,8 @@ class JoyStickView_AppUITests: XCTestCase {
         let app = XCUIApplication()
         let joystick = app.otherElements["rightJoystick"]
         let origin = joystick.frame
-        let dispLabel = app.staticTexts["rightDisp"]
-        let angleLabel = app.staticTexts["rightAngle"]
+        let dispLabel = app.staticTexts["disp"]
+        let angleLabel = app.staticTexts["angle"]
         
         // Move a large enough amount to move the base up.
         //

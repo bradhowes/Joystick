@@ -29,7 +29,7 @@ PlaygroundPage.current.liveView = view
 /*:
  Create another view with a white background to hold the joysticks.
  */
-let movableBounds = view.bounds.insetBy(dx: 50.0, dy: 50.0)
+let movableBounds = view.bounds.insetBy(dx: 100.0, dy: 100.0)
 let boundsView = UIView(frame: movableBounds)
 boundsView.backgroundColor = UIColor.white.withAlphaComponent(1.0)
 view.addSubview(boundsView)
@@ -53,6 +53,15 @@ displacementLabel.textColor = UIColor.black
 view.addSubview(displacementLabel)
 
 /*:
+ Here is a simple function we will use to show the displacement and angle from a
+ joystick.
+*/
+let monitor: JoyStickViewMonitor = { angle, displacement in
+    angleLabel.text = String(format: "%.2f°", angle)
+    displacementLabel.text = String(format: "%.3f", displacement)
+}
+
+/*:
  Create the green *fixed* joystick.
 */
 let size = CGSize(width: 100.0, height: 100.0)
@@ -72,31 +81,29 @@ joystick1.handleTintColor = UIColor.green // Colorize the handle
 joystick1.travel = 1.25
 
 /*:
- Show the joystick's orientation in the labels
+ Show the joystick's orientation in the labels at the top of the view.
 */
-joystick1.monitor = { (angle: CGFloat, displacement: CGFloat) in
-    angleLabel.text = "\(Int(angle))°"
-    displacementLabel.text = "\(displacement)"
-}
+joystick1.monitor = monitor
 
 /*:
- Finally, create the yellow *movable* joystick.
+ Finally, create the yellow *movable* joystick. However, unlike the green one we will use a
+ custom image for the handle, and will reduce the base alpha value to 0.5 so that it shows
+ what is behind it. Also, restrict the movement of the joystick base by setting the
+ `movableBounds` property.
 */
 let joystick2 = JoyStickView(frame: joystickFrame.offsetBy(dx: rect.width - 60.0 - size.width, dy: 0.0))
 view.addSubview(joystick2)
 joystick2.movable = true
 joystick2.movableBounds = movableBounds
 joystick2.baseAlpha = 0.5
-joystick2.handleAlpha = 0.75
+joystick2.handleImage = UIImage(named: "Star")
+joystick2.handleSizeRatio = 1.0
 joystick2.handleTintColor = UIColor.yellow
 
 /*:
  Same as before, show the orientation in the labels
 */
-joystick2.monitor = { (angle: CGFloat, displacement: CGFloat) in
-    angleLabel.text = "\(Int(angle))°"
-    displacementLabel.text = "\(displacement)"
-}
+joystick2.monitor = monitor
 
 /*:
  Try moving the yellow joystick handle away from its base. As long as the handle lies within the white area, the base should move to keep the center of the handle on the circumference of the base (due to the `travel` property being 1.0).

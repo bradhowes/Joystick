@@ -48,7 +48,7 @@
 		BD521B0B218737D5001C607E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD521B132187538C001C607E /* JoyStickView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JoyStickView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD758011215B67E600B787D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BD758012215B67E600B787D2 /* JoyStickBaseCustom.opacity */ = {isa = PBXFileReference; lastKnownFileType = file; path = JoyStickBaseCustom.opacity; sourceTree = "<group>"; };
+		BD758012215B67E600B787D2 /* CustomBase.opacity */ = {isa = PBXFileReference; lastKnownFileType = file; path = CustomBase.opacity; sourceTree = "<group>"; };
 		BD758014215B67E600B787D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD758016215B67E600B787D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BD758017215B67E600B787D2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		BD758010215B67E600B787D2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BD758012215B67E600B787D2 /* JoyStickBaseCustom.opacity */,
+				BD758012215B67E600B787D2 /* CustomBase.opacity */,
 				BD758017215B67E600B787D2 /* Info.plist */,
 			);
 			path = Resources;

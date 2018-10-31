@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BDC7F452218A036C00368EF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDC7F451218A036C00368EF0 /* Assets.xcassets */; };
 		BDCA4098215A3AEE00578F67 /* JoyStickView.h in Headers */ = {isa = PBXBuildFile; fileRef = BDCA4096215A3AEE00578F67 /* JoyStickView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDCA40A1215A3B3700578F67 /* JoyStickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA409E215A3B3700578F67 /* JoyStickView.swift */; };
-		BDCA40A2215A3B3700578F67 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = BDCA409F215A3B3700578F67 /* Images */; };
 		BDCA40A3215A3B3700578F67 /* CoreGraphics+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA40A0215A3B3700578F67 /* CoreGraphics+Additions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BD758009215B66F000B787D2 /* JoyStickBase.opacity */ = {isa = PBXFileReference; lastKnownFileType = file; path = JoyStickBase.opacity; sourceTree = "<group>"; };
-		BD75800A215B66F000B787D2 /* JoyStickHandle.opacity */ = {isa = PBXFileReference; lastKnownFileType = file; path = JoyStickHandle.opacity; sourceTree = "<group>"; };
+		BD758009215B66F000B787D2 /* DefaultBase.opacity */ = {isa = PBXFileReference; lastKnownFileType = file; path = DefaultBase.opacity; sourceTree = "<group>"; };
+		BD75800A215B66F000B787D2 /* DefaultHandle.opacity */ = {isa = PBXFileReference; lastKnownFileType = file; path = DefaultHandle.opacity; sourceTree = "<group>"; };
 		BD75800B215B66F000B787D2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDC7F451218A036C00368EF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDCA4093215A3AEE00578F67 /* JoyStickView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JoyStickView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCA4096215A3AEE00578F67 /* JoyStickView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JoyStickView.h; sourceTree = "<group>"; };
 		BDCA409E215A3B3700578F67 /* JoyStickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoyStickView.swift; sourceTree = "<group>"; };
-		BDCA409F215A3B3700578F67 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 		BDCA40A0215A3B3700578F67 /* CoreGraphics+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+Additions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -38,8 +38,8 @@
 		BD758008215B66F000B787D2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BD758009215B66F000B787D2 /* JoyStickBase.opacity */,
-				BD75800A215B66F000B787D2 /* JoyStickHandle.opacity */,
+				BD758009215B66F000B787D2 /* DefaultBase.opacity */,
+				BD75800A215B66F000B787D2 /* DefaultHandle.opacity */,
 				BD75800B215B66F000B787D2 /* Info.plist */,
 			);
 			path = Resources;
@@ -48,7 +48,7 @@
 		BDCA4089215A3AED00578F67 = {
 			isa = PBXGroup;
 			children = (
-				BDCA409F215A3B3700578F67 /* Images */,
+				BDC7F451218A036C00368EF0 /* Assets.xcassets */,
 				BDCA4095215A3AEE00578F67 /* Src */,
 				BD758008215B66F000B787D2 /* Resources */,
 				BDCA4094215A3AEE00578F67 /* Products */,
@@ -142,7 +142,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDCA40A2215A3B3700578F67 /* Images in Resources */,
+				BDC7F452218A036C00368EF0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

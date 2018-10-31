@@ -13,40 +13,39 @@ class ViewController: UIViewController {
     let joystickOffset: CGFloat = 60.0
     let joystickSpan: CGFloat = 80.0
 
-    @IBOutlet weak var leftMagnitude: UILabel!
-    @IBOutlet weak var leftTheta: UILabel!
-    @IBOutlet weak var rightMagnitude: UILabel!
-    @IBOutlet weak var rightTheta: UILabel!
-    @IBOutlet weak var constraint: UIView!
-    
     var joystick1: JoyStickView!
     var joystick2: JoyStickView!
-
+    
+    @IBOutlet weak var magnitude: UILabel!
+    @IBOutlet weak var theta: UILabel!
+    @IBOutlet weak var constraint: UIView!
+    @IBOutlet weak var joystick3: JoyStickView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        joystick1 = makeJoystick(tintColor: UIColor.green) { angle, displacement in
+        let monitor: JoyStickViewMonitor = { angle, displacement in
             if displacement > 0.0 {
-                self.leftTheta.text = "\(angle)"
-                self.leftMagnitude.text = "\(displacement)"
+                self.theta.text = String(format: "%.3f", angle)
+                self.magnitude.text = String(format: "%.3f", displacement)
             }
         }
+
+        joystick1 = makeJoystick(tintColor: UIColor.green, monitor: monitor)
         joystick1.movable = false
         joystick1.travel = 1.25
         joystick1.accessibilityLabel = "leftJoystick"
         
-        joystick2 = makeJoystick(tintColor: UIColor.yellow) { angle, displacement in
-            if displacement > 0.0 {
-                self.rightTheta.text = "\(angle)"
-                self.rightMagnitude.text = "\(displacement)"
-            }
-        }
+        joystick2 = makeJoystick(tintColor: UIColor.yellow, monitor: monitor)
 
         // Show that we can customize the image shown in the view.
-        let customImage = UIImage(named: "JoyStickBaseCustom")
+        let customImage = UIImage(named: "StarHandle")
         joystick2.movable = true
-        joystick2.baseImage = customImage
+        joystick2.handleImage = customImage
+        joystick2.handleSizeRatio = 1.0
         joystick2.accessibilityLabel = "rightJoystick"
+        
+        joystick3.monitor = monitor
     }
 
     private func makeJoystick(tintColor: UIColor, monitor: @escaping JoyStickViewMonitor) -> JoyStickView {
@@ -55,7 +54,7 @@ class ViewController: UIViewController {
         view.addSubview(joystick)
         joystick.monitor = monitor
         joystick.alpha = 1.0
-        joystick.baseAlpha = 0.5
+        joystick.baseAlpha = 0.75
         joystick.handleTintColor = tintColor
         return joystick
     }

@@ -33,39 +33,40 @@ public typealias JoyStickViewMonitor = (_ angle: CGFloat, _ displacement: CGFloa
  
  Additional documentation is available via the attribute names below.
  */
-public final class JoyStickView: UIView {
+@IBDesignable public final class JoyStickView: UIView {
 
     /// Holds a function to call when joystick orientation changes
     public var monitor: JoyStickViewMonitor? = nil
 
+    /// The last-reported angle from the joystick handle. Unit is degrees, with 0° up (north) and 90° right (east)
+    public var angle: CGFloat { return displacement != 0.0 ? CGFloat(180.0 - angleRadians * 180.0 / Float.pi) : 0.0 }
+    
+    /// The last-reported displacement from the joystick handle. Dimensionless but is the ratio of movement over
+    /// the radius of the joystick base. Always falls between 0.0 and 1.0
+    public private(set) var displacement: CGFloat = 0.0
+    
     /// If `true` the joystick will move around in the parant's view so that the joystick handle is always at a
     /// displacement of 1.0. This is the default mode of operation. Setting to `false` will keep the view fixed.
-    public var movable: Bool = true
+    @IBInspectable public var movable: Bool = false
+
+    /// The original location of a movable joystick. Used to restore its position when user double-taps on it.
+    public var movableCenter: CGPoint? = nil
 
     /// Area where the joystick can move
     public var movableBounds: CGRect? {
         didSet {
-            if let mb = movableBounds {
-
-                // Create filter that constrains a point to the rectangle set in movableBounds
-                centerClamper = {
-                    CGPoint(x: min(max($0.x, mb.minX), mb.maxX), y: min(max($0.y, mb.minY), mb.maxY))
-                }
-            }
-            else {
-
-                // Identity filter
+            switch movableBounds {
+            case .some(let mb):
+                centerClamper = { CGPoint(x: min(max($0.x, mb.minX), mb.maxX), y: min(max($0.y, mb.minY), mb.maxY)) }
+            default:
                 centerClamper = { $0 }
             }
         }
     }
 
-    /// The original location of a movable joystick. Used to restore its position when user double-taps on it.
-    public var movableCenter: CGPoint? = nil
-
-    /// The opacity of the base of the joystick. Note that this is different than the view's overall opacity setting.
-    /// The end result will be a base image with an opacity of `baseAlpha` * `view.alpha`
-    public var baseAlpha: CGFloat {
+    /// The opacity of the base of the joystick. Note that this is different than the view's overall opacity
+    /// setting. The end result will be a base image with an opacity of `baseAlpha` * `view.alpha`
+    @IBInspectable public var baseAlpha: CGFloat {
         get {
             return baseImageView.alpha
         }
@@ -76,7 +77,7 @@ public final class JoyStickView: UIView {
 
     /// The opacity of the handle of the joystick. Note that this is different than the view's overall opacity setting.
     /// The end result will be a handle image with an opacity of `handleAlpha` * `view.alpha`
-    public var handleAlpha: CGFloat {
+    @IBInspectable public var handleAlpha: CGFloat {
         get {
             return handleImageView.alpha
         }
@@ -85,10 +86,17 @@ public final class JoyStickView: UIView {
         }
     }
 
-    /// The tintColor to apply to the handle. By default, uses the view's tintColor value. Changing it while joystick
-    /// is visible will update the handle image.
-    public var handleTintColor: UIColor! {
+    /// The tintColor to apply to the handle. Changing it while joystick is visible will update the handle image.
+    @IBInspectable public var handleTintColor: UIColor? = nil {
         didSet { tintHandleImage() }
+    }
+
+    /// Scaling factor to apply to the joystick handle. A value of 1.0 will result in no scaling of the image,
+    /// however the default value is 0.85 due to historical reasons.
+    @IBInspectable public var handleSizeRatio: CGFloat = 0.85 {
+        didSet {
+            scaleHandleImageView()
+        }
     }
 
     /// Controls how far the handle can travel along the radius of the base. A value of 1.0 (default) will let the handle travel
@@ -96,40 +104,21 @@ public final class JoyStickView: UIView {
     /// greater than 1.0 will let the handle travel beyond the circumference of the base, while a value less than 1.0 will
     /// reduce the travel to values within the circumference. Note that regardless of this value, handle movements will always
     /// report displacement values between 0.0 and 1.0 inclusive.
-    public var travel: CGFloat = 1.0
-
-    /// The last-reported angle from the joystick handle. Unit is degrees, with 0° up (north) and 90° right (east)
-    public var angle: CGFloat { return displacement != 0.0 ? CGFloat(180.0 - angleRadians * 180.0 / Float.pi) : 0.0 }
-
-    /// The last-reported displacement from the joystick handle. Dimensionless but is the ratio of movement over
-    /// the radius of the joystick base. Always falls between 0.0 and 1.0
-    public private(set) var displacement: CGFloat = 0.0
-
-    /// The max distance the handle may move in any direction, where the start is the center of the joystick base and the end
-    /// is on the circumference of the base when travel is 1.0.
-    private var radius: CGFloat { return self.bounds.size.width / 2.0 * travel }
+    @IBInspectable public var travel: CGFloat = 1.0
 
     /// The image to use for the base of the joystick
-    public var baseImage: UIImage? {
-        didSet {
-            if baseImageView != nil {
-                baseImageView.image = self.baseImage
-            }
-        }
+    @IBInspectable public var baseImage: UIImage? {
+        didSet { baseImageView.image = baseImage }
     }
 
     /// The image to use for the joystick handle
-    public var handleImage: UIImage? {
-        didSet {
-            if handleImageView != nil {
-                tintHandleImage()
-            }
-        }
+    @IBInspectable public var handleImage: UIImage? {
+        didSet { tintHandleImage() }
     }
 
     /// Control whether view will recognize a double-tap gesture and move the joystick base to its original location
     /// when it happens. Note that this is only useful if `moveable` is true.
-    public var enableDoubleTapForFrameReset = true {
+    @IBInspectable public var enableDoubleTapForFrameReset = true {
         didSet {
             if let dtgr = doubleTapGestureRecognizer {
                 removeGestureRecognizer(dtgr)
@@ -141,17 +130,21 @@ public final class JoyStickView: UIView {
         }
     }
 
+    /// The max distance the handle may move in any direction, where the start is the center of the joystick base and the end
+    /// is on the circumference of the base when travel is 1.0.
+    private var radius: CGFloat { return self.bounds.size.width / 2.0 * travel }
+    
     /// The image to use to show the base of the joystick
-    private var baseImageView: UIImageView!
+    private var baseImageView: UIImageView = UIImageView(image: nil)
 
     /// The image to use to show the handle of the joystick
-    private var handleImageView: UIImageView!
+    private var handleImageView: UIImageView = UIImageView(image: nil)
 
     /// Cache of the last joystick angle in radians
     private var angleRadians: Float = 0.0
 
     /// Tap gesture recognizer for double-taps which will reset the joystick position
-    private var tapGestureRecognizer: UITapGestureRecognizer!
+    private var tapGestureRecognizer: UITapGestureRecognizer?
 
     /// A filter for joystick handle centers. Used to restrict handle movements.
     private var centerClamper: (CGPoint) -> CGPoint = { $0 }
@@ -165,7 +158,6 @@ public final class JoyStickView: UIView {
      */
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        initialize()
     }
 
     /**
@@ -174,7 +166,6 @@ public final class JoyStickView: UIView {
      */
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
-        initialize()
     }
 }
 
@@ -228,6 +219,11 @@ extension JoyStickView {
         guard let movableCenter = self.movableCenter, displacement < 0.5 else { return }
         center = movableCenter
     }
+
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        initialize()
+    }
 }
 
 // MARK: - Implementation Details
@@ -238,33 +234,40 @@ extension JoyStickView {
      Common initialization of view. Creates UIImageView instances for base and handle.
      */
     private func initialize() {
-        
-        handleTintColor = tintColor
-
-        // By default we will create UIImageView instances with our own images found in our bundle.
-        // However, the API provides for custom images which will be used if set.
-        //
-        let bundle = Bundle(for: JoyStickView.self)
-        baseImage = UIImage(named: "Images/JoyStickBase", in: bundle, compatibleWith: nil)
-
-        baseImageView = UIImageView(image: baseImage)
-        baseImageView.alpha = baseAlpha
         baseImageView.frame = bounds
         addSubview(baseImageView)
 
-        handleImage = UIImage(named: "Images/JoyStickHandle", in: bundle, compatibleWith: nil)
-
-        handleImageView = UIImageView(image: handleImage)
-        tintHandleImage()
-        handleImageView.frame = bounds.insetBy(dx: 0.15 * bounds.width, dy: 0.15 * bounds.height)
-        handleImageView.alpha = handleAlpha
+        scaleHandleImageView()
         addSubview(handleImageView)
+
+        let bundle = Bundle(for: JoyStickView.self)
+
+        if self.baseImage == nil {
+            if let baseImage = UIImage(named: "DefaultBase", in: bundle, compatibleWith: nil) {
+                self.baseImage = baseImage
+            }
+        }
+
+        baseImageView.image = baseImage
+
+        if self.handleImage == nil {
+            if let handleImage = UIImage(named: "DefaultHandle", in: bundle, compatibleWith: nil) {
+                self.handleImage = handleImage
+            }
+        }
         
+        tintHandleImage()
+
         if enableDoubleTapForFrameReset {
             installDoubleTapGestureRecognizer()
         }
     }
 
+    private func scaleHandleImageView() {
+        let inset = (1.0 - handleSizeRatio) * bounds.width
+        handleImageView.frame = bounds.insetBy(dx: inset, dy: inset)
+    }
+    
     /**
      Install a UITapGestureRecognizer to detect and process double-tap activity on the joystick.
      */
@@ -275,33 +278,19 @@ extension JoyStickView {
     }
 
     /**
-     Generate a new handle image using the current `tintColor` value and install. Uses CoreImage filter to apply a
-     tint to the grey handle image.
+     Generate a handle image by applying the `handleTintColor` value to the handeImage
      */
     private func tintHandleImage() {
-        guard let handleImage = self.handleImage, let handleImageView = self.handleImageView else { return }
-        guard let inputImage = CIImage(image: handleImage) else {
-            fatalError("failed to create input CIImage")
+        guard let handleImage = self.handleImage else { return }
+        if let handleTintColor = self.handleTintColor {
+            let image = handleImage.withRenderingMode(.alwaysTemplate)
+            handleImageView.image = image
+            handleImageView.tintColor = handleTintColor
         }
-        
-        let filterConfig: [String:Any] = [kCIInputIntensityKey: 1.0,
-                                          kCIInputColorKey: CIColor(color: handleTintColor!),
-                                          kCIInputImageKey: inputImage]
-#if swift(>=4.2)
-        guard let filter = CIFilter(name: "CIColorMonochrome", parameters: filterConfig) else {
-            fatalError("failed to create CIFilter CIColorMonochrome")
+        else {
+            handleImageView.tintColor = nil
+            handleImageView.image = handleImage
         }
-#else
-        guard let filter = CIFilter(name: "CIColorMonochrome", withInputParameters: filterConfig) else {
-            fatalError("failed to create CIFilter CIColorMonochrome")
-        }
-#endif
-
-        guard let outputImage = filter.outputImage else {
-            fatalError("failed to obtain output CIImage")
-        }
-        
-        handleImageView.image = UIImage(ciImage: outputImage)
     }
     
     /**
@@ -410,4 +399,16 @@ extension JoyStickView {
         handleImageView.frame.origin = CGPoint(x: x + bounds.midX - handleImageView.bounds.size.width / 2.0,
                                                y: y + bounds.midY - handleImageView.bounds.size.height / 2.0)
     }
+}
+
+extension JoyStickView {
+
+    public override func prepareForInterfaceBuilder() {
+        print("hi mom!")
+        print(baseImageView)
+        print(baseImage ?? "nil")
+        print(handleImageView)
+        print(handleImage ?? "nil")
+    }
+    
 }
