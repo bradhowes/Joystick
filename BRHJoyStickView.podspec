@@ -11,4 +11,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "12.0"
   s.source   = { :git => "https://github.com/bradhowes/Joystick.git", :tag => s.version }
   s.source_files = "JoyStickView/Src/*.swift"
+  s.resource_bundle = { 'BRHJoyStickView' => 'JoyStickView/Assets.xcassets/*.png' }
+}
 end
