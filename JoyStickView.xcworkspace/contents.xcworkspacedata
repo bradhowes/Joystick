@@ -8,6 +8,9 @@
       location = "group:animation.gif">
    </FileRef>
    <FileRef
+      location = "group:BRHJoyStickView.podspec">
+   </FileRef>
+   <FileRef
       location = "group:JoyStickView Playground.playground">
    </FileRef>
    <FileRef

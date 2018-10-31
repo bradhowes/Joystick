@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "BRHJoyStickView"
-  s.version     = "1.1.1"
+  s.version     = "1.1.2"
   s.summary     = "A custom UIView in Swift that presents a simple, configurable joystick interface."
   s.homepage    = "https://github.com/bradhowes/Joystick"
   s.license     = { :type => "MIT" }
