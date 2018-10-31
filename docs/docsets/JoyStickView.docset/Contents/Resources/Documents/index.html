@@ -85,10 +85,11 @@ instances, one for the base and one for the handle. Moving the handle generates 
 displacement beyond 1.0. This can be useful when the initial position of the joystick in an app is not ideal for
 the user&rsquo;s thumb. Double-tapping on the joystick moves it back to its original position.</p>
 
-<p>In the animation above, there are two joysticks, one green and one yellow. The green is <em>fixed</em> and does not move
-even when the touch motion would cause a displacement larger than 1.0. The yello joystick however is <em>movable</em>,
-with the base following the touch motion. Base motion is optionally restricted to a <code>CGRect</code>, as is the case in
-the demonstration animation above where the yellow joystick cannot move into the red band.</p>
+<p>In the animation above, there are two joysticks, one green and one magenta. The green is <em>fixed</em> and does not
+move even when the touch motion would cause a displacement larger than 1.0. The magenta joystick however is
+<em>movable</em>, with the base following the touch motion. For movable joysticks, the Base motion is optionally
+restricted to a <code>CGRect</code>, as is the case in the demonstration animation above where the magenta joystick cannot
+move out of the red band.</p>
 <h1 id='code' class='heading'>Code</h1>
 
 <p>The Xcode workspace contains three components:</p>
@@ -121,7 +122,7 @@ folder:</p>
 <ul>
 <li>JoyStickBase*.png — the image to use for the base of the joystick</li>
 <li>JoyStickHandle*.png — the image to use for the handle of the joystick. <strong>Note</strong>: this will be tinted with the
-<code>handleTintColor</code> setting (defaults to the view&rsquo;s <code>tintColor</code> parameter)</li>
+<code>handleTintColor</code> setting</li>
 </ul>
 
 <p>Both exist in three resolutions for the various iOS devices out today. They were generated using the great
