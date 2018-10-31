@@ -384,6 +384,37 @@ however the default value is 0.85 due to historical reasons.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@M@JoyStickView@objc(cs)JoyStickView(py)colorFillHandleImage"></a>
+                    <a name="//apple_ref/swift/Property/colorFillHandleImage" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@JoyStickView@objc(cs)JoyStickView(py)colorFillHandleImage">colorFillHandleImage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Control how the handle image is generated. When this is <code>false</code> (default), a CIFilter will be used to tint
+the handle image with the <code><a href="../Classes/JoyStickView.html#/c:@M@JoyStickView@objc(cs)JoyStickView(py)handleTintColor">handleTintColor</a></code>. This results in a monochrome image of just one color, but with
+lighter and darker areas depending on the original image. When this is <code>true</code>, the handle image is just
+used as a mask, and all pixels with an alpha = 1.0 will be colored with the <code><a href="../Classes/JoyStickView.html#/c:@M@JoyStickView@objc(cs)JoyStickView(py)handleTintColor">handleTintColor</a></code> value.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBInspectable</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">colorFillHandleImage</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@M@JoyStickView@objc(cs)JoyStickView(py)travel"></a>
                     <a name="//apple_ref/swift/Property/travel" class="dashAnchor"></a>
                     <a class="token" href="#/c:@M@JoyStickView@objc(cs)JoyStickView(py)travel">travel</a>
