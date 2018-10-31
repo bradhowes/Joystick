@@ -67,14 +67,14 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="handleAlpha">
                                         <real key="value" value="0.80000000000000004"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="baseImage" value="CustomBase"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="handleImage" value="CustomHandle"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="baseAlpha">
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="handleSizeRatio">
                                         <real key="value" value="0.90000000000000002"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="handleImage" value="CustomHandle"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="baseImage" value="CustomBase"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>

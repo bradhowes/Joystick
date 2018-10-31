@@ -16,23 +16,14 @@ import CoreGraphics
 import JoyStickView
 
 /*:
- Create the top-level view with a redish hue to represent the area where the yellow joystick
- cannot move into. This will be the view of the playground.
+ Create a top-level view with a white background. This will be the view of the playground.
  */
 
 let rect = CGRect(x:0 , y:0, width: 500, height: 400)
 let view = UIView(frame: rect)
 view.translatesAutoresizingMaskIntoConstraints = true
-view.backgroundColor = UIColor(hue: 1.0, saturation: 0.5, brightness: 1.0, alpha: 1.0)
+view.backgroundColor = .white
 PlaygroundPage.current.liveView = view
-
-/*:
- Create another view with a white background to hold the joysticks.
- */
-let movableBounds = view.bounds.insetBy(dx: 100.0, dy: 100.0)
-let boundsView = UIView(frame: movableBounds)
-boundsView.backgroundColor = UIColor.white.withAlphaComponent(1.0)
-view.addSubview(boundsView)
 
 /*:
  Create label to show a joystick's direction. WHen the joystick is moved up it will read 0°
@@ -60,9 +51,10 @@ let monitor: JoyStickViewMonitor = { angle, displacement in
     angleLabel.text = String(format: "%.2f°", angle)
     displacementLabel.text = String(format: "%.3f", displacement)
 }
+monitor(0, 0)
 
 /*:
- Create the green *fixed* joystick.
+ Create the green *fixed* joystick. Let the handle reveal content underneath it with a 0.75 alpha value.
 */
 let size = CGSize(width: 100.0, height: 100.0)
 let joystickFrame = CGRect(origin: CGPoint(x: 0.0, y: (rect.height - size.height) / 2.0), size: size)
@@ -86,19 +78,41 @@ joystick1.travel = 1.25
 joystick1.monitor = monitor
 
 /*:
- Finally, create the yellow *movable* joystick. However, unlike the green one we will use a
+ Next we will create a *movable* joystick, one where the base will move if the handle is moved too far away
+ from the base. However, we want to limit where the base can move, so we will create light red area that will
+ be the region where the base can move.
+*/
+let movableBounds = CGRect(x: 250, y: 100, width: 170, height: 200)
+let boundsView = UIView(frame: movableBounds)
+boundsView.backgroundColor = UIColor.red.withAlphaComponent(0.25)
+view.addSubview(boundsView)
+
+/*:
+ Finally, create a *movable* joystick. However, unlike the green one we will use a
  custom image for the handle, and will reduce the base alpha value to 0.5 so that it shows
- what is behind it. Also, restrict the movement of the joystick base by setting the
- `movableBounds` property.
+ what is behind it.
 */
 let joystick2 = JoyStickView(frame: joystickFrame.offsetBy(dx: rect.width - 60.0 - size.width, dy: 0.0))
 view.addSubview(joystick2)
 joystick2.movable = true
-joystick2.movableBounds = movableBounds
+joystick2.travel = 0.7
 joystick2.baseAlpha = 0.5
+
+/*:
+ Customize the handle image.
+ */
 joystick2.handleImage = UIImage(named: "Star")
-joystick2.handleSizeRatio = 1.0
-joystick2.handleTintColor = UIColor.yellow
+joystick2.handleSizeRatio = 0.9
+
+/*:
+ Tint it magenta.
+*/
+joystick2.handleTintColor = UIColor.magenta
+
+/*:
+ And restrict its movement.
+ */
+joystick2.movableBounds = movableBounds
 
 /*:
  Same as before, show the orientation in the labels
