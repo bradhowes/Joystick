@@ -48,7 +48,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ceB-76-pFc">
                                 <rect key="frame" x="187.5" y="130" width="171.5" height="457"/>
-                                <color key="backgroundColor" red="0.92941176469999998" green="0.062745098040000002" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="0.24863548801369864" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From Storyboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Zm-JY-kiN">
                                 <rect key="frame" x="49.5" y="238" width="109" height="17"/>
@@ -75,6 +75,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="image" keyPath="handleImage" value="CustomHandle"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="baseImage" value="CustomBase"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="handleTintColor">
+                                        <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>

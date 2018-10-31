@@ -65,6 +65,8 @@ joystick1.alpha = 1.0
 joystick1.baseAlpha = 1.0
 joystick1.handleAlpha = 0.75
 joystick1.handleTintColor = UIColor.green // Colorize the handle
+joystick1.baseImage = UIImage(named: "FancyBase", in: Bundle(for: JoyStickView.self), compatibleWith: nil)
+joystick1.handleImage = UIImage(named: "FancyHandle", in: Bundle(for: JoyStickView.self), compatibleWith: nil)
 
 /*:
  Let the center of the green handle travel beyond the circumference of the base, by
@@ -105,9 +107,10 @@ joystick2.handleImage = UIImage(named: "Star")
 joystick2.handleSizeRatio = 0.9
 
 /*:
- Tint it magenta.
+ Tint it magenta and make the coloring uniform by using the "Star" image as a mask.
 */
 joystick2.handleTintColor = UIColor.magenta
+joystick2.colorFillHandleImage = true
 
 /*:
  And restrict its movement.

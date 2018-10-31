@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         joystick1.travel = 1.25
         joystick1.accessibilityLabel = "leftJoystick"
         
-        joystick2 = makeJoystick(tintColor: UIColor.yellow, monitor: monitor)
+        joystick2 = makeJoystick(tintColor: UIColor.magenta, monitor: monitor)
 
         // Show that we can customize the image shown in the view.
         let customImage = UIImage(named: "StarHandle")
@@ -56,6 +56,7 @@ class ViewController: UIViewController {
         joystick.alpha = 1.0
         joystick.baseAlpha = 0.75
         joystick.handleTintColor = tintColor
+        joystick.colorFillHandleImage = true
         return joystick
     }
 

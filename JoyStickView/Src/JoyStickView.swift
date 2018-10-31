@@ -88,7 +88,7 @@ public typealias JoyStickViewMonitor = (_ angle: CGFloat, _ displacement: CGFloa
 
     /// The tintColor to apply to the handle. Changing it while joystick is visible will update the handle image.
     @IBInspectable public var handleTintColor: UIColor? = nil {
-        didSet { tintHandleImage() }
+        didSet { generateHandleImage() }
     }
 
     /// Scaling factor to apply to the joystick handle. A value of 1.0 will result in no scaling of the image,
@@ -97,6 +97,14 @@ public typealias JoyStickViewMonitor = (_ angle: CGFloat, _ displacement: CGFloa
         didSet {
             scaleHandleImageView()
         }
+    }
+
+    /// Control how the handle image is generated. When this is `false` (default), a CIFilter will be used to tint
+    /// the handle image with the `handleTintColor`. This results in a monochrome image of just one color, but with
+    /// lighter and darker areas depending on the original image. When this is `true`, the handle image is just
+    /// used as a mask, and all pixels with an alpha = 1.0 will be colored with the `handleTintColor` value.
+    @IBInspectable public var colorFillHandleImage: Bool = false {
+        didSet { generateHandleImage() }
     }
 
     /// Controls how far the handle can travel along the radius of the base. A value of 1.0 (default) will let the handle travel
@@ -113,7 +121,7 @@ public typealias JoyStickViewMonitor = (_ angle: CGFloat, _ displacement: CGFloa
 
     /// The image to use for the joystick handle
     @IBInspectable public var handleImage: UIImage? {
-        didSet { tintHandleImage() }
+        didSet { generateHandleImage() }
     }
 
     /// Control whether view will recognize a double-tap gesture and move the joystick base to its original location
@@ -256,7 +264,7 @@ extension JoyStickView {
             }
         }
         
-        tintHandleImage()
+        generateHandleImage()
 
         if enableDoubleTapForFrameReset {
             installDoubleTapGestureRecognizer()
@@ -277,10 +285,19 @@ extension JoyStickView {
         addGestureRecognizer(tapGestureRecognizer!)
     }
 
+    private func generateHandleImage() {
+        if colorFillHandleImage {
+            colorHandleImage()
+        }
+        else {
+            tintHandleImage()
+        }
+    }
+    
     /**
      Generate a handle image by applying the `handleTintColor` value to the handeImage
      */
-    private func tintHandleImage() {
+    private func colorHandleImage() {
         guard let handleImage = self.handleImage else { return }
         if let handleTintColor = self.handleTintColor {
             let image = handleImage.withRenderingMode(.alwaysTemplate)
@@ -293,6 +310,38 @@ extension JoyStickView {
         }
     }
     
+    private func tintHandleImage() {
+        guard let handleImage = self.handleImage else { return }
+
+        guard let handleTintColor = self.handleTintColor else {
+            handleImageView.image = handleImage
+            return
+        }
+
+        guard let inputImage = CIImage(image: handleImage) else {
+            fatalError("failed to create input CIImage")
+        }
+        
+        let filterConfig: [String:Any] = [kCIInputIntensityKey: 1.0,
+                                          kCIInputColorKey: CIColor(color: handleTintColor),
+                                          kCIInputImageKey: inputImage]
+        #if swift(>=4.2)
+        guard let filter = CIFilter(name: "CIColorMonochrome", parameters: filterConfig) else {
+            fatalError("failed to create CIFilter CIColorMonochrome")
+        }
+        #else
+        guard let filter = CIFilter(name: "CIColorMonochrome", withInputParameters: filterConfig) else {
+            fatalError("failed to create CIFilter CIColorMonochrome")
+        }
+        #endif
+        
+        guard let outputImage = filter.outputImage else {
+            fatalError("failed to obtain output CIImage")
+        }
+        
+        handleImageView.image = UIImage(ciImage: outputImage)
+    }
+
     /**
      Reset handle position so that it is in the center of the base.
      */
