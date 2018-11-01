@@ -175,6 +175,14 @@ public typealias JoyStickViewMonitor = (_ angle: CGFloat, _ displacement: CGFloa
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+
+    /**
+     This is the appropriate place to configure our internal views as we have our own geometry.
+     */
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        initialize()
+    }
 }
 
 // MARK: - Touch Handling
@@ -226,11 +234,6 @@ extension JoyStickView {
     @objc public func resetFrame() {
         guard let movableCenter = self.movableCenter, displacement < 0.5 else { return }
         center = movableCenter
-    }
-
-    public override func layoutSubviews() {
-        super.layoutSubviews()
-        initialize()
     }
 }
 
@@ -448,16 +451,4 @@ extension JoyStickView {
         handleImageView.frame.origin = CGPoint(x: x + bounds.midX - handleImageView.bounds.size.width / 2.0,
                                                y: y + bounds.midY - handleImageView.bounds.size.height / 2.0)
     }
-}
-
-extension JoyStickView {
-
-    public override func prepareForInterfaceBuilder() {
-        print("hi mom!")
-        print(baseImageView)
-        print(baseImage ?? "nil")
-        print(handleImageView)
-        print(handleImage ?? "nil")
-    }
-    
 }

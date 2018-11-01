@@ -64,3 +64,43 @@ use.
 # Documentation
 
 Please see the [code documentation](https://bradhowes.github.io/Joystick/index.html) for additional information.
+
+# CocoaPods
+
+There is a simple [CocoaPods[(https://cocoapods.org) spec file available so you can add the code and resources
+by adding "BRHJoyStickView" to your `Podfile` file. Currently everything more or less works, except for the fact
+that pointing to image resources via Interface Builder (IB) will result in invalid UImage results because the files wont be 
+found where IB was able to find them. The only solution is to manually locate those files and set them in your 
+view loading code. Something like the following should help:
+
+```
+extension Bundle {
+
+    /**
+     Locate an inner Bundle generated from CocoaPod packaging.
+
+     - parameter name: the name of the inner resource bundle. This should match the "s.resource_bundle" key or
+       one of the "s.resoruce_bundles" keys from the podspec file that defines the CocoPod.
+     - returns: the resource Bundle or `self` if resource bundle was not found
+    */
+    func podResource(name: String) -> Bundle {
+        guard let bundleUrl = self.url(forResource: name, withExtension: "bundle") else { return self }
+        return Bundle(url: bundleUrl) ?? self
+    }
+}
+```
+
+In your setup code, you then will need to do something like so:
+
+```
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let bundle = Bundle(for: JoyStickView.self).podResource(name: "BRHJoyStickView")
+        joystick.baseImage = UIImage(named: "FancyBase", in: bundle, compatibleWith: nil)
+        joystick.handleImage = UIImage(named: "FancyHandle", in: bundle, compatibleWith: nil)
+    }
+```
+
+The `podResource` method attempts to locate a named inner bundle, defaulting to the original bundle if not found. The
+`viewDidLoad` code will then use the right `bundle` object in the UIImage constructors.
+
