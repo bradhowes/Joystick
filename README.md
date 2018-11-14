@@ -67,9 +67,9 @@ Please see the [code documentation](https://bradhowes.github.io/Joystick/index.h
 
 # CocoaPods
 
-There is a simple [CocoaPods[(https://cocoapods.org) spec file available so you can add the code and resources
+There is a simple [CocoaPods](https://cocoapods.org) spec file available so you can add the code and resources
 by adding "BRHJoyStickView" to your `Podfile` file. Currently everything more or less works, except for the fact
-that pointing to image resources via Interface Builder (IB) will result in invalid UImage results because the files wont be 
+that pointing to image resources via Interface Builder (IB) will result in invalid UImage results because the files won't be 
 found where IB was able to find them. The only solution is to manually locate those files and set them in your 
 view loading code. Something like the following should help:
 
