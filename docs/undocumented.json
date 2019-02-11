@@ -1,47 +1,6 @@
 {
   "warnings": [
-    {
-      "file": "/Users/howes/src/Joystick/JoyStickView/Src/JoyStickViewMonitor.swift",
-      "line": 16,
-      "symbol": "JoyStickViewXYReport.x",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/howes/src/Joystick/JoyStickView/Src/JoyStickViewMonitor.swift",
-      "line": 35,
-      "symbol": "JoyStickViewPolarReport.angle",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/howes/src/Joystick/JoyStickView/Src/JoyStickViewMonitor.swift",
-      "line": 36,
-      "symbol": "JoyStickViewPolarReport.displacement",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/howes/src/Joystick/JoyStickView/Src/JoyStickViewMonitor.swift",
-      "line": 38,
-      "symbol": "JoyStickViewPolarReport.init(angle:displacement:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/howes/src/Joystick/JoyStickView/Src/JoyStickViewMonitor.swift",
-      "line": 50,
-      "symbol": "JoyStickViewXYMonitor",
-      "symbol_kind": "source.lang.swift.decl.typealias",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/howes/src/Joystick/JoyStickView/Src/JoyStickViewMonitor.swift",
-      "line": 51,
-      "symbol": "JoyStickViewPolarMonitor",
-      "symbol_kind": "source.lang.swift.decl.typealias",
-      "warning": "undocumented"
-    }
+
   ],
   "source_directory": "/Users/howes/src/Joystick"
 }

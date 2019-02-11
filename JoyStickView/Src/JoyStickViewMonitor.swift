@@ -13,9 +13,17 @@ import CoreGraphics
  joystick handle is pushed upwards.
  */
 public struct JoyStickViewXYReport {
-    public let x: CGFloat /// Delta X of handle from base center
-    public let y: CGFloat /// Delta Y of handle from base center
+    /// Delta X of handle from base center
+    public let x: CGFloat
+    /// Delta Y of handle from base center
+    public let y: CGFloat
 
+    /**
+     Constructor of new XY report
+    
+     - parameter x: X offset from center of the base
+     - parameter y: Y offset from center of the base (positive values towards up/north)
+     */
     public init(x: CGFloat, y: CGFloat) {
         self.x = x
         self.y = y
@@ -32,9 +40,17 @@ public struct JoyStickViewXYReport {
  with 0° pointing up (north) and 90° pointing right (east).
  */
 public struct JoyStickViewPolarReport {
+    /// Clockwise angle of the handle with respect to north/up of 0°.
     public let angle: CGFloat
+    /// Distance from the center of the base
     public let displacement: CGFloat
 
+    /**
+     Constructor of new polar report
+    
+     - parameter angle: clockwise angle of the handle with respect to north/up of 0°.
+     - parameter displacement: distance from the center of the base
+     */
     public init(angle: CGFloat, displacement: CGFloat) {
         self.angle = angle
         self.displacement = displacement
@@ -47,7 +63,14 @@ public struct JoyStickViewPolarReport {
     }
 }
 
+/**
+ Prototype of a monitor function that accepts a JoyStickViewXYReport.
+ */
 public typealias JoyStickViewXYMonitor = (_ value: JoyStickViewXYReport) -> Void
+
+/**
+ Prototype of a monitor function that accepts a JoyStickViewXYReport.
+ */
 public typealias JoyStickViewPolarMonitor = (_ value: JoyStickViewPolarReport) -> Void
 
 /**
@@ -58,14 +81,14 @@ public enum JoyStickViewMonitorKind {
     /**
      Install monitor that accepts polar position change reports
      
-     monitor: function that accepts a JoyStickViewPolarReport
+     - parameter monitor: function that accepts a JoyStickViewPolarReport
      */
     case polar(monitor: JoyStickViewPolarMonitor)
 
     /**
      Install monitor that accepts cartesian (XY) position change reports
      
-     monitor: function that accepts a JoyStickViewXYReport
+     - parameter monitor: function that accepts a JoyStickViewXYReport
      */
     case xy(monitor: JoyStickViewXYMonitor)
     
