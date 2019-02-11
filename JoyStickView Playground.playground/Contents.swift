@@ -47,11 +47,11 @@ view.addSubview(displacementLabel)
  Here is a simple function we will use to show the displacement and angle from a
  joystick.
 */
-let monitor: JoyStickViewMonitor = { angle, displacement in
-    angleLabel.text = String(format: "%.2f°", angle)
-    displacementLabel.text = String(format: "%.3f", displacement)
+let monitor: JoyStickViewPolarMonitor = { report in
+    angleLabel.text = String(format: "%.2f°", report.angle)
+    displacementLabel.text = String(format: "%.3f", report.displacement)
 }
-monitor(0, 0)
+monitor(JoyStickViewPolarReport(angle: 0.0, displacement: 0.0))
 
 /*:
  Create the green *fixed* joystick. Let the handle reveal content underneath it with a 0.75 alpha value.
@@ -77,7 +77,7 @@ joystick1.travel = 1.25
 /*:
  Show the joystick's orientation in the labels at the top of the view.
 */
-joystick1.monitor = monitor
+joystick1.monitor = .polar(monitor: monitor)
 
 /*:
  Next we will create a *movable* joystick, one where the base will move if the handle is moved too far away
@@ -120,10 +120,11 @@ joystick2.movableBounds = movableBounds
 /*:
  Same as before, show the orientation in the labels
 */
-joystick2.monitor = monitor
+joystick2.monitor = .polar(monitor: monitor)
 
 /*:
- Try moving the yellow joystick handle away from its base. As long as the handle lies within the white area, the base should move to keep the center of the handle on the circumference of the base (due to the `travel` property being 1.0).
+ Try moving the yellow joystick handle away from its base. As long as the handle lies within the white area, the base
+ should move to keep the center of the handle on the circumference of the base (due to the `travel` property being 1.0).
  
  You can always reset the joystick to the original location by double-tapping on it.
 */

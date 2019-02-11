@@ -7,18 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD4CAF182210696000DECD93 /* JoyStickViewMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4CAF172210696000DECD93 /* JoyStickViewMonitorTests.swift */; };
 		BDA7F8E8218B1DE400A9AB5B /* Bundle+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA7F8E7218B1DE400A9AB5B /* Bundle+Additions.swift */; };
+		BDBB51BA220ADE1E00C579B2 /* JoyStickViewMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBB51B9220ADE1E00C579B2 /* JoyStickViewMonitor.swift */; };
+		BDBB51D2220B0D9900C579B2 /* JoyStickViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBB51D1220B0D9900C579B2 /* JoyStickViewTests.swift */; };
+		BDBB51D4220B0D9900C579B2 /* JoyStickView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDCA4093215A3AEE00578F67 /* JoyStickView.framework */; };
 		BDC7F452218A036C00368EF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDC7F451218A036C00368EF0 /* Assets.xcassets */; };
 		BDCA4098215A3AEE00578F67 /* JoyStickView.h in Headers */ = {isa = PBXBuildFile; fileRef = BDCA4096215A3AEE00578F67 /* JoyStickView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDCA40A1215A3B3700578F67 /* JoyStickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA409E215A3B3700578F67 /* JoyStickView.swift */; };
 		BDCA40A3215A3B3700578F67 /* CoreGraphics+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA40A0215A3B3700578F67 /* CoreGraphics+Additions.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		BDBB51D5220B0D9900C579B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDCA408A215A3AED00578F67 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDCA4092215A3AEE00578F67;
+			remoteInfo = JoyStickView;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		BD4CAF172210696000DECD93 /* JoyStickViewMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoyStickViewMonitorTests.swift; sourceTree = "<group>"; };
 		BD758009215B66F000B787D2 /* DefaultBase.opacity */ = {isa = PBXFileReference; lastKnownFileType = file; path = DefaultBase.opacity; sourceTree = "<group>"; };
 		BD75800A215B66F000B787D2 /* DefaultHandle.opacity */ = {isa = PBXFileReference; lastKnownFileType = file; path = DefaultHandle.opacity; sourceTree = "<group>"; };
 		BD75800B215B66F000B787D2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDA7F8E7218B1DE400A9AB5B /* Bundle+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Additions.swift"; sourceTree = "<group>"; };
+		BDBB51B9220ADE1E00C579B2 /* JoyStickViewMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyStickViewMonitor.swift; sourceTree = "<group>"; };
+		BDBB51CF220B0D9900C579B2 /* JoyStickViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JoyStickViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDBB51D1220B0D9900C579B2 /* JoyStickViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyStickViewTests.swift; sourceTree = "<group>"; };
+		BDBB51D3220B0D9900C579B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDC7F451218A036C00368EF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDCA4093215A3AEE00578F67 /* JoyStickView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JoyStickView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCA4096215A3AEE00578F67 /* JoyStickView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JoyStickView.h; sourceTree = "<group>"; };
@@ -27,6 +46,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BDBB51CC220B0D9900C579B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDBB51D4220B0D9900C579B2 /* JoyStickView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BDCA4090215A3AEE00578F67 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -47,12 +74,23 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		BDBB51D0220B0D9900C579B2 /* JoyStickViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				BDBB51D1220B0D9900C579B2 /* JoyStickViewTests.swift */,
+				BD4CAF172210696000DECD93 /* JoyStickViewMonitorTests.swift */,
+				BDBB51D3220B0D9900C579B2 /* Info.plist */,
+			);
+			path = JoyStickViewTests;
+			sourceTree = "<group>";
+		};
 		BDCA4089215A3AED00578F67 = {
 			isa = PBXGroup;
 			children = (
 				BDC7F451218A036C00368EF0 /* Assets.xcassets */,
 				BDCA4095215A3AEE00578F67 /* Src */,
 				BD758008215B66F000B787D2 /* Resources */,
+				BDBB51D0220B0D9900C579B2 /* JoyStickViewTests */,
 				BDCA4094215A3AEE00578F67 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				BDCA4093215A3AEE00578F67 /* JoyStickView.framework */,
+				BDBB51CF220B0D9900C579B2 /* JoyStickViewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -71,6 +110,7 @@
 				BDCA40A0215A3B3700578F67 /* CoreGraphics+Additions.swift */,
 				BDCA409E215A3B3700578F67 /* JoyStickView.swift */,
 				BDCA4096215A3AEE00578F67 /* JoyStickView.h */,
+				BDBB51B9220ADE1E00C579B2 /* JoyStickViewMonitor.swift */,
 				BDA7F8E7218B1DE400A9AB5B /* Bundle+Additions.swift */,
 			);
 			path = Src;
@@ -90,6 +130,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		BDBB51CE220B0D9900C579B2 /* JoyStickViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDBB51D7220B0D9900C579B2 /* Build configuration list for PBXNativeTarget "JoyStickViewTests" */;
+			buildPhases = (
+				BDBB51CB220B0D9900C579B2 /* Sources */,
+				BDBB51CC220B0D9900C579B2 /* Frameworks */,
+				BDBB51CD220B0D9900C579B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDBB51D6220B0D9900C579B2 /* PBXTargetDependency */,
+			);
+			name = JoyStickViewTests;
+			productName = JoyStickViewTests;
+			productReference = BDBB51CF220B0D9900C579B2 /* JoyStickViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		BDCA4092215A3AEE00578F67 /* JoyStickView */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BDCA409B215A3AEE00578F67 /* Build configuration list for PBXNativeTarget "JoyStickView" */;
@@ -114,9 +172,13 @@
 		BDCA408A215A3AED00578F67 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Brad Howes";
 				TargetAttributes = {
+					BDBB51CE220B0D9900C579B2 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					BDCA4092215A3AEE00578F67 = {
 						CreatedOnToolsVersion = 10.0;
 						LastSwiftMigration = 1000;
@@ -136,11 +198,19 @@
 			projectRoot = "";
 			targets = (
 				BDCA4092215A3AEE00578F67 /* JoyStickView */,
+				BDBB51CE220B0D9900C579B2 /* JoyStickViewTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BDBB51CD220B0D9900C579B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BDCA4091215A3AEE00578F67 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -152,6 +222,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BDBB51CB220B0D9900C579B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDBB51D2220B0D9900C579B2 /* JoyStickViewTests.swift in Sources */,
+				BD4CAF182210696000DECD93 /* JoyStickViewMonitorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BDCA408F215A3AEE00578F67 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -159,12 +238,59 @@
 				BDCA40A1215A3B3700578F67 /* JoyStickView.swift in Sources */,
 				BDCA40A3215A3B3700578F67 /* CoreGraphics+Additions.swift in Sources */,
 				BDA7F8E8218B1DE400A9AB5B /* Bundle+Additions.swift in Sources */,
+				BDBB51BA220ADE1E00C579B2 /* JoyStickViewMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		BDBB51D6220B0D9900C579B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDCA4092215A3AEE00578F67 /* JoyStickView */;
+			targetProxy = BDBB51D5220B0D9900C579B2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		BDBB51D8220B0D9900C579B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
+				INFOPLIST_FILE = JoyStickViewTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.braysoft.JoyStickViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BDBB51D9220B0D9900C579B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
+				INFOPLIST_FILE = JoyStickViewTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.braysoft.JoyStickViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		BDCA4099215A3AEE00578F67 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -294,7 +420,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = Z7R62JH5A8;
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -322,7 +448,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = Z7R62JH5A8;
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -345,6 +471,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BDBB51D7220B0D9900C579B2 /* Build configuration list for PBXNativeTarget "JoyStickViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDBB51D8220B0D9900C579B2 /* Debug */,
+				BDBB51D9220B0D9900C579B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BDCA408D215A3AED00578F67 /* Build configuration list for PBXProject "JoyStickView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

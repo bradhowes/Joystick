@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BDBB51CE220B0D9900C579B2"
+               BuildableName = "JoyStickViewTests.xctest"
+               BlueprintName = "JoyStickViewTests"
+               ReferencedContainer = "container:JoyStickView.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "BDCA4092215A3AEE00578F67"
+            BuildableName = "JoyStickView.framework"
+            BlueprintName = "JoyStickView"
+            ReferencedContainer = "container:JoyStickView.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

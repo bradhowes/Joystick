@@ -2,17 +2,6 @@ import UIKit
 import CoreGraphics
 
 /**
- Type definition for a function that will receive updates from the JoyStickView when the handle moves. Takes two
- values, both CGFloats.
- 
- - parameter angle: the direction the handle is pointing. Unit is degrees with 0° pointing up (north), and 90° pointing
- right (east).
- - parameter displacement: how far from the view center the joystick is moved in the above direction. Unitless but
- is the ratio of distance moved from center over the radius of the joystick base. Always in range 0.0-1.0
- */
-public typealias JoyStickViewMonitor = (_ angle: CGFloat, _ displacement: CGFloat) -> ()
-
-/**
  A simple implementation of a joystick interface like those found on classic arcade games. This implementation detects
  and reports two values when the joystick moves:
 
@@ -35,16 +24,19 @@ public typealias JoyStickViewMonitor = (_ angle: CGFloat, _ displacement: CGFloa
  */
 @IBDesignable public final class JoyStickView: UIView {
 
-    /// Holds a function to call when joystick orientation changes
-    public var monitor: JoyStickViewMonitor? = nil
+    /// Optional monitor which will receive updates as the joystick position changes. Supports polar and cartesian
+    /// reporting.
+    public var monitor: JoyStickViewMonitorKind = .none
 
-    /// The last-reported angle from the joystick handle. Unit is degrees, with 0° up (north) and 90° right (east)
-    public var angle: CGFloat { return displacement != 0.0 ? CGFloat(180.0 - angleRadians * 180.0 / Float.pi) : 0.0 }
-    
+    /// The last-reported angle from the joystick handle. Unit is degrees, with 0° up (north) and 90° right (east).
+    /// Note that this assumes that `angleRadians` was calculated with atan2(dx, dy) and that dy is positive when
+    /// pointing down.
+    public var angle: CGFloat { return displacement != 0.0 ? 180.0 - angleRadians * 180.0 / .pi : 0.0 }
+
     /// The last-reported displacement from the joystick handle. Dimensionless but is the ratio of movement over
     /// the radius of the joystick base. Always falls between 0.0 and 1.0
     public private(set) var displacement: CGFloat = 0.0
-    
+
     /// If `true` the joystick will move around in the parant's view so that the joystick handle is always at a
     /// displacement of 1.0. This is the default mode of operation. Setting to `false` will keep the view fixed.
     @IBInspectable public var movable: Bool = false
@@ -107,11 +99,11 @@ public typealias JoyStickViewMonitor = (_ angle: CGFloat, _ displacement: CGFloa
         didSet { generateHandleImage() }
     }
 
-    /// Controls how far the handle can travel along the radius of the base. A value of 1.0 (default) will let the handle travel
-    /// the full radius, with maximum travel leaving the center of the handle lying on the circumference of the base. A value
-    /// greater than 1.0 will let the handle travel beyond the circumference of the base, while a value less than 1.0 will
-    /// reduce the travel to values within the circumference. Note that regardless of this value, handle movements will always
-    /// report displacement values between 0.0 and 1.0 inclusive.
+    /// Controls how far the handle can travel along the radius of the base. A value of 1.0 (default) will let the
+    /// handle travel the full radius, with maximum travel leaving the center of the handle lying on the circumference
+    /// of the base. A value greater than 1.0 will let the handle travel beyond the circumference of the base, while a
+    /// value less than 1.0 will reduce the travel to values within the circumference. Note that regardless of this
+    /// value, handle movements will always report displacement values between 0.0 and 1.0 inclusive.
     @IBInspectable public var travel: CGFloat = 1.0
 
     /// The image to use for the base of the joystick
@@ -138,8 +130,8 @@ public typealias JoyStickViewMonitor = (_ angle: CGFloat, _ displacement: CGFloa
         }
     }
 
-    /// The max distance the handle may move in any direction, where the start is the center of the joystick base and the end
-    /// is on the circumference of the base when travel is 1.0.
+    /// The max distance the handle may move in any direction, where the start is the center of the joystick base and
+    /// the end is on the circumference of the base when travel is 1.0.
     private var radius: CGFloat { return self.bounds.size.width / 2.0 * travel }
     
     /// The image to use to show the base of the joystick
@@ -149,7 +141,7 @@ public typealias JoyStickViewMonitor = (_ angle: CGFloat, _ displacement: CGFloa
     private var handleImageView: UIImageView = UIImageView(image: nil)
 
     /// Cache of the last joystick angle in radians
-    private var angleRadians: Float = 0.0
+    private var angleRadians: CGFloat = 0.0
 
     /// Tap gesture recognizer for double-taps which will reset the joystick position
     private var tapGestureRecognizer: UITapGestureRecognizer?
@@ -350,7 +342,7 @@ extension JoyStickView {
      */
     private func homePosition() {
         handleImageView.center = bounds.mid
-        reportPosition(angleRadians: 0.0, displacement: 0.0)
+        reportPosition(angleRadians: 0.0, displacement: 0.0, delta: CGVector(dx: 0.0, dy: 0.0))
     }
 
     /**
@@ -374,9 +366,10 @@ extension JoyStickView {
         let newDisplacement = delta.magnitude / radius
 
         // Calculate pointing angle used displacements. NOTE: using this ordering of dx, dy to atan2f to obtain
-        // navigation angles where 0 is at top of clock dial and angle values increase in a clock-wise direction.
+        // navigation angles where 0 is at top of clock dial and angle values increase in a clock-wise direction. This
+        // also assumes that Y increases in the downward direction.
         //
-        let newAngleRadians = atan2f(Float(delta.dx), Float(delta.dy))
+        let newAngleRadians = atan2(delta.dx, delta.dy)
 
         if movable {
             if newDisplacement > 1.0 && repositionBase(location: location, angle: newAngleRadians) {
@@ -393,7 +386,7 @@ extension JoyStickView {
             handleImageView.center = bounds.mid + delta
         }
 
-        reportPosition(angleRadians: newAngleRadians, displacement: min(newDisplacement, 1.0))
+        reportPosition(angleRadians: newAngleRadians, displacement: min(newDisplacement, 1.0), delta: delta)
     }
 
     /**
@@ -402,11 +395,16 @@ extension JoyStickView {
      - parameter angleRadians: the current angle of the joystick handle
      - parameter displacement: the current displacement of the joystick handle
      */
-    private func reportPosition(angleRadians: Float, displacement: CGFloat) {
+    private func reportPosition(angleRadians: CGFloat, displacement: CGFloat, delta: CGVector) {
         if displacement != self.displacement || angleRadians != self.angleRadians {
             self.displacement = displacement
             self.angleRadians = angleRadians
-            monitor?(self.angle, displacement)
+            
+            switch monitor {
+            case let .polar(monitor): monitor(JoyStickViewPolarReport(angle: self.angle, displacement: displacement))
+            case let .xy(monitor): monitor(JoyStickViewXYReport(x: delta.dx, y: -delta.dy))
+            case .none: break
+            }
         }
     }
     
@@ -420,14 +418,14 @@ extension JoyStickView {
      - parameter angle: the angle the handle makes with the center of the base
      - returns: true if the base **cannot** move sufficiently to keep the displacement of the handle <= 1.0
      */
-    private func repositionBase(location: CGPoint, angle: Float) -> Bool {
+    private func repositionBase(location: CGPoint, angle: CGFloat) -> Bool {
         if movableCenter == nil {
             movableCenter = self.center
         }
 
         // Calculate point that should be on the circumference of the base image.
         //
-        let end = CGVector(dx: CGFloat(sinf(angle)) * radius, dy: CGFloat(cosf(angle)) * radius)
+        let end = CGVector(dx: sin(angle) * radius, dy: cos(angle) * radius)
 
         // Calculate the origin of our frame, working backwards from the given location, and move to it.
         //
@@ -437,17 +435,17 @@ extension JoyStickView {
     }
 
     /**
-     Move the joystick handle so that the angle made up of the triangle from the base 12:00 position on its circumference, the base center,
-     and the joystick center is the given value.
+     Move the joystick handle so that the angle made up of the triangle from the base 12:00 position on its
+     circumference, the base center and the joystick center is the given value.
     
      - parameter angle: the angle (radians) to conform to
      */
-    private func repositionHandle(angle: Float) {
+    private func repositionHandle(angle: CGFloat) {
 
         // Keep handle on the circumference of the base image
         //
-        let x = CGFloat(sinf(angle)) * radius
-        let y = CGFloat(cosf(angle)) * radius
+        let x = sin(angle) * radius
+        let y = cos(angle) * radius
         handleImageView.frame.origin = CGPoint(x: x + bounds.midX - handleImageView.bounds.size.width / 2.0,
                                                y: y + bounds.midY - handleImageView.bounds.size.height / 2.0)
     }

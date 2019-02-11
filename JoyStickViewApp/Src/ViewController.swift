@@ -24,10 +24,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let monitor: JoyStickViewMonitor = { angle, displacement in
-            if displacement > 0.0 {
-                self.theta.text = String(format: "%.3f", angle)
-                self.magnitude.text = String(format: "%.3f", displacement)
+        let monitor: JoyStickViewPolarMonitor = { report in
+            if report.displacement > 0.0 {
+                self.theta.text = String(format: "%.3f", report.angle)
+                self.magnitude.text = String(format: "%.3f", report.displacement)
             }
         }
 
@@ -45,14 +45,14 @@ class ViewController: UIViewController {
         joystick2.handleSizeRatio = 1.0
         joystick2.accessibilityLabel = "rightJoystick"
         
-        joystick3.monitor = monitor
+        joystick3.monitor = .polar(monitor: monitor)
     }
 
-    private func makeJoystick(tintColor: UIColor, monitor: @escaping JoyStickViewMonitor) -> JoyStickView {
+    private func makeJoystick(tintColor: UIColor, monitor: @escaping JoyStickViewPolarMonitor) -> JoyStickView {
         let frame = CGRect(origin: CGPoint(x: 0.0, y: 0.0), size: CGSize(width: joystickSpan, height: joystickSpan))
         let joystick = JoyStickView(frame: frame)
         view.addSubview(joystick)
-        joystick.monitor = monitor
+        joystick.monitor = .polar(monitor: monitor)
         joystick.alpha = 1.0
         joystick.baseAlpha = 0.75
         joystick.handleTintColor = tintColor
