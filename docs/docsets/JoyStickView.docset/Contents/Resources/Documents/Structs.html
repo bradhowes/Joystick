@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Type Aliases  Reference</title>
+    <title>Structures  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Section/Type Aliases" class="dashAnchor"></a>
-    <a title="Type Aliases  Reference"></a>
+    <a name="//apple_ref/swift/Section/Structures" class="dashAnchor"></a>
+    <a title="Structures  Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="index.html">JoyStickView Docs</a> (83% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="index.html">JoyStickView Reference</a>
         <img id="carat" src="img/carat.png" />
-        Type Aliases  Reference
+        Structures  Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -87,8 +87,8 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Type Aliases</h1>
-            <p>The following type aliases are available globally.</p>
+            <h1>Structures</h1>
+            <p>The following structures are available globally.</p>
 
           </section>
           <section class="section task-group-section">
@@ -97,9 +97,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12JoyStickView0abC9XYMonitora"></a>
-                    <a name="//apple_ref/swift/Alias/JoyStickViewXYMonitor" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12JoyStickView0abC9XYMonitora">JoyStickViewXYMonitor</a>
+                    <a name="/s:12JoyStickView0abC8XYReportV"></a>
+                    <a name="//apple_ref/swift/Struct/JoyStickViewXYReport" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12JoyStickView0abC8XYReportV">JoyStickViewXYReport</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -107,14 +107,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>JoyStickView handle position as X, Y deltas from the base center. Note that here a positive <code>y</code> indicates that the
+joystick handle is pushed upwards.</p>
 
+                        <a href="Structs/JoyStickViewXYReport.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">JoyStickViewXYMonitor</span> <span class="o">=</span> <span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt"><a href="Structs/JoyStickViewXYReport.html">JoyStickViewXYReport</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">JoyStickViewXYReport</span></code></pre>
 
                         </div>
                       </div>
@@ -124,9 +126,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12JoyStickView0abC12PolarMonitora"></a>
-                    <a name="//apple_ref/swift/Alias/JoyStickViewPolarMonitor" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12JoyStickView0abC12PolarMonitora">JoyStickViewPolarMonitor</a>
+                    <a name="/s:12JoyStickView0abC11PolarReportV"></a>
+                    <a name="//apple_ref/swift/Struct/JoyStickViewPolarReport" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12JoyStickView0abC11PolarReportV">JoyStickViewPolarReport</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -134,14 +136,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>JoyStickView handle position as angle/displacement values from the base center. Note that <code>angle</code> is given in degrees,
+with 0° pointing up (north) and 90° pointing right (east).</p>
 
+                        <a href="Structs/JoyStickViewPolarReport.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">JoyStickViewPolarMonitor</span> <span class="o">=</span> <span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt"><a href="Structs/JoyStickViewPolarReport.html">JoyStickViewPolarReport</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">JoyStickViewPolarReport</span></code></pre>
 
                         </div>
                       </div>
