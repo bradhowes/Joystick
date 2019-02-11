@@ -54,7 +54,23 @@ public typealias JoyStickViewPolarMonitor = (_ value: JoyStickViewPolarReport) -
  Monitor kind. Determines the type of reporting that will be emitted from a JoyStickView instance.
  */
 public enum JoyStickViewMonitorKind {
+    
+    /**
+     Install monitor that accepts polar position change reports
+     
+     monitor: function that accepts a JoyStickViewPolarReport
+     */
     case polar(monitor: JoyStickViewPolarMonitor)
+
+    /**
+     Install monitor that accepts cartesian (XY) position change reports
+     
+     monitor: function that accepts a JoyStickViewXYReport
+     */
     case xy(monitor: JoyStickViewXYMonitor)
+    
+    /**
+     No monitoring for a JoyStickView instance.
+     */
     case none
 }
