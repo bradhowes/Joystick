@@ -41,27 +41,6 @@
       "symbol": "JoyStickViewPolarMonitor",
       "symbol_kind": "source.lang.swift.decl.typealias",
       "warning": "undocumented"
-    },
-    {
-      "file": "/Users/howes/src/Joystick/JoyStickView/Src/JoyStickViewMonitor.swift",
-      "line": 57,
-      "symbol": "JoyStickViewMonitorKind.polar(monitor:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/howes/src/Joystick/JoyStickView/Src/JoyStickViewMonitor.swift",
-      "line": 58,
-      "symbol": "JoyStickViewMonitorKind.xy(monitor:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/howes/src/Joystick/JoyStickView/Src/JoyStickViewMonitor.swift",
-      "line": 59,
-      "symbol": "JoyStickViewMonitorKind.none",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
     }
   ],
   "source_directory": "/Users/howes/src/Joystick"
