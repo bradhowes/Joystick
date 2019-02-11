@@ -12,8 +12,8 @@ import CoreGraphics
 
  The view has several settable parameters that be used to configure a joystick's appearance and behavior:
 
- - monitor: a function of type `JoyStickViewMonitor` that will receive updates when the joystick's angle and/or
- displacement values change.
+ - monitor: an enumeration of type `JoyStickViewMonitorKind` that can hold a function to receive updates when the
+ joystick's angle and/or displacement values change. Supports polar and cartesian (XY) reporting
  - movable: a boolean that when true lets the joystick move around in its parent's view when there joystick moves
  beyond displacement of 1.0.
  - movableBounds: a CGRect which limits where a movable joystick may travel
@@ -25,7 +25,7 @@ import CoreGraphics
 @IBDesignable public final class JoyStickView: UIView {
 
     /// Optional monitor which will receive updates as the joystick position changes. Supports polar and cartesian
-    /// reporting.
+    /// reporting. The function to call with a position report is held in the enumeration value.
     public var monitor: JoyStickViewMonitorKind = .none
 
     /// The last-reported angle from the joystick handle. Unit is degrees, with 0° up (north) and 90° right (east).

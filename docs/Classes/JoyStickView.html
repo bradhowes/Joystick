@@ -108,8 +108,8 @@ is the ratio of distance moved from center over the radius of the joystick base.
 <p>The view has several settable parameters that be used to configure a joystick&rsquo;s appearance and behavior:</p>
 
 <ul>
-<li>monitor: a function of type <code>JoyStickViewMonitor</code> that will receive updates when the joystick&rsquo;s angle and/or
-displacement values change.</li>
+<li>monitor: an enumeration of type <code><a href="../Enums/JoyStickViewMonitorKind.html">JoyStickViewMonitorKind</a></code> that can hold a function to receive updates when the
+joystick&rsquo;s angle and/or displacement values change. Supports polar and cartesian (XY) reporting</li>
 <li>movable: a boolean that when true lets the joystick move around in its parent&rsquo;s view when there joystick moves
 beyond displacement of 1.0.</li>
 <li>movableBounds: a CGRect which limits where a movable joystick may travel</li>
@@ -137,7 +137,7 @@ beyond displacement of 1.0.</li>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Optional monitor which will receive updates as the joystick position changes. Supports polar and cartesian
-reporting.</p>
+reporting. The function to call with a position report is held in the enumeration value.</p>
 
                       </div>
                       <div class="declaration">
