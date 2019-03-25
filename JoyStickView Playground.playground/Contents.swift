@@ -25,6 +25,13 @@ view.translatesAutoresizingMaskIntoConstraints = true
 view.backgroundColor = .white
 PlaygroundPage.current.liveView = view
 
+let constrainAxis = UISwitch(frame: CGRect(x:240, y: 10, width: 100, height: 40))
+view.addSubview(constrainAxis)
+
+let constrainAxisLabel = UILabel(frame: CGRect(x:300, y: 6, width: 200, height: 40))
+constrainAxisLabel.text = "Constrain Movement"
+view.addSubview(constrainAxisLabel)
+
 /*:
  Create label to show a joystick's direction. WHen the joystick is moved up it will read 0°
  or "north", and when it is moved down it will read 180° or "south". To the right will read
@@ -81,7 +88,7 @@ joystick1.monitor = .polar(monitor: monitor)
 
 /*:
  Next we will create a *movable* joystick, one where the base will move if the handle is moved too far away
- from the base. However, we want to limit where the base can move, so we will create light red area that will
+ from the base. However, we want to limit where the base can move, so we will create a pink area that will
  be the region where the base can move.
 */
 let movableBounds = CGRect(x: 250, y: 100, width: 170, height: 200)
@@ -90,7 +97,7 @@ boundsView.backgroundColor = UIColor.red.withAlphaComponent(0.25)
 view.addSubview(boundsView)
 
 /*:
- Finally, create a *movable* joystick. However, unlike the green one we will use a
+ Create the *movable* joystick. However, unlike the green one, we will use a
  custom image for the handle, and will reduce the base alpha value to 0.5 so that it shows
  what is behind it.
 */
@@ -99,7 +106,6 @@ view.addSubview(joystick2)
 joystick2.movable = true
 joystick2.travel = 0.7
 joystick2.baseAlpha = 0.5
-joystick2.handleConstraint = CGRect(origin: CGPoint(x: 49, y: 0), size: CGSize(width: 1, height: 100))
 
 /*:
  Customize the handle image.
@@ -124,8 +130,27 @@ joystick2.movableBounds = movableBounds
 joystick2.monitor = .polar(monitor: monitor)
 
 /*:
- Try moving the yellow joystick handle away from its base. As long as the handle lies within the white area, the base
+ Set up an event handler that will constrain the movement of the "Star" joystick to the vertical axis when
+ the constrainAxis UISwitch is on.
+*/
+class Responder : NSObject {
+    @objc func constrainAxisAction() {
+        if constrainAxis.isOn {
+            joystick2.handleConstraint = CGRect(origin: CGPoint(x: 49, y: 0), size: CGSize(width: 1, height: 100))
+        }
+        else {
+            joystick2.handleConstraint = nil
+        }
+    }
+}
+
+let responder = Responder()
+constrainAxis.addTarget(responder, action: #selector(Responder.constrainAxisAction), for: .touchUpInside)
+
+/*:
+ Try moving the "Star" joystick handle away from its base. As long as the handle lies within the pink area, the base
  should move to keep the center of the handle on the circumference of the base (due to the `travel` property being 1.0).
  
- You can always reset the joystick to the original location by double-tapping on it.
+ You can reset the joystick to the original location by double-tapping on it. This behavior is configurable using the
+ enableDoubleTapForFrameReset property.
 */
