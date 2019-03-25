@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/bradhowes/Joystick.svg?branch=master)](https://travis-ci.org/bradhowes/Joystick)
 [![Swift 4.2](https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat)](https://swift.org)
-[![CocoaPods](https://img.shields.io/badge/pod-1.1.5-red.svg)](https://cocoapods.org/pods/BRHJoyStickView)
+[![CocoaPods](https://img.shields.io/badge/pod-2.1.1-red.svg)](https://cocoapods.org/pods/BRHJoyStickView)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Joystick
