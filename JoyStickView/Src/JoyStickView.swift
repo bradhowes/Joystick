@@ -28,6 +28,20 @@ import CoreGraphics
     /// reporting. The function to call with a position report is held in the enumeration value.
     public var monitor: JoyStickViewMonitorKind = .none
 
+    /// Optional rectangular region that restricts where the handle may move. The region should be defined in the
+    /// this view's coordinates.
+    public var handleConstraint: CGRect? {
+        didSet {
+            switch handleConstraint {
+            case .some(let hc):
+                handleCenterClamper = { CGPoint(x: min(max($0.x, hc.minX), hc.maxX),
+                                                y: min(max($0.y, hc.minY), hc.maxY)) }
+            default:
+                handleCenterClamper = { $0 }
+            }
+        }
+    }
+
     /// The last-reported angle from the joystick handle. Unit is degrees, with 0° up (north) and 90° right (east).
     /// Note that this assumes that `angleRadians` was calculated with atan2(dx, dy) and that dy is positive when
     /// pointing down.
@@ -44,14 +58,16 @@ import CoreGraphics
     /// The original location of a movable joystick. Used to restore its position when user double-taps on it.
     public var movableCenter: CGPoint? = nil
 
-    /// Area where the joystick can move
+    /// Optional rectangular region that restricts where the base may move. The region should be defined in the
+    /// this view's coordinates.
     public var movableBounds: CGRect? {
         didSet {
             switch movableBounds {
             case .some(let mb):
-                centerClamper = { CGPoint(x: min(max($0.x, mb.minX), mb.maxX), y: min(max($0.y, mb.minY), mb.maxY)) }
+                baseCenterClamper = { CGPoint(x: min(max($0.x, mb.minX), mb.maxX),
+                                              y: min(max($0.y, mb.minY), mb.maxY)) }
             default:
-                centerClamper = { $0 }
+                baseCenterClamper = { $0 }
             }
         }
     }
@@ -146,8 +162,11 @@ import CoreGraphics
     /// Tap gesture recognizer for double-taps which will reset the joystick position
     private var tapGestureRecognizer: UITapGestureRecognizer?
 
+    /// A filter for joystick base centers. Used to restrict base movements.
+    private var baseCenterClamper: (CGPoint) -> CGPoint = { $0 }
+
     /// A filter for joystick handle centers. Used to restrict handle movements.
-    private var centerClamper: (CGPoint) -> CGPoint = { $0 }
+    private var handleCenterClamper: (CGPoint) -> CGPoint = { $0 }
 
     /// Tap gesture recognizer for detecting double-taps. Only present if `enableDoubleTapForFrameReset` is true
     private var doubleTapGestureRecognizer: UITapGestureRecognizer?
@@ -342,7 +361,7 @@ extension JoyStickView {
      */
     private func homePosition() {
         handleImageView.center = bounds.mid
-        reportPosition(angleRadians: 0.0, displacement: 0.0, delta: CGVector(dx: 0.0, dy: 0.0))
+        reportPosition()
     }
 
     /**
@@ -376,35 +395,34 @@ extension JoyStickView {
                 repositionHandle(angle: newAngleRadians)
             }
             else {
-                handleImageView.center = bounds.mid + delta
+                handleImageView.center = handleCenterClamper(bounds.mid + delta)
             }
         }
         else if newDisplacement > 1.0 {
             repositionHandle(angle: newAngleRadians)
         }
         else {
-            handleImageView.center = bounds.mid + delta
+            handleImageView.center = handleCenterClamper(bounds.mid + delta)
         }
 
-        reportPosition(angleRadians: newAngleRadians, displacement: min(newDisplacement, 1.0), delta: delta)
+        reportPosition()
     }
 
     /**
      Report the current joystick values to any registered `monitor`.
-    
-     - parameter angleRadians: the current angle of the joystick handle
-     - parameter displacement: the current displacement of the joystick handle
      */
-    private func reportPosition(angleRadians: CGFloat, displacement: CGFloat, delta: CGVector) {
-        if displacement != self.displacement || angleRadians != self.angleRadians {
-            self.displacement = displacement
-            self.angleRadians = angleRadians
+    private func reportPosition() {
+        let delta = handleImageView.center - baseImageView.center
+        let displacement = delta.magnitude2 == 0.0 ? 0.0 : delta.magnitude / radius
+        let angleRadians = delta.magnitude2 == 0.0 ? 0.0 : atan2(delta.dx, delta.dy)
+
+        self.displacement = displacement
+        self.angleRadians = angleRadians
             
-            switch monitor {
-            case let .polar(monitor): monitor(JoyStickViewPolarReport(angle: self.angle, displacement: displacement))
-            case let .xy(monitor): monitor(JoyStickViewXYReport(x: delta.dx, y: -delta.dy))
-            case .none: break
-            }
+        switch monitor {
+        case let .polar(monitor): monitor(JoyStickViewPolarReport(angle: self.angle, displacement: displacement))
+        case let .xy(monitor): monitor(JoyStickViewXYReport(x: delta.dx, y: -delta.dy))
+        case .none: break
         }
     }
     
@@ -430,7 +448,7 @@ extension JoyStickView {
         // Calculate the origin of our frame, working backwards from the given location, and move to it.
         //
         let desiredCenter = location - end //  - frame.size / 2.0
-        self.center = centerClamper(desiredCenter)
+        self.center = baseCenterClamper(desiredCenter)
         return self.center != desiredCenter
     }
 
@@ -448,5 +466,7 @@ extension JoyStickView {
         let y = cos(angle) * radius
         handleImageView.frame.origin = CGPoint(x: x + bounds.midX - handleImageView.bounds.size.width / 2.0,
                                                y: y + bounds.midY - handleImageView.bounds.size.height / 2.0)
+        
+        handleImageView.center = handleCenterClamper(handleImageView.center)
     }
 }

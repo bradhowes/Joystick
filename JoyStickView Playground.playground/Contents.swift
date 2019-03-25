@@ -99,6 +99,7 @@ view.addSubview(joystick2)
 joystick2.movable = true
 joystick2.travel = 0.7
 joystick2.baseAlpha = 0.5
+joystick2.handleConstraint = CGRect(origin: CGPoint(x: 49, y: 0), size: CGSize(width: 1, height: 100))
 
 /*:
  Customize the handle image.

@@ -44,7 +44,8 @@ class ViewController: UIViewController {
         joystick2.handleImage = customImage
         joystick2.handleSizeRatio = 1.0
         joystick2.accessibilityLabel = "rightJoystick"
-        
+        joystick2.handleConstraint = CGRect(origin: CGPoint(x: 40, y: 0), size: CGSize(width: 0, height: 100))
+
         joystick3.monitor = .polar(monitor: monitor)
     }
 
