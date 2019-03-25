@@ -28,8 +28,9 @@ import CoreGraphics
     /// reporting. The function to call with a position report is held in the enumeration value.
     public var monitor: JoyStickViewMonitorKind = .none
 
-    /// Optional rectangular region that restricts where the handle may move. The region should be defined in the
-    /// this view's coordinates.
+    /// Optional rectangular region that restricts where the handle may move. The region should be defined in
+    /// this view's coordinates. For instance, to constrain the handle in the Y direction with a UIView of size 100x100,
+    /// use `CGRect(x: 50, y: 0, width: 1, height: 100)`
     public var handleConstraint: CGRect? {
         didSet {
             switch handleConstraint {
