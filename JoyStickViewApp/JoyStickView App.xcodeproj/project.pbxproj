@@ -186,10 +186,12 @@
 				TargetAttributes = {
 					BD521B06218737D5001C607E = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						TestTargetID = BDCA40AE215A427100578F67;
 					};
 					BDCA40AE215A427100578F67 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -295,7 +297,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.braysoft.JoyStickView-AppUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "JoyStickView App";
 			};
@@ -316,7 +318,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.braysoft.JoyStickView-AppUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "JoyStickView App";
 			};
@@ -456,7 +458,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.braysoft.JoyStickViewApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -477,7 +479,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.braysoft.JoyStickViewApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
