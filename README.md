@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/bradhowes/Joystick.svg?branch=master)](https://travis-ci.org/bradhowes/Joystick)
 [![Swift 4.2](https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat)](https://swift.org)
+[![Swift 5.0](https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat)](https://swift.org)
 [![CocoaPods](https://img.shields.io/badge/pod-2.1.1-red.svg)](https://cocoapods.org/pods/BRHJoyStickView)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -22,6 +23,11 @@ move even when the touch motion would cause a displacement larger than 1.0. The 
 *movable*, with the base following the touch motion. For movable joysticks, the Base motion is optionally
 restricted to a `CGRect`, as is the case in the demonstration animation above where the magenta joystick cannot
 move out of the red band.
+
+# Releases
+
+* v3.0.0 -- Swift 5 (no code changes, only Xcode configury)
+* v2.1.1 -- Swift 4.2
 
 # Code
 
