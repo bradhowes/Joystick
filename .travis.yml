@@ -2,4 +2,4 @@ language: objective-c
 osx_image: xcode10.2
 xcode_workspace: JoyStickView.xcworkspace
 xcode_scheme: JoyStickView App
-xcode_destination: platform=iOS Simulator,OS=12.0,name=iPhone 5s
+xcode_destination: platform=iOS Simulator,OS=12.2,name=iPhone 5s
