@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/bradhowes/Joystick.svg?branch=master)](https://travis-ci.org/bradhowes/Joystick)
 [![Swift 4.2](https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat)](https://swift.org)
 [![Swift 5.0](https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat)](https://swift.org)
-[![CocoaPods](https://img.shields.io/badge/pod-2.1.1-red.svg)](https://cocoapods.org/pods/BRHJoyStickView)
+[![CocoaPods](https://img.shields.io/badge/pod-2.1.2-red.svg)](https://cocoapods.org/pods/BRHJoyStickView)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Joystick
@@ -49,7 +49,7 @@ Here are some additional configurable features of the JoyStickView:
 # Releases
 
 * v3.0.0 -- Swift 5 (no code changes, only Xcode configury)
-* v2.1.1 -- Swift 4.2
+* v2.1.2 -- Swift 4.2
 
 # Code
 
