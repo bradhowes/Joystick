@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "BRHJoyStickView"
-  s.version     = "2.1.1"
+  s.version     = "2.1.2"
   s.summary     = "A custom UIView in Swift that presents a simple, configurable joystick interface."
   s.homepage    = "https://github.com/bradhowes/Joystick"
   s.license     = { :type => "MIT" }
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
   s.swift_version = "4.2"
-  s.ios.deployment_target = "12.0"
+  s.ios.deployment_target = "11.0"
   s.source   = { :git => "https://github.com/bradhowes/Joystick.git", :tag => s.version }
   s.source_files = "JoyStickView/Src/*.swift"
   s.resource_bundle = { 'BRHJoyStickView' => 'JoyStickView/*.xcassets' }
