@@ -1,4 +1,6 @@
 
+## 👋 Hey! Check out the [Quake3-iOS](https://github.com/tomkidd/Quake3-iOS) repo (and others) by [tomkidd](https://github.com/tomkidd). He used this code for the movement control. Badge of honor 🏅 (or 🦡 of honor).
+
 [![Build Status](https://travis-ci.org/bradhowes/Joystick.svg?branch=master)](https://travis-ci.org/bradhowes/Joystick)
 [![Swift 4.2](https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat)](https://swift.org)
 [![Swift 5.0](https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat)](https://swift.org)
