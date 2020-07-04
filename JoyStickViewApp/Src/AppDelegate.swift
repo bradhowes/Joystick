@@ -1,10 +1,4 @@
-//
-//  AppDelegate.swift
-//  JoystickTestApp
-//
-//  Created by Bradley Howes on 8/24/17.
-//  Copyright © 2017 Bradl Howes. All rights reserved.
-//
+// Copyright © 2020 Brad Howes. All rights reserved.
 
 import UIKit
 

@@ -1,10 +1,4 @@
-//
-//  UIImage+Additions.swift
-//  JoyStickView
-//
-//  Created by Brad Howes on 11/1/18.
-//  Copyright © 2018 Brad Howes. All rights reserved.
-//
+// Copyright © 2020 Brad Howes. All rights reserved.
 
 import Foundation
 

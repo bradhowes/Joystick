@@ -1,10 +1,4 @@
-//
-//  JoyStickView_AppUITests.swift
-//  JoyStickView AppUITests
-//
-//  Created by Brad Howes on 10/29/18.
-//  Copyright © 2018 Brad Howes. All rights reserved.
-//
+// Copyright © 2018 Brad Howes. All rights reserved.
 
 import XCTest
 import JoyStickView

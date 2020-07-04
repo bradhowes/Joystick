@@ -1,10 +1,4 @@
-//
-//  CGVector+Additions.swift
-//  Robotroon
-//
-//  Created by Brad Howes on 11/20/16.
-//  Copyright © 2016 Brad Howes. All rights reserved.
-//
+// Copyright © 2020 Brad Howes. All rights reserved.
 
 import CoreGraphics
 

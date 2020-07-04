@@ -1,10 +1,4 @@
-//
-//  JoyStickViewTests.swift
-//  JoyStickViewTests
-//
-//  Created by Brad Howes on 2/6/19.
-//  Copyright © 2019 Brad Howes. All rights reserved.
-//
+// Copyright © 2019 Brad Howes. All rights reserved.
 
 import XCTest
 

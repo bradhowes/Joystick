@@ -1,10 +1,4 @@
-//
-//  JoyStickViewMonitor.swift
-//  JoyStickView
-//
-//  Created by Brad Howes on 2/6/19.
-//  Copyright © 2019 Brad Howes. All rights reserved.
-//
+// Copyright © 2020 Brad Howes. All rights reserved.
 
 import CoreGraphics
 

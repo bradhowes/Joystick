@@ -1,10 +1,4 @@
-//
-//  JoyStickView.h
-//  JoyStickView
-//
-//  Created by Brad Howes on 9/25/18.
-//  Copyright © 2018 Brad Howes. All rights reserved.
-//
+// Copyright © 2020 Brad Howes. All rights reserved.
 
 #import <UIKit/UIKit.h>
 
