@@ -1,4 +1,3 @@
-
 ## 👋 Hey! Check out the [Quake3-iOS](https://github.com/tomkidd/Quake3-iOS) repo (and others) by [tomkidd](https://github.com/tomkidd). He used this code for the movement control. Badge of honor 🏅 (or 🦡 of honor).
 
 [![Build Status](https://travis-ci.org/bradhowes/Joystick.svg?branch=master)](https://travis-ci.org/bradhowes/Joystick)
@@ -22,6 +21,14 @@ based on its position in relation to the joystick base. The type of information 
 * [JoyStickViewMonitorKind.xy](https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickViewMonitor.swift#L93) -- reports out instances of [JoyStickViewXYReport](https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickViewMonitor.swift#L15) with
   * x -- horizontal offset from the center of the base, where east/right is positive
   * y -- vertical offset from the center of the base, where north/up is positive
+
+```swift
+let monitor: JoyStickViewPolarMonitor = {
+    print("\(String(format: "%.2f°", $0.angle)) \(String(format: "%.3f", $0.displacement))")
+}
+
+joystick.monitor = .polar(monitor: monitor2)
+```
 
 The view supports an option ([movable](https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L57)) where the view will move when the user moves the handle to a
 displacement beyond 1.0. This can be useful when the initial position of the joystick in an app is not ideal for
