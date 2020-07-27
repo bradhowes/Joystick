@@ -29,7 +29,7 @@ class JoyStickView_AppUITests: XCTestCase {
         // Make sure that joystick report what we expect in displacement and angle
         //
         XCTAssertEqual(Double(dispLabel.label)!, disp, accuracy: 0.01, msg)
-        XCTAssertEqual(Double(angleLabel.label)!, angle, accuracy: 0.01, msg)
+        XCTAssertEqual(Double(angleLabel.label)!, angle, accuracy: 0.05, msg)
 
         // Touch something else so we don't interfere with the joystick view while it moves back to its
         // home position. NOTE: for some reason putting the duration value too low will cause tests to fail.
