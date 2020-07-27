@@ -8,13 +8,21 @@
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a name="//apple_ref/swift/Class/JoyStickView" class="dashAnchor"></a>
     <a title="JoyStickView Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">JoyStickView Docs</a> (100% documented)</p>
+        <p><a href="../index.html">JoyStickView 2.1.2 Docs</a> (100% documented)</p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -90,6 +98,7 @@
             <h1>JoyStickView</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">@IBDesignable</span>
 <span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">JoyStickView</span> <span class="p">:</span> <span class="kt">UIView</span></code></pre>
 
@@ -230,7 +239,7 @@ the radius of the joystick base. Always falls between 0.0 and 1.0</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">displacement</span><span class="p">:</span> <span class="kt">CGFloat</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">displacement</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -589,7 +598,7 @@ when it happens. Note that this is only useful if <code>moveable</code> is true.
                     <code>
                     <a name="/c:@M@JoyStickView@objc(cs)JoyStickView(im)initWithFrame:"></a>
                     <a name="//apple_ref/swift/Method/init(frame:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@JoyStickView@objc(cs)JoyStickView(im)initWithFrame:">init(frame:)</a>
+                    <a class="token" href="#/c:@M@JoyStickView@objc(cs)JoyStickView(im)initWithFrame:">init(frame:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -635,7 +644,7 @@ when it happens. Note that this is only useful if <code>moveable</code> is true.
                     <code>
                     <a name="/c:@M@JoyStickView@objc(cs)JoyStickView(im)initWithCoder:"></a>
                     <a name="//apple_ref/swift/Method/init(coder:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@JoyStickView@objc(cs)JoyStickView(im)initWithCoder:">init(coder:)</a>
+                    <a class="token" href="#/c:@M@JoyStickView@objc(cs)JoyStickView(im)initWithCoder:">init(coder:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -709,9 +718,11 @@ when it happens. Note that this is only useful if <code>moveable</code> is true.
               <div class="task-name-container">
                 <a name="/Touch%20Handling"></a>
                 <a name="//apple_ref/swift/Section/Touch Handling" class="dashAnchor"></a>
-                <a href="#/Touch%20Handling">
-                  <h3 class="section-name">Touch Handling</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Touch%20Handling"></a>
+                  <h3 class="section-name"><p>Touch Handling</p>
+</h3>
+                </div>
               </div>
               <ul>
                 <li class="item">
@@ -719,7 +730,7 @@ when it happens. Note that this is only useful if <code>moveable</code> is true.
                     <code>
                     <a name="/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesBegan:withEvent:"></a>
                     <a name="//apple_ref/swift/Method/touchesBegan(_:with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesBegan:withEvent:">touchesBegan(_:with:)</a>
+                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesBegan:withEvent:">touchesBegan(_:<wbr>with:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -777,7 +788,7 @@ when it happens. Note that this is only useful if <code>moveable</code> is true.
                     <code>
                     <a name="/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesMoved:withEvent:"></a>
                     <a name="//apple_ref/swift/Method/touchesMoved(_:with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesMoved:withEvent:">touchesMoved(_:with:)</a>
+                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesMoved:withEvent:">touchesMoved(_:<wbr>with:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -835,7 +846,7 @@ when it happens. Note that this is only useful if <code>moveable</code> is true.
                     <code>
                     <a name="/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesCancelled:withEvent:"></a>
                     <a name="//apple_ref/swift/Method/touchesCancelled(_:with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesCancelled:withEvent:">touchesCancelled(_:with:)</a>
+                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesCancelled:withEvent:">touchesCancelled(_:<wbr>with:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -894,7 +905,7 @@ center of base.</p>
                     <code>
                     <a name="/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesEnded:withEvent:"></a>
                     <a name="//apple_ref/swift/Method/touchesEnded(_:with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesEnded:withEvent:">touchesEnded(_:with:)</a>
+                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesEnded:withEvent:">touchesEnded(_:<wbr>with:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -981,8 +992,8 @@ whenever the user double-taps on the joystick handle.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://github.com/bradhowes/Joystick" target="_blank" rel="external">bradhowes</a>. All rights reserved. (Last updated: 2019-03-25)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://github.com/bradhowes/Joystick" target="_blank" rel="external">bradhowes</a>. All rights reserved. (Last updated: 2020-07-27)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
