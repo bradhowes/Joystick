@@ -81,7 +81,7 @@ To use your own images, simple set `baseImage` and/or `handleImage` attributes w
 
 # Documentation
 
-Please see the [code documentation](https://bradhowes.github.io/Joystick/index.html) for additional information.
+Please see the [code documentation](https://bradhowes.github.io/Joystick/) for additional information.
 
 # CocoaPods
 
