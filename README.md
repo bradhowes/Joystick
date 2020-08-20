@@ -30,6 +30,10 @@ let monitor: JoyStickViewPolarMonitor = {
 joystick.monitor = .polar(monitor: monitor2)
 ```
 
+There is also support (3.0.1) for using an Objective-C block as a monitor, with a slight reduction in type
+safety. The `setPolarMonitor` and `setXYMonitor` both take a closure that accepts two `CGFloat` arguments and
+returns no value. Objective-C blocks can be used as well as Swift closures in these methods.
+
 The view supports an option ([movable](https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L57)) where the view will move when the user moves the handle to a
 displacement beyond 1.0. This can be useful when the initial position of the joystick in an app is not ideal for
 the user's thumb. Double-tapping on the joystick moves it back to its original position.
