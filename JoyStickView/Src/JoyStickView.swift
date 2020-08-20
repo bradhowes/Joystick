@@ -473,3 +473,19 @@ extension JoyStickView {
         handleImageView.center = handleCenterClamper(handleImageView.center)
     }
 }
+
+/**
+ Provide support for Obj-C monitors by wrapping a block in a closure that works with the Swift-only types.
+ */
+extension JoyStickView {
+
+    @objc public func setPolarMonitor(_ block: @escaping (CGFloat, CGFloat) -> Void) {
+        let bridge = {(report: JoyStickViewPolarReport) in block(report.angle, report.displacement) }
+        monitor = .polar(monitor: bridge)
+    }
+
+    @objc public func setXYMonitor(_ block: @escaping (CGFloat, CGFloat) -> Void) {
+        let bridge = {(report: JoyStickViewXYReport) in block(report.x, report.y) }
+        monitor = .xy(monitor: bridge)
+    }
+}
