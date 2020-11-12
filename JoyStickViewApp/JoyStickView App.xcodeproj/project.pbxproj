@@ -11,6 +11,7 @@
 		BD521B17218756BC001C607E /* JoyStickView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD521B132187538C001C607E /* JoyStickView.framework */; };
 		BD521B1821875798001C607E /* JoyStickView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD521B132187538C001C607E /* JoyStickView.framework */; };
 		BD521B1921875798001C607E /* JoyStickView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD521B132187538C001C607E /* JoyStickView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BD6DDB77255DAD0900292E8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD6DDB76255DAD0900292E8A /* Assets.xcassets */; };
 		BD758018215B67E600B787D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD758011215B67E600B787D2 /* Assets.xcassets */; };
 		BD75801A215B67E600B787D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD758013215B67E600B787D2 /* LaunchScreen.storyboard */; };
 		BD75801B215B67E600B787D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD758015215B67E600B787D2 /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		BD521B09218737D5001C607E /* JoyStickView_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyStickView_AppUITests.swift; sourceTree = "<group>"; };
 		BD521B0B218737D5001C607E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD521B132187538C001C607E /* JoyStickView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JoyStickView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD6DDB76255DAD0900292E8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD758011215B67E600B787D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD758012215B67E600B787D2 /* CustomBase.opacity */ = {isa = PBXFileReference; lastKnownFileType = file; path = CustomBase.opacity; sourceTree = "<group>"; };
 		BD758014215B67E600B787D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		BD758010215B67E600B787D2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BD6DDB76255DAD0900292E8A /* Assets.xcassets */,
 				BD758012215B67E600B787D2 /* CustomBase.opacity */,
 				BD758017215B67E600B787D2 /* Info.plist */,
 			);
@@ -181,7 +184,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = "Brad Howes";
 				TargetAttributes = {
 					BD521B06218737D5001C607E = {
@@ -228,6 +231,7 @@
 			files = (
 				BD75801B215B67E600B787D2 /* Main.storyboard in Resources */,
 				BD75801A215B67E600B787D2 /* LaunchScreen.storyboard in Resources */,
+				BD6DDB77255DAD0900292E8A /* Assets.xcassets in Resources */,
 				BD758018215B67E600B787D2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,6 +354,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -375,7 +380,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -413,6 +418,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -432,7 +438,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

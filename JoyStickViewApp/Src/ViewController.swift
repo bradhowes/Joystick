@@ -14,7 +14,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var theta: UILabel!
     @IBOutlet weak var constraint: UIView!
     @IBOutlet weak var joystick3: JoyStickView!
-    
+
+    var joystick4: JoyStickView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,7 +42,7 @@ class ViewController: UIViewController {
         joystick2.accessibilityLabel = "rightJoystick"
         joystick2.handleConstraint = CGRect(origin: CGPoint(x: 40, y: 0), size: CGSize(width: 0, height: 100))
 
-        joystick3.monitor = .polar(monitor: monitor)
+        joystick3 = makePointyJoystick(tintColor: UIColor.systemTeal)
     }
 
     private func makeJoystick(tintColor: UIColor, monitor: @escaping JoyStickViewPolarMonitor) -> JoyStickView {
@@ -52,6 +54,36 @@ class ViewController: UIViewController {
         joystick.baseAlpha = 0.75
         joystick.handleTintColor = tintColor
         joystick.colorFillHandleImage = true
+        return joystick
+    }
+
+    private func makePointyJoystick(tintColor: UIColor) -> JoyStickView {
+        let frame = CGRect(origin: CGPoint(x: 0.0, y: 0.0), size: CGSize(width: 150, height: 150))
+        let joystick = JoyStickView(frame: frame)
+        guard let pointyBase = UIImage(named: "PointedBase") else { fatalError() }
+        guard let defaultBase = UIImage(named: "UnpointedBase") else { fatalError() }
+        view.addSubview(joystick)
+
+        let monitor: (JoyStickViewPolarReport) -> Void = { value in
+            if value.displacement < 0.1 {
+                joystick.baseImage = defaultBase
+                return
+            }
+
+            let rotation = value.angle * CGFloat.pi / 180.0
+            joystick.baseImage = pointyBase.rotate(radians: rotation)
+        }
+
+        joystick.baseImage = defaultBase
+        joystick.monitor = .polar(monitor: monitor)
+        joystick.alpha = 1.0
+        joystick.baseAlpha = 0.5
+        joystick.handleSizeRatio = 0.5
+        joystick.handleAlpha = 0.5
+        joystick.handleTintColor = tintColor
+        joystick.colorFillHandleImage = true
+        joystick.movable = false
+        joystick.travel = 0.4
         return joystick
     }
 
@@ -68,6 +100,8 @@ class ViewController: UIViewController {
         joystick2.movableBounds = constraint.frame
         joystick2.movableCenter = constraint.frame.mid
         joystick2.center = constraint.frame.mid
+
+        joystick3.center = CGPoint(x: offset.width, y: size.height - offset.height * 3)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -90,3 +124,15 @@ class ViewController: UIViewController {
     }
 }
 
+extension UIImage {
+
+    func rotate(radians: CGFloat) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+        defer { UIGraphicsEndImageContext() }
+        let context = UIGraphicsGetCurrentContext()!
+        context.translateBy(x: size.width / 2, y: size.height / 2)
+        context.rotate(by: CGFloat(radians))
+        self.draw(in: CGRect(x: -self.size.width/2, y: -self.size.height/2, width: self.size.width, height: self.size.height))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+}
