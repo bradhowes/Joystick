@@ -289,7 +289,7 @@ extension JoyStickView {
     }
 
     private func scaleHandleImageView() {
-        let inset = (1.0 - handleSizeRatio) * bounds.width
+        let inset = (1.0 - handleSizeRatio) * bounds.width / 2.0
         handleImageView.frame = bounds.insetBy(dx: inset, dy: inset)
     }
     
