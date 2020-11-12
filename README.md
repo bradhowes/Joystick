@@ -61,6 +61,8 @@ Here are some additional configurable features of the JoyStickView:
 
 # Releases
 
+* v3.0.2 -- Fixed too much scaling in `scaleHandleImageView`
+* v3.0.1 -- Added support for Obj-C monitor blocks
 * v3.0.0 -- Swift 5 (no code changes, only Xcode configury)
 * v2.1.2 -- Swift 4.2
 
