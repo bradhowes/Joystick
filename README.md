@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/bradhowes/Joystick.svg?branch=master)](https://travis-ci.org/bradhowes/Joystick)
+[![CI](https://github.com/bradhowes/Joystick/workflows/CI/badge.svg)](https://github.com/bradhowes/Joystick)
 [![Swift 4.2](https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat)](https://swift.org)
 [![Swift 5.0](https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat)](https://swift.org)
 [![CocoaPods](https://img.shields.io/badge/pod-2.1.2-red.svg)](https://cocoapods.org/pods/BRHJoyStickView)
