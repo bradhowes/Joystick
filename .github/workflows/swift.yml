@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Run tests
-      run: 
-        xcodebuild test -destination 'name=iPhone 11' -scheme 'JoyStickView'
-        xcodebuild test -destination 'name=iPhone 11' -scheme 'JoyStickView App'
+    - name: Run monitor tests
+      run: xcodebuild test -destination 'name=iPhone 11' -scheme 'JoyStickView'
+    - name: Run view tests
+      run: xcodebuild test -destination 'name=iPhone 11' -scheme 'JoyStickView App'
