@@ -57,6 +57,11 @@
 		BDCA40AF215A427100578F67 /* JoyStickView App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JoyStickView App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCA40B2215A427100578F67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDCA40B4215A427100578F67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BDF27543255EFD88001F23CF /* PointedBase.opacity */ = {isa = PBXFileReference; lastKnownFileType = file; path = PointedBase.opacity; sourceTree = "<group>"; };
+		BDF27544255EFD88001F23CF /* DefaultBase.opacity */ = {isa = PBXFileReference; lastKnownFileType = file; path = DefaultBase.opacity; sourceTree = "<group>"; };
+		BDF27545255EFD88001F23CF /* DefaultHandle.opacity */ = {isa = PBXFileReference; lastKnownFileType = file; path = DefaultHandle.opacity; sourceTree = "<group>"; };
+		BDF27546255EFD88001F23CF /* UnpointedBase.opacity */ = {isa = PBXFileReference; lastKnownFileType = file; path = UnpointedBase.opacity; sourceTree = "<group>"; };
+		BDF27547255EFD88001F23CF /* CustomHandle.opacity */ = {isa = PBXFileReference; lastKnownFileType = file; path = CustomHandle.opacity; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +97,11 @@
 			isa = PBXGroup;
 			children = (
 				BD6DDB76255DAD0900292E8A /* Assets.xcassets */,
+				BDF27547255EFD88001F23CF /* CustomHandle.opacity */,
+				BDF27544255EFD88001F23CF /* DefaultBase.opacity */,
+				BDF27545255EFD88001F23CF /* DefaultHandle.opacity */,
+				BDF27543255EFD88001F23CF /* PointedBase.opacity */,
+				BDF27546255EFD88001F23CF /* UnpointedBase.opacity */,
 				BD758012215B67E600B787D2 /* CustomBase.opacity */,
 				BD758017215B67E600B787D2 /* Info.plist */,
 			);
