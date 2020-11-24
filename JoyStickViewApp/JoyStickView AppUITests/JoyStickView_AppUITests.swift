@@ -24,12 +24,12 @@ class JoyStickView_AppUITests: XCTestCase {
         // Press on the joystick and then drag it `dx/dy` points
         //
         let start = center(of: joystick)
-        start.press(forDuration: 0.1, thenDragTo: start.withOffset(CGVector(dx: dx, dy: dy)))
+        start.press(forDuration: 0.1, thenDragTo: start.withOffset(CGVector(dx: dx, dy: dy)), withVelocity: .fast, thenHoldForDuration: 0.25)
 
         // Make sure that joystick report what we expect in displacement and angle
         //
         XCTAssertEqual(Double(dispLabel.label)!, disp, accuracy: 0.01, msg)
-        XCTAssertEqual(Double(angleLabel.label)!, angle, accuracy: 0.05, msg)
+        XCTAssertEqual(Double(angleLabel.label)!, angle, accuracy: 1.0, msg)
 
         // Touch something else so we don't interfere with the joystick view while it moves back to its
         // home position. NOTE: for some reason putting the duration value too low will cause tests to fail.
@@ -47,7 +47,7 @@ class JoyStickView_AppUITests: XCTestCase {
         testFixedDirection(dx: -200, dy:    0, disp: disp1, angle: 270.0, msg: "3")
 
         // Check diagonals with movement that resuts in displacement < 1.0
-        let disp2 = 0.664
+        let disp2 = 0.509
         testFixedDirection(dx:  25, dy: -25, disp: disp2, angle:  45.0, msg: "5")
         testFixedDirection(dx:  25, dy:  25, disp: disp2, angle: 135.0, msg: "6")
         testFixedDirection(dx: -25, dy:  25, disp: disp2, angle: 225.0, msg: "7")
@@ -71,7 +71,7 @@ class JoyStickView_AppUITests: XCTestCase {
         // Move a large enough amount to move the base up.
         //
         let start = center(of: joystick)
-        start.press(forDuration: 0.25, thenDragTo: start.withOffset(CGVector(dx: 0.0, dy: -100.0)))
+        start.press(forDuration: 0.25, thenDragTo: start.withOffset(CGVector(dx: 0.0, dy: -100.0)), withVelocity: .fast, thenHoldForDuration: 0.25)
 
         XCTAssertEqual(Float(dispLabel.label)!, 1.0, accuracy: 0.001)
         XCTAssertEqual(Float(angleLabel.label)!, 0.0, accuracy: 0.001)
