@@ -24,11 +24,11 @@ class JoyStickView_AppUITests: XCTestCase {
         // Press on the joystick and then drag it `dx/dy` points
         //
         let start = center(of: joystick)
-        start.press(forDuration: 0.1, thenDragTo: start.withOffset(CGVector(dx: dx, dy: dy)), withVelocity: .fast, thenHoldForDuration: 0.25)
+        start.press(forDuration: 0.1, thenDragTo: start.withOffset(CGVector(dx: dx, dy: dy)), withVelocity: .default, thenHoldForDuration: 0.25)
 
         // Make sure that joystick report what we expect in displacement and angle
         //
-        XCTAssertEqual(Double(dispLabel.label)!, disp, accuracy: 0.01, msg)
+        XCTAssertEqual(Double(dispLabel.label)!, disp, accuracy: 0.25, msg)
         XCTAssertEqual(Double(angleLabel.label)!, angle, accuracy: 1.0, msg)
 
         // Touch something else so we don't interfere with the joystick view while it moves back to its
