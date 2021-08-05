@@ -201,25 +201,32 @@ import CoreGraphics
 
 // MARK: - Touch Handling
 
-extension JoyStickView {
+/**
+ Main recognizer for movement
+ 
+    We use a recognizer rather than the view's own touch handler methods as there is an iOS quirk
+    that delays the touchesEnded method. This quirk doesn't apply to gesture recognizers.
+ */
+class JoyStickViewGestureRecognizer: UIGestureRecognizer {
+    private var touch: UITouch?
+    
     /**
      A touch began in the joystick view
      - parameter touches: the set of UITouch instances, one for each touch event
      - parameter event: additional event info (ignored)
      */
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else { return }
-        updatePosition(touch: touch)
+        touch = touches.first
+        state = .began
     }
-
+    
     /**
      An existing touch has moved.
      - parameter touches: the set of UITouch instances, one for each touch event
      - parameter event: additional event info (ignored)
      */
     public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else { return }
-        updatePosition(touch: touch)
+        state = .changed
     }
 
     /**
@@ -229,7 +236,8 @@ extension JoyStickView {
      - parameter event: additional event info (ignored)
      */
     public override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        homePosition()
+        state = .ended
+        touch = nil
     }
 
     /**
@@ -238,9 +246,29 @@ extension JoyStickView {
      - parameter event: additional event info (ignored)
      */
     public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        homePosition()
+        state = .ended
+        touch = nil
     }
+    
+    /**
+     Get touch location
+     - parameter view: the view in which to return location coordinates
+     */
+    public override func location(in view: UIView?) -> CGPoint {
+        guard touch != nil else { return .zero }
+        return touch!.location(in: view)
+    }
+}
 
+extension JoyStickView {
+    @objc private func gestureRecognizerChanged(recognizer: JoyStickViewGestureRecognizer) {
+        if recognizer.state == .began || recognizer.state == .changed {
+            updateLocation(location: recognizer.location(in: superview!))
+        } else if recognizer.state == .ended {
+            homePosition()
+        }
+    }
+    
     /**
      Reset our base to the initial location before the user moved it. By default, this will take place
      whenever the user double-taps on the joystick handle.
@@ -282,7 +310,9 @@ extension JoyStickView {
         }
         
         generateHandleImage()
-
+        
+        addGestureRecognizer(JoyStickViewGestureRecognizer(target: self, action: #selector(gestureRecognizerChanged)))
+        
         if enableDoubleTapForFrameReset {
             installDoubleTapGestureRecognizer()
         }
@@ -366,15 +396,7 @@ extension JoyStickView {
         handleImageView.center = bounds.mid
         reportPosition()
     }
-
-    /**
-     Update the handle position based on the current touch location.
-     - parameter touch: the UITouch instance describing where the finger/pencil is
-     */
-    private func updatePosition(touch: UITouch) {
-        updateLocation(location: touch.location(in: superview!))
-    }
-
+    
     /**
      Update the location of the joystick based on the given touch location. Resulting behavior depends on `movable`
      setting.
