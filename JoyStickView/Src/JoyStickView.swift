@@ -29,7 +29,10 @@ import CoreGraphics
     /// Optional monitor which will receive updates as the joystick position changes. Supports polar and cartesian
     /// reporting. The function to call with a position report is held in the enumeration value.
     public var monitor: JoyStickViewMonitorKind = .none
-
+    
+    /// Optional block to be called upon a tap
+    public var tappedBlock: (() -> Void)?
+    
     /// Optional rectangular region that restricts where the handle may move. The region should be defined in
     /// this view's coordinates. For instance, to constrain the handle in the Y direction with a UIView of size 100x100,
     /// use `CGRect(x: 50, y: 0, width: 1, height: 100)`
@@ -201,25 +204,48 @@ import CoreGraphics
 
 // MARK: - Touch Handling
 
-extension JoyStickView {
+/**
+ Main recognizer for movement
+ 
+    We use a recognizer rather than the view's own touch handler methods as there is an iOS quirk
+    that delays the touchesEnded method. This quirk doesn't apply to gesture recognizers.
+ */
+class JoyStickViewGestureRecognizer: UIGestureRecognizer {
+    private var touch: UITouch?
+    private var firstTimestamp: TimeInterval?
+    private var lastTimestamp: TimeInterval?
+    private var firstLocation: CGPoint?
+    private var lastLocation: CGPoint?
+    
+    public var wasTap: Bool {
+        get {
+            if let start = firstTimestamp, let end = lastTimestamp, let startPoint = firstLocation, let lastPoint = lastLocation {
+                return end - start < 0.1 && max(abs(startPoint.x-lastPoint.x), abs(startPoint.y-lastPoint.y)) < 2
+            }
+            return false
+        }
+    }
+    
     /**
      A touch began in the joystick view
      - parameter touches: the set of UITouch instances, one for each touch event
      - parameter event: additional event info (ignored)
      */
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else { return }
-        updatePosition(touch: touch)
+        touch = touches.first
+        firstTimestamp = touch?.timestamp
+        firstLocation = touch?.location(in: nil)
+        state = .began
     }
-
+    
     /**
      An existing touch has moved.
      - parameter touches: the set of UITouch instances, one for each touch event
      - parameter event: additional event info (ignored)
      */
     public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else { return }
-        updatePosition(touch: touch)
+        lastLocation = touch?.location(in: nil)
+        state = .changed
     }
 
     /**
@@ -229,7 +255,9 @@ extension JoyStickView {
      - parameter event: additional event info (ignored)
      */
     public override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        homePosition()
+        lastTimestamp = touch?.timestamp
+        lastLocation = touch?.location(in: nil)
+        state = .ended
     }
 
     /**
@@ -238,9 +266,53 @@ extension JoyStickView {
      - parameter event: additional event info (ignored)
      */
     public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        homePosition()
+        lastTimestamp = touch?.timestamp
+        lastLocation = touch?.location(in: nil)
+        state = .ended
     }
+    
+    /**
+     Clear state
+     */
+    public override func reset() {
+        touch = nil
+        firstTimestamp = nil
+        lastTimestamp = nil
+        firstLocation = nil
+        lastLocation = nil
+    }
+    
+    /**
+     Get touch location
+     - parameter view: the view in which to return location coordinates
+     */
+    public override func location(in view: UIView?) -> CGPoint {
+        guard touch != nil else { return .zero }
+        return touch!.location(in: view)
+    }
+    
+    /**
+     Get touch offset
+     - parameter view: the view in which to return offset coordinates
+     */
+    public func offset(in view: UIView?) -> CGVector {
+        guard let last = lastLocation, let first = firstLocation else { return .zero }
+        return last - first
+    }
+}
 
+extension JoyStickView {
+    @objc private func gestureRecognizerChanged(recognizer: JoyStickViewGestureRecognizer) {
+        if recognizer.state == .began || recognizer.state == .changed {
+            handleMovement(location: recognizer.location(in: superview!), delta: recognizer.offset(in: superview!))
+        } else if recognizer.state == .ended {
+            homePosition()
+            if recognizer.wasTap, let block = tappedBlock {
+                block()
+            }
+        }
+    }
+    
     /**
      Reset our base to the initial location before the user moved it. By default, this will take place
      whenever the user double-taps on the joystick handle.
@@ -282,7 +354,9 @@ extension JoyStickView {
         }
         
         generateHandleImage()
-
+        
+        addGestureRecognizer(JoyStickViewGestureRecognizer(target: self, action: #selector(gestureRecognizerChanged)))
+        
         if enableDoubleTapForFrameReset {
             installDoubleTapGestureRecognizer()
         }
@@ -366,25 +440,16 @@ extension JoyStickView {
         handleImageView.center = bounds.mid
         reportPosition()
     }
-
+    
     /**
-     Update the handle position based on the current touch location.
-     - parameter touch: the UITouch instance describing where the finger/pencil is
+     Handle joystick movement. Resulting behavior depends on `movable` setting.
+     - parameter location: the current handle position, in coordinates of the superview
+     - parameter delta: the current touch offset, in coordinates of the superview
      */
-    private func updatePosition(touch: UITouch) {
-        updateLocation(location: touch.location(in: superview!))
-    }
-
-    /**
-     Update the location of the joystick based on the given touch location. Resulting behavior depends on `movable`
-     setting.
-     - parameter location: the current handle position. NOTE: in coordinates of the superview
-     */
-    private func updateLocation(location: CGPoint) {
+    private func handleMovement(location: CGPoint, delta: CGVector) {
         guard let superview = self.superview else { return }
         guard superview.bounds.contains(location) else { return }
 
-        let delta = location - frame.mid
         let newDisplacement = delta.magnitude / radius
 
         // Calculate pointing angle used displacements. NOTE: using this ordering of dx, dy to atan2f to obtain
