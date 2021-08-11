@@ -8,14 +8,22 @@
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a name="//apple_ref/swift/Class/JoyStickView" class="dashAnchor"></a>
     <a title="JoyStickView Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">JoyStickView Docs</a> (96% documented)</p>
-        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fbradhowes%2Egithub%2Eio%2Fdocsets%2FJoyStickView%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+        <p><a href="../index.html">JoyStickView 3.1.0 Docs</a> (95% documented)</p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fbradhowes.github.io%2FJoystick%2Fdocsets%2FJoyStickView.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -47,9 +55,6 @@
           <li class="nav-group-name">
             <a href="../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Extensions/Bundle.html">Bundle</a>
-              </li>
               <li class="nav-group-task">
                 <a href="../Extensions/CGPoint.html">CGPoint</a>
               </li>
@@ -94,6 +99,7 @@
             <h1>JoyStickView</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">@IBDesignable</span>
 <span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">JoyStickView</span> <span class="p">:</span> <span class="kt">UIView</span></code></pre>
 
@@ -149,6 +155,33 @@ reporting. The function to call with a position report is held in the enumeratio
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">monitor</span><span class="p">:</span> <span class="kt"><a href="../Enums/JoyStickViewMonitorKind.html">JoyStickViewMonitorKind</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12JoyStickViewAAC11tappedBlockyycSgvp"></a>
+                    <a name="//apple_ref/swift/Property/tappedBlock" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12JoyStickViewAAC11tappedBlockyycSgvp">tappedBlock</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Optional block to be called upon a tap.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">tappedBlock</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -591,9 +624,38 @@ when it happens. Note that this is only useful if <code>moveable</code> is true.
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:12JoyStickViewAAC20delayBeforeReportingSdvp"></a>
+                    <a name="//apple_ref/swift/Property/delayBeforeReporting" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12JoyStickViewAAC20delayBeforeReportingSdvp">delayBeforeReporting</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Delay after tap before reporting out joystick position. This is only active if <code><a href="../Classes/JoyStickView.html#/s:12JoyStickViewAAC11tappedBlockyycSgvp">tappedBlock</a></code> is not nil. It is
+useful when using <code><a href="../Classes/JoyStickView.html#/s:12JoyStickViewAAC11tappedBlockyycSgvp">tappedBlock</a></code> to perform some operation and joystick movement reports would be a nuisance to
+ignore.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">delayBeforeReporting</span><span class="p">:</span> <span class="kt">TimeInterval</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@M@JoyStickView@objc(cs)JoyStickView(im)initWithFrame:"></a>
                     <a name="//apple_ref/swift/Method/init(frame:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@JoyStickView@objc(cs)JoyStickView(im)initWithFrame:">init(frame:)</a>
+                    <a class="token" href="#/c:@M@JoyStickView@objc(cs)JoyStickView(im)initWithFrame:">init(frame:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -639,7 +701,7 @@ when it happens. Note that this is only useful if <code>moveable</code> is true.
                     <code>
                     <a name="/c:@M@JoyStickView@objc(cs)JoyStickView(im)initWithCoder:"></a>
                     <a name="//apple_ref/swift/Method/init(coder:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@JoyStickView@objc(cs)JoyStickView(im)initWithCoder:">init(coder:)</a>
+                    <a class="token" href="#/c:@M@JoyStickView@objc(cs)JoyStickView(im)initWithCoder:">init(coder:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -725,7 +787,7 @@ when it happens. Note that this is only useful if <code>moveable</code> is true.
                     <code>
                     <a name="/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesBegan:withEvent:"></a>
                     <a name="//apple_ref/swift/Method/touchesBegan(_:with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesBegan:withEvent:">touchesBegan(_:with:)</a>
+                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesBegan:withEvent:">touchesBegan(_:<wbr>with:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -783,7 +845,7 @@ when it happens. Note that this is only useful if <code>moveable</code> is true.
                     <code>
                     <a name="/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesMoved:withEvent:"></a>
                     <a name="//apple_ref/swift/Method/touchesMoved(_:with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesMoved:withEvent:">touchesMoved(_:with:)</a>
+                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesMoved:withEvent:">touchesMoved(_:<wbr>with:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -841,7 +903,7 @@ when it happens. Note that this is only useful if <code>moveable</code> is true.
                     <code>
                     <a name="/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesCancelled:withEvent:"></a>
                     <a name="//apple_ref/swift/Method/touchesCancelled(_:with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesCancelled:withEvent:">touchesCancelled(_:with:)</a>
+                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesCancelled:withEvent:">touchesCancelled(_:<wbr>with:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -900,7 +962,7 @@ center of base.</p>
                     <code>
                     <a name="/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesEnded:withEvent:"></a>
                     <a name="//apple_ref/swift/Method/touchesEnded(_:with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesEnded:withEvent:">touchesEnded(_:with:)</a>
+                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)touchesEnded:withEvent:">touchesEnded(_:<wbr>with:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -982,6 +1044,34 @@ whenever the user double-taps on the joystick handle.</p>
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@JoyStickView@objc(cs)JoyStickView(im)emitSingleTap"></a>
+                    <a name="//apple_ref/swift/Method/emitSingleTap()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)emitSingleTap">emitSingleTap()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">emitSingleTap</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
             <div class="task-group">
@@ -1000,7 +1090,7 @@ whenever the user double-taps on the joystick handle.</p>
                     <code>
                     <a name="/c:@CM@JoyStickView@objc(cs)JoyStickView(im)setPolarMonitor:"></a>
                     <a name="//apple_ref/swift/Method/setPolarMonitor(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)setPolarMonitor:">setPolarMonitor(_:)</a>
+                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)setPolarMonitor:">setPolarMonitor(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1028,7 +1118,7 @@ whenever the user double-taps on the joystick handle.</p>
                     <code>
                     <a name="/c:@CM@JoyStickView@objc(cs)JoyStickView(im)setXYMonitor:"></a>
                     <a name="//apple_ref/swift/Method/setXYMonitor(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)setXYMonitor:">setXYMonitor(_:)</a>
+                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)setXYMonitor:">setXYMonitor(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1056,8 +1146,8 @@ whenever the user double-taps on the joystick handle.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://github.com/bradhowes/Joystick" target="_blank" rel="external">bradhowes</a>. All rights reserved. (Last updated: 2020-08-20)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2021 <a class="link" href="https://github.com/bradhowes/Joystick" target="_blank" rel="external">bradhowes</a>. All rights reserved. (Last updated: 2021-08-12)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
