@@ -25,7 +25,7 @@ public struct JoyStickViewXYReport {
  
     /// Convert this report into polar format
     public var polar: JoyStickViewPolarReport {
-        return JoyStickViewPolarReport(angle: (180.0 - atan2(x, -y) * 180.0 / .pi), displacement: sqrt(x * x + y * y))
+        return .init(angle: (180.0 - atan2(x, -y) * 180.0 / .pi), displacement: sqrt(x * x + y * y))
     }
 }
 
@@ -53,7 +53,7 @@ public struct JoyStickViewPolarReport {
     /// Convert this report into XY format
     public var rectangular: JoyStickViewXYReport {
         let rads = angle * .pi / 180.0
-        return JoyStickViewXYReport(x: sin(rads) * displacement, y: cos(rads) * displacement)
+        return .init(x: sin(rads) * displacement, y: cos(rads) * displacement)
     }
 }
 
