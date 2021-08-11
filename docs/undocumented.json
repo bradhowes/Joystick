@@ -1,26 +1,6 @@
 {
   "warnings": [
-    {
-      "file": "/Users/howes/src/Mine/Joystick/JoyStickView/Src/JoyStickView.swift",
-      "line": 245,
-      "symbol": "JoyStickView.emitSingleTap()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/howes/src/Mine/Joystick/JoyStickView/Src/JoyStickView.swift",
-      "line": 508,
-      "symbol": "JoyStickView.setPolarMonitor(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/howes/src/Mine/Joystick/JoyStickView/Src/JoyStickView.swift",
-      "line": 513,
-      "symbol": "JoyStickView.setXYMonitor(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    }
+
   ],
   "source_directory": "/Users/howes/src/Mine/Joystick"
 }

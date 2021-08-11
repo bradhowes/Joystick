@@ -241,10 +241,6 @@ extension JoyStickView {
         guard let movableCenter = self.movableCenter, displacement < 0.5 else { return }
         center = movableCenter
     }
-
-    @objc public func emitSingleTap() {
-        tappedBlock?()
-    }
 }
 
 // MARK: - Implementation Details
@@ -287,6 +283,10 @@ extension JoyStickView {
     private func scaleHandleImageView() {
         let inset = (1.0 - handleSizeRatio) * bounds.width / 2.0
         handleImageView.frame = bounds.insetBy(dx: inset, dy: inset)
+    }
+
+    @objc private func emitSingleTap() {
+        tappedBlock?()
     }
 
     /**
@@ -505,11 +505,23 @@ extension JoyStickView {
  */
 extension JoyStickView {
 
+    /**
+     Install an Obj-C block that will receive the polar coordinates of the joystick.
+
+     - parameter block: the block to install. It must expect two CGFloat values, first being the angle, and the second
+     being the displacement
+     */
     @objc public func setPolarMonitor(_ block: @escaping (CGFloat, CGFloat) -> Void) {
         let bridge = {(report: JoyStickViewPolarReport) in block(report.angle, report.displacement) }
         monitor = .polar(monitor: bridge)
     }
 
+    /**
+     Install an Obj-C block that will receive the XY unit coordinates of the joystick.
+
+     - parameter block: the block to install. It must expect two CGFloat values, first being the X unit coordinate, and
+     the second being the Y unit coordinate.
+     */
     @objc public func setXYMonitor(_ block: @escaping (CGFloat, CGFloat) -> Void) {
         let bridge = {(report: JoyStickViewXYReport) in block(report.x, report.y) }
         monitor = .xy(monitor: bridge)
