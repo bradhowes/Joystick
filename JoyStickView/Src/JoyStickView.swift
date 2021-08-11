@@ -21,7 +21,7 @@ import CoreGraphics
  - movableBounds: a CGRect which limits where a movable joystick may travel
  - baseImage: a UIImage to use for the joystick's base
  - handleImage: a UIImage to use for the joystick's handle
- 
+
  Additional documentation is available via the attribute names below.
  */
 @IBDesignable public final class JoyStickView: UIView {
@@ -29,10 +29,10 @@ import CoreGraphics
     /// Optional monitor which will receive updates as the joystick position changes. Supports polar and cartesian
     /// reporting. The function to call with a position report is held in the enumeration value.
     public var monitor: JoyStickViewMonitorKind = .none
-    
-    /// Optional block to be called upon a tap
-    public var tappedBlock: (() -> Void)?
-    
+
+    /// Optional block to be called upon a tap.
+    public var tappedBlock: (() -> Void)? { didSet { installSingleTapGestureRecognizer() } }
+
     /// Optional rectangular region that restricts where the handle may move. The region should be defined in
     /// this view's coordinates. For instance, to constrain the handle in the Y direction with a UIView of size 100x100,
     /// use `CGRect(x: 50, y: 0, width: 1, height: 100)`
@@ -40,8 +40,8 @@ import CoreGraphics
         didSet {
             switch handleConstraint {
             case .some(let hc):
-                handleCenterClamper = { CGPoint(x: min(max($0.x, hc.minX), hc.maxX),
-                                                y: min(max($0.y, hc.minY), hc.maxY)) }
+                handleCenterClamper = { .init(x: min(max($0.x, hc.minX), hc.maxX),
+                                              y: min(max($0.y, hc.minY), hc.maxY)) }
             default:
                 handleCenterClamper = { $0 }
             }
@@ -51,7 +51,7 @@ import CoreGraphics
     /// The last-reported angle from the joystick handle. Unit is degrees, with 0° up (north) and 90° right (east).
     /// Note that this assumes that `angleRadians` was calculated with atan2(dx, dy) and that dy is positive when
     /// pointing down.
-    public var angle: CGFloat { return displacement != 0.0 ? 180.0 - angleRadians * 180.0 / .pi : 0.0 }
+    public var angle: CGFloat { displacement != 0.0 ? 180.0 - angleRadians * 180.0 / .pi : 0.0 }
 
     /// The last-reported displacement from the joystick handle. Dimensionless but is the ratio of movement over
     /// the radius of the joystick base. Always falls between 0.0 and 1.0
@@ -70,8 +70,8 @@ import CoreGraphics
         didSet {
             switch movableBounds {
             case .some(let mb):
-                baseCenterClamper = { CGPoint(x: min(max($0.x, mb.minX), mb.maxX),
-                                              y: min(max($0.y, mb.minY), mb.maxY)) }
+                baseCenterClamper = { .init(x: min(max($0.x, mb.minX), mb.maxX),
+                                            y: min(max($0.y, mb.minY), mb.maxY)) }
             default:
                 baseCenterClamper = { $0 }
             }
@@ -81,45 +81,29 @@ import CoreGraphics
     /// The opacity of the base of the joystick. Note that this is different than the view's overall opacity
     /// setting. The end result will be a base image with an opacity of `baseAlpha` * `view.alpha`
     @IBInspectable public var baseAlpha: CGFloat {
-        get {
-            return baseImageView.alpha
-        }
-        set {
-            baseImageView.alpha = newValue
-        }
+        get { baseImageView.alpha }
+        set { baseImageView.alpha = newValue }
     }
 
     /// The opacity of the handle of the joystick. Note that this is different than the view's overall opacity setting.
     /// The end result will be a handle image with an opacity of `handleAlpha` * `view.alpha`
     @IBInspectable public var handleAlpha: CGFloat {
-        get {
-            return handleImageView.alpha
-        }
-        set {
-            handleImageView.alpha = newValue
-        }
+        get { handleImageView.alpha }
+        set { handleImageView.alpha = newValue }
     }
 
     /// The tintColor to apply to the handle. Changing it while joystick is visible will update the handle image.
-    @IBInspectable public var handleTintColor: UIColor? = nil {
-        didSet { generateHandleImage() }
-    }
+    @IBInspectable public var handleTintColor: UIColor? = nil { didSet { generateHandleImage() } }
 
     /// Scaling factor to apply to the joystick handle. A value of 1.0 will result in no scaling of the image,
     /// however the default value is 0.85 due to historical reasons.
-    @IBInspectable public var handleSizeRatio: CGFloat = 0.85 {
-        didSet {
-            scaleHandleImageView()
-        }
-    }
+    @IBInspectable public var handleSizeRatio: CGFloat = 0.85 { didSet { scaleHandleImageView() } }
 
     /// Control how the handle image is generated. When this is `false` (default), a CIFilter will be used to tint
     /// the handle image with the `handleTintColor`. This results in a monochrome image of just one color, but with
     /// lighter and darker areas depending on the original image. When this is `true`, the handle image is just
     /// used as a mask, and all pixels with an alpha = 1.0 will be colored with the `handleTintColor` value.
-    @IBInspectable public var colorFillHandleImage: Bool = false {
-        didSet { generateHandleImage() }
-    }
+    @IBInspectable public var colorFillHandleImage: Bool = false { didSet { generateHandleImage() } }
 
     /// Controls how far the handle can travel along the radius of the base. A value of 1.0 (default) will let the
     /// handle travel the full radius, with maximum travel leaving the center of the handle lying on the circumference
@@ -129,21 +113,17 @@ import CoreGraphics
     @IBInspectable public var travel: CGFloat = 1.0
 
     /// The image to use for the base of the joystick
-    @IBInspectable public var baseImage: UIImage? {
-        didSet { baseImageView.image = baseImage }
-    }
+    @IBInspectable public var baseImage: UIImage? { didSet { baseImageView.image = baseImage } }
 
     /// The image to use for the joystick handle
-    @IBInspectable public var handleImage: UIImage? {
-        didSet { generateHandleImage() }
-    }
+    @IBInspectable public var handleImage: UIImage? { didSet { generateHandleImage() } }
 
     /// Control whether view will recognize a double-tap gesture and move the joystick base to its original location
     /// when it happens. Note that this is only useful if `moveable` is true.
     @IBInspectable public var enableDoubleTapForFrameReset = true {
         didSet {
-            if let dtgr = doubleTapGestureRecognizer {
-                removeGestureRecognizer(dtgr)
+            if let gestureRecognizer = doubleTapGestureRecognizer {
+                removeGestureRecognizer(gestureRecognizer)
                 doubleTapGestureRecognizer = nil
             }
             if enableDoubleTapForFrameReset {
@@ -152,10 +132,15 @@ import CoreGraphics
         }
     }
 
+    /// Delay after tap before reporting out joystick position. This is only active if `tappedBlock` is not nil. It is
+    /// useful when using `tappedBlock` to perform some operation and joystick movement reports would be a nuisance to
+    /// ignore.
+    public var delayBeforeReporting: TimeInterval = 0.3
+
     /// The max distance the handle may move in any direction, where the start is the center of the joystick base and
     /// the end is on the circumference of the base when travel is 1.0.
-    private var radius: CGFloat { return self.bounds.size.width / 2.0 * travel }
-    
+    private var radius: CGFloat { self.bounds.size.width / 2.0 * travel }
+
     /// The image to use to show the base of the joystick
     private var baseImageView: UIImageView = UIImageView(image: nil)
 
@@ -165,18 +150,21 @@ import CoreGraphics
     /// Cache of the last joystick angle in radians
     private var angleRadians: CGFloat = 0.0
 
-    /// Tap gesture recognizer for double-taps which will reset the joystick position
-    private var tapGestureRecognizer: UITapGestureRecognizer?
-
     /// A filter for joystick base centers. Used to restrict base movements.
     private var baseCenterClamper: (CGPoint) -> CGPoint = { $0 }
 
     /// A filter for joystick handle centers. Used to restrict handle movements.
     private var handleCenterClamper: (CGPoint) -> CGPoint = { $0 }
 
-    /// Tap gesture recognizer for detecting double-taps. Only present if `enableDoubleTapForFrameReset` is true
+    /// Tap gesture recognizer for detecting single-taps. Only present if `tappedBlock` is not nil
+    private var singleTapGestureRecognizer: UITapGestureRecognizer?
+
+    /// Tap gesture recognizer for detecting double-taps. Only present if `enableSingleTapForFrameReset` is true
     private var doubleTapGestureRecognizer: UITapGestureRecognizer?
-    
+
+    ///
+    private var tapStart: TimeInterval = 0.0
+
     /**
      Initialize new joystick view using the given frame.
      - parameter frame: the location and size of the joystick
@@ -204,48 +192,26 @@ import CoreGraphics
 
 // MARK: - Touch Handling
 
-/**
- Main recognizer for movement
- 
-    We use a recognizer rather than the view's own touch handler methods as there is an iOS quirk
-    that delays the touchesEnded method. This quirk doesn't apply to gesture recognizers.
- */
-class JoyStickViewGestureRecognizer: UIGestureRecognizer {
-    private var touch: UITouch?
-    private var firstTimestamp: TimeInterval?
-    private var lastTimestamp: TimeInterval?
-    private var firstLocation: CGPoint?
-    private var lastLocation: CGPoint?
-    
-    public var wasTap: Bool {
-        get {
-            if let start = firstTimestamp, let end = lastTimestamp, let startPoint = firstLocation, let lastPoint = lastLocation {
-                return end - start < 0.1 && max(abs(startPoint.x-lastPoint.x), abs(startPoint.y-lastPoint.y)) < 2
-            }
-            return false
-        }
-    }
-    
+extension JoyStickView {
     /**
      A touch began in the joystick view
      - parameter touches: the set of UITouch instances, one for each touch event
      - parameter event: additional event info (ignored)
      */
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        touch = touches.first
-        firstTimestamp = touch?.timestamp
-        firstLocation = touch?.location(in: nil)
-        state = .began
+        guard let touch = touches.first else { return }
+        tapStart = touch.timestamp
+        updatePosition(touch: touch)
     }
-    
+
     /**
      An existing touch has moved.
      - parameter touches: the set of UITouch instances, one for each touch event
      - parameter event: additional event info (ignored)
      */
     public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        lastLocation = touch?.location(in: nil)
-        state = .changed
+        guard let touch = touches.first else { return }
+        updatePosition(touch: touch)
     }
 
     /**
@@ -255,9 +221,7 @@ class JoyStickViewGestureRecognizer: UIGestureRecognizer {
      - parameter event: additional event info (ignored)
      */
     public override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        lastTimestamp = touch?.timestamp
-        lastLocation = touch?.location(in: nil)
-        state = .ended
+        homePosition()
     }
 
     /**
@@ -266,53 +230,9 @@ class JoyStickViewGestureRecognizer: UIGestureRecognizer {
      - parameter event: additional event info (ignored)
      */
     public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        lastTimestamp = touch?.timestamp
-        lastLocation = touch?.location(in: nil)
-        state = .ended
+        homePosition()
     }
-    
-    /**
-     Clear state
-     */
-    public override func reset() {
-        touch = nil
-        firstTimestamp = nil
-        lastTimestamp = nil
-        firstLocation = nil
-        lastLocation = nil
-    }
-    
-    /**
-     Get touch location
-     - parameter view: the view in which to return location coordinates
-     */
-    public override func location(in view: UIView?) -> CGPoint {
-        guard touch != nil else { return .zero }
-        return touch!.location(in: view)
-    }
-    
-    /**
-     Get touch offset
-     - parameter view: the view in which to return offset coordinates
-     */
-    public func offset(in view: UIView?) -> CGVector {
-        guard let last = lastLocation, let first = firstLocation else { return .zero }
-        return last - first
-    }
-}
 
-extension JoyStickView {
-    @objc private func gestureRecognizerChanged(recognizer: JoyStickViewGestureRecognizer) {
-        if recognizer.state == .began || recognizer.state == .changed {
-            handleMovement(location: recognizer.location(in: superview!), delta: recognizer.offset(in: superview!))
-        } else if recognizer.state == .ended {
-            homePosition()
-            if recognizer.wasTap, let block = tappedBlock {
-                block()
-            }
-        }
-    }
-    
     /**
      Reset our base to the initial location before the user moved it. By default, this will take place
      whenever the user double-taps on the joystick handle.
@@ -321,12 +241,16 @@ extension JoyStickView {
         guard let movableCenter = self.movableCenter, displacement < 0.5 else { return }
         center = movableCenter
     }
+
+    @objc public func emitSingleTap() {
+        tappedBlock?()
+    }
 }
 
 // MARK: - Implementation Details
 
 extension JoyStickView {
-    
+
     /**
      Common initialization of view. Creates UIImageView instances for base and handle.
      */
@@ -352,11 +276,9 @@ extension JoyStickView {
                 self.handleImage = handleImage
             }
         }
-        
+
         generateHandleImage()
-        
-        addGestureRecognizer(JoyStickViewGestureRecognizer(target: self, action: #selector(gestureRecognizerChanged)))
-        
+
         if enableDoubleTapForFrameReset {
             installDoubleTapGestureRecognizer()
         }
@@ -366,14 +288,50 @@ extension JoyStickView {
         let inset = (1.0 - handleSizeRatio) * bounds.width / 2.0
         handleImageView.frame = bounds.insetBy(dx: inset, dy: inset)
     }
-    
+
     /**
-     Install a UITapGestureRecognizer to detect and process double-tap activity on the joystick.
+     Install a UITapGestureRecognizer to detect and process single-tap activity on the joystick. If there is a
+     double-tap gesture installed, establish failure dependency so that both will work.
+     */
+    private func installSingleTapGestureRecognizer() {
+        if let gestureRecognizer = singleTapGestureRecognizer {
+            removeGestureRecognizer(gestureRecognizer)
+            singleTapGestureRecognizer = nil
+        }
+
+        if tappedBlock != nil {
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(emitSingleTap))
+            singleTapGestureRecognizer = tapGestureRecognizer
+            tapGestureRecognizer.numberOfTapsRequired = 1
+            tapGestureRecognizer.delaysTouchesEnded = false
+            addGestureRecognizer(tapGestureRecognizer)
+
+            if let doubleTapGestureRecognizer = self.doubleTapGestureRecognizer {
+                tapGestureRecognizer.require(toFail: doubleTapGestureRecognizer)
+            }
+        }
+    }
+
+    /**
+     Install a UITapGestureRecognizer to detect and process double-tap activity on the joystick. If there is a
+     single-tap gesture installed, establish failure dependency so that both will work.
      */
     private func installDoubleTapGestureRecognizer() {
-        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(resetFrame))
-        tapGestureRecognizer!.numberOfTapsRequired = 2
-        addGestureRecognizer(tapGestureRecognizer!)
+        if let gestureRecognizer = doubleTapGestureRecognizer {
+            removeGestureRecognizer(gestureRecognizer)
+            doubleTapGestureRecognizer = nil
+        }
+
+        if enableDoubleTapForFrameReset {
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(resetFrame))
+            tapGestureRecognizer.numberOfTapsRequired = 2
+            tapGestureRecognizer.delaysTouchesEnded = false
+            addGestureRecognizer(tapGestureRecognizer)
+
+            if let singleTapGestureRecognizer = self.singleTapGestureRecognizer {
+                singleTapGestureRecognizer.require(toFail: tapGestureRecognizer)
+            }
+        }
     }
 
     private func generateHandleImage() {
@@ -384,7 +342,7 @@ extension JoyStickView {
             tintHandleImage()
         }
     }
-    
+
     /**
      Generate a handle image by applying the `handleTintColor` value to the handeImage
      */
@@ -400,7 +358,7 @@ extension JoyStickView {
             handleImageView.image = handleImage
         }
     }
-    
+
     private func tintHandleImage() {
         guard let handleImage = self.handleImage else { return }
 
@@ -412,7 +370,7 @@ extension JoyStickView {
         guard let inputImage = CIImage(image: handleImage) else {
             fatalError("failed to create input CIImage")
         }
-        
+
         let filterConfig: [String:Any] = [kCIInputIntensityKey: 1.0,
                                           kCIInputColorKey: CIColor(color: handleTintColor),
                                           kCIInputImageKey: inputImage]
@@ -425,11 +383,11 @@ extension JoyStickView {
             fatalError("failed to create CIFilter CIColorMonochrome")
         }
         #endif
-        
+
         guard let outputImage = filter.outputImage else {
             fatalError("failed to obtain output CIImage")
         }
-        
+
         handleImageView.image = UIImage(ciImage: outputImage)
     }
 
@@ -440,16 +398,17 @@ extension JoyStickView {
         handleImageView.center = bounds.mid
         reportPosition()
     }
-    
+
     /**
-     Handle joystick movement. Resulting behavior depends on `movable` setting.
-     - parameter location: the current handle position, in coordinates of the superview
-     - parameter delta: the current touch offset, in coordinates of the superview
+     Update the handle position based on the current touch location.
+     - parameter touch: the UITouch instance describing where the finger/pencil is
      */
-    private func handleMovement(location: CGPoint, delta: CGVector) {
+    private func updatePosition(touch: UITouch) {
         guard let superview = self.superview else { return }
+        let location = touch.location(in: superview)
         guard superview.bounds.contains(location) else { return }
 
+        let delta = location - frame.mid
         let newDisplacement = delta.magnitude / radius
 
         // Calculate pointing angle used displacements. NOTE: using this ordering of dx, dy to atan2f to obtain
@@ -473,7 +432,9 @@ extension JoyStickView {
             handleImageView.center = handleCenterClamper(bounds.mid + delta)
         }
 
-        reportPosition()
+        if tappedBlock == nil || ProcessInfo.processInfo.systemUptime >= tapStart + delayBeforeReporting {
+            reportPosition()
+        }
     }
 
     /**
@@ -486,20 +447,20 @@ extension JoyStickView {
 
         self.displacement = displacement
         self.angleRadians = angleRadians
-            
+
         switch monitor {
         case let .polar(monitor): monitor(JoyStickViewPolarReport(angle: self.angle, displacement: displacement))
         case let .xy(monitor): monitor(JoyStickViewXYReport(x: delta.dx, y: -delta.dy))
         case .none: break
         }
     }
-    
+
     /**
-     Move the base so that the handle displacement is <= 1.0 from the base. THe last step of this operation is
+     Move the base so that the handle displacement is `<=` 1.0 from the base. The last step of this operation is
      a clamping of the base origin so that it stays within a configured boundary. Such clamping can result in
-     a joystick handle whose displacement is > 1.0 from the base, so the caller should account for that by looking
+     a joystick handle whose displacement is `>` 1.0 from the base, so the caller should account for that by looking
      for a `true` return value.
-    
+
      - parameter location: the current joystick handle center position
      - parameter angle: the angle the handle makes with the center of the base
      - returns: true if the base **cannot** move sufficiently to keep the displacement of the handle <= 1.0
@@ -523,7 +484,7 @@ extension JoyStickView {
     /**
      Move the joystick handle so that the angle made up of the triangle from the base 12:00 position on its
      circumference, the base center and the joystick center is the given value.
-    
+
      - parameter angle: the angle (radians) to conform to
      */
     private func repositionHandle(angle: CGFloat) {
@@ -532,9 +493,9 @@ extension JoyStickView {
         //
         let x = sin(angle) * radius
         let y = cos(angle) * radius
-        handleImageView.frame.origin = CGPoint(x: x + bounds.midX - handleImageView.bounds.size.width / 2.0,
-                                               y: y + bounds.midY - handleImageView.bounds.size.height / 2.0)
-        
+        handleImageView.frame.origin = .init(x: x + bounds.midX - handleImageView.bounds.size.width / 2.0,
+                                             y: y + bounds.midY - handleImageView.bounds.size.height / 2.0)
+
         handleImageView.center = handleCenterClamper(handleImageView.center)
     }
 }

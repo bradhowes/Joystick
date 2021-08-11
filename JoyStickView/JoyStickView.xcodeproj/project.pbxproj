@@ -103,11 +103,11 @@
 		BDCA4095215A3AEE00578F67 /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				BDA7F8E7218B1DE400A9AB5B /* Bundle+Additions.swift */,
 				BDCA40A0215A3B3700578F67 /* CoreGraphics+Additions.swift */,
 				BDCA409E215A3B3700578F67 /* JoyStickView.swift */,
-				BDCA4096215A3AEE00578F67 /* JoyStickView.h */,
 				BDBB51B9220ADE1E00C579B2 /* JoyStickViewMonitor.swift */,
-				BDA7F8E7218B1DE400A9AB5B /* Bundle+Additions.swift */,
+				BDCA4096215A3AEE00578F67 /* JoyStickView.h */,
 			);
 			path = Src;
 			sourceTree = "<group>";

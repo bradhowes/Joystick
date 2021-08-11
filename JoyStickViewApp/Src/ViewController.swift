@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var magnitude: UILabel!
     @IBOutlet weak var theta: UILabel!
+    @IBOutlet weak var fired: UILabel!
     @IBOutlet weak var constraint: UIView!
     @IBOutlet weak var joystick3: JoyStickView!
 
@@ -27,11 +28,20 @@ class ViewController: UIViewController {
             }
         }
 
+        fired.text = ""
+
         joystick1 = makeJoystick(tintColor: UIColor.green, monitor: monitor)
         joystick1.movable = false
         joystick1.travel = 1.25
         joystick1.accessibilityLabel = "leftJoystick"
-        
+        joystick1.enableDoubleTapForFrameReset = false
+        joystick1.tappedBlock = {
+            self.fired.text = "Fired!"
+            Timer.scheduledTimer(withTimeInterval: TimeInterval(1.25), repeats: false) { timer in
+                self.fired.text = ""
+            }
+        }
+
         joystick2 = makeJoystick(tintColor: UIColor.magenta, monitor: monitor)
 
         // Show that we can customize the image shown in the view.

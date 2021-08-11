@@ -24,7 +24,8 @@ class JoyStickView_AppUITests: XCTestCase {
         // Press on the joystick and then drag it `dx/dy` points
         //
         let start = center(of: joystick)
-        start.press(forDuration: 0.1, thenDragTo: start.withOffset(CGVector(dx: dx, dy: dy)), withVelocity: .default, thenHoldForDuration: 0.25)
+        start.press(forDuration: 0.3, thenDragTo: start.withOffset(CGVector(dx: dx, dy: dy)), withVelocity: .default,
+                    thenHoldForDuration: 0.3)
 
         // Make sure that joystick report what we expect in displacement and angle
         //
@@ -68,6 +69,41 @@ class JoyStickView_AppUITests: XCTestCase {
         let dispLabel = app.staticTexts["disp"]
         let angleLabel = app.staticTexts["angle"]
         
+        // Move a large enough amount to move the base up.
+        //
+        let start = center(of: joystick)
+        start.press(forDuration: 0.25, thenDragTo: start.withOffset(CGVector(dx: 0.0, dy: -100.0)), withVelocity: .fast, thenHoldForDuration: 0.25)
+
+        XCTAssertEqual(Float(dispLabel.label)!, 1.0, accuracy: 0.001)
+        XCTAssertEqual(Float(angleLabel.label)!, 0.0, accuracy: 0.001)
+
+        XCTAssertNotEqual(origin, joystick.frame)
+        XCTAssertEqual(joystick.frame.origin.x, origin.origin.x, accuracy: 1.0)
+        XCTAssertNotEqual(joystick.frame.origin.y, origin.origin.y, accuracy: 1.0)
+
+        // Now double-tap to move back
+        //
+        let start2 = center(of: joystick)
+        start2.press(forDuration: 0.1)
+        start2.press(forDuration: 0.1)
+        XCTAssertEqual(origin, joystick.frame)
+
+        // Move to the left and make sure that joystick is constrained by the bounds
+        //
+        start.press(forDuration: 0.1, thenDragTo: start.withOffset(CGVector(dx: -400.0, dy: 0.0)))
+        XCTAssertNotEqual(origin, joystick.frame)
+        XCTAssertNotEqual(joystick.frame.origin.x, origin.origin.x - 400 + 44, accuracy: 1.0)
+        XCTAssertEqual(joystick.frame.origin.y, origin.origin.y, accuracy: 1.0)
+    }
+
+    func testTappable() {
+
+        let app = XCUIApplication()
+        let joystick = app.otherElements["rightJoystick"]
+        let origin = joystick.frame
+        let dispLabel = app.staticTexts["disp"]
+        let angleLabel = app.staticTexts["angle"]
+
         // Move a large enough amount to move the base up.
         //
         let start = center(of: joystick)
