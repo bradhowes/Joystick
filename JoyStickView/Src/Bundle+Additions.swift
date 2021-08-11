@@ -13,6 +13,6 @@ extension Bundle {
      */
     func podResource(name: String) -> Bundle {
         guard let bundleUrl = self.url(forResource: name, withExtension: "bundle") else { return self }
-        return .init(url: bundleUrl) ?? self
+        return Bundle(url: bundleUrl) ?? self
     }
 }
