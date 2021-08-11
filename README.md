@@ -32,7 +32,9 @@ joystick.monitor = .polar(monitor: monitor2)
 
 There is also support (3.0.1) for using an Objective-C block as a monitor, with a slight reduction in type
 safety. The `setPolarMonitor` and `setXYMonitor` both take a closure that accepts two `CGFloat` arguments and
-returns no value. Objective-C blocks can be used as well as Swift closures in these methods.
+returns no value. Objective-C blocks can be used as well as Swift closures in these methods. Since 3.1.0, there is also
+a `tappedBlock` attribute which one can use to receive a notification when the user just taps on the joystick handle. Note that when this property is not nil,
+there is a 0.3 second delay before one will receive handle position reports. This delay value is configurable via the `delayBeforeReporting` property.
 
 The view supports an option ([movable](https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L57)) where the view will move when the user moves the handle to a
 displacement beyond 1.0. This can be useful when the initial position of the joystick in an app is not ideal for
@@ -61,6 +63,7 @@ Here are some additional configurable features of the JoyStickView:
 
 # Releases
 
+* v3.1.0 -- Added `tappedBlock` property (thanks to @michaeltyson)
 * v3.0.2 -- Fixed too much scaling in `scaleHandleImageView`
 * v3.0.1 -- Added support for Obj-C monitor blocks
 * v3.0.0 -- Swift 5 (no code changes, only Xcode configury)
