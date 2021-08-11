@@ -63,7 +63,7 @@ Here are some additional configurable features of the JoyStickView:
 
 # Releases
 
-* v3.1.0 -- Added `tappedBlock` property (thanks to @michaeltyson)
+* v3.1.0 -- Added `tappedBlock` property (thanks to [Michael Tyson](https://github.com/michaeltyson))
 * v3.0.2 -- Fixed too much scaling in `scaleHandleImageView`
 * v3.0.1 -- Added support for Obj-C monitor blocks
 * v3.0.0 -- Swift 5 (no code changes, only Xcode configury)
