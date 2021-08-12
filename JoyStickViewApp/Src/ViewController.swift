@@ -1,4 +1,4 @@
-// Copyright © 2020 Bradl Howes. All rights reserved.
+// Copyright © 2020 Brad Howes. All rights reserved.
 
 import UIKit
 import JoyStickView
@@ -7,16 +7,16 @@ class ViewController: UIViewController {
     let joystickOffset: CGFloat = 60.0
     let joystickSpan: CGFloat = 80.0
 
-    var joystick1: JoyStickView!
-    var joystick2: JoyStickView!
-    
+    var joystickGreen: JoyStickView!
+    var joystickStar: JoyStickView!
+    var joystickPointy: JoyStickView!
+
     @IBOutlet weak var magnitude: UILabel!
     @IBOutlet weak var theta: UILabel!
     @IBOutlet weak var fired: UILabel!
     @IBOutlet weak var constraint: UIView!
-    @IBOutlet weak var joystick3: JoyStickView!
-
-    var joystick4: JoyStickView!
+    @IBOutlet weak var joystickStoryboard: JoyStickView!
+    @IBOutlet weak var relativeMode: UISwitch!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,29 +30,41 @@ class ViewController: UIViewController {
 
         fired.text = ""
 
-        joystick1 = makeJoystick(tintColor: UIColor.green, monitor: monitor)
-        joystick1.movable = false
-        joystick1.travel = 1.25
-        joystick1.accessibilityLabel = "leftJoystick"
-        joystick1.enableDoubleTapForFrameReset = false
-        joystick1.tappedBlock = {
+        joystickStoryboard.monitor = .polar(monitor: monitor)
+
+        joystickGreen = makeJoystick(tintColor: UIColor.green, monitor: monitor)
+        joystickGreen.movable = false
+        joystickGreen.travel = 1.25
+        joystickGreen.accessibilityLabel = "leftJoystick"
+        joystickGreen.enableDoubleTapForFrameReset = false
+        joystickGreen.tappedBlock = {
             self.fired.text = "Fired!"
             Timer.scheduledTimer(withTimeInterval: TimeInterval(1.25), repeats: false) { timer in
                 self.fired.text = ""
             }
         }
 
-        joystick2 = makeJoystick(tintColor: UIColor.magenta, monitor: monitor)
+        joystickStar = makeJoystick(tintColor: UIColor.magenta, monitor: monitor)
 
         // Show that we can customize the image shown in the view.
         let customImage = UIImage(named: "StarHandle")
-        joystick2.movable = true
-        joystick2.handleImage = customImage
-        joystick2.handleSizeRatio = 1.0
-        joystick2.accessibilityLabel = "rightJoystick"
-        joystick2.handleConstraint = CGRect(origin: CGPoint(x: 40, y: 0), size: CGSize(width: 0, height: 100))
+        joystickStar.movable = true
+        joystickStar.handleImage = customImage
+        joystickStar.handleSizeRatio = 1.0
+        joystickStar.accessibilityLabel = "rightJoystick"
+        joystickStar.handleConstraint = CGRect(origin: CGPoint(x: 40, y: 0), size: CGSize(width: 0, height: 100))
 
-        joystick3 = makePointyJoystick(tintColor: UIColor.systemTeal)
+        joystickPointy = makePointyJoystick(tintColor: UIColor.systemTeal, monitor: monitor)
+
+        relativeModeChanged(relativeMode)
+    }
+
+    @IBAction func relativeModeChanged(_ sender: UISwitch) {
+        let mode: JoyStickView.HandlePositionMode = sender.isOn ? .relative : .absolute
+        joystickStoryboard.handlePositionMode = mode
+        joystickGreen.handlePositionMode = mode
+        joystickStar.handlePositionMode = mode
+        joystickPointy.handlePositionMode = mode
     }
 
     private func makeJoystick(tintColor: UIColor, monitor: @escaping JoyStickViewPolarMonitor) -> JoyStickView {
@@ -67,14 +79,14 @@ class ViewController: UIViewController {
         return joystick
     }
 
-    private func makePointyJoystick(tintColor: UIColor) -> JoyStickView {
+    private func makePointyJoystick(tintColor: UIColor, monitor: @escaping JoyStickViewPolarMonitor) -> JoyStickView {
         let frame = CGRect(origin: CGPoint(x: 0.0, y: 0.0), size: CGSize(width: 150, height: 150))
         let joystick = JoyStickView(frame: frame)
         guard let pointyBase = UIImage(named: "PointedBase") else { fatalError() }
         guard let defaultBase = UIImage(named: "UnpointedBase") else { fatalError() }
         view.addSubview(joystick)
 
-        let monitor: (JoyStickViewPolarReport) -> Void = { value in
+        let innerMonitor: (JoyStickViewPolarReport) -> Void = { value in
             if value.displacement < 0.1 {
                 joystick.baseImage = defaultBase
                 return
@@ -82,10 +94,12 @@ class ViewController: UIViewController {
 
             let rotation = value.angle * CGFloat.pi / 180.0
             joystick.baseImage = pointyBase.rotate(radians: rotation)
+
+            monitor(value)
         }
 
         joystick.baseImage = defaultBase
-        joystick.monitor = .polar(monitor: monitor)
+        joystick.monitor = .polar(monitor: innerMonitor)
         joystick.alpha = 1.0
         joystick.baseAlpha = 0.5
         joystick.handleSizeRatio = 0.5
@@ -103,15 +117,15 @@ class ViewController: UIViewController {
         //
         let span = joystickOffset + joystickSpan / 2.0
         let offset = CGSize(width: span, height: span)
-        joystick1.center = CGPoint(x: offset.width, y: size.height - offset.height)
+        joystickGreen.center = CGPoint(x: offset.width, y: size.height - offset.height)
 
         // Second joystick is movable, but we constrain it to the view which is colored orange.
         //
-        joystick2.movableBounds = constraint.frame
-        joystick2.movableCenter = constraint.frame.mid
-        joystick2.center = constraint.frame.mid
+        joystickStar.movableBounds = constraint.frame
+        joystickStar.movableCenter = constraint.frame.mid
+        joystickStar.center = constraint.frame.mid
 
-        joystick3.center = CGPoint(x: offset.width, y: size.height - offset.height * 3)
+        joystickPointy.center = CGPoint(x: offset.width, y: size.height - offset.height * 3)
     }
 
     override func viewDidAppear(_ animated: Bool) {

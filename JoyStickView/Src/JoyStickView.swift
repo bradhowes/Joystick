@@ -132,10 +132,21 @@ import CoreGraphics
         }
     }
 
-    /// Delay after tap before reporting out joystick position. This is only active if `tappedBlock` is not nil. It is
-    /// useful when using `tappedBlock` to perform some operation and joystick movement reports would be a nuisance to
-    /// ignore.
-    public var delayBeforeReporting: TimeInterval = 0.3
+    /**
+     Position mode for a joystick handle. The default (original) is `absolute` mode.
+     */
+    public enum HandlePositionMode {
+        /// Center of joystick handle moves to actual touch position (limited by base constraints)
+        case absolute
+        /// Center of joystick handle moves to delta between current touch position and first touch position
+        case relative
+    }
+
+    /// How the handle is moved with the initial touch
+    public var handlePositionMode: HandlePositionMode = .absolute
+
+    /// Minimum distance in either X or Y coordinate the handle must move for `handleHasMoved` to return `true`.
+    public var handleMovedTolerance: CGFloat = 2.0;
 
     /// The max distance the handle may move in any direction, where the start is the center of the joystick base and
     /// the end is on the circumference of the base when travel is 1.0.
@@ -162,8 +173,8 @@ import CoreGraphics
     /// Tap gesture recognizer for detecting double-taps. Only present if `enableSingleTapForFrameReset` is true
     private var doubleTapGestureRecognizer: UITapGestureRecognizer?
 
-    ///
-    private var tapStart: TimeInterval = 0.0
+    private var tapPosition: CGPoint = .zero
+    private var tapStartTime: TimeInterval = 0.0
 
     /**
      Initialize new joystick view using the given frame.
@@ -180,19 +191,12 @@ import CoreGraphics
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-
-    /**
-     This is the appropriate place to configure our internal views as we have our own geometry.
-     */
-    public override func layoutSubviews() {
-        super.layoutSubviews()
-        initialize()
-    }
 }
 
 // MARK: - Touch Handling
 
 extension JoyStickView {
+
     /**
      A touch began in the joystick view
      - parameter touches: the set of UITouch instances, one for each touch event
@@ -200,8 +204,7 @@ extension JoyStickView {
      */
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
-        tapStart = touch.timestamp
-        updatePosition(touch: touch)
+        updatePosition(touch: touch, initial: true)
     }
 
     /**
@@ -211,7 +214,7 @@ extension JoyStickView {
      */
     public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
-        updatePosition(touch: touch)
+        updatePosition(touch: touch, initial: false)
     }
 
     /**
@@ -246,6 +249,14 @@ extension JoyStickView {
 // MARK: - Implementation Details
 
 extension JoyStickView {
+
+    /**
+     This is the appropriate place to configure our internal views as we have our own geometry.
+     */
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        initialize()
+    }
 
     /**
      Common initialization of view. Creates UIImageView instances for base and handle.
@@ -288,6 +299,9 @@ extension JoyStickView {
     @objc private func emitSingleTap() {
         tappedBlock?()
     }
+}
+
+extension JoyStickView: UIGestureRecognizerDelegate {
 
     /**
      Install a UITapGestureRecognizer to detect and process single-tap activity on the joystick. If there is a
@@ -301,9 +315,11 @@ extension JoyStickView {
 
         if tappedBlock != nil {
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(emitSingleTap))
-            singleTapGestureRecognizer = tapGestureRecognizer
+            tapGestureRecognizer.delegate = self
             tapGestureRecognizer.numberOfTapsRequired = 1
+            tapGestureRecognizer.numberOfTouchesRequired = 1
             tapGestureRecognizer.delaysTouchesEnded = false
+            singleTapGestureRecognizer = tapGestureRecognizer
             addGestureRecognizer(tapGestureRecognizer)
 
             if let doubleTapGestureRecognizer = self.doubleTapGestureRecognizer {
@@ -324,8 +340,11 @@ extension JoyStickView {
 
         if enableDoubleTapForFrameReset {
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(resetFrame))
+            tapGestureRecognizer.delegate = self
             tapGestureRecognizer.numberOfTapsRequired = 2
+            tapGestureRecognizer.numberOfTouchesRequired = 1
             tapGestureRecognizer.delaysTouchesEnded = false
+            doubleTapGestureRecognizer = tapGestureRecognizer
             addGestureRecognizer(tapGestureRecognizer)
 
             if let singleTapGestureRecognizer = self.singleTapGestureRecognizer {
@@ -333,6 +352,26 @@ extension JoyStickView {
             }
         }
     }
+
+    public var handleHasMoved: Bool {
+        let change = handleImageView.center - bounds.mid
+        return abs(change.dx) > handleMovedTolerance || abs(change.dy) > handleMovedTolerance
+    }
+
+    /**
+     Implementation of gesture recognizer delegate method. Controls whether a gesture recognizer should continue to
+     track events. This is always the case when in absolute mode (original behavior), but in relative mode it is only
+     allowed until the handle has moved a meaningful amount.
+
+     - parameter gestureRecognizer: the gesture recognizer being queried
+     - returns: true if the gesture recognizer can continue to track events
+     */
+    public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return handlePositionMode == .absolute || !handleHasMoved
+    }
+}
+
+extension JoyStickView {
 
     private func generateHandleImage() {
         if colorFillHandleImage {
@@ -399,16 +438,28 @@ extension JoyStickView {
         reportPosition()
     }
 
+    private func calculateDelta(location: CGPoint) -> CGVector {
+        switch handlePositionMode {
+        case .absolute: return location - frame.mid
+        case .relative: return location - tapPosition
+        }
+    }
+
     /**
      Update the handle position based on the current touch location.
      - parameter touch: the UITouch instance describing where the finger/pencil is
      */
-    private func updatePosition(touch: UITouch) {
+    private func updatePosition(touch: UITouch, initial: Bool) {
         guard let superview = self.superview else { return }
         let location = touch.location(in: superview)
         guard superview.bounds.contains(location) else { return }
 
-        let delta = location - frame.mid
+        if initial {
+            tapStartTime = touch.timestamp
+            tapPosition = location
+        }
+
+        let delta = calculateDelta(location: location)
         let newDisplacement = delta.magnitude / radius
 
         // Calculate pointing angle used displacements. NOTE: using this ordering of dx, dy to atan2f to obtain
@@ -432,9 +483,7 @@ extension JoyStickView {
             handleImageView.center = handleCenterClamper(bounds.mid + delta)
         }
 
-        if tappedBlock == nil || ProcessInfo.processInfo.systemUptime >= tapStart + delayBeforeReporting {
-            reportPosition()
-        }
+        reportPosition()
     }
 
     /**

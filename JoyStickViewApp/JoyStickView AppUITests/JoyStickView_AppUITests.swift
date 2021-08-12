@@ -96,38 +96,40 @@ class JoyStickView_AppUITests: XCTestCase {
         XCTAssertEqual(joystick.frame.origin.y, origin.origin.y, accuracy: 1.0)
     }
 
-    func testTappable() {
+    func testRelativeTapped() {
 
         let app = XCUIApplication()
-        let joystick = app.otherElements["rightJoystick"]
+        let joystick = app.otherElements["leftJoystick"]
         let origin = joystick.frame
         let dispLabel = app.staticTexts["disp"]
         let angleLabel = app.staticTexts["angle"]
+        let firedLabel = app.staticTexts["fired"]
+        let relativeMode = app.switches["relativeMode"]
 
-        // Move a large enough amount to move the base up.
-        //
-        let start = center(of: joystick)
-        start.press(forDuration: 0.25, thenDragTo: start.withOffset(CGVector(dx: 0.0, dy: -100.0)), withVelocity: .fast, thenHoldForDuration: 0.25)
+        // Enable relative mode so that taps work as expected
+        relativeMode.tap()
 
-        XCTAssertEqual(Float(dispLabel.label)!, 1.0, accuracy: 0.001)
-        XCTAssertEqual(Float(angleLabel.label)!, 0.0, accuracy: 0.001)
+        XCTAssertEqual(dispLabel.label, "0.0")
+        XCTAssertEqual(angleLabel.label, "0.0")
 
-        XCTAssertNotEqual(origin, joystick.frame)
-        XCTAssertEqual(joystick.frame.origin.x, origin.origin.x, accuracy: 1.0)
-        XCTAssertNotEqual(joystick.frame.origin.y, origin.origin.y, accuracy: 1.0)
+        // Tap off-center then move. Make sure that single-tap gesture did not fire.
+        let start = center(of: joystick).withOffset(.init(dx: 30.0, dy: 5.0))
+        start.press(forDuration: 0.25, thenDragTo: start.withOffset(CGVector(dx: 10.0, dy: -10.0)), withVelocity: .slow,
+                    thenHoldForDuration: 0.25)
 
-        // Now double-tap to move back
-        //
-        let start2 = center(of: joystick)
-        start2.press(forDuration: 0.1)
-        start2.press(forDuration: 0.1)
+        XCTAssertEqual(origin, joystick.frame)
+        XCTAssertEqual(dispLabel.label, "0.255")
+        XCTAssertEqual(angleLabel.label, "45.000")
+        if firedLabel.exists {
+            XCTAssertEqual(firedLabel.label, "")
+        }
+
+        // Now just tap.
+        start.press(forDuration: 0.1)
         XCTAssertEqual(origin, joystick.frame)
 
-        // Move to the left and make sure that joystick is constrained by the bounds
-        //
-        start.press(forDuration: 0.1, thenDragTo: start.withOffset(CGVector(dx: -400.0, dy: 0.0)))
-        XCTAssertNotEqual(origin, joystick.frame)
-        XCTAssertNotEqual(joystick.frame.origin.x, origin.origin.x - 400 + 44, accuracy: 1.0)
-        XCTAssertEqual(joystick.frame.origin.y, origin.origin.y, accuracy: 1.0)
+        XCTAssertEqual(dispLabel.label, "0.255")
+        XCTAssertEqual(angleLabel.label, "45.000")
+        XCTAssertEqual(firedLabel.label, "Fired!")
     }
 }
