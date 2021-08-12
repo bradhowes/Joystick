@@ -173,7 +173,10 @@ import CoreGraphics
     /// Tap gesture recognizer for detecting double-taps. Only present if `enableSingleTapForFrameReset` is true
     private var doubleTapGestureRecognizer: UITapGestureRecognizer?
 
+    /// The position of the initial touch on the handle
     private var tapPosition: CGPoint = .zero
+
+    /// The timestamp of the initial touch on the handle
     private var tapStartTime: TimeInterval = 0.0
 
     /**
@@ -353,9 +356,11 @@ extension JoyStickView: UIGestureRecognizerDelegate {
         }
     }
 
+    /// Returns `true` if the handle has moved, where moving means the displacement in either coordinate is
+    /// `handleMovedTolerance` or greater.
     public var handleHasMoved: Bool {
         let change = handleImageView.center - bounds.mid
-        return abs(change.dx) > handleMovedTolerance || abs(change.dy) > handleMovedTolerance
+        return abs(change.dx) >= handleMovedTolerance || abs(change.dy) >= handleMovedTolerance
     }
 
     /**

@@ -17,7 +17,7 @@
     <a title="JoyStickView Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">JoyStickView 3.1.0 Docs</a> (100% documented)</p>
+        <p><a href="../index.html">JoyStickView 3.1.1 Docs</a> (100% documented)</p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Fbradhowes.github.io%2FJoystick%2Fdocsets%2FJoyStickView.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
           <form role="search" action="../search.json">
@@ -41,6 +41,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Classes/JoyStickView.html">JoyStickView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/JoyStickView/HandlePositionMode.html">– HandlePositionMode</a>
               </li>
             </ul>
           </li>
@@ -102,6 +105,7 @@
                   
                   <pre class="highlight swift"><code><span class="kd">@IBDesignable</span>
 <span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">JoyStickView</span> <span class="p">:</span> <span class="kt">UIView</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">JoyStickView</span><span class="p">:</span> <span class="kt">UIGestureRecognizerDelegate</span></code></pre>
 
                 </div>
               </div>
@@ -624,9 +628,9 @@ when it happens. Note that this is only useful if <code>moveable</code> is true.
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:12JoyStickViewAAC20delayBeforeReportingSdvp"></a>
-                    <a name="//apple_ref/swift/Property/delayBeforeReporting" class="dashAnchor"></a>
-                    <a class="token" href="#/s:12JoyStickViewAAC20delayBeforeReportingSdvp">delayBeforeReporting</a>
+                    <a name="/s:12JoyStickViewAAC18HandlePositionModeO"></a>
+                    <a name="//apple_ref/swift/Enum/HandlePositionMode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12JoyStickViewAAC18HandlePositionModeO">HandlePositionMode</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -634,16 +638,69 @@ when it happens. Note that this is only useful if <code>moveable</code> is true.
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Delay after tap before reporting out joystick position. This is only active if <code><a href="../Classes/JoyStickView.html#/s:12JoyStickViewAAC11tappedBlockyycSgvp">tappedBlock</a></code> is not nil. It is
-useful when using <code><a href="../Classes/JoyStickView.html#/s:12JoyStickViewAAC11tappedBlockyycSgvp">tappedBlock</a></code> to perform some operation and joystick movement reports would be a nuisance to
-ignore.</p>
+                        <p>Position mode for a joystick handle. The default (original) is <code>absolute</code> mode.</p>
+
+                        <a href="../Classes/JoyStickView/HandlePositionMode.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">HandlePositionMode</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12JoyStickViewAAC18handlePositionModeAB06HandleeF0Ovp"></a>
+                    <a name="//apple_ref/swift/Property/handlePositionMode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12JoyStickViewAAC18handlePositionModeAB06HandleeF0Ovp">handlePositionMode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>How the handle is moved with the initial touch</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">delayBeforeReporting</span><span class="p">:</span> <span class="kt">TimeInterval</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">handlePositionMode</span><span class="p">:</span> <span class="kt"><a href="../Classes/JoyStickView/HandlePositionMode.html">HandlePositionMode</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12JoyStickViewAAC20handleMovedTolerance12CoreGraphics7CGFloatVvp"></a>
+                    <a name="//apple_ref/swift/Property/handleMovedTolerance" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12JoyStickViewAAC20handleMovedTolerance12CoreGraphics7CGFloatVvp">handleMovedTolerance</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Minimum distance in either X or Y coordinate the handle must move for <code><a href="../Classes/JoyStickView.html#/s:12JoyStickViewAAC14handleHasMovedSbvp">handleHasMoved</a></code> to return <code>true</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">handleMovedTolerance</span><span class="p">:</span> <span class="kt">CGFloat</span></code></pre>
 
                         </div>
                       </div>
@@ -738,33 +795,6 @@ ignore.</p>
                             </tr>
                           </tbody>
                         </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@M@JoyStickView@objc(cs)JoyStickView(im)layoutSubviews"></a>
-                    <a name="//apple_ref/swift/Method/layoutSubviews()" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@JoyStickView@objc(cs)JoyStickView(im)layoutSubviews">layoutSubviews()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>This is the appropriate place to configure our internal views as we have our own geometry.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">layoutSubviews</span><span class="p">()</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -1057,6 +1087,113 @@ whenever the user double-taps on the joystick handle.</p>
                 </div>
               </div>
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@JoyStickView@objc(cs)JoyStickView(im)layoutSubviews"></a>
+                    <a name="//apple_ref/swift/Method/layoutSubviews()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)layoutSubviews">layoutSubviews()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is the appropriate place to configure our internal views as we have our own geometry.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">layoutSubviews</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12JoyStickViewAAC14handleHasMovedSbvp"></a>
+                    <a name="//apple_ref/swift/Property/handleHasMoved" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12JoyStickViewAAC14handleHasMovedSbvp">handleHasMoved</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns <code>true</code> if the handle has moved, where moving means the displacement in either coordinate is
+<code><a href="../Classes/JoyStickView.html#/s:12JoyStickViewAAC20handleMovedTolerance12CoreGraphics7CGFloatVvp">handleMovedTolerance</a></code> or greater.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">handleHasMoved</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@JoyStickView@objc(cs)JoyStickView(im)gestureRecognizerShouldBegin:"></a>
+                    <a name="//apple_ref/swift/Method/gestureRecognizerShouldBegin(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@JoyStickView@objc(cs)JoyStickView(im)gestureRecognizerShouldBegin:">gestureRecognizerShouldBegin(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Implementation of gesture recognizer delegate method. Controls whether a gesture recognizer should continue to
+track events. This is always the case when in absolute mode (original behavior), but in relative mode it is only
+allowed until the handle has moved a meaningful amount.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">gestureRecognizerShouldBegin</span><span class="p">(</span><span class="n">_</span> <span class="nv">gestureRecognizer</span><span class="p">:</span> <span class="kt">UIGestureRecognizer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>gestureRecognizer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the gesture recognizer being queried</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>true if the gesture recognizer can continue to track events</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>

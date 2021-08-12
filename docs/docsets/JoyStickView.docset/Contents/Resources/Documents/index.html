@@ -16,7 +16,7 @@
     <a title="JoyStickView  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">JoyStickView 3.1.0 Docs</a> (100% documented)</p>
+        <p><a href="index.html">JoyStickView 3.1.1 Docs</a> (100% documented)</p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Fbradhowes.github.io%2FJoystick%2Fdocsets%2FJoyStickView.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
           <form role="search" action="search.json">
@@ -40,6 +40,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Classes/JoyStickView.html">JoyStickView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/JoyStickView/HandlePositionMode.html">– HandlePositionMode</a>
               </li>
             </ul>
           </li>
@@ -98,7 +101,7 @@
             
             <p><a href="https://github.com/bradhowes/Joystick"><img src="https://github.com/bradhowes/Joystick/workflows/CI/badge.svg" alt="CI"></a>
 <a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-5.3-orange.svg?style=flat" alt="Swift 5.3"></a>
-<a href="https://cocoapods.org/pods/BRHJoyStickView"><img src="https://img.shields.io/badge/pod-3.1.0-red.svg" alt="CocoaPods"></a>
+<a href="https://cocoapods.org/pods/BRHJoyStickView"><img src="https://img.shields.io/badge/pod-3.1.1-red.svg" alt="CocoaPods"></a>
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a></p>
 <h2 id='hey-check-out-the-a-href-https-github-com-tomkidd-quake3-ios-quake3-ios-a-repo-and-others-by-a-href-https-github-com-tomkidd-tomkidd-a-he-used-this-code-for-the-movement-control-badge-of-honor-or-of-honor' class='heading'>👋 Hey! Check out the <a href="https://github.com/tomkidd/Quake3-iOS">Quake3-iOS</a> repo (and others) by <a href="https://github.com/tomkidd">tomkidd</a>. He used this code for the movement control. Badge of honor 🏅 (or 🦡 of honor).</h2>
 <h1 id='joystick' class='heading'>Joystick</h1>
@@ -165,6 +168,8 @@ location.</li>
 <h1 id='releases' class='heading'>Releases</h1>
 
 <ul>
+<li>v3.1.1 &ndash; Added <code>handlePositionMode</code> property to control how handle movements are reported. Default behavior
+is <code>.absolute</code>. New <code>.relative</code> mode offers finer control at initial touch (thanks to <a href="https://github.com/michaeltyson">Michael Tyson</a>)</li>
 <li>v3.1.0 &ndash; Added <code>tappedBlock</code> property (thanks to <a href="https://github.com/michaeltyson">Michael Tyson</a>)</li>
 <li>v3.0.2 &ndash; Fixed too much scaling in <code>scaleHandleImageView</code></li>
 <li>v3.0.1 &ndash; Added support for Obj-C monitor blocks</li>
