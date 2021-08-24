@@ -62,6 +62,7 @@ Here are some additional configurable features of the JoyStickView:
 
 # Releases
 
+* v3.1.2 -- Now usable as a Swift package
 * v3.1.1 -- Added `handlePositionMode` property to control how handle movements are reported. Default behavior
   is `.absolute`. New `.relative` mode offers finer control at initial touch (thanks to [Michael Tyson](https://github.com/michaeltyson))
 * v3.1.0 -- Added `tappedBlock` property (thanks to [Michael Tyson](https://github.com/michaeltyson))
