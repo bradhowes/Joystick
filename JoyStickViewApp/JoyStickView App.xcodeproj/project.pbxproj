@@ -8,14 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		BD521B0A218737D5001C607E /* JoyStickView_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD521B09218737D5001C607E /* JoyStickView_AppUITests.swift */; };
-		BD521B17218756BC001C607E /* JoyStickView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD521B132187538C001C607E /* JoyStickView.framework */; };
 		BD6DDB77255DAD0900292E8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD6DDB76255DAD0900292E8A /* Assets.xcassets */; };
 		BD758018215B67E600B787D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD758011215B67E600B787D2 /* Assets.xcassets */; };
 		BD75801A215B67E600B787D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD758013215B67E600B787D2 /* LaunchScreen.storyboard */; };
 		BD75801B215B67E600B787D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD758015215B67E600B787D2 /* Main.storyboard */; };
 		BDCA40B3215A427100578F67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA40B2215A427100578F67 /* AppDelegate.swift */; };
 		BDCA40B5215A427100578F67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA40B4215A427100578F67 /* ViewController.swift */; };
-		BDF8ABC526D499F20089D43B /* JoyStickView in Frameworks */ = {isa = PBXBuildFile; productRef = BDF8ABC426D499F20089D43B /* JoyStickView */; };
+		BDF8ABC726D4A3380089D43B /* JoyStickView in Frameworks */ = {isa = PBXBuildFile; productRef = BDF8ABC626D4A3380089D43B /* JoyStickView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +53,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD521B17218756BC001C607E /* JoyStickView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDF8ABC526D499F20089D43B /* JoyStickView in Frameworks */,
+				BDF8ABC726D4A3380089D43B /* JoyStickView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +166,7 @@
 			);
 			name = "JoyStickView App";
 			packageProductDependencies = (
-				BDF8ABC426D499F20089D43B /* JoyStickView */,
+				BDF8ABC626D4A3380089D43B /* JoyStickView */,
 			);
 			productName = JoyStickViewApp;
 			productReference = BDCA40AF215A427100578F67 /* JoyStickView App.app */;
@@ -524,7 +522,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BDF8ABC426D499F20089D43B /* JoyStickView */ = {
+		BDF8ABC626D4A3380089D43B /* JoyStickView */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = JoyStickView;
 		};
