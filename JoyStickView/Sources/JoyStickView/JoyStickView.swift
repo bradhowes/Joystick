@@ -179,6 +179,28 @@ import CoreGraphics
     /// The timestamp of the initial touch on the handle
     private var tapStartTime: TimeInterval = 0.0
 
+    /// Location of embedded resources
+    private lazy var resourceBundle: Bundle = {
+        #if SWIFT_PACKAGE
+
+        return Bundle.module
+
+        #else
+
+        // CocoaPods embeds the resources bundle in the framework
+        //
+        let bundle = Bundle(for: JoyStickView.self)
+        guard
+            let path = bundle.path(forResource: "BRHJoyStickView", ofType: "bundle"),
+            let embedded = Bundle(path: path)
+        else {
+            return bundle
+        }
+
+        return embedded
+        #endif
+    }()
+
     /**
      Initialize new joystick view using the given frame.
      - parameter frame: the location and size of the joystick
@@ -271,18 +293,14 @@ extension JoyStickView {
         scaleHandleImageView()
         addSubview(handleImageView)
 
-        #if SWIFT_PACKAGE
-        let bundle = Bundle.module
-        #else
-        let bundle = Bundle(for: JoyStickView.self) // for CocoaPods
-        #endif
+        let bundle = self.resourceBundle
 
         if self.baseImage == nil,
            let baseImage = UIImage(named: "DefaultBase", in: bundle, compatibleWith: nil) {
             self.baseImage = baseImage
         }
 
-        baseImageView.image = baseImage
+        baseImageView.image = self.baseImage
 
         if self.handleImage == nil,
            let handleImage = UIImage(named: "DefaultHandle", in: bundle, compatibleWith: nil) {

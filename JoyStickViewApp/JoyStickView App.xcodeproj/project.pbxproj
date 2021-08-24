@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BD521B0A218737D5001C607E /* JoyStickView_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD521B09218737D5001C607E /* JoyStickView_AppUITests.swift */; };
-		BD6DDB77255DAD0900292E8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD6DDB76255DAD0900292E8A /* Assets.xcassets */; };
 		BD758018215B67E600B787D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD758011215B67E600B787D2 /* Assets.xcassets */; };
 		BD75801A215B67E600B787D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD758013215B67E600B787D2 /* LaunchScreen.storyboard */; };
 		BD75801B215B67E600B787D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD758015215B67E600B787D2 /* Main.storyboard */; };
@@ -32,7 +31,6 @@
 		BD521B09218737D5001C607E /* JoyStickView_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyStickView_AppUITests.swift; sourceTree = "<group>"; };
 		BD521B0B218737D5001C607E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD521B132187538C001C607E /* JoyStickView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JoyStickView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD6DDB76255DAD0900292E8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD758011215B67E600B787D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD758012215B67E600B787D2 /* CustomBase.opacity */ = {isa = PBXFileReference; lastKnownFileType = file; path = CustomBase.opacity; sourceTree = "<group>"; };
 		BD758014215B67E600B787D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,7 +77,6 @@
 		BD758010215B67E600B787D2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BD6DDB76255DAD0900292E8A /* Assets.xcassets */,
 				BDF27547255EFD88001F23CF /* CustomHandle.opacity */,
 				BDF27544255EFD88001F23CF /* DefaultBase.opacity */,
 				BDF27545255EFD88001F23CF /* DefaultHandle.opacity */,
@@ -226,7 +223,6 @@
 			files = (
 				BD75801B215B67E600B787D2 /* Main.storyboard in Resources */,
 				BD75801A215B67E600B787D2 /* LaunchScreen.storyboard in Resources */,
-				BD6DDB77255DAD0900292E8A /* Assets.xcassets in Resources */,
 				BD758018215B67E600B787D2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
