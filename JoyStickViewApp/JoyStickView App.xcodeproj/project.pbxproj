@@ -3,20 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		BD521B0A218737D5001C607E /* JoyStickView_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD521B09218737D5001C607E /* JoyStickView_AppUITests.swift */; };
 		BD521B17218756BC001C607E /* JoyStickView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD521B132187538C001C607E /* JoyStickView.framework */; };
-		BD521B1821875798001C607E /* JoyStickView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD521B132187538C001C607E /* JoyStickView.framework */; };
-		BD521B1921875798001C607E /* JoyStickView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD521B132187538C001C607E /* JoyStickView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BD6DDB77255DAD0900292E8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD6DDB76255DAD0900292E8A /* Assets.xcassets */; };
 		BD758018215B67E600B787D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD758011215B67E600B787D2 /* Assets.xcassets */; };
 		BD75801A215B67E600B787D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD758013215B67E600B787D2 /* LaunchScreen.storyboard */; };
 		BD75801B215B67E600B787D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD758015215B67E600B787D2 /* Main.storyboard */; };
 		BDCA40B3215A427100578F67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA40B2215A427100578F67 /* AppDelegate.swift */; };
 		BDCA40B5215A427100578F67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA40B4215A427100578F67 /* ViewController.swift */; };
+		BDF8ABC526D499F20089D43B /* JoyStickView in Frameworks */ = {isa = PBXBuildFile; productRef = BDF8ABC426D499F20089D43B /* JoyStickView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,20 +27,6 @@
 			remoteInfo = "JoyStickView App";
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		BD521B1A21875798001C607E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				BD521B1921875798001C607E /* JoyStickView.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BD521B07218737D5001C607E /* JoyStickView AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JoyStickView AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD521B1821875798001C607E /* JoyStickView.framework in Frameworks */,
+				BDF8ABC526D499F20089D43B /* JoyStickView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,13 +161,15 @@
 				BDCA40AB215A427100578F67 /* Sources */,
 				BDCA40AC215A427100578F67 /* Frameworks */,
 				BDCA40AD215A427100578F67 /* Resources */,
-				BD521B1A21875798001C607E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "JoyStickView App";
+			packageProductDependencies = (
+				BDF8ABC426D499F20089D43B /* JoyStickView */,
+			);
 			productName = JoyStickViewApp;
 			productReference = BDCA40AF215A427100578F67 /* JoyStickView App.app */;
 			productType = "com.apple.product-type.application";
@@ -463,7 +450,6 @@
 		BDCA40C2215A427200578F67 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -486,7 +472,6 @@
 		BDCA40C3215A427200578F67 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -537,6 +522,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BDF8ABC426D499F20089D43B /* JoyStickView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JoyStickView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BDCA40A7215A427100578F67 /* Project object */;
 }

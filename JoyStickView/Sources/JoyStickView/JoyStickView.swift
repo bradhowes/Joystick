@@ -153,10 +153,10 @@ import CoreGraphics
     private var radius: CGFloat { self.bounds.size.width / 2.0 * travel }
 
     /// The image to use to show the base of the joystick
-    private var baseImageView: UIImageView = UIImageView(image: nil)
+    private var baseImageView: UIImageView = .init(image: nil)
 
     /// The image to use to show the handle of the joystick
-    private var handleImageView: UIImageView = UIImageView(image: nil)
+    private var handleImageView: UIImageView = .init(image: nil)
 
     /// Cache of the last joystick angle in radians
     private var angleRadians: CGFloat = 0.0
@@ -271,20 +271,22 @@ extension JoyStickView {
         scaleHandleImageView()
         addSubview(handleImageView)
 
-        let bundle = Bundle(for: JoyStickView.self)
+        #if SWIFT_PACKAGE
+        let bundle = Bundle.module
+        #else
+        let bundle = Bundle(for: JoyStickView.self) // for CocoaPods
+        #endif
 
-        if self.baseImage == nil {
-            if let baseImage = UIImage(named: "DefaultBase", in: bundle, compatibleWith: nil) {
-                self.baseImage = baseImage
-            }
+        if self.baseImage == nil,
+           let baseImage = UIImage(named: "DefaultBase", in: bundle, compatibleWith: nil) {
+            self.baseImage = baseImage
         }
 
         baseImageView.image = baseImage
 
-        if self.handleImage == nil {
-            if let handleImage = UIImage(named: "DefaultHandle", in: bundle, compatibleWith: nil) {
-                self.handleImage = handleImage
-            }
+        if self.handleImage == nil,
+           let handleImage = UIImage(named: "DefaultHandle", in: bundle, compatibleWith: nil) {
+            self.handleImage = handleImage
         }
 
         generateHandleImage()
