@@ -11,7 +11,9 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Run monitor tests
-      run: xcodebuild test -destination 'name=iPhone 11' -scheme 'JoyStickView'
-    - name: Run view tests
+    - name: Build
+    - run: cd JoyStickView && xcodebuild build-for-testing -scheme JoyStickView -destination "platform=iOS Simulator,OS=latest,name=iPhone 12"
+    - name: Tests
+    - run: cd JoyStickView && xcodebuild test-without-building -scheme JoyStickView -destination "platform=iOS Simulator,OS=latest,name=iPhone 12"
+    - name: View Tests
       run: xcodebuild test -destination 'name=iPhone 11' -scheme 'JoyStickView App'
