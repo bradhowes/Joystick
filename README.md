@@ -75,7 +75,7 @@ Here are some additional configurable features of the JoyStickView:
 
 The Xcode workspace contains three components:
 
-- a framework called [JoyStickView](https://github.com/bradhowes/Joystick/tree/master/JoyStickView)
+- a framework called [JoyStickView](https://github.com/bradhowes/Joystick/tree/master/JoyStickView) (when using CocoaPods, it will be named `BRHJoyStickView`)
 - a simple iOS application called [JoyStickViewApp](https://github.com/bradhowes/Joystick/tree/master/JoyStickViewApp)
 - a playground called [JoyStickView Playground](https://github.com/bradhowes/Joystick/tree/master/JoyStickView%20Playground.playground/Contents.swift)
 
