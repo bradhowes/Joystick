@@ -16,4 +16,4 @@ jobs:
     - name: Tests
     - run: cd JoyStickView && xcodebuild test-without-building -scheme JoyStickView -destination "platform=iOS Simulator,OS=latest,name=iPhone 12"
     - name: View Tests
-      run: xcodebuild test -destination 'name=iPhone 11' -scheme 'JoyStickView App'
+    - run: xcodebuild test -destination 'name=iPhone 11' -scheme 'JoyStickView App'
