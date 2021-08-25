@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:JoyStickView.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:README.md">
    </FileRef>
    <FileRef
@@ -15,8 +18,5 @@
    </FileRef>
    <FileRef
       location = "group:JoyStickViewApp/JoyStickView App.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:JoyStickView/JoyStickView.xcodeproj">
    </FileRef>
 </Workspace>

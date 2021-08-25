@@ -68,25 +68,27 @@
 				BDC7F451218A036C00368EF0 /* Assets.xcassets */,
 				BD75800B215B66F000B787D2 /* Info.plist */,
 			);
-			path = Resources;
+			name = Resources;
+			path = Sources/JoyStickView/Resources;
 			sourceTree = "<group>";
 		};
-		BDBB51D0220B0D9900C579B2 /* JoyStickViewTests */ = {
+		BDBB51D0220B0D9900C579B2 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				BDBB51D1220B0D9900C579B2 /* JoyStickViewTests.swift */,
 				BD4CAF172210696000DECD93 /* JoyStickViewMonitorTests.swift */,
 				BDBB51D3220B0D9900C579B2 /* Info.plist */,
 			);
-			path = JoyStickViewTests;
+			name = Tests;
+			path = Tests/JoyStickView;
 			sourceTree = "<group>";
 		};
 		BDCA4089215A3AED00578F67 = {
 			isa = PBXGroup;
 			children = (
-				BDCA4095215A3AEE00578F67 /* Src */,
+				BDCA4095215A3AEE00578F67 /* Sources */,
 				BD758008215B66F000B787D2 /* Resources */,
-				BDBB51D0220B0D9900C579B2 /* JoyStickViewTests */,
+				BDBB51D0220B0D9900C579B2 /* Tests */,
 				BDCA4094215A3AEE00578F67 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,7 +102,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BDCA4095215A3AEE00578F67 /* Src */ = {
+		BDCA4095215A3AEE00578F67 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				BDA7F8E7218B1DE400A9AB5B /* Bundle+Additions.swift */,
@@ -109,7 +111,8 @@
 				BDBB51B9220ADE1E00C579B2 /* JoyStickViewMonitor.swift */,
 				BDCA4096215A3AEE00578F67 /* JoyStickView.h */,
 			);
-			path = Src;
+			name = Sources;
+			path = Sources/JoyStickView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +259,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UP6SS5ES7E;
-				INFOPLIST_FILE = JoyStickViewTests/Info.plist;
+				INFOPLIST_FILE = Tests/JoyStickView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -275,7 +278,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UP6SS5ES7E;
-				INFOPLIST_FILE = JoyStickViewTests/Info.plist;
+				INFOPLIST_FILE = Tests/JoyStickView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -417,14 +420,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = UP6SS5ES7E;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/JoyStickView/Resources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -435,7 +438,9 @@
 				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.braysoft.JoyStickView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -446,14 +451,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = UP6SS5ES7E;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/JoyStickView/Resources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -464,7 +469,9 @@
 				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.braysoft.JoyStickView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
