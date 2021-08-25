@@ -10,7 +10,6 @@
 		BD4CAF182210696000DECD93 /* JoyStickViewMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4CAF172210696000DECD93 /* JoyStickViewMonitorTests.swift */; };
 		BDA7F8E8218B1DE400A9AB5B /* Bundle+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA7F8E7218B1DE400A9AB5B /* Bundle+Additions.swift */; };
 		BDBB51BA220ADE1E00C579B2 /* JoyStickViewMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBB51B9220ADE1E00C579B2 /* JoyStickViewMonitor.swift */; };
-		BDBB51D2220B0D9900C579B2 /* JoyStickViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBB51D1220B0D9900C579B2 /* JoyStickViewTests.swift */; };
 		BDBB51D4220B0D9900C579B2 /* JoyStickView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDCA4093215A3AEE00578F67 /* JoyStickView.framework */; };
 		BDC7F452218A036C00368EF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDC7F451218A036C00368EF0 /* Assets.xcassets */; };
 		BDCA4098215A3AEE00578F67 /* JoyStickView.h in Headers */ = {isa = PBXBuildFile; fileRef = BDCA4096215A3AEE00578F67 /* JoyStickView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -34,7 +33,6 @@
 		BDA7F8E7218B1DE400A9AB5B /* Bundle+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Additions.swift"; sourceTree = "<group>"; };
 		BDBB51B9220ADE1E00C579B2 /* JoyStickViewMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyStickViewMonitor.swift; sourceTree = "<group>"; };
 		BDBB51CF220B0D9900C579B2 /* JoyStickViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JoyStickViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDBB51D1220B0D9900C579B2 /* JoyStickViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyStickViewTests.swift; sourceTree = "<group>"; };
 		BDBB51D3220B0D9900C579B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDC7F451218A036C00368EF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDCA4093215A3AEE00578F67 /* JoyStickView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JoyStickView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +73,6 @@
 		BDBB51D0220B0D9900C579B2 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				BDBB51D1220B0D9900C579B2 /* JoyStickViewTests.swift */,
 				BD4CAF172210696000DECD93 /* JoyStickViewMonitorTests.swift */,
 				BDBB51D3220B0D9900C579B2 /* Info.plist */,
 			);
@@ -249,7 +246,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDBB51D2220B0D9900C579B2 /* JoyStickViewTests.swift in Sources */,
 				BD4CAF182210696000DECD93 /* JoyStickViewMonitorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,7 +277,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UP6SS5ES7E;
-				INFOPLIST_FILE = Tests/JoyStickView/Info.plist;
+				INFOPLIST_FILE = Tests/JoyStickViewTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -300,7 +296,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UP6SS5ES7E;
-				INFOPLIST_FILE = Tests/JoyStickView/Info.plist;
+				INFOPLIST_FILE = Tests/JoyStickViewTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
