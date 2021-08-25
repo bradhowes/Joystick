@@ -152,6 +152,7 @@
 			buildConfigurationList = BDCA409B215A3AEE00578F67 /* Build configuration list for PBXNativeTarget "JoyStickView" */;
 			buildPhases = (
 				BDCA408E215A3AEE00578F67 /* Headers */,
+				BD54923226D6DA14004AB015 /* Swiftlint */,
 				BDCA408F215A3AEE00578F67 /* Sources */,
 				BDCA4090215A3AEE00578F67 /* Frameworks */,
 				BDCA4091215A3AEE00578F67 /* Resources */,
@@ -221,6 +222,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BD54923226D6DA14004AB015 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BDBB51CB220B0D9900C579B2 /* Sources */ = {
