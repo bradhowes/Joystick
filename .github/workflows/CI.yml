@@ -12,6 +12,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run monitor tests
-      run: xcodebuild test -destination 'name=iPhone 11' -scheme 'JoyStickView'
+      run: xcodebuild -workspace JoyStickView.xcworkspace test -destination 'name=iPhone 11' -scheme 'JoyStickView'
     - name: Run view tests
-      run: xcodebuild test -destination 'name=iPhone 11' -scheme 'JoyStickView App'
+      run: xcodebuild -workspace JoyStickView.xcworkspace test -destination 'name=iPhone 11' -scheme 'JoyStickView App'
