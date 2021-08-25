@@ -63,6 +63,7 @@ Here are some additional configurable features of the JoyStickView:
 
 # Releases
 
+* v3.2.0 -- Offer code as Swift package in addition to CocoaPod packaging
 * v3.1.1 -- Added `handlePositionMode` property to control how handle movements are reported. Default behavior
   is `.absolute`. New `.relative` mode offers finer control at initial touch (thanks to [Michael Tyson](https://github.com/michaeltyson))
 * v3.1.0 -- Added `tappedBlock` property (thanks to [Michael Tyson](https://github.com/michaeltyson))
@@ -75,7 +76,7 @@ Here are some additional configurable features of the JoyStickView:
 
 The Xcode workspace contains three components:
 
-- a framework called [JoyStickView](https://github.com/bradhowes/Joystick/tree/master/JoyStickView)
+- a framework called [JoyStickView](https://github.com/bradhowes/Joystick/tree/master/JoyStickView) (when using CocoaPods `import BRHJoyStickView` instead of `import JoyStickView`)
 - a simple iOS application called [JoyStickViewApp](https://github.com/bradhowes/Joystick/tree/master/JoyStickViewApp)
 - a playground called [JoyStickView Playground](https://github.com/bradhowes/Joystick/tree/master/JoyStickView%20Playground.playground/Contents.swift)
 
@@ -104,7 +105,7 @@ Please see the [code documentation](https://bradhowes.github.io/Joystick/) for a
 # CocoaPods
 
 There is a simple [CocoaPods](https://cocoapods.org) spec file available so you can add the code and resources
-by adding "BRHJoyStickView" to your `Podfile` file. Currently everything more or less works, except for the fact
+by adding "BRHJoyStickView" to your `Podfile` file and import with `import BRHJoyStickView`. Currently everything more or less works, except for the fact
 that pointing to image resources via Interface Builder (IB) will result in invalid UImage results because the files won't be
 found where IB was able to find them. The only solution is to manually locate those files and set them in your
 view loading code. Something like the following should help:
