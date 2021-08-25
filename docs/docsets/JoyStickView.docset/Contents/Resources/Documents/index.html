@@ -100,9 +100,9 @@
           <section class="section">
             
             <p><a href="https://github.com/bradhowes/Joystick"><img src="https://github.com/bradhowes/Joystick/workflows/CI/badge.svg" alt="CI"></a>
+<a href="https://cocoapods.org/pods/BRHJoyStickView"><img src="https://img.shields.io/badge/CocoaPods-compatible-green.svg" alt="CocoaPods"></a>
+<a href="https://github.com/bradhowes/Joystick"><img src="https://img.shields.io/badge/SPM-compatible-green.svg" alt="SPM"></a>
 <a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-5.3-orange.svg?style=flat" alt="Swift 5.3"></a>
-<a href="https://cocoapods.org/pods/BRHJoyStickView"><img src="https://img.shields.io/badge/CocoaPods-3.2.0-red.svg" alt="CocoaPods"></a>
-<a href="https://github.com/bradhowes/Joystick"><img src="https://img.shields.io/badge/SPM-3.2.0-red.svg" alt="SPM"></a>
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a></p>
 <h2 id='hey-check-out-the-a-href-https-github-com-tomkidd-quake3-ios-quake3-ios-a-repo-and-others-by-a-href-https-github-com-tomkidd-tomkidd-a-he-used-this-code-for-the-movement-control-badge-of-honor-or-of-honor' class='heading'>👋 Hey! Check out the <a href="https://github.com/tomkidd/Quake3-iOS">Quake3-iOS</a> repo (and others) by <a href="https://github.com/tomkidd">tomkidd</a>. He used this code for the movement control. Badge of honor 🏅 (or 🦡 of honor).</h2>
 <h1 id='joystick' class='heading'>Joystick</h1>
@@ -112,16 +112,16 @@
 <p>A custom UIView in Swift that presents a simple joystick interface. The custom view consists of two UIImageView
 instances, one for the base and one for the handle. When the user moves the handle, it will report out a value
 based on its position in relation to the joystick base. The type of information reported depends on the type of
-<a href="https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L29">monitor</a> installed:</p>
+<a href="https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L31">monitor</a> installed:</p>
 
 <ul>
-<li><a href="https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickViewMonitor.swift#L86">JoyStickViewMonitorKind.polar</a> &ndash; reports out instances of <a href="https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickViewMonitor.swift#L42">JoyStickViewPolarReport</a> with
+<li><a href="https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickViewMonitor.swift#L80">JoyStickViewMonitorKind.polar</a> &ndash; reports out instances of <a href="https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickViewMonitor.swift#L36">JoyStickViewPolarReport</a> with
 
 <ul>
 <li>angle &ndash; the direction the handle is point, given in degrees, where north/up is 0° and east/right is 90°</li>
 <li>displacement &ndash; the distance from the center the handle moved, from 0.0 to 1.0 with 1.0.</li>
 </ul></li>
-<li><a href="https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickViewMonitor.swift#L93">JoyStickViewMonitorKind.xy</a> &ndash; reports out instances of <a href="https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickViewMonitor.swift#L15">JoyStickViewXYReport</a> with
+<li><a href="https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickViewMonitor.swift#L87">JoyStickViewMonitorKind.xy</a> &ndash; reports out instances of <a href="https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickViewMonitor.swift#L9">JoyStickViewXYReport</a> with
 
 <ul>
 <li>x &ndash; horizontal offset from the center of the base, where east/right is positive</li>
@@ -135,36 +135,37 @@ based on its position in relation to the joystick base. The type of information 
 <span class="n">joystick</span><span class="o">.</span><span class="n">monitor</span> <span class="o">=</span> <span class="o">.</span><span class="nf">polar</span><span class="p">(</span><span class="nv">monitor</span><span class="p">:</span> <span class="n">monitor2</span><span class="p">)</span>
 </code></pre>
 
-<p>There is also support (3.0.1) for using an Objective-C block as a monitor, with a slight reduction in type
+<p>There is also support (since 3.0.1) for using an Objective-C block as a monitor, with a slight reduction in type
 safety. The <code>setPolarMonitor</code> and <code>setXYMonitor</code> both take a closure that accepts two <code>CGFloat</code> arguments and
 returns no value. Objective-C blocks can be used as well as Swift closures in these methods. Since 3.1.0, there is also
-a <code>tappedBlock</code> attribute which one can use to receive a notification when the user just taps on the joystick handle. Note that when this property is not nil,
-there is a 0.3 second delay before one will receive handle position reports. This delay value is configurable via the <code>delayBeforeReporting</code> property.</p>
+a <code>tappedBlock</code> attribute which one can use to receive a notification when the user just taps on the joystick handle.</p>
 
-<p>The view supports an option (<a href="https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L57">movable</a>) where the view will move when the user moves the handle to a
+<p>The view supports an option (<a href="https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L62">movable</a>)
+where the view will move when the user moves the handle to a
 displacement beyond 1.0. This can be useful when the initial position of the joystick in an app is not ideal for
 the user&rsquo;s thumb. Double-tapping on the joystick moves it back to its original position.</p>
 
 <p>In the animation above, there are two joysticks, one green and one magenta. The green is <em>fixed</em> and does not
 move even when the touch motion would cause a displacement larger than 1.0. The magenta joystick however is
 <em>movable</em>, with the base following the touch motion. For movable joysticks, the Base motion is optionally
-restricted to a <code>CGRect</code> in the <a href="https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L64">movableBounds</a> property, as is the case in the demonstration animation above
-where the magenta joystick cannot move out of the pink band.</p>
+restricted to a <code>CGRect</code> in the <a href="https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L69">movableBounds</a> property, 
+as is the case in the demonstration animation above where the magenta joystick cannot move out of the pink band.</p>
 <h2 id='additional-properties' class='heading'>Additional Properties</h2>
 
 <p>Here are some additional configurable features of the JoyStickView:</p>
 
 <ul>
-<li><a href="https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L34">handleConstraint</a> &ndash; optional <code>CGRect</code> which constrains where the handle can move. See the playground for an example.</li>
-<li><a href="https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L127">baseImage</a> &ndash; a UIImage to use for the base of the joystick.</li>
-<li><a href="https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L132">handleImage</a> &ndash; a UIImage to use for the handle of the joystick.</li>
-<li><a href="https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L78">baseAlpha</a> &ndash; opacity of the base of the joystick.</li>
-<li><a href="https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L89">handleAlpha</a> &ndash; opacity of the handle of the joystick.</li>
-<li><a href="https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#99">handleTintColor</a> &ndash; optional tint color applied to the joystick image.</li>
-<li><a href="https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L105">handleSizeRatio</a> &ndash; scaling applied to the joystick handle&rsquo;s image. Note that default is <code>0.85</code> due to
+<li><a href="https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L39">handleConstraint</a> &ndash; optional <code>CGRect</code> which constrains where the handle can move. See the playground for an example.</li>
+<li><a href="https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L116">baseImage</a> &ndash; a UIImage to use for the base of the joystick.</li>
+<li><a href="https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L119">handleImage</a> &ndash; a UIImage to use for the handle of the joystick.</li>
+<li><a href="https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L83">baseAlpha</a> &ndash; opacity of the base of the joystick.</li>
+<li><a href="https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L90">handleAlpha</a> &ndash; opacity of the handle of the joystick.</li>
+<li><a href="https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L96">handleTintColor</a> &ndash; optional tint color applied to the joystick image.</li>
+<li><a href="https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L100">handleSizeRatio</a> &ndash; scaling applied to the joystick handle&rsquo;s image. Note that default is <code>0.85</code> due to
 historical reasons.</li>
-<li><a href="https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L138">enableDoubleTapForFrameReset</a> &ndash; if <code>movable</code> is true, allow user to double-tap on view to move base to original
+<li><a href="https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L123">enableDoubleTapForFrameReset</a> &ndash; if <code>movable</code> is true, allow user to double-tap on view to move base to original
 location.</li>
+<li><a href="https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L146">handlePositionMode</a> &ndash; when set to <code>.absolute</code> (default) the handle will move to the initial (constrained) press location. When set to <code>.relative</code> the handle will move only after the touch moves.</li>
 </ul>
 <h1 id='releases' class='heading'>Releases</h1>
 
@@ -198,17 +199,23 @@ is <code>.absolute</code>. New <code>.relative</code> mode offers finer control 
 and the other that is movable (yellow). Both joysticks report out their positions in two labels, one for angles and
 the other for displacement.</p>
 
-<p>The <a href="https://github.com/bradhowes/Joystick/tree/master/JoyStickView/Src/JoyStickView.swift">JoyStickView.swift</a> file defines the joystick view and behavior. It resides inside the <a href="https://github.com/bradhowes/Joystick/tree/master/JoyStickView">JoyStickView framework</a>. There you will also find a file called <a href="https://github.com/bradhowes/Joystick/tree/master/JoyStickView/Src/CoreGraphics+Additions.swift">CoreGraphics+Additions.swift</a> that contains various extensions to some CoreGraphics structs that allow for some simplified mathematical expressions in the <a href="https://github.com/bradhowes/Joystick">JoyStickView</a> code.</p>
+<p>The <a href="https://github.com/bradhowes/Joystick/tree/master/Sources/JoyStickView/JoyStickView.swift">JoyStickView.swift</a> file defines the joystick view and behavior.
+It resides inside the JoyStickView Swift package, and in the BRHJoyStickView framework in CocoaPods. There you will also find a file called 
+<a href="https://github.com/bradhowes/Joystick/tree/master/Sources/JoyStickView/CoreGraphics+Additions.swift">CoreGraphics+Additions.swift</a> that contains various 
+extensions to some CoreGraphics structs that allow for some simplified mathematical expressions in the <a href="https://github.com/bradhowes/Joystick">JoyStickView</a> code.</p>
 
-<p>By default the <a href="https://github.com/bradhowes/Joystick/tree/master/JoyStickView/Src/JoyStickView.swift">JoyStickView</a> class uses two image assets found in the <a href="https://github.com/bradhowes/Joystick/tree/master/JoyStickView/Images">Images</a>
+<p>By default the <a href="https://github.com/bradhowes/Joystick/tree/master/Sources/JoyStickView/JoyStickView.swift">JoyStickView</a> class uses two image assets found in the 
+<a href="https://github.com/bradhowes/Joystick/tree/master/Sources/JoyStickView/Resources/Assets.xcassets">Assets</a> container.
 folder:</p>
 
 <ul>
-<li>JoyStickBase*.png — the image to use for the base of the joystick</li>
-<li>JoyStickHandle*.png — the image to use for the handle of the joystick. <strong>Note</strong>: this will be tinted with the <code>handleTintColor</code> setting</li>
+<li>DefaultBase — the image to use for the base of the joystick</li>
+<li>DefaultHandle — the image to use for the handle of the joystick. <strong>Note</strong>: this will be tinted with the <code>handleTintColor</code> setting</li>
 </ul>
 
-<p>Both exist in three resolutions for the various iOS devices out today. They were generated using the great <a href="http://likethought.com/opacity/">Opacity</a> app. The Opacity documents are included in this repository in the <a href="https://github.com/bradhowes/Joystick/tree/master/JoyStickView/Resources">Resources</a> directory.</p>
+<p>Both exist in three resolutions for the various iOS devices out today. They were generated using the great <a href="http://likethought.com/opacity/">Opacity</a> app. The 
+Opacity documents are included in this repository in the <a href="https://github.com/bradhowes/Joystick/tree/master/JoyStickViewApp/Resources">Resources</a> directory for
+the <code>JoyStickViewApp</code> demonstration app.</p>
 
 <p>To use your own images, simple set <code>baseImage</code> and/or <code>handleImage</code> attributes with the <code>UIImage</code> you wish to use.</p>
 <h1 id='documentation' class='heading'>Documentation</h1>
