@@ -12,5 +12,6 @@ cp animation.gif docs/
 JAZZY=$(type -p jazzy)
 [[ -n "${JAZZY}" ]] && \
     ${JAZZY} --module JoyStickView \
-             --build-tool-arguments -workspace,JoyStickView.xcworkspace,-scheme,JoyStickView \
+             --build-tool-arguments \
+             -workspace,JoyStickView.xcworkspace,-scheme,JoyStickView,-destination,'name=iPhone 11' \
              --root-url https://bradhowes.github.io/Joystick
