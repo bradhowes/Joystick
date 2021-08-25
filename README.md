@@ -13,12 +13,12 @@
 A custom UIView in Swift that presents a simple joystick interface. The custom view consists of two UIImageView
 instances, one for the base and one for the handle. When the user moves the handle, it will report out a value
 based on its position in relation to the joystick base. The type of information reported depends on the type of
-[monitor](https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L29) installed:
+[monitor](https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L31) installed:
 
-* [JoyStickViewMonitorKind.polar](https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickViewMonitor.swift#L86) -- reports out instances of [JoyStickViewPolarReport](https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickViewMonitor.swift#L42) with
+* [JoyStickViewMonitorKind.polar](https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickViewMonitor.swift#L80) -- reports out instances of [JoyStickViewPolarReport](https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickViewMonitor.swift#L36) with
   * angle -- the direction the handle is point, given in degrees, where north/up is 0° and east/right is 90°
   * displacement -- the distance from the center the handle moved, from 0.0 to 1.0 with 1.0.
-* [JoyStickViewMonitorKind.xy](https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickViewMonitor.swift#L93) -- reports out instances of [JoyStickViewXYReport](https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickViewMonitor.swift#L15) with
+* [JoyStickViewMonitorKind.xy](https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickViewMonitor.swift#L87) -- reports out instances of [JoyStickViewXYReport](https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickViewMonitor.swift#L9) with
   * x -- horizontal offset from the center of the base, where east/right is positive
   * y -- vertical offset from the center of the base, where north/up is positive
 
@@ -30,11 +30,10 @@ let monitor: JoyStickViewPolarMonitor = {
 joystick.monitor = .polar(monitor: monitor2)
 ```
 
-There is also support (3.0.1) for using an Objective-C block as a monitor, with a slight reduction in type
+There is also support (since 3.0.1) for using an Objective-C block as a monitor, with a slight reduction in type
 safety. The `setPolarMonitor` and `setXYMonitor` both take a closure that accepts two `CGFloat` arguments and
 returns no value. Objective-C blocks can be used as well as Swift closures in these methods. Since 3.1.0, there is also
-a `tappedBlock` attribute which one can use to receive a notification when the user just taps on the joystick handle. Note that when this property is not nil,
-there is a 0.3 second delay before one will receive handle position reports. This delay value is configurable via the `delayBeforeReporting` property.
+a `tappedBlock` attribute which one can use to receive a notification when the user just taps on the joystick handle.
 
 The view supports an option ([movable](https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L62))
 where the view will move when the user moves the handle to a
