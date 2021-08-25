@@ -62,7 +62,7 @@ import CoreGraphics
     @IBInspectable public var movable: Bool = false
 
     /// The original location of a movable joystick. Used to restore its position when user double-taps on it.
-    public var movableCenter: CGPoint? = nil
+    public var movableCenter: CGPoint?
 
     /// Optional rectangular region that restricts where the base may move. The region should be defined in the
     /// this view's coordinates.
@@ -120,7 +120,7 @@ import CoreGraphics
 
     /// Control whether view will recognize a double-tap gesture and move the joystick base to its original location
     /// when it happens. Note that this is only useful if `moveable` is true.
-    @IBInspectable public var enableDoubleTapForFrameReset = true {
+    @IBInspectable public var enableDoubleTapForFrameReset: Bool = true {
         didSet {
             if let gestureRecognizer = doubleTapGestureRecognizer {
                 removeGestureRecognizer(gestureRecognizer)
@@ -146,7 +146,7 @@ import CoreGraphics
     public var handlePositionMode: HandlePositionMode = .absolute
 
     /// Minimum distance in either X or Y coordinate the handle must move for `handleHasMoved` to return `true`.
-    public var handleMovedTolerance: CGFloat = 2.0;
+    public var handleMovedTolerance: CGFloat = 2.0
 
     /// The max distance the handle may move in any direction, where the start is the center of the joystick base and
     /// the end is on the circumference of the base when travel is 1.0.
@@ -435,7 +435,7 @@ extension JoyStickView {
             fatalError("failed to create input CIImage")
         }
 
-        let filterConfig: [String:Any] = [kCIInputIntensityKey: 1.0,
+        let filterConfig: [String: Any] = [kCIInputIntensityKey: 1.0,
                                           kCIInputColorKey: CIColor(color: handleTintColor),
                                           kCIInputImageKey: inputImage]
         #if swift(>=4.2)
@@ -565,10 +565,12 @@ extension JoyStickView {
 
         // Keep handle on the circumference of the base image
         //
+        // swiftlint:disable identifier_name
         let x = sin(angle) * radius
         let y = cos(angle) * radius
         handleImageView.frame.origin = .init(x: x + bounds.midX - handleImageView.bounds.size.width / 2.0,
                                              y: y + bounds.midY - handleImageView.bounds.size.height / 2.0)
+        // swiftlint:enable identifier_name
 
         handleImageView.center = handleCenterClamper(handleImageView.center)
     }

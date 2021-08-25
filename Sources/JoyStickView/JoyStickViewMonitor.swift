@@ -2,6 +2,8 @@
 
 import CoreGraphics
 
+// swiftlint:disable identifier_name
+
 /**
  JoyStickView handle position as X, Y deltas from the base center. Note that here a positive `y` indicates that the
  joystick handle is pushed upwards.
@@ -22,7 +24,7 @@ public struct JoyStickViewXYReport {
         self.x = x
         self.y = y
     }
- 
+
     /// Convert this report into polar format
     public var polar: JoyStickViewPolarReport {
         return .init(angle: (180.0 - atan2(x, -y) * 180.0 / .pi), displacement: sqrt(x * x + y * y))
@@ -49,7 +51,7 @@ public struct JoyStickViewPolarReport {
         self.angle = angle
         self.displacement = displacement
     }
-    
+
     /// Convert this report into XY format
     public var rectangular: JoyStickViewXYReport {
         let rads = angle * .pi / 180.0
@@ -71,7 +73,7 @@ public typealias JoyStickViewPolarMonitor = (_ value: JoyStickViewPolarReport) -
  Monitor kind. Determines the type of reporting that will be emitted from a JoyStickView instance.
  */
 public enum JoyStickViewMonitorKind {
-    
+
     /**
      Install monitor that accepts polar position change reports
      
@@ -85,7 +87,7 @@ public enum JoyStickViewMonitorKind {
      - parameter monitor: function that accepts a JoyStickViewXYReport
      */
     case xy(monitor: JoyStickViewXYMonitor)
-    
+
     /**
      No monitoring for a JoyStickView instance.
      */
