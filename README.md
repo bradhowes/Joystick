@@ -36,30 +36,32 @@ returns no value. Objective-C blocks can be used as well as Swift closures in th
 a `tappedBlock` attribute which one can use to receive a notification when the user just taps on the joystick handle. Note that when this property is not nil,
 there is a 0.3 second delay before one will receive handle position reports. This delay value is configurable via the `delayBeforeReporting` property.
 
-The view supports an option ([movable](https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L57)) where the view will move when the user moves the handle to a
+The view supports an option ([movable](https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L62))
+where the view will move when the user moves the handle to a
 displacement beyond 1.0. This can be useful when the initial position of the joystick in an app is not ideal for
 the user's thumb. Double-tapping on the joystick moves it back to its original position.
 
 In the animation above, there are two joysticks, one green and one magenta. The green is *fixed* and does not
 move even when the touch motion would cause a displacement larger than 1.0. The magenta joystick however is
 *movable*, with the base following the touch motion. For movable joysticks, the Base motion is optionally
-restricted to a `CGRect` in the [movableBounds](https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L64) property, as is the case in the demonstration animation above
-where the magenta joystick cannot move out of the pink band.
+restricted to a `CGRect` in the [movableBounds](https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L69) property, 
+as is the case in the demonstration animation above where the magenta joystick cannot move out of the pink band.
 
 ## Additional Properties
 
 Here are some additional configurable features of the JoyStickView:
 
-* [handleConstraint](https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L34) -- optional `CGRect` which constrains where the handle can move. See the playground for an example.
-* [baseImage](https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L127) -- a UIImage to use for the base of the joystick.
-* [handleImage](https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L132) -- a UIImage to use for the handle of the joystick.
-* [baseAlpha](https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L78) -- opacity of the base of the joystick.
-* [handleAlpha](https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L89) -- opacity of the handle of the joystick.
-* [handleTintColor](https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#99) -- optional tint color applied to the joystick image.
-* [handleSizeRatio](https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L105) -- scaling applied to the joystick handle's image. Note that default is `0.85` due to
+* [handleConstraint](https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L39) -- optional `CGRect` which constrains where the handle can move. See the playground for an example.
+* [baseImage](https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L116) -- a UIImage to use for the base of the joystick.
+* [handleImage](https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L119) -- a UIImage to use for the handle of the joystick.
+* [baseAlpha](https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L83) -- opacity of the base of the joystick.
+* [handleAlpha](https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L90) -- opacity of the handle of the joystick.
+* [handleTintColor](https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L96) -- optional tint color applied to the joystick image.
+* [handleSizeRatio](https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L100) -- scaling applied to the joystick handle's image. Note that default is `0.85` due to
   historical reasons.
-* [enableDoubleTapForFrameReset](https://github.com/bradhowes/Joystick/blob/558e7dea5081398b361b53a829f86b8a11170257/JoyStickView/Src/JoyStickView.swift#L138) -- if `movable` is true, allow user to double-tap on view to move base to original
+* [enableDoubleTapForFrameReset](https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L123) -- if `movable` is true, allow user to double-tap on view to move base to original
   location.
+* [handlePositionMode](https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L146) -- when set to `.absolute` (default) the handle will move to the initial (constrained) press location. When set to `.relative` the handle will move only after the touch moves.
 
 # Releases
 
@@ -88,15 +90,21 @@ The Xcode playground code sets up the display environemnt and installs two joyst
 and the other that is movable (yellow). Both joysticks report out their positions in two labels, one for angles and
 the other for displacement.
 
-The [JoyStickView.swift](https://github.com/bradhowes/Joystick/tree/master/JoyStickView/Src/JoyStickView.swift) file defines the joystick view and behavior. It resides inside the [JoyStickView framework](https://github.com/bradhowes/Joystick/tree/master/JoyStickView). There you will also find a file called [CoreGraphics+Additions.swift](https://github.com/bradhowes/Joystick/tree/master/JoyStickView/Src/CoreGraphics+Additions.swift) that contains various extensions to some CoreGraphics structs that allow for some simplified mathematical expressions in the [JoyStickView](https://github.com/bradhowes/Joystick) code.
+The [JoyStickView.swift](https://github.com/bradhowes/Joystick/tree/master/Sources/JoyStickView/JoyStickView.swift) file defines the joystick view and behavior.
+It resides inside the JoyStickView Swift package, and in the BRHJoyStickView framework in CocoaPods. There you will also find a file called 
+[CoreGraphics+Additions.swift](https://github.com/bradhowes/Joystick/tree/master/Sources/JoyStickView/CoreGraphics+Additions.swift) that contains various 
+extensions to some CoreGraphics structs that allow for some simplified mathematical expressions in the [JoyStickView](https://github.com/bradhowes/Joystick) code.
 
-By default the [JoyStickView](https://github.com/bradhowes/Joystick/tree/master/JoyStickView/Src/JoyStickView.swift) class uses two image assets found in the [Images](https://github.com/bradhowes/Joystick/tree/master/JoyStickView/Images)
+By default the [JoyStickView](https://github.com/bradhowes/Joystick/tree/master/Sources/JoyStickView/JoyStickView.swift) class uses two image assets found in the 
+[Assets](https://github.com/bradhowes/Joystick/tree/master/Sources/JoyStickView/Resources/Assets.xcassets) container.
 folder:
 
-* JoyStickBase\*.png — the image to use for the base of the joystick
-* JoyStickHandle\*.png — the image to use for the handle of the joystick. **Note**: this will be tinted with the `handleTintColor` setting
+* DefaultBase — the image to use for the base of the joystick
+* DefaultHandle — the image to use for the handle of the joystick. **Note**: this will be tinted with the `handleTintColor` setting
 
-Both exist in three resolutions for the various iOS devices out today. They were generated using the great [Opacity](http://likethought.com/opacity/) app. The Opacity documents are included in this repository in the [Resources](https://github.com/bradhowes/Joystick/tree/master/JoyStickView/Resources) directory.
+Both exist in three resolutions for the various iOS devices out today. They were generated using the great [Opacity](http://likethought.com/opacity/) app. The 
+Opacity documents are included in this repository in the [Resources](https://github.com/bradhowes/Joystick/tree/master/JoyStickViewApp/Resources) directory for
+the `JoyStickViewApp` demonstration app.
 
 To use your own images, simple set `baseImage` and/or `handleImage` attributes with the `UIImage` you wish to use.
 
