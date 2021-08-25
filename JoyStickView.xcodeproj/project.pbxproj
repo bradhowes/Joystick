@@ -80,7 +80,7 @@
 				BDBB51D3220B0D9900C579B2 /* Info.plist */,
 			);
 			name = Tests;
-			path = Tests/JoyStickView;
+			path = Tests/JoyStickViewTests;
 			sourceTree = "<group>";
 		};
 		BDCA4089215A3AED00578F67 = {
