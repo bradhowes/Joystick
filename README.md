@@ -82,6 +82,8 @@ The Xcode workspace contains three components:
 
 Both the playground and the app rely on the framework for the JoyStickView UIView.
 
+> :warning: **NOTE**: due to the plumbing for CocoaPods, when editing in Xcode open the workspace **JoyStickView.xcworkspace** instead of the project **JoyStickView.xcodeproj**.
+
 The Xcode playground code sets up the display environemnt and installs two joysticks, one that is fixed (green)
 and the other that is movable (yellow). Both joysticks report out their positions in two labels, one for angles and
 the other for displacement.
