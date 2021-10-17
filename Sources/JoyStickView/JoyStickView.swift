@@ -93,7 +93,7 @@ import CoreGraphics
   }
 
   /// The tintColor to apply to the handle. Changing it while joystick is visible will update the handle image.
-  @IBInspectable public var handleTintColor: UIColor? = nil { didSet { generateHandleImage() } }
+  @IBInspectable public var handleTintColor: UIColor? { didSet { generateHandleImage() } }
 
   /// Scaling factor to apply to the joystick handle. A value of 1.0 will result in no scaling of the image,
   /// however the default value is 0.85 due to historical reasons.
