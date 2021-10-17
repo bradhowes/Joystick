@@ -181,12 +181,9 @@ import CoreGraphics
 
   /// Location of embedded resources
   private lazy var resourceBundle: Bundle = {
-    #if SWIFT_PACKAGE
-
+#if SWIFT_PACKAGE
     return Bundle.module
-
-    #else
-
+#else
     // CocoaPods embeds the resources bundle in the framework
     //
     let bundle = Bundle(for: JoyStickView.self)
@@ -198,7 +195,7 @@ import CoreGraphics
     }
 
     return embedded
-    #endif
+#endif
   }()
 
   /**
@@ -436,17 +433,17 @@ extension JoyStickView {
     }
 
     let filterConfig: [String: Any] = [kCIInputIntensityKey: 1.0,
-                                       kCIInputColorKey: CIColor(color: handleTintColor),
-                                       kCIInputImageKey: inputImage]
-    #if swift(>=4.2)
+                                           kCIInputColorKey: CIColor(color: handleTintColor),
+                                           kCIInputImageKey: inputImage]
+#if swift(>=4.2)
     guard let filter = CIFilter(name: "CIColorMonochrome", parameters: filterConfig) else {
       fatalError("failed to create CIFilter CIColorMonochrome")
     }
-    #else
+#else
     guard let filter = CIFilter(name: "CIColorMonochrome", withInputParameters: filterConfig) else {
       fatalError("failed to create CIFilter CIColorMonochrome")
     }
-    #endif
+#endif
 
     guard let outputImage = filter.outputImage else {
       fatalError("failed to obtain output CIImage")
