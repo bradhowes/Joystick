@@ -3,7 +3,7 @@
 [![SPM](https://img.shields.io/badge/SPM-compatible-green.svg)](https://github.com/bradhowes/Joystick)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fbradhowes%2FJoystick%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/bradhowes/Joystick)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fbradhowes%2FJoystick%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/bradhowes/Joystick)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-A31F34.svg)](https://opensource.org/licenses/MIT)
 
 ## 👋 Hey! Check out the [Quake3-iOS](https://github.com/tomkidd/Quake3-iOS) repo (and others) by [tomkidd](https://github.com/tomkidd). He used this code for the movement control. Badge of honor 🏅 (or 🦡 of honor).
 
