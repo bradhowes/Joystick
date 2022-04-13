@@ -44,7 +44,7 @@ the user's thumb. Double-tapping on the joystick moves it back to its original p
 In the animation above, there are two joysticks, one green and one magenta. The green is *fixed* and does not
 move even when the touch motion would cause a displacement larger than 1.0. The magenta joystick however is
 *movable*, with the base following the touch motion. For movable joysticks, the Base motion is optionally
-restricted to a `CGRect` in the [movableBounds](https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L69) property, 
+restricted to a `CGRect` in the [movableBounds](https://github.com/bradhowes/Joystick/blob/main/Sources/JoyStickView/JoyStickView.swift#L69) property,
 as is the case in the demonstration animation above where the magenta joystick cannot move out of the pink band.
 
 ## Additional Properties
@@ -91,18 +91,18 @@ and the other that is movable (yellow). Both joysticks report out their position
 the other for displacement.
 
 The [JoyStickView.swift](https://github.com/bradhowes/Joystick/tree/master/Sources/JoyStickView/JoyStickView.swift) file defines the joystick view and behavior.
-It resides inside the JoyStickView Swift package, and in the BRHJoyStickView framework in CocoaPods. There you will also find a file called 
-[CoreGraphics+Additions.swift](https://github.com/bradhowes/Joystick/tree/master/Sources/JoyStickView/CoreGraphics+Additions.swift) that contains various 
+It resides inside the JoyStickView Swift package, and in the BRHJoyStickView framework in CocoaPods. There you will also find a file called
+[CoreGraphics+Additions.swift](https://github.com/bradhowes/Joystick/tree/master/Sources/JoyStickView/CoreGraphics+Additions.swift) that contains various
 extensions to some CoreGraphics structs that allow for some simplified mathematical expressions in the [JoyStickView](https://github.com/bradhowes/Joystick) code.
 
-By default the [JoyStickView](https://github.com/bradhowes/Joystick/tree/master/Sources/JoyStickView/JoyStickView.swift) class uses two image assets found in the 
+By default the [JoyStickView](https://github.com/bradhowes/Joystick/tree/master/Sources/JoyStickView/JoyStickView.swift) class uses two image assets found in the
 [Assets](https://github.com/bradhowes/Joystick/tree/master/Sources/JoyStickView/Resources/Assets.xcassets) container.
 folder:
 
 * DefaultBase — the image to use for the base of the joystick
 * DefaultHandle — the image to use for the handle of the joystick. **Note**: this will be tinted with the `handleTintColor` setting
 
-Both exist in three resolutions for the various iOS devices out today. They were generated using the great [Opacity](http://likethought.com/opacity/) app. The 
+Both exist in three resolutions for the various iOS devices out today. They were generated using the great [Opacity](http://likethought.com/opacity/) app. The
 Opacity documents are included in this repository in the [Resources](https://github.com/bradhowes/Joystick/tree/master/JoyStickViewApp/Resources) directory for
 the `JoyStickViewApp` demonstration app.
 
@@ -120,7 +120,7 @@ that pointing to image resources via Interface Builder (IB) will result in inval
 found where IB was able to find them. The only solution is to manually locate those files and set them in your
 view loading code. Something like the following should help:
 
-```
+```swift
 extension Bundle {
 
     /**
@@ -139,7 +139,7 @@ extension Bundle {
 
 In your setup code, you then will need to do something like so:
 
-```
+```swift
     override func viewDidLoad() {
         super.viewDidLoad()
         let bundle = Bundle(for: JoyStickView.self).podResource(name: "BRHJoyStickView")
