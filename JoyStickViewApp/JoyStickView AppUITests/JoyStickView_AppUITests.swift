@@ -118,7 +118,7 @@ class JoyStickView_AppUITests: XCTestCase {
                 thenHoldForDuration: 0.25)
 
     XCTAssertEqual(origin, joystick.frame)
-    XCTAssertEqual(dispLabel.label, "0.255")
+    XCTAssertEqual(dispLabel.label, "0.283")
     XCTAssertEqual(angleLabel.label, "45.000")
     if firedLabel.exists {
       XCTAssertEqual(firedLabel.label, "")
@@ -128,7 +128,7 @@ class JoyStickView_AppUITests: XCTestCase {
     start.press(forDuration: 0.1)
     XCTAssertEqual(origin, joystick.frame)
 
-    XCTAssertEqual(dispLabel.label, "0.255")
+    XCTAssertEqual(dispLabel.label, "0.283")
     XCTAssertEqual(angleLabel.label, "45.000")
     XCTAssertEqual(firedLabel.label, "Fired!")
   }
