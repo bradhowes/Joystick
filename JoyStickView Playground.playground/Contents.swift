@@ -29,7 +29,7 @@ let constrainAxis = UISwitch(frame: CGRect(x:240, y: 10, width: 100, height: 40)
 view.addSubview(constrainAxis)
 
 let constrainAxisLabel = UILabel(frame: CGRect(x:300, y: 6, width: 200, height: 40))
-constrainAxisLabel.text = "Constrain Movement"
+constrainAxisLabel.text = "Constrain Handle"
 view.addSubview(constrainAxisLabel)
 
 /*:
