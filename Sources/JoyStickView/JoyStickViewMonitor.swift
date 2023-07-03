@@ -2,17 +2,16 @@
 
 import CoreGraphics
 
-// swiftlint:disable identifier_name
-
 /**
  JoyStickView handle position as X, Y deltas from the base center. Note that here a positive `y` indicates that the
  joystick handle is pushed upwards.
  */
 public struct JoyStickViewXYReport {
   /// Delta X of handle from base center
-  public let x: CGFloat
+  public let x: CGFloat // swiftlint:disable:this identifier_name
+
   /// Delta Y of handle from base center
-  public let y: CGFloat
+  public let y: CGFloat // swiftlint:disable:this identifier_name
 
   /**
    Constructor of new XY report
@@ -20,7 +19,7 @@ public struct JoyStickViewXYReport {
    - parameter x: X offset from center of the base
    - parameter y: Y offset from center of the base (positive values towards up/north)
    */
-  public init(x: CGFloat, y: CGFloat) {
+  public init(x: CGFloat, y: CGFloat) {  // swiftlint:disable:this identifier_name
     self.x = x
     self.y = y
   }

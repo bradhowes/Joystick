@@ -47,6 +47,16 @@
                ReferencedContainer = "container:JoyStickView App.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BDBB51CE220B0D9900C579B2"
+               BuildableName = "JoyStickViewTests.xctest"
+               BlueprintName = "JoyStickViewTests"
+               ReferencedContainer = "container:../JoyStickView.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
