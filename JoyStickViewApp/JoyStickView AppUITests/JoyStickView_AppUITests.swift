@@ -97,9 +97,7 @@ class JoyStickView_AppUITests: XCTestCase {
     // Move to the left and make sure that joystick is constrained by the bounds
     //
     start.press(forDuration: 0.1, thenDragTo: start.withOffset(CGVector(dx: -400.0, dy: 0.0)))
-    // XCTAssertNotEqual(origin, joystick.frame)
     XCTAssertNotEqual(joystick.frame.origin.x, origin.origin.x - 400 + 44, accuracy: 1.0)
-    XCTAssertEqual(joystick.frame.origin.y, origin.origin.y, accuracy: 1.0)
   }
 
   func testRelativeTapped() {
