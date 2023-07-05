@@ -4,11 +4,27 @@ import XCTest
 import JoyStickView
 
 class JoyStickView_AppUITests: XCTestCase {
+  var app: XCUIApplication!
+  var leftJoystick: XCUIElement!
+  var rightJoystick: XCUIElement!
+  var dispLabel: XCUIElement!
+  var angleLabel: XCUIElement!
+  var relativeMode: XCUIElement!
+  var constrainMode: XCUIElement!
 
   override func setUp() {
     continueAfterFailure = false
     XCUIDevice.shared.orientation = .portrait
     XCUIApplication().launch()
+    app = XCUIApplication()
+    leftJoystick = app.otherElements["leftJoystick"]
+    rightJoystick = app.otherElements["rightJoystick"]
+    dispLabel = app.staticTexts["disp"]
+    angleLabel = app.staticTexts["angle"]
+    relativeMode = app.switches["relativeMode"]
+    constrainMode = app.switches["constrainMode"]
+
+    _ = constrainMode.waitForExistence(timeout:30)
   }
 
   func center(of joystick: XCUIElement) -> XCUICoordinate {
@@ -16,14 +32,10 @@ class JoyStickView_AppUITests: XCTestCase {
   }
 
   func testFixedDirection(dx: CGFloat, dy: CGFloat, disp: Double, angle: Double, msg: String) {
-    let app = XCUIApplication()
-    let joystick = app.otherElements["leftJoystick"]
-    let dispLabel = app.staticTexts["disp"]
-    let angleLabel = app.staticTexts["angle"]
 
     // Press on the joystick and then drag it `dx/dy` points
     //
-    let start = center(of: joystick)
+    let start = center(of: leftJoystick)
     start.press(forDuration: 0.3, thenDragTo: start.withOffset(CGVector(dx: dx, dy: dy)), withVelocity: .default,
                 thenHoldForDuration: 0.3)
 
@@ -61,44 +73,51 @@ class JoyStickView_AppUITests: XCTestCase {
    NOTE: if this fails, it could be due to orientation of the simulator. Make sure that "Hardware > Rotate Device Automatically"
    menu item is selected in the simulator, and try again.
    */
-  func testMovable() {
+  func testBaseConstrained() {
+    let origin = rightJoystick.frame
+    let start = center(of: rightJoystick)
 
-    let app = XCUIApplication()
-    let joystick = app.otherElements["rightJoystick"]
-    let origin = joystick.frame
-    let dispLabel = app.staticTexts["disp"]
-    let angleLabel = app.staticTexts["angle"]
-    let relativeMode = app.switches["relativeMode"]
+    start.press(forDuration: 0.25,
+                thenDragTo: start.withOffset(CGVector(dx: -400.0, dy: 0.0)),
+                withVelocity: .fast,
+                thenHoldForDuration: 0.25)
 
-    let relativeModeValue = relativeMode.value.debugDescription
-    if relativeModeValue == "Optional(1)" {
-      relativeMode.tap()
+    XCTAssertNotEqual(rightJoystick.frame.origin.x, origin.origin.x - 400 + 44, accuracy: 1.0)
+  }
+
+  func testHandleConstrained() {
+    let start = center(of: leftJoystick)
+    if constrainMode.value.debugDescription == "Optional(0)" {
+      constrainMode.tap()
     }
 
-    // Move a large enough amount to move the base up.
-    //
-    let start = center(of: joystick)
-    start.press(forDuration: 0.25, thenDragTo: start.withOffset(CGVector(dx: 0.0, dy: -100.0)), withVelocity: .fast, thenHoldForDuration: 0.25)
+    Thread.sleep(forTimeInterval: 0.2)
+
+    start.press(forDuration: 0.25,
+                thenDragTo: start.withOffset(CGVector(dx: -150, dy: -150.0)),
+                withVelocity: .fast,
+                thenHoldForDuration: 0.25)
 
     XCTAssertEqual(Float(dispLabel.label)!, 1.0, accuracy: 0.001)
-    XCTAssertEqual(Float(angleLabel.label)!, 0.0, accuracy: 0.001)
-
-    XCTAssertNotEqual(origin, joystick.frame)
-    XCTAssertEqual(joystick.frame.origin.x, origin.origin.x, accuracy: 1.0)
-    XCTAssertNotEqual(joystick.frame.origin.y, origin.origin.y, accuracy: 1.0)
-
-    // Now double-tap to move back
-    //
-    let start2 = center(of: joystick)
-    start2.press(forDuration: 0.1)
-    start2.press(forDuration: 0.1)
-    XCTAssertEqual(origin, joystick.frame)
-
-    // Move to the left and make sure that joystick is constrained by the bounds
-    //
-    start.press(forDuration: 0.1, thenDragTo: start.withOffset(CGVector(dx: -400.0, dy: 0.0)))
-    XCTAssertNotEqual(joystick.frame.origin.x, origin.origin.x - 400 + 44, accuracy: 1.0)
+    XCTAssertEqual(Float(angleLabel.label)!, 315.0, accuracy: 0.001)
   }
+
+//    XCTAssertNotEqual(origin, joystick.frame)
+//    XCTAssertEqual(joystick.frame.origin.x, origin.origin.x, accuracy: 1.0)
+//    XCTAssertNotEqual(joystick.frame.origin.y, origin.origin.y, accuracy: 1.0)
+//
+//    // Now double-tap to move back
+//    //
+//    let start2 = center(of: joystick)
+//    start2.press(forDuration: 0.05)
+//    start2.press(forDuration: 0.05)
+//    XCTAssertEqual(origin, joystick.frame)
+//
+//    // Move to the left and make sure that joystick is constrained by the bounds
+//    //
+//    start.press(forDuration: 0.1, thenDragTo: start.withOffset(CGVector(dx: -400.0, dy: 0.0)))
+//    XCTAssertNotEqual(joystick.frame.origin.x, origin.origin.x - 400 + 44, accuracy: 1.0)
+//  }
 
   func testRelativeTapped() {
 

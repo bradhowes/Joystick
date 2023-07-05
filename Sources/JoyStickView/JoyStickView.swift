@@ -38,12 +38,14 @@ import CoreGraphics
   /// use `CGRect(x: 50, y: 0, width: 1, height: 100)`
   public var handleConstraint: CGRect? {
     didSet {
-      switch handleConstraint {
-      case .some(let hc):
-        handleCenterClamper = { .init(x: min(max($0.x, hc.minX), hc.maxX),
-                                      y: min(max($0.y, hc.minY), hc.maxY)) }
-      default:
-        handleCenterClamper = { $0 }
+      handleCenterClamper = { $0 }
+      if case .some(let hc) = handleConstraint {
+        print("clamper: \(hc)")
+        handleCenterClamper = { pos in
+          let clamped = CGPoint(x: min(max(pos.x, hc.minX), hc.maxX), y: min(max(pos.y, hc.minY), hc.maxY))
+          print("\(hc) clamping: \(pos) -> \(clamped)")
+          return clamped
+        }
       }
     }
   }
@@ -57,7 +59,7 @@ import CoreGraphics
   /// the radius of the joystick base. Always falls between 0.0 and 1.0
   public private(set) var displacement: CGFloat = 0.0
 
-  /// If `true` the joystick will move around in the parant's view so that the joystick handle is always at a
+  /// If `true` the joystick will move around in the parent's view so that the joystick handle is always at a
   /// displacement of 1.0. This is the default mode of operation. Setting to `false` will keep the view fixed.
   @IBInspectable public var movable: Bool = false
 
@@ -70,8 +72,7 @@ import CoreGraphics
     didSet {
       switch movableBounds {
       case .some(let mb):
-        baseCenterClamper = { .init(x: min(max($0.x, mb.minX), mb.maxX),
-                                    y: min(max($0.y, mb.minY), mb.maxY)) }
+        baseCenterClamper = { .init(x: min(max($0.x, mb.minX), mb.maxX), y: min(max($0.y, mb.minY), mb.maxY)) }
       default:
         baseCenterClamper = { $0 }
       }
@@ -120,7 +121,7 @@ import CoreGraphics
 
   /// Control whether view will recognize a double-tap gesture and move the joystick base to its original location
   /// when it happens. Note that this is only useful if `moveable` is true.
-  @IBInspectable public var enableDoubleTapForFrameReset: Bool = true {
+  @IBInspectable public var enableDoubleTapForFrameReset: Bool = false {
     didSet {
       if let gestureRecognizer = doubleTapGestureRecognizer {
         removeGestureRecognizer(gestureRecognizer)
@@ -174,10 +175,7 @@ import CoreGraphics
   private var doubleTapGestureRecognizer: UITapGestureRecognizer?
 
   /// The position of the initial touch on the handle
-  private var tapPosition: CGPoint = .zero
-
-  /// The timestamp of the initial touch on the handle
-  private var tapStartTime: TimeInterval = 0.0
+  private var tapStartPosition: CGPoint = .zero
 
   /// Location of embedded resources
   private lazy var resourceBundle: Bundle = {
@@ -226,7 +224,7 @@ extension JoyStickView {
    */
   public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     guard let touch = touches.first else { return }
-    updatePosition(touch: touch, initial: true)
+    updatePosition(touch: touch)
   }
 
   /**
@@ -236,7 +234,7 @@ extension JoyStickView {
    */
   public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     guard let touch = touches.first else { return }
-    updatePosition(touch: touch, initial: false)
+    updatePosition(touch: touch)
   }
 
   /**
@@ -246,6 +244,7 @@ extension JoyStickView {
    - parameter event: additional event info (ignored)
    */
   public override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+    tapStartPosition = .zero
     homePosition()
   }
 
@@ -255,6 +254,7 @@ extension JoyStickView {
    - parameter event: additional event info (ignored)
    */
   public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    tapStartPosition = .zero
     homePosition()
   }
 
@@ -398,8 +398,7 @@ extension JoyStickView {
   private func generateHandleImage() {
     if colorFillHandleImage {
       colorHandleImage()
-    }
-    else {
+    } else {
       tintHandleImage()
     }
   }
@@ -413,8 +412,7 @@ extension JoyStickView {
       let image = handleImage.withRenderingMode(.alwaysTemplate)
       handleImageView.image = image
       handleImageView.tintColor = handleTintColor
-    }
-    else {
+    } else {
       handleImageView.tintColor = nil
       handleImageView.image = handleImage
     }
@@ -463,7 +461,7 @@ extension JoyStickView {
   private func calculateDelta(location: CGPoint) -> CGVector {
     switch handlePositionMode {
     case .absolute: return location - frame.mid
-    case .relative: return location - tapPosition
+    case .relative: return location - tapStartPosition
     }
   }
 
@@ -471,58 +469,55 @@ extension JoyStickView {
    Update the handle position based on the current touch location.
    - parameter touch: the UITouch instance describing where the finger/pencil is
    */
-  private func updatePosition(touch: UITouch, initial: Bool) {
+  private func updatePosition(touch: UITouch) {
     guard let superview = self.superview else { return }
     let location = touch.location(in: superview)
     guard superview.bounds.contains(location) else { return }
 
-    if initial {
-      tapStartTime = touch.timestamp
-      tapPosition = location
+    if tapStartPosition == .zero {
+      tapStartPosition = location
     }
 
     let delta = calculateDelta(location: location)
-    let newDisplacement = delta.magnitude / radius
-
-    // Calculate pointing angle used displacements. NOTE: using this ordering of dx, dy to atan2f to obtain
-    // navigation angles where 0 is at top of clock dial and angle values increase in a clock-wise direction. This
-    // also assumes that Y increases in the downward direction.
-    //
-    let newAngleRadians = atan2(delta.dx, delta.dy)
 
     if movable {
-      if newDisplacement > 1.0 && repositionBase(location: location, angle: newAngleRadians) {
-        repositionHandle(angle: newAngleRadians)
-      }
-      else {
-        handleImageView.center = handleCenterClamper(bounds.mid + delta)
-      }
-    }
-    else if newDisplacement > 1.0 {
-      repositionHandle(angle: newAngleRadians)
-    }
-    else {
-      handleImageView.center = handleCenterClamper(bounds.mid + delta)
+      updateForMovableBase(location: location, delta: delta)
+    } else {
+      updateForFixedBase(location: location, delta: delta)
     }
 
     reportPosition()
   }
 
-  /**
-   Report the current joystick values to any registered `monitor`.
-   */
-  private func reportPosition() {
-    let delta = handleImageView.center - baseImageView.center
-    let displacement = delta.magnitude2 == 0.0 ? 0.0 : delta.magnitude / radius
-    let angleRadians = delta.magnitude2 == 0.0 ? 0.0 : atan2(delta.dx, delta.dy)
+  private func calculatePolar(delta: CGVector) -> Polar {
 
-    self.displacement = displacement
-    self.angleRadians = angleRadians
+    // Calculate pointing angle using displacements. NOTE: using this ordering of dx, dy for atan2f to obtain
+    // navigation angles where 0 is at top of clock dial and angle values increase in a clock-wise direction. This
+    // also assumes that Y increases in the downward direction.
+    //
+    .init(radial: delta.magnitude / radius, theta: atan2(delta.dx, delta.dy))
+  }
 
-    switch monitor {
-    case let .polar(monitor): monitor(JoyStickViewPolarReport(angle: self.angle, displacement: displacement))
-    case let .xy(monitor): monitor(JoyStickViewXYReport(x: delta.dx, y: -delta.dy))
-    case .none: break
+  private func updateForMovableBase(location: CGPoint, delta: CGVector) {
+    let polar = calculatePolar(delta: delta)
+    if polar.radial > 1.0 {
+      if !repositionBase(location: location, angle: polar.theta) {
+        repositionHandle(angle: polar.theta)
+      } else {
+        handleImageView.center = handleCenterClamper(bounds.mid + delta)
+      }
+      tapStartPosition = self.center
+    } else {
+      handleImageView.center = handleCenterClamper(bounds.mid + delta)
+    }
+  }
+
+  private func updateForFixedBase(location: CGPoint, delta: CGVector) {
+    let polar = calculatePolar(delta: delta)
+    if polar.radial > 1.0 {
+      repositionHandle(angle: polar.theta)
+    } else {
+      handleImageView.center = handleCenterClamper(bounds.mid + delta)
     }
   }
 
@@ -534,7 +529,7 @@ extension JoyStickView {
 
    - parameter location: the current joystick handle center position
    - parameter angle: the angle the handle makes with the center of the base
-   - returns: true if the base **cannot** move sufficiently to keep the displacement of the handle <= 1.0
+   - returns: false if the base **cannot** move sufficiently to keep the displacement of the handle <= 1.0
    */
   private func repositionBase(location: CGPoint, angle: CGFloat) -> Bool {
     if movableCenter == nil {
@@ -547,9 +542,9 @@ extension JoyStickView {
 
     // Calculate the origin of our frame, working backwards from the given location, and move to it.
     //
-    let desiredCenter = location - end //  - frame.size / 2.0
+    let desiredCenter = location - end
     self.center = baseCenterClamper(desiredCenter)
-    return self.center != desiredCenter
+    return self.center == desiredCenter
   }
 
   /**
@@ -570,6 +565,24 @@ extension JoyStickView {
     // swiftlint:enable identifier_name
 
     handleImageView.center = handleCenterClamper(handleImageView.center)
+  }
+
+  /**
+   Report the current joystick values to any registered `monitor`.
+   */
+  private func reportPosition() {
+    let delta = handleImageView.center - baseImageView.center
+    let displacement = delta.magnitude2 == 0.0 ? 0.0 : delta.magnitude / radius
+    let angleRadians = delta.magnitude2 == 0.0 ? 0.0 : atan2(delta.dx, delta.dy)
+
+    self.displacement = displacement
+    self.angleRadians = angleRadians
+
+    switch monitor {
+    case let .polar(monitor): monitor(JoyStickViewPolarReport(angle: self.angle, displacement: displacement))
+    case let .xy(monitor): monitor(JoyStickViewXYReport(x: delta.dx, y: -delta.dy))
+    case .none: break
+    }
   }
 }
 

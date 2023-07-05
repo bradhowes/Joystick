@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD0E7DB92A55F57E00181929 /* Polar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0E7DB82A55F57E00181929 /* Polar.swift */; };
 		BD4CAF182210696000DECD93 /* JoyStickViewMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4CAF172210696000DECD93 /* JoyStickViewMonitorTests.swift */; };
 		BDA7F8E8218B1DE400A9AB5B /* Bundle+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA7F8E7218B1DE400A9AB5B /* Bundle+Additions.swift */; };
 		BDBB51BA220ADE1E00C579B2 /* JoyStickViewMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBB51B9220ADE1E00C579B2 /* JoyStickViewMonitor.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BD0E7DB82A55F57E00181929 /* Polar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polar.swift; sourceTree = "<group>"; };
 		BD4CAF172210696000DECD93 /* JoyStickViewMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoyStickViewMonitorTests.swift; sourceTree = "<group>"; };
 		BD75800B215B66F000B787D2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDA7F8E7218B1DE400A9AB5B /* Bundle+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Additions.swift"; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				BDBB51B9220ADE1E00C579B2 /* JoyStickViewMonitor.swift */,
 				BDA7F8E7218B1DE400A9AB5B /* Bundle+Additions.swift */,
 				BDCA40A0215A3B3700578F67 /* CoreGraphics+Additions.swift */,
+				BD0E7DB82A55F57E00181929 /* Polar.swift */,
 				BDCA4096215A3AEE00578F67 /* JoyStickView.h */,
 			);
 			name = Sources;
@@ -169,8 +172,9 @@
 		BDCA408A215A3AED00578F67 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = "Brad Howes";
 				TargetAttributes = {
 					BDBB51CE220B0D9900C579B2 = {
@@ -257,6 +261,7 @@
 			files = (
 				BDCA40A1215A3B3700578F67 /* JoyStickView.swift in Sources */,
 				BDCA40A3215A3B3700578F67 /* CoreGraphics+Additions.swift in Sources */,
+				BD0E7DB92A55F57E00181929 /* Polar.swift in Sources */,
 				BDA7F8E8218B1DE400A9AB5B /* Bundle+Additions.swift in Sources */,
 				BDBB51BA220ADE1E00C579B2 /* JoyStickViewMonitor.swift in Sources */,
 			);
@@ -446,6 +451,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/JoyStickView/Resources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -455,6 +461,8 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 3.2.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_BUNDLE_IDENTIFIER = com.braysoft.JoyStickView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -477,6 +485,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/JoyStickView/Resources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -486,6 +495,8 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 3.2.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_BUNDLE_IDENTIFIER = com.braysoft.JoyStickView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
