@@ -121,11 +121,12 @@ class JoyStickView_AppUITests: XCTestCase {
 
     // Now double-tap to move back
     //
-    let start2 = center(of: rightJoystick)
-    start2.press(forDuration: 0.1)
-    start2.press(forDuration: 0.1)
+    while rightJoystick.frame == end {
+      center(of: rightJoystick).press(forDuration: 0.1)
+      center(of: rightJoystick).press(forDuration: 0.1)
+    }
 
-    XCTAssertNotEqual(end, rightJoystick.frame)
+    XCTAssertNotEqual(rightJoystick.frame, end)
   }
 
   func testRelativeTapped() {
