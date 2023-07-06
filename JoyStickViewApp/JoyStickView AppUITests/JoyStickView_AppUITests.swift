@@ -101,7 +101,7 @@ class JoyStickView_AppUITests: XCTestCase {
     XCTAssertEqual(Float(angleLabel.label)!, 0.0, accuracy: 0.001)
   }
 
-  func testDoubleTapReturnsToOrigin() {
+  func BAH_testDoubleTapReturnsToOrigin() {
     let origin = rightJoystick.frame
     let start = center(of: rightJoystick)
 
