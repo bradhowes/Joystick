@@ -119,10 +119,14 @@ class JoyStickView_AppUITests: XCTestCase {
     XCTAssertEqual(rightJoystick.frame.origin.x, origin.origin.x, accuracy: 1.0)
     XCTAssertNotEqual(rightJoystick.frame.origin.y, origin.origin.y, accuracy: 1.0)
 
+    print("doing doubleTap")
+    rightJoystick.doubleTap()
+
     // Now double-tap to move back
     //
     var duration = 0.05
     while rightJoystick.frame == end && duration < 2.0 {
+      print("doing tap-tap")
       center(of: rightJoystick).press(forDuration: duration)
       center(of: rightJoystick).press(forDuration: duration)
       Thread.sleep(forTimeInterval: 0.5)
