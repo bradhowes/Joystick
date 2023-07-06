@@ -11,7 +11,14 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Run monitor tests
-      run: xcodebuild -workspace JoyStickView.xcworkspace test -destination 'name=iPhone 11' -scheme 'JoyStickView'
-    - name: Run view tests
-      run: xcodebuild -workspace JoyStickView.xcworkspace test -destination 'name=iPhone 11' -scheme 'JoyStickView App'
+    - name: Build, test, and code coverage
+      run make
+    - name: Create Coverage Badge
+      uses: schneegans/dynamic-badges-action@v1.1.0
+      with:
+        auth: ${{ secrets.GIST_UPDATE }}
+        gistID: 4739895cbf46573cc4b63ab776c74899
+        filename: Joystick-coverage.json
+        label: Coverage
+        message: ${{ env.PERCENTAGE }}
+        color: success

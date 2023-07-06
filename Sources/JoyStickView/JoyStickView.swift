@@ -38,14 +38,10 @@ import CoreGraphics
   /// use `CGRect(x: 50, y: 0, width: 1, height: 100)`
   public var handleConstraint: CGRect? {
     didSet {
-      handleCenterClamper = { $0 }
       if case .some(let hc) = handleConstraint {
-        print("clamper: \(hc)")
-        handleCenterClamper = { pos in
-          let clamped = CGPoint(x: min(max(pos.x, hc.minX), hc.maxX), y: min(max(pos.y, hc.minY), hc.maxY))
-          print("\(hc) clamping: \(pos) -> \(clamped)")
-          return clamped
-        }
+        handleCenterClamper = { .init(x: min(max($0.x, hc.minX), hc.maxX), y: min(max($0.y, hc.minY), hc.maxY)) }
+      } else {
+        handleCenterClamper = { $0 }
       }
     }
   }

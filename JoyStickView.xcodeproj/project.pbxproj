@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BD0E7DB92A55F57E00181929 /* Polar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0E7DB82A55F57E00181929 /* Polar.swift */; };
+		BD0E7DBC2A575B6500181929 /* CoreGraphics+AdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0E7DBA2A575A9200181929 /* CoreGraphics+AdditionsTests.swift */; };
+		BD0E7DBF2A57618100181929 /* Bundle+AdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0E7DBD2A57617300181929 /* Bundle+AdditionsTests.swift */; };
 		BD4CAF182210696000DECD93 /* JoyStickViewMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4CAF172210696000DECD93 /* JoyStickViewMonitorTests.swift */; };
 		BDA7F8E8218B1DE400A9AB5B /* Bundle+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA7F8E7218B1DE400A9AB5B /* Bundle+Additions.swift */; };
 		BDBB51BA220ADE1E00C579B2 /* JoyStickViewMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBB51B9220ADE1E00C579B2 /* JoyStickViewMonitor.swift */; };
@@ -30,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		BD0E7DB82A55F57E00181929 /* Polar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polar.swift; sourceTree = "<group>"; };
+		BD0E7DBA2A575A9200181929 /* CoreGraphics+AdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+AdditionsTests.swift"; sourceTree = "<group>"; };
+		BD0E7DBD2A57617300181929 /* Bundle+AdditionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+AdditionsTests.swift"; sourceTree = "<group>"; };
 		BD4CAF172210696000DECD93 /* JoyStickViewMonitorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoyStickViewMonitorTests.swift; sourceTree = "<group>"; };
 		BD75800B215B66F000B787D2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDA7F8E7218B1DE400A9AB5B /* Bundle+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Additions.swift"; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				BD4CAF172210696000DECD93 /* JoyStickViewMonitorTests.swift */,
+				BD0E7DBA2A575A9200181929 /* CoreGraphics+AdditionsTests.swift */,
+				BD0E7DBD2A57617300181929 /* Bundle+AdditionsTests.swift */,
 				BDBB51D3220B0D9900C579B2 /* Info.plist */,
 			);
 			name = Tests;
@@ -252,6 +258,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD4CAF182210696000DECD93 /* JoyStickViewMonitorTests.swift in Sources */,
+				BD0E7DBF2A57618100181929 /* Bundle+AdditionsTests.swift in Sources */,
+				BD0E7DBC2A575B6500181929 /* CoreGraphics+AdditionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

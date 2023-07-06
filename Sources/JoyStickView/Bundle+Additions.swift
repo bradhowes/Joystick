@@ -11,7 +11,7 @@ extension Bundle {
    one of the "s.resource_bundles" keys from the podspec file that defines the CocoPod.
    - returns: the resource Bundle or `self` if resource bundle was not found
    */
-  func podResource(name: String) -> Bundle {
+  public func podResource(name: String) -> Bundle {
     guard let bundleUrl = self.url(forResource: name, withExtension: "bundle") else { return self }
     return Bundle(url: bundleUrl) ?? self
   }

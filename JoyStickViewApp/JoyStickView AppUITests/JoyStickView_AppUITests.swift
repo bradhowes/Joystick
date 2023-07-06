@@ -99,6 +99,18 @@ class JoyStickView_AppUITests: XCTestCase {
 
     XCTAssertEqual(Float(dispLabel.label)!, 0.707, accuracy: 0.001)
     XCTAssertEqual(Float(angleLabel.label)!, 0.0, accuracy: 0.001)
+
+    constrainMode.tap()
+
+    // Move diagonally to upper-left.
+    start.press(forDuration: 0.25,
+                thenDragTo: start.withOffset(CGVector(dx: -200, dy: -200.0)),
+                withVelocity: .fast,
+                thenHoldForDuration: 0.25)
+
+    XCTAssertEqual(Float(dispLabel.label)!, 1.0, accuracy: 0.001)
+    XCTAssertEqual(Float(angleLabel.label)!, 315.0, accuracy: 0.001)
+
   }
 
   func testDoubleTapReturnsToOrigin() {
