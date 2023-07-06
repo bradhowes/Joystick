@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build, test, and code coverage
-      run make
+      run: make
     - name: Create Coverage Badge
       uses: schneegans/dynamic-badges-action@v1.1.0
       with:
