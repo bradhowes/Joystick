@@ -1,6 +1,4 @@
 [![CI](https://github.com/bradhowes/Joystick/workflows/CI/badge.svg)](https://github.com/bradhowes/Joystick)
-[![CocoaPods](https://img.shields.io/badge/CocoaPods-compatible-green.svg)](https://cocoapods.org/pods/BRHJoyStickView)
-[![SPM](https://img.shields.io/badge/SPM-compatible-green.svg)](https://github.com/bradhowes/Joystick)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fbradhowes%2FJoystick%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/bradhowes/Joystick)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fbradhowes%2FJoystick%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/bradhowes/Joystick)
 [![License: MIT](https://img.shields.io/badge/License-MIT-A31F34.svg)](https://opensource.org/licenses/MIT)
