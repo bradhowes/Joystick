@@ -124,6 +124,7 @@ class JoyStickView_AppUITests: XCTestCase {
     while rightJoystick.frame == end {
       center(of: rightJoystick).press(forDuration: 0.1)
       center(of: rightJoystick).press(forDuration: 0.1)
+      Thread.sleep(forTimeInterval: 0.5)
     }
 
     XCTAssertNotEqual(rightJoystick.frame, end)
