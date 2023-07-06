@@ -101,7 +101,7 @@ class JoyStickView_AppUITests: XCTestCase {
     XCTAssertEqual(Float(angleLabel.label)!, 0.0, accuracy: 0.001)
   }
 
-  func BAH_testDoubleTapReturnsToOrigin() {
+  func testDoubleTapReturnsToOrigin() {
     let origin = rightJoystick.frame
     let start = center(of: rightJoystick)
 
@@ -121,12 +121,15 @@ class JoyStickView_AppUITests: XCTestCase {
 
     // Now double-tap to move back
     //
-    while rightJoystick.frame == end {
-      center(of: rightJoystick).press(forDuration: 0.1)
-      center(of: rightJoystick).press(forDuration: 0.1)
+    var duration = 0.05
+    while rightJoystick.frame == end && duration < 2.0 {
+      center(of: rightJoystick).press(forDuration: duration)
+      center(of: rightJoystick).press(forDuration: duration)
       Thread.sleep(forTimeInterval: 0.5)
+      duration *= 2.0
     }
 
+    print("final duration: \(duration / 2.0)")
     XCTAssertNotEqual(rightJoystick.frame, end)
   }
 
