@@ -1,7 +1,7 @@
 // Copyright © 2019 Brad Howes. All rights reserved.
 
 import XCTest
-import JoyStickView
+@testable import JoyStickView
 
 class JoyStickViewMonitorTests: XCTestCase {
 
@@ -146,14 +146,5 @@ class JoyStickViewMonitorTests: XCTestCase {
     XCTAssertEqual(lastXYReport.y, 0.99999847)
     XCTAssertEqual(lastXYReport.polar.angle, 0.1, accuracy: accuracy)
     XCTAssertEqual(lastXYReport.polar.displacement, CGFloat(1.0).squareRoot(), accuracy: accuracy)
-
   }
-
-  func testPerformanceExample() {
-    // This is an example of a performance test case.
-    self.measure {
-      // Put the code you want to measure the time of here.
-    }
-  }
-
 }

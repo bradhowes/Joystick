@@ -1,7 +1,7 @@
 // Copyright © 2018 Brad Howes. All rights reserved.
 
 import XCTest
-import JoyStickView
+@testable import JoyStickView
 
 class JoyStickView_AppUITests: XCTestCase {
   var app: XCUIApplication!

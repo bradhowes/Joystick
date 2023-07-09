@@ -1,7 +1,7 @@
 // Copyright © 2023 Brad Howes. All rights reserved.
 
 import XCTest
-import JoyStickView
+@testable import JoyStickView
 
 class BundleAdditionsTests: XCTestCase {
 

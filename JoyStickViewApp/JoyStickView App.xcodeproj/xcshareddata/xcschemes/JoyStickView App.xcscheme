@@ -26,7 +26,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
@@ -41,20 +42,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BD521B06218737D5001C607E"
-               BuildableName = "JoyStickView AppUITests.xctest"
-               BlueprintName = "JoyStickView AppUITests"
-               ReferencedContainer = "container:JoyStickView App.xcodeproj">
+               BlueprintIdentifier = "BDBB51CE220B0D9900C579B2"
+               BuildableName = "JoyStickViewTests.xctest"
+               BlueprintName = "JoyStickViewTests"
+               ReferencedContainer = "container:../JoyStickView.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BDBB51CE220B0D9900C579B2"
-               BuildableName = "JoyStickViewTests.xctest"
-               BlueprintName = "JoyStickViewTests"
-               ReferencedContainer = "container:../JoyStickView.xcodeproj">
+               BlueprintIdentifier = "BD521B06218737D5001C607E"
+               BuildableName = "JoyStickView AppUITests.xctest"
+               BlueprintName = "JoyStickView AppUITests"
+               ReferencedContainer = "container:JoyStickView App.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

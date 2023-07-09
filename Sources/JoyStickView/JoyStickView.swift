@@ -9,8 +9,8 @@ import CoreGraphics
 
  * angle: the direction the handle is pointing. Unit is degrees with 0° pointing up (north), and 90° pointing
  right (east).
- * displacement: how far from the view center the joystick is moved in the above direction. Unitless but
- is the ratio of distance moved from center over the radius of the joystick base. Always in range 0.0-1.0
+ * displacement: how far from the view center the joystick is moved in the above direction. It has no units
+ as it is the ratio of distance moved from center over the radius of the joystick base. Always in range 0.0-1.0.
 
  The view has several settable parameters that be used to configure a joystick's appearance and behavior:
 
@@ -47,11 +47,11 @@ import CoreGraphics
   }
 
   /// The last-reported angle from the joystick handle. Unit is degrees, with 0° up (north) and 90° right (east).
-  /// Note that this assumes that `angleRadians` was calculated with atan2(dx, dy) and that dy is positive when
+  /// Note that this assumes that ``angleRadians`` was calculated with atan2(dx, dy) and that dy is positive when
   /// pointing down.
   public var angle: CGFloat { displacement != 0.0 ? 180.0 - angleRadians * 180.0 / .pi : 0.0 }
 
-  /// The last-reported displacement from the joystick handle. Dimensionless but is the ratio of movement over
+  /// The last-reported displacement from the joystick handle. Dimensionless, it is the ratio of movement over
   /// the radius of the joystick base. Always falls between 0.0 and 1.0
   public private(set) var displacement: CGFloat = 0.0
 
@@ -76,14 +76,14 @@ import CoreGraphics
   }
 
   /// The opacity of the base of the joystick. Note that this is different than the view's overall opacity
-  /// setting. The end result will be a base image with an opacity of `baseAlpha` * `view.alpha`
+  /// setting. The end result will be a base image with an opacity of ``baseAlpha`` * `view.alpha`
   @IBInspectable public var baseAlpha: CGFloat {
     get { baseImageView.alpha }
     set { baseImageView.alpha = newValue }
   }
 
   /// The opacity of the handle of the joystick. Note that this is different than the view's overall opacity setting.
-  /// The end result will be a handle image with an opacity of `handleAlpha` * `view.alpha`
+  /// The end result will be a handle image with an opacity of ``handleAlpha`` * `view.alpha`
   @IBInspectable public var handleAlpha: CGFloat {
     get { handleImageView.alpha }
     set { handleImageView.alpha = newValue }
@@ -97,7 +97,7 @@ import CoreGraphics
   @IBInspectable public var handleSizeRatio: CGFloat = 0.85 { didSet { scaleHandleImageView() } }
 
   /// Control how the handle image is generated. When this is `false` (default), a CIFilter will be used to tint
-  /// the handle image with the `handleTintColor`. This results in a monochrome image of just one color, but with
+  /// the handle image with the ``handleTintColor``. This results in a monochrome image of just one color, but with
   /// lighter and darker areas depending on the original image. When this is `true`, the handle image is just
   /// used as a mask, and all pixels with an alpha = 1.0 will be colored with the `handleTintColor` value.
   @IBInspectable public var colorFillHandleImage: Bool = false { didSet { generateHandleImage() } }
@@ -130,7 +130,7 @@ import CoreGraphics
   }
 
   /**
-   Position mode for a joystick handle. The default (original) is `absolute` mode.
+   Position mode for a joystick handle. The default (original) is ``absolute`` mode.
    */
   public enum HandlePositionMode {
     /// Center of joystick handle moves to actual touch position (limited by base constraints)
@@ -142,7 +142,7 @@ import CoreGraphics
   /// How the handle is moved with the initial touch
   public var handlePositionMode: HandlePositionMode = .absolute
 
-  /// Minimum distance in either X or Y coordinate the handle must move for `handleHasMoved` to return `true`.
+  /// Minimum distance in either X or Y coordinate the handle must move for ``handleHasMoved`` to return `true`.
   public var handleMovedTolerance: CGFloat = 2.0
 
   /// The max distance the handle may move in any direction, where the start is the center of the joystick base and
@@ -153,7 +153,7 @@ import CoreGraphics
   private var baseImageView: UIImageView = .init(image: nil)
 
   /// The image to use to show the handle of the joystick
-  private var handleImageView: UIImageView = .init(image: nil)
+  internal var handleImageView: UIImageView = .init(image: nil)
 
   /// Cache of the last joystick angle in radians
   private var angleRadians: CGFloat = 0.0
@@ -164,10 +164,10 @@ import CoreGraphics
   /// A filter for joystick handle centers. Used to restrict handle movements.
   private var handleCenterClamper: (CGPoint) -> CGPoint = { $0 }
 
-  /// Tap gesture recognizer for detecting single-taps. Only present if `tappedBlock` is not nil
+  /// Tap gesture recognizer for detecting single-taps. Only present if ``tappedBlock`` is not nil
   private var singleTapGestureRecognizer: UITapGestureRecognizer?
 
-  /// Tap gesture recognizer for detecting double-taps. Only present if `enableSingleTapForFrameReset` is true
+  /// Tap gesture recognizer for detecting double-taps. Only present if ``enableSingleTapForFrameReset`` is true
   private var doubleTapGestureRecognizer: UITapGestureRecognizer?
 
   /// The position of the initial touch on the handle
@@ -370,7 +370,7 @@ extension JoyStickView: UIGestureRecognizerDelegate {
   }
 
   /// Returns `true` if the handle has moved, where moving means the displacement in either coordinate is
-  /// `handleMovedTolerance` or greater.
+  /// ``handleMovedTolerance`` or greater.
   public var handleHasMoved: Bool {
     let change = handleImageView.center - bounds.mid
     return abs(change.dx) >= handleMovedTolerance || abs(change.dy) >= handleMovedTolerance
@@ -400,7 +400,7 @@ extension JoyStickView {
   }
 
   /**
-   Generate a handle image by applying the `handleTintColor` value to the handeImage
+   Generate a handle image by applying the ``handleTintColor`` value to the ``handleImage``.
    */
   private func colorHandleImage() {
     guard let handleImage = self.handleImage else { return }
@@ -566,7 +566,7 @@ extension JoyStickView {
   /**
    Report the current joystick values to any registered `monitor`.
    */
-  private func reportPosition() {
+  internal func reportPosition() {
     let delta = handleImageView.center - baseImageView.center
     let displacement = delta.magnitude2 == 0.0 ? 0.0 : delta.magnitude / radius
     let angleRadians = delta.magnitude2 == 0.0 ? 0.0 : atan2(delta.dx, delta.dy)
