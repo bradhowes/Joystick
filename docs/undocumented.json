@@ -1,0 +1,26 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/howes/src/Mine/Joystick/Sources/JoyStickView/Polar.swift",
+      "line": 5,
+      "symbol": "Polar",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/howes/src/Mine/Joystick/Sources/JoyStickView/Polar.swift",
+      "line": 6,
+      "symbol": "Polar.radial",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/howes/src/Mine/Joystick/Sources/JoyStickView/Polar.swift",
+      "line": 7,
+      "symbol": "Polar.theta",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/howes/src/Mine/Joystick"
+}
