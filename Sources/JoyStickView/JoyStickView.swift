@@ -47,7 +47,7 @@ import CoreGraphics
   }
 
   /// The last-reported angle from the joystick handle. Unit is degrees, with 0° up (north) and 90° right (east).
-  /// Note that this assumes that ``angleRadians`` was calculated with atan2(dx, dy) and that dy is positive when
+  /// Note that this assumes that `angleRadians` was calculated with atan2(dx, dy) and that dy is positive when
   /// pointing down.
   public var angle: CGFloat { displacement != 0.0 ? 180.0 - angleRadians * 180.0 / .pi : 0.0 }
 

@@ -1,0 +1,289 @@
+{
+  "abstract" : [
+    {
+      "text" : "Install monitor that accepts cartesian (XY) position change reports",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewMonitorKind"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewMonitorKind\/xy(monitor:)"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:12JoyStickView0abC11MonitorKindO2xyyACyAA0abC8XYReportVc_tcACmF",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "case"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "xy"
+      },
+      {
+        "kind" : "text",
+        "text" : "("
+      },
+      {
+        "kind" : "externalParam",
+        "text" : "monitor"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:12JoyStickView0abC9XYMonitora",
+        "text" : "JoyStickViewXYMonitor"
+      },
+      {
+        "kind" : "text",
+        "text" : ")"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "JoyStickView"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Case",
+    "symbolKind" : "case",
+    "title" : "JoyStickViewMonitorKind.xy(monitor:)"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "iOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "case"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "xy"
+            },
+            {
+              "kind" : "text",
+              "text" : "("
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "monitor"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewXYMonitor",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:12JoyStickView0abC9XYMonitora",
+              "text" : "JoyStickViewXYMonitor"
+            },
+            {
+              "kind" : "text",
+              "text" : ")"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "kind" : "parameters",
+      "parameters" : [
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "function that accepts a JoyStickViewXYReport",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "monitor"
+        }
+      ]
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/joystickview\/joystickviewmonitorkind\/xy(monitor:)"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "JoyStickView",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickViewMonitorKind": {
+  "abstract" : [
+    {
+      "text" : "Monitor kind. Determines the type of reporting that will be emitted from a JoyStickView instance.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewMonitorKind"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewMonitorKind",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewMonitorKind"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JoyStickViewMonitorKind",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickviewmonitorkind"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickViewMonitorKind/xy(monitor:)": {
+  "abstract" : [
+    {
+      "text" : "Install monitor that accepts cartesian (XY) position change reports",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "xy"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "monitor"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:12JoyStickView0abC9XYMonitora",
+      "text" : "JoyStickViewXYMonitor"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewMonitorKind\/xy(monitor:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JoyStickViewMonitorKind.xy(monitor:)",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickviewmonitorkind\/xy(monitor:)"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickViewXYMonitor": {
+  "abstract" : [
+    {
+      "text" : "Prototype of a monitor function that accepts a JoyStickViewXYReport.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewXYMonitor"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewXYMonitor",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewXYMonitor"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JoyStickViewXYMonitor",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickviewxymonitor"
+}
+}
+}

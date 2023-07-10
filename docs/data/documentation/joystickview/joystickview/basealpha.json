@@ -1,0 +1,457 @@
+{
+  "abstract" : [
+    {
+      "text" : "The opacity of the base of the joystick. Note that this is different than the view’s overall opacity",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "setting. The end result will be a base image with an opacity of ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/baseAlpha",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : " * ",
+      "type" : "text"
+    },
+    {
+      "code" : "view.alpha",
+      "type" : "codeVoice"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/baseAlpha"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "c:@M@JoyStickView@objc(cs)JoyStickView(py)baseAlpha",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "var"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "baseAlpha"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+        "text" : "CGFloat"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "JoyStickView"
+      }
+    ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "baseAlpha"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Property",
+    "symbolKind" : "property",
+    "title" : "baseAlpha"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "iOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "attribute",
+              "text" : "@IBInspectable"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "var"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "baseAlpha"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+              "text" : "CGFloat"
+            },
+            {
+              "kind" : "text",
+              "text" : " { "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "get"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "set"
+            },
+            {
+              "kind" : "text",
+              "text" : " }"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/joystickview\/joystickview\/basealpha"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    },
+    {
+      "paths" : [
+        "\/documentation\/joystickview\/joystickview\/basealpha"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "occ"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "JoyStickView",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView": {
+  "abstract" : [
+    {
+      "text" : "A simple implementation of a joystick interface like those found on classic arcade games. This implementation detects",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "and reports two values when the joystick moves:",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickView"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickView"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JoyStickView",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/baseAlpha": {
+  "abstract" : [
+    {
+      "text" : "The opacity of the base of the joystick. Note that this is different than the view’s overall opacity",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "setting. The end result will be a base image with an opacity of ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/baseAlpha",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : " * ",
+      "type" : "text"
+    },
+    {
+      "code" : "view.alpha",
+      "type" : "codeVoice"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "baseAlpha"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/baseAlpha",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "baseAlpha"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "baseAlpha",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/basealpha"
+}
+}, 
+"variantOverrides":[
+  {
+    "patch" : [
+      {
+        "op" : "replace",
+        "path" : "\/identifier\/interfaceLanguage",
+        "value" : "occ"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/metadata\/roleHeading",
+        "value" : "Instance Property"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/metadata\/title",
+        "value" : "baseAlpha"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/metadata\/symbolKind",
+        "value" : "property"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/metadata\/fragments",
+        "value" : [
+          {
+            "kind" : "identifier",
+            "text" : "baseAlpha"
+          }
+        ]
+      },
+      {
+        "op" : "add",
+        "path" : "\/topicSections",
+        "value" : null
+      },
+      {
+        "op" : "add",
+        "path" : "\/relationshipsSections",
+        "value" : null
+      },
+      {
+        "op" : "add",
+        "path" : "\/seeAlsoSections",
+        "value" : null
+      },
+      {
+        "op" : "replace",
+        "path" : "\/primaryContentSections\/0",
+        "value" : {
+          "declarations" : [
+            {
+              "languages" : [
+                "occ"
+              ],
+              "platforms" : [
+                "iOS"
+              ],
+              "tokens" : [
+                {
+                  "kind" : "keyword",
+                  "text" : "@property"
+                },
+                {
+                  "kind" : "text",
+                  "text" : " ("
+                },
+                {
+                  "kind" : "keyword",
+                  "text" : "nonatomic"
+                },
+                {
+                  "kind" : "text",
+                  "text" : ", "
+                },
+                {
+                  "kind" : "keyword",
+                  "text" : "assign"
+                },
+                {
+                  "kind" : "text",
+                  "text" : ", "
+                },
+                {
+                  "kind" : "keyword",
+                  "text" : "unsafe_unretained"
+                },
+                {
+                  "kind" : "text",
+                  "text" : ", "
+                },
+                {
+                  "kind" : "keyword",
+                  "text" : "readwrite"
+                },
+                {
+                  "kind" : "text",
+                  "text" : ") "
+                },
+                {
+                  "kind" : "typeIdentifier",
+                  "preciseIdentifier" : "c:@T@CGFloat",
+                  "text" : "CGFloat"
+                },
+                {
+                  "kind" : "text",
+                  "text" : " "
+                },
+                {
+                  "kind" : "identifier",
+                  "text" : "baseAlpha"
+                }
+              ]
+            }
+          ],
+          "kind" : "declarations"
+        }
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView\/title",
+        "value" : "JoyStickView"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView\/fragments",
+        "value" : [
+          {
+            "kind" : "identifier",
+            "text" : "JoyStickView"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1baseAlpha\/title",
+        "value" : "baseAlpha"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1baseAlpha\/fragments",
+        "value" : [
+          {
+            "kind" : "identifier",
+            "text" : "baseAlpha"
+          }
+        ]
+      }
+    ],
+    "traits" : [
+      {
+        "interfaceLanguage" : "occ"
+      }
+    ]
+  }
+]
+}

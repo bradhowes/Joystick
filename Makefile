@@ -11,15 +11,16 @@ clean:
 	rm -rf "$(PWD)/.DerivedData-macos" "$(PWD)/.DerivedData-ios" "$(PWD)/.DerivedData-tvos" "$(SPM_WORKSPACE)"
 
 docc:
+	xcodebuild docbuild \
+		-workspace "$(WORKSPACE)" \
+		$(QUIET) \
+		-scheme "JoyStickView" \
+		-destination platform="$(PLATFORM_IOS)" \
+		-derivedDataPath "$(PWD)/.DerivedData-ios"
 	DOCC_JSON_PRETTYPRINT="YES" \
-	swift package \
-		--allow-writing-to-directory "$(DOCC_DIR)" \
-		generate-documentation \
-		--target JoyStickView \
-		--disable-indexing \
-		--transform-for-static-hosting \
-		--hosting-base-path Joystick \
-		--output-path "$(DOCC_DIR)"
+	xcrun docc process-archive transform-for-static-hosting `find $(PWD)/.DerivedData-ios -type d -name *.doccarchive` \
+		--hosting-base-path JoystickView \
+		--output-path docs
 
 lint: clean
 	@if command -v swiftlint; then swiftlint; fi

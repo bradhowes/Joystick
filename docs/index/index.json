@@ -1,0 +1,536 @@
+{
+  "interfaceLanguages" : {
+    "occ" : [
+      {
+        "children" : [
+          {
+            "title" : "Classes",
+            "type" : "groupMarker"
+          },
+          {
+            "children" : [
+              {
+                "title" : "Instance Properties",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/basealpha",
+                "title" : "baseAlpha",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/baseimage",
+                "title" : "baseImage",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/colorfillhandleimage",
+                "title" : "colorFillHandleImage",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/enabledoubletapforframereset",
+                "title" : "enableDoubleTapForFrameReset",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/handlealpha",
+                "title" : "handleAlpha",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/handleimage",
+                "title" : "handleImage",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/handlesizeratio",
+                "title" : "handleSizeRatio",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/handletintcolor",
+                "title" : "handleTintColor",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/movable",
+                "title" : "movable",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/travel",
+                "title" : "travel",
+                "type" : "property"
+              },
+              {
+                "title" : "Instance Methods",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/init(coder:)",
+                "title" : "initWithCoder:",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/init(frame:)",
+                "title" : "initWithFrame:",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/layoutsubviews()",
+                "title" : "layoutSubviews",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/resetframe()",
+                "title" : "resetFrame",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/setpolarmonitor(_:)",
+                "title" : "setPolarMonitor:",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/setxymonitor(_:)",
+                "title" : "setXYMonitor:",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/touchesbegan(_:with:)",
+                "title" : "touchesBegan:withEvent:",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/touchescancelled(_:with:)",
+                "title" : "touchesCancelled:withEvent:",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/touchesended(_:with:)",
+                "title" : "touchesEnded:withEvent:",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/touchesmoved(_:with:)",
+                "title" : "touchesMoved:withEvent:",
+                "type" : "method"
+              },
+              {
+                "title" : "Default Implementations",
+                "type" : "groupMarker"
+              },
+              {
+                "children" : [
+                  {
+                    "title" : "Instance Methods",
+                    "type" : "groupMarker"
+                  },
+                  {
+                    "path" : "\/documentation\/joystickview\/joystickview\/gesturerecognizershouldbegin(_:)",
+                    "title" : "gestureRecognizerShouldBegin:",
+                    "type" : "method"
+                  }
+                ],
+                "path" : "\/documentation\/joystickview\/joystickview\/uigesturerecognizerdelegate-implementations",
+                "title" : "UIGestureRecognizerDelegate Implementations",
+                "type" : "symbol"
+              }
+            ],
+            "path" : "\/documentation\/joystickview\/joystickview",
+            "title" : "JoyStickView",
+            "type" : "class"
+          },
+          {
+            "title" : "Variables",
+            "type" : "groupMarker"
+          },
+          {
+            "path" : "\/documentation\/joystickview\/joystickviewversionnumber",
+            "title" : "JoyStickViewVersionNumber",
+            "type" : "var"
+          },
+          {
+            "path" : "\/documentation\/joystickview\/joystickviewversionstring",
+            "title" : "JoyStickViewVersionString",
+            "type" : "var"
+          }
+        ],
+        "path" : "\/documentation\/joystickview",
+        "title" : "JoyStickView",
+        "type" : "module"
+      }
+    ],
+    "swift" : [
+      {
+        "children" : [
+          {
+            "title" : "Classes",
+            "type" : "groupMarker"
+          },
+          {
+            "children" : [
+              {
+                "title" : "Initializers",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/init(coder:)",
+                "title" : "init?(coder: NSCoder)",
+                "type" : "init"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/init(frame:)",
+                "title" : "init(frame: CGRect)",
+                "type" : "init"
+              },
+              {
+                "title" : "Instance Properties",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/angle",
+                "title" : "var angle: CGFloat",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/basealpha",
+                "title" : "var baseAlpha: CGFloat",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/baseimage",
+                "title" : "var baseImage: UIImage?",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/colorfillhandleimage",
+                "title" : "var colorFillHandleImage: Bool",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/displacement",
+                "title" : "var displacement: CGFloat",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/enabledoubletapforframereset",
+                "title" : "var enableDoubleTapForFrameReset: Bool",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/handlealpha",
+                "title" : "var handleAlpha: CGFloat",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/handleconstraint",
+                "title" : "var handleConstraint: CGRect?",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/handlehasmoved",
+                "title" : "var handleHasMoved: Bool",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/handleimage",
+                "title" : "var handleImage: UIImage?",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/handlemovedtolerance",
+                "title" : "var handleMovedTolerance: CGFloat",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/handlepositionmode-swift.property",
+                "title" : "var handlePositionMode: HandlePositionMode",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/handlesizeratio",
+                "title" : "var handleSizeRatio: CGFloat",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/handletintcolor",
+                "title" : "var handleTintColor: UIColor?",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/monitor",
+                "title" : "var monitor: JoyStickViewMonitorKind",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/movable",
+                "title" : "var movable: Bool",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/movablebounds",
+                "title" : "var movableBounds: CGRect?",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/movablecenter",
+                "title" : "var movableCenter: CGPoint?",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/tappedblock",
+                "title" : "var tappedBlock: (() -> Void)?",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/travel",
+                "title" : "var travel: CGFloat",
+                "type" : "property"
+              },
+              {
+                "title" : "Instance Methods",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/layoutsubviews()",
+                "title" : "func layoutSubviews()",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/resetframe()",
+                "title" : "func resetFrame()",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/setpolarmonitor(_:)",
+                "title" : "func setPolarMonitor((CGFloat, CGFloat) -> Void)",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/setxymonitor(_:)",
+                "title" : "func setXYMonitor((CGFloat, CGFloat) -> Void)",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/touchesbegan(_:with:)",
+                "title" : "func touchesBegan(Set<UITouch>, with: UIEvent?)",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/touchescancelled(_:with:)",
+                "title" : "func touchesCancelled(Set<UITouch>, with: UIEvent?)",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/touchesended(_:with:)",
+                "title" : "func touchesEnded(Set<UITouch>, with: UIEvent?)",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickview\/touchesmoved(_:with:)",
+                "title" : "func touchesMoved(Set<UITouch>, with: UIEvent?)",
+                "type" : "method"
+              },
+              {
+                "title" : "Enumerations",
+                "type" : "groupMarker"
+              },
+              {
+                "children" : [
+                  {
+                    "title" : "Enumeration Cases",
+                    "type" : "groupMarker"
+                  },
+                  {
+                    "path" : "\/documentation\/joystickview\/joystickview\/handlepositionmode-swift.enum\/absolute",
+                    "title" : "case absolute",
+                    "type" : "case"
+                  },
+                  {
+                    "path" : "\/documentation\/joystickview\/joystickview\/handlepositionmode-swift.enum\/relative",
+                    "title" : "case relative",
+                    "type" : "case"
+                  },
+                  {
+                    "title" : "Default Implementations",
+                    "type" : "groupMarker"
+                  },
+                  {
+                    "children" : [
+                      {
+                        "title" : "Operators",
+                        "type" : "groupMarker"
+                      },
+                      {
+                        "path" : "\/documentation\/joystickview\/joystickview\/handlepositionmode-swift.enum\/!=(_:_:)",
+                        "title" : "static func != (Self, Self) -> Bool",
+                        "type" : "op"
+                      }
+                    ],
+                    "path" : "\/documentation\/joystickview\/joystickview\/handlepositionmode-swift.enum\/equatable-implementations",
+                    "title" : "Equatable Implementations",
+                    "type" : "symbol"
+                  }
+                ],
+                "path" : "\/documentation\/joystickview\/joystickview\/handlepositionmode-swift.enum",
+                "title" : "JoyStickView.HandlePositionMode",
+                "type" : "enum"
+              },
+              {
+                "title" : "Default Implementations",
+                "type" : "groupMarker"
+              },
+              {
+                "children" : [
+                  {
+                    "title" : "Instance Methods",
+                    "type" : "groupMarker"
+                  },
+                  {
+                    "path" : "\/documentation\/joystickview\/joystickview\/gesturerecognizershouldbegin(_:)",
+                    "title" : "func gestureRecognizerShouldBegin(UIGestureRecognizer) -> Bool",
+                    "type" : "method"
+                  }
+                ],
+                "path" : "\/documentation\/joystickview\/joystickview\/uigesturerecognizerdelegate-implementations",
+                "title" : "UIGestureRecognizerDelegate Implementations",
+                "type" : "symbol"
+              }
+            ],
+            "path" : "\/documentation\/joystickview\/joystickview",
+            "title" : "JoyStickView",
+            "type" : "class"
+          },
+          {
+            "title" : "Structures",
+            "type" : "groupMarker"
+          },
+          {
+            "children" : [
+              {
+                "title" : "Initializers",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickviewpolarreport\/init(angle:displacement:)",
+                "title" : "init(angle: CGFloat, displacement: CGFloat)",
+                "type" : "init"
+              },
+              {
+                "title" : "Instance Properties",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickviewpolarreport\/angle",
+                "title" : "let angle: CGFloat",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickviewpolarreport\/displacement",
+                "title" : "let displacement: CGFloat",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickviewpolarreport\/rectangular",
+                "title" : "var rectangular: JoyStickViewXYReport",
+                "type" : "property"
+              }
+            ],
+            "path" : "\/documentation\/joystickview\/joystickviewpolarreport",
+            "title" : "JoyStickViewPolarReport",
+            "type" : "struct"
+          },
+          {
+            "children" : [
+              {
+                "title" : "Initializers",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickviewxyreport\/init(x:y:)",
+                "title" : "init(x: CGFloat, y: CGFloat)",
+                "type" : "init"
+              },
+              {
+                "title" : "Instance Properties",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickviewxyreport\/polar",
+                "title" : "var polar: JoyStickViewPolarReport",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickviewxyreport\/x",
+                "title" : "let x: CGFloat",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickviewxyreport\/y",
+                "title" : "let y: CGFloat",
+                "type" : "property"
+              }
+            ],
+            "path" : "\/documentation\/joystickview\/joystickviewxyreport",
+            "title" : "JoyStickViewXYReport",
+            "type" : "struct"
+          },
+          {
+            "title" : "Type Aliases",
+            "type" : "groupMarker"
+          },
+          {
+            "path" : "\/documentation\/joystickview\/joystickviewpolarmonitor",
+            "title" : "JoyStickViewPolarMonitor",
+            "type" : "typealias"
+          },
+          {
+            "path" : "\/documentation\/joystickview\/joystickviewxymonitor",
+            "title" : "JoyStickViewXYMonitor",
+            "type" : "typealias"
+          },
+          {
+            "title" : "Enumerations",
+            "type" : "groupMarker"
+          },
+          {
+            "children" : [
+              {
+                "title" : "Enumeration Cases",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickviewmonitorkind\/none",
+                "title" : "case none",
+                "type" : "case"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickviewmonitorkind\/polar(monitor:)",
+                "title" : "case polar(monitor: JoyStickViewPolarMonitor)",
+                "type" : "case"
+              },
+              {
+                "path" : "\/documentation\/joystickview\/joystickviewmonitorkind\/xy(monitor:)",
+                "title" : "case xy(monitor: JoyStickViewXYMonitor)",
+                "type" : "case"
+              }
+            ],
+            "path" : "\/documentation\/joystickview\/joystickviewmonitorkind",
+            "title" : "JoyStickViewMonitorKind",
+            "type" : "enum"
+          }
+        ],
+        "path" : "\/documentation\/joystickview",
+        "title" : "JoyStickView",
+        "type" : "module"
+      }
+    ]
+  },
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 1,
+    "patch" : 1
+  }
+}

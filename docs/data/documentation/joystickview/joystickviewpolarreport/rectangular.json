@@ -1,0 +1,278 @@
+{
+  "abstract" : [
+    {
+      "text" : "Convert this report into XY format",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewPolarReport"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewPolarReport\/rectangular"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:12JoyStickView0abC11PolarReportV11rectangularAA0abC8XYReportVvp",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "var"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "rectangular"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:12JoyStickView0abC8XYReportV",
+        "text" : "JoyStickViewXYReport"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "JoyStickView"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Property",
+    "symbolKind" : "property",
+    "title" : "rectangular"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "iOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "var"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "rectangular"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewXYReport",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:12JoyStickView0abC8XYReportV",
+              "text" : "JoyStickViewXYReport"
+            },
+            {
+              "kind" : "text",
+              "text" : " { "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "get"
+            },
+            {
+              "kind" : "text",
+              "text" : " }"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/joystickview\/joystickviewpolarreport\/rectangular"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "JoyStickView",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickViewPolarReport": {
+  "abstract" : [
+    {
+      "text" : "JoyStickView handle position as angle\/displacement values from the base center. Note that ",
+      "type" : "text"
+    },
+    {
+      "code" : "angle",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " is given in degrees,",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "with 0° pointing up (north) and 90° pointing right (east).",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewPolarReport"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewPolarReport",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewPolarReport"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JoyStickViewPolarReport",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickviewpolarreport"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickViewPolarReport/rectangular": {
+  "abstract" : [
+    {
+      "text" : "Convert this report into XY format",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "rectangular"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:12JoyStickView0abC8XYReportV",
+      "text" : "JoyStickViewXYReport"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewPolarReport\/rectangular",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "rectangular",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickviewpolarreport\/rectangular"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickViewXYReport": {
+  "abstract" : [
+    {
+      "text" : "JoyStickView handle position as X, Y deltas from the base center. Note that here a positive ",
+      "type" : "text"
+    },
+    {
+      "code" : "y",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " indicates that the",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "joystick handle is pushed upwards.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewXYReport"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewXYReport",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewXYReport"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JoyStickViewXYReport",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickviewxyreport"
+}
+}
+}

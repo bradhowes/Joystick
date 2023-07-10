@@ -1,0 +1,442 @@
+{
+  "hierarchy" : {
+    "paths" : [
+      [
+
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "JoyStickView",
+    "modules" : [
+      {
+        "name" : "JoyStickView"
+      }
+    ],
+    "role" : "collection",
+    "roleHeading" : "Framework",
+    "symbolKind" : "module",
+    "title" : "JoyStickView"
+  },
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "topicSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView"
+      ],
+      "title" : "Classes"
+    },
+    {
+      "identifiers" : [
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewPolarReport",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewXYReport"
+      ],
+      "title" : "Structures"
+    },
+    {
+      "identifiers" : [
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewPolarMonitor",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewXYMonitor"
+      ],
+      "title" : "Type Aliases"
+    },
+    {
+      "identifiers" : [
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewMonitorKind"
+      ],
+      "title" : "Enumerations"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/joystickview"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    },
+    {
+      "paths" : [
+        "\/documentation\/joystickview"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "occ"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "JoyStickView",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView": {
+  "abstract" : [
+    {
+      "text" : "A simple implementation of a joystick interface like those found on classic arcade games. This implementation detects",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "and reports two values when the joystick moves:",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickView"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickView"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JoyStickView",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickViewMonitorKind": {
+  "abstract" : [
+    {
+      "text" : "Monitor kind. Determines the type of reporting that will be emitted from a JoyStickView instance.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewMonitorKind"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewMonitorKind",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewMonitorKind"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JoyStickViewMonitorKind",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickviewmonitorkind"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickViewPolarMonitor": {
+  "abstract" : [
+    {
+      "text" : "Prototype of a monitor function that accepts a JoyStickViewXYReport.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewPolarMonitor"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewPolarMonitor",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewPolarMonitor"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JoyStickViewPolarMonitor",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickviewpolarmonitor"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickViewPolarReport": {
+  "abstract" : [
+    {
+      "text" : "JoyStickView handle position as angle\/displacement values from the base center. Note that ",
+      "type" : "text"
+    },
+    {
+      "code" : "angle",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " is given in degrees,",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "with 0° pointing up (north) and 90° pointing right (east).",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewPolarReport"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewPolarReport",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewPolarReport"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JoyStickViewPolarReport",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickviewpolarreport"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickViewVersionNumber": {
+  "abstract" : [
+    {
+      "text" : "Project version number for JoyStickView.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewVersionNumber"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewVersionNumber",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JoyStickViewVersionNumber",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickviewversionnumber"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickViewVersionString": {
+  "abstract" : [
+    {
+      "text" : "Project version string for JoyStickView.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewVersionString"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewVersionString",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JoyStickViewVersionString",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickviewversionstring"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickViewXYMonitor": {
+  "abstract" : [
+    {
+      "text" : "Prototype of a monitor function that accepts a JoyStickViewXYReport.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewXYMonitor"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewXYMonitor",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewXYMonitor"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JoyStickViewXYMonitor",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickviewxymonitor"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickViewXYReport": {
+  "abstract" : [
+    {
+      "text" : "JoyStickView handle position as X, Y deltas from the base center. Note that here a positive ",
+      "type" : "text"
+    },
+    {
+      "code" : "y",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " indicates that the",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "joystick handle is pushed upwards.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewXYReport"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewXYReport",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewXYReport"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JoyStickViewXYReport",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickviewxyreport"
+}
+}, 
+"variantOverrides":[
+  {
+    "patch" : [
+      {
+        "op" : "replace",
+        "path" : "\/identifier\/interfaceLanguage",
+        "value" : "occ"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/topicSections",
+        "value" : [
+          {
+            "identifiers" : [
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView"
+            ],
+            "title" : "Classes"
+          },
+          {
+            "identifiers" : [
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewVersionNumber",
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewVersionString"
+            ],
+            "title" : "Variables"
+          }
+        ]
+      },
+      {
+        "op" : "add",
+        "path" : "\/relationshipsSections",
+        "value" : null
+      },
+      {
+        "op" : "add",
+        "path" : "\/seeAlsoSections",
+        "value" : null
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView\/title",
+        "value" : "JoyStickView"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView\/fragments",
+        "value" : [
+          {
+            "kind" : "identifier",
+            "text" : "JoyStickView"
+          }
+        ]
+      }
+    ],
+    "traits" : [
+      {
+        "interfaceLanguage" : "occ"
+      }
+    ]
+  }
+]
+}

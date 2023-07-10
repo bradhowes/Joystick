@@ -1,0 +1,591 @@
+{
+  "abstract" : [
+    {
+      "text" : "Control how the handle image is generated. When this is ",
+      "type" : "text"
+    },
+    {
+      "code" : "false",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " (default), a CIFilter will be used to tint",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "the handle image with the ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleTintColor",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : ". This results in a monochrome image of just one color, but with",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "lighter and darker areas depending on the original image. When this is ",
+      "type" : "text"
+    },
+    {
+      "code" : "true",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ", the handle image is just",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "used as a mask, and all pixels with an alpha = 1.0 will be colored with the ",
+      "type" : "text"
+    },
+    {
+      "code" : "handleTintColor",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " value.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/colorFillHandleImage"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "c:@M@JoyStickView@objc(cs)JoyStickView(py)colorFillHandleImage",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "var"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "colorFillHandleImage"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:Sb",
+        "text" : "Bool"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "JoyStickView"
+      }
+    ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "colorFillHandleImage"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Property",
+    "symbolKind" : "property",
+    "title" : "colorFillHandleImage"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "iOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "attribute",
+              "text" : "@IBInspectable"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "var"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "colorFillHandleImage"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:Sb",
+              "text" : "Bool"
+            },
+            {
+              "kind" : "text",
+              "text" : " { "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "get"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "set"
+            },
+            {
+              "kind" : "text",
+              "text" : " }"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/joystickview\/joystickview\/colorfillhandleimage"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    },
+    {
+      "paths" : [
+        "\/documentation\/joystickview\/joystickview\/colorfillhandleimage"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "occ"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "JoyStickView",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView": {
+  "abstract" : [
+    {
+      "text" : "A simple implementation of a joystick interface like those found on classic arcade games. This implementation detects",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "and reports two values when the joystick moves:",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickView"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickView"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JoyStickView",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/colorFillHandleImage": {
+  "abstract" : [
+    {
+      "text" : "Control how the handle image is generated. When this is ",
+      "type" : "text"
+    },
+    {
+      "code" : "false",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " (default), a CIFilter will be used to tint",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "the handle image with the ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleTintColor",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : ". This results in a monochrome image of just one color, but with",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "lighter and darker areas depending on the original image. When this is ",
+      "type" : "text"
+    },
+    {
+      "code" : "true",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ", the handle image is just",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "used as a mask, and all pixels with an alpha = 1.0 will be colored with the ",
+      "type" : "text"
+    },
+    {
+      "code" : "handleTintColor",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " value.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "colorFillHandleImage"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/colorFillHandleImage",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "colorFillHandleImage"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "colorFillHandleImage",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/colorfillhandleimage"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/handleTintColor": {
+  "abstract" : [
+    {
+      "text" : "The tintColor to apply to the handle. Changing it while joystick is visible will update the handle image.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "handleTintColor"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:objc(cs)UIColor",
+      "text" : "UIColor"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleTintColor",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "handleTintColor"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "handleTintColor",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/handletintcolor"
+}
+}, 
+"variantOverrides":[
+  {
+    "patch" : [
+      {
+        "op" : "replace",
+        "path" : "\/identifier\/interfaceLanguage",
+        "value" : "occ"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/metadata\/roleHeading",
+        "value" : "Instance Property"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/metadata\/title",
+        "value" : "colorFillHandleImage"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/metadata\/symbolKind",
+        "value" : "property"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/metadata\/fragments",
+        "value" : [
+          {
+            "kind" : "identifier",
+            "text" : "colorFillHandleImage"
+          }
+        ]
+      },
+      {
+        "op" : "add",
+        "path" : "\/topicSections",
+        "value" : null
+      },
+      {
+        "op" : "add",
+        "path" : "\/relationshipsSections",
+        "value" : null
+      },
+      {
+        "op" : "add",
+        "path" : "\/seeAlsoSections",
+        "value" : null
+      },
+      {
+        "op" : "replace",
+        "path" : "\/primaryContentSections\/0",
+        "value" : {
+          "declarations" : [
+            {
+              "languages" : [
+                "occ"
+              ],
+              "platforms" : [
+                "iOS"
+              ],
+              "tokens" : [
+                {
+                  "kind" : "keyword",
+                  "text" : "@property"
+                },
+                {
+                  "kind" : "text",
+                  "text" : " ("
+                },
+                {
+                  "kind" : "keyword",
+                  "text" : "nonatomic"
+                },
+                {
+                  "kind" : "text",
+                  "text" : ", "
+                },
+                {
+                  "kind" : "keyword",
+                  "text" : "assign"
+                },
+                {
+                  "kind" : "text",
+                  "text" : ", "
+                },
+                {
+                  "kind" : "keyword",
+                  "text" : "unsafe_unretained"
+                },
+                {
+                  "kind" : "text",
+                  "text" : ", "
+                },
+                {
+                  "kind" : "keyword",
+                  "text" : "readwrite"
+                },
+                {
+                  "kind" : "text",
+                  "text" : ") "
+                },
+                {
+                  "kind" : "typeIdentifier",
+                  "preciseIdentifier" : "c:@T@BOOL",
+                  "text" : "BOOL"
+                },
+                {
+                  "kind" : "text",
+                  "text" : " "
+                },
+                {
+                  "kind" : "identifier",
+                  "text" : "colorFillHandleImage"
+                }
+              ]
+            }
+          ],
+          "kind" : "declarations"
+        }
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView\/title",
+        "value" : "JoyStickView"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView\/fragments",
+        "value" : [
+          {
+            "kind" : "identifier",
+            "text" : "JoyStickView"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1colorFillHandleImage\/title",
+        "value" : "colorFillHandleImage"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1colorFillHandleImage\/fragments",
+        "value" : [
+          {
+            "kind" : "identifier",
+            "text" : "colorFillHandleImage"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1handleTintColor\/title",
+        "value" : "handleTintColor"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1handleTintColor\/fragments",
+        "value" : [
+          {
+            "kind" : "identifier",
+            "text" : "handleTintColor"
+          }
+        ]
+      }
+    ],
+    "traits" : [
+      {
+        "interfaceLanguage" : "occ"
+      }
+    ]
+  }
+]
+}

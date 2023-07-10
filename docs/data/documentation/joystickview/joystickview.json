@@ -1,0 +1,2906 @@
+{
+  "abstract" : [
+    {
+      "text" : "A simple implementation of a joystick interface like those found on classic arcade games. This implementation detects",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "and reports two values when the joystick moves:",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "c:@M@JoyStickView@objc(cs)JoyStickView",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "class"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "JoyStickView"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "JoyStickView"
+      }
+    ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "JoyStickView"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Class",
+    "symbolKind" : "class",
+    "title" : "JoyStickView"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "iOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "attribute",
+              "text" : "@IBDesignable"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "final"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "class"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "JoyStickView"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "overview",
+          "level" : 2,
+          "text" : "Overview",
+          "type" : "heading"
+        },
+        {
+          "items" : [
+            {
+              "content" : [
+                {
+                  "inlineContent" : [
+                    {
+                      "text" : "angle: the direction the handle is pointing. Unit is degrees with 0° pointing up (north), and 90° pointing",
+                      "type" : "text"
+                    },
+                    {
+                      "text" : " ",
+                      "type" : "text"
+                    },
+                    {
+                      "text" : "right (east).",
+                      "type" : "text"
+                    }
+                  ],
+                  "type" : "paragraph"
+                }
+              ]
+            },
+            {
+              "content" : [
+                {
+                  "inlineContent" : [
+                    {
+                      "text" : "displacement: how far from the view center the joystick is moved in the above direction. It has no units",
+                      "type" : "text"
+                    },
+                    {
+                      "text" : " ",
+                      "type" : "text"
+                    },
+                    {
+                      "text" : "as it is the ratio of distance moved from center over the radius of the joystick base. Always in range 0.0-1.0.",
+                      "type" : "text"
+                    }
+                  ],
+                  "type" : "paragraph"
+                }
+              ]
+            }
+          ],
+          "type" : "unorderedList"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "The view has several settable parameters that be used to configure a joystick’s appearance and behavior:",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "items" : [
+            {
+              "content" : [
+                {
+                  "inlineContent" : [
+                    {
+                      "text" : "monitor: an enumeration of type ",
+                      "type" : "text"
+                    },
+                    {
+                      "code" : "JoyStickViewMonitorKind",
+                      "type" : "codeVoice"
+                    },
+                    {
+                      "text" : " that can hold a function to receive updates when the",
+                      "type" : "text"
+                    },
+                    {
+                      "text" : " ",
+                      "type" : "text"
+                    },
+                    {
+                      "text" : "joystick’s angle and\/or displacement values change. Supports polar and cartesian (XY) reporting",
+                      "type" : "text"
+                    }
+                  ],
+                  "type" : "paragraph"
+                }
+              ]
+            },
+            {
+              "content" : [
+                {
+                  "inlineContent" : [
+                    {
+                      "text" : "movable: a boolean that when true lets the joystick move around in its parent’s view when there joystick moves",
+                      "type" : "text"
+                    },
+                    {
+                      "text" : " ",
+                      "type" : "text"
+                    },
+                    {
+                      "text" : "beyond displacement of 1.0.",
+                      "type" : "text"
+                    }
+                  ],
+                  "type" : "paragraph"
+                }
+              ]
+            },
+            {
+              "content" : [
+                {
+                  "inlineContent" : [
+                    {
+                      "text" : "movableBounds: a CGRect which limits where a movable joystick may travel",
+                      "type" : "text"
+                    }
+                  ],
+                  "type" : "paragraph"
+                }
+              ]
+            },
+            {
+              "content" : [
+                {
+                  "inlineContent" : [
+                    {
+                      "text" : "baseImage: a UIImage to use for the joystick’s base",
+                      "type" : "text"
+                    }
+                  ],
+                  "type" : "paragraph"
+                }
+              ]
+            },
+            {
+              "content" : [
+                {
+                  "inlineContent" : [
+                    {
+                      "text" : "handleImage: a UIImage to use for the joystick’s handle",
+                      "type" : "text"
+                    }
+                  ],
+                  "type" : "paragraph"
+                }
+              ]
+            }
+          ],
+          "type" : "unorderedList"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Additional documentation is available via the attribute names below.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "relationshipsSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/com.braysoft.JoyStickView\/objc(cs)UIView"
+      ],
+      "kind" : "relationships",
+      "title" : "Inherits From",
+      "type" : "inheritsFrom"
+    },
+    {
+      "identifiers" : [
+        "doc:\/\/com.braysoft.JoyStickView\/objc(pl)NSCoding",
+        "doc:\/\/com.braysoft.JoyStickView\/objc(pl)NSObject",
+        "doc:\/\/com.braysoft.JoyStickView\/objc(pl)CALayerDelegate",
+        "doc:\/\/com.braysoft.JoyStickView\/s7CVarArgP",
+        "doc:\/\/com.braysoft.JoyStickView\/s28CustomDebugStringConvertibleP",
+        "doc:\/\/com.braysoft.JoyStickView\/s23CustomStringConvertibleP",
+        "doc:\/\/com.braysoft.JoyStickView\/SQ",
+        "doc:\/\/com.braysoft.JoyStickView\/SH",
+        "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIAccessibilityIdentification",
+        "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIActivityItemsConfigurationProviding",
+        "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIAppearance",
+        "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIAppearanceContainer",
+        "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UICoordinateSpace",
+        "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIDynamicItem",
+        "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIFocusEnvironment",
+        "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIFocusItem",
+        "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIFocusItemContainer",
+        "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIGestureRecognizerDelegate",
+        "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UILargeContentViewerItem",
+        "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIPasteConfigurationSupporting",
+        "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIPopoverPresentationControllerSourceItem",
+        "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIResponderStandardEditActions",
+        "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UITraitEnvironment",
+        "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIUserActivityRestoring"
+      ],
+      "kind" : "relationships",
+      "title" : "Conforms To",
+      "type" : "conformsTo"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "topicSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/init(coder:)",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/init(frame:)"
+      ],
+      "title" : "Initializers"
+    },
+    {
+      "identifiers" : [
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/angle",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/baseAlpha",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/baseImage",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/colorFillHandleImage",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/displacement",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/enableDoubleTapForFrameReset",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleAlpha",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleConstraint",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleHasMoved",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleImage",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleMovedTolerance",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handlePositionMode-swift.property",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleSizeRatio",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleTintColor",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/monitor",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/movable",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/movableBounds",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/movableCenter",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/tappedBlock",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/travel"
+      ],
+      "title" : "Instance Properties"
+    },
+    {
+      "identifiers" : [
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/layoutSubviews()",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/resetFrame()",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/setPolarMonitor(_:)",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/setXYMonitor(_:)",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/touchesBegan(_:with:)",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/touchesCancelled(_:with:)",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/touchesEnded(_:with:)",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/touchesMoved(_:with:)"
+      ],
+      "title" : "Instance Methods"
+    },
+    {
+      "identifiers" : [
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/HandlePositionMode-swift.enum"
+      ],
+      "title" : "Enumerations"
+    },
+    {
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/UIGestureRecognizerDelegate-Implementations"
+      ],
+      "title" : "Default Implementations"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/joystickview\/joystickview"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    },
+    {
+      "paths" : [
+        "\/documentation\/joystickview\/joystickview"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "occ"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.braysoft.JoyStickView/SH": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/SH",
+  "title" : "Swift.Hashable",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/SQ": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/SQ",
+  "title" : "Swift.Equatable",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "JoyStickView",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView": {
+  "abstract" : [
+    {
+      "text" : "A simple implementation of a joystick interface like those found on classic arcade games. This implementation detects",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "and reports two values when the joystick moves:",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickView"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickView"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JoyStickView",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/HandlePositionMode-swift.enum": {
+  "abstract" : [
+    {
+      "text" : "Position mode for a joystick handle. The default (original) is ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/HandlePositionMode-swift.enum\/absolute",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : " mode.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "HandlePositionMode"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/HandlePositionMode-swift.enum",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "HandlePositionMode"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JoyStickView.HandlePositionMode",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/handlepositionmode-swift.enum"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/HandlePositionMode-swift.enum/absolute": {
+  "abstract" : [
+    {
+      "text" : "Center of joystick handle moves to actual touch position (limited by base constraints)",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "absolute"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/HandlePositionMode-swift.enum\/absolute",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "JoyStickView.HandlePositionMode.absolute",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/handlepositionmode-swift.enum\/absolute"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/UIGestureRecognizerDelegate-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/UIGestureRecognizerDelegate-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "UIGestureRecognizerDelegate Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/uigesturerecognizerdelegate-implementations"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/angle": {
+  "abstract" : [
+    {
+      "text" : "The last-reported angle from the joystick handle. Unit is degrees, with 0° up (north) and 90° right (east).",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "Note that this assumes that ",
+      "type" : "text"
+    },
+    {
+      "code" : "angleRadians",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " was calculated with atan2(dx, dy) and that dy is positive when",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "pointing down.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "angle"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/angle",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "angle",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/angle"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/baseAlpha": {
+  "abstract" : [
+    {
+      "text" : "The opacity of the base of the joystick. Note that this is different than the view’s overall opacity",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "setting. The end result will be a base image with an opacity of ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/baseAlpha",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : " * ",
+      "type" : "text"
+    },
+    {
+      "code" : "view.alpha",
+      "type" : "codeVoice"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "baseAlpha"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/baseAlpha",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "baseAlpha"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "baseAlpha",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/basealpha"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/baseImage": {
+  "abstract" : [
+    {
+      "text" : "The image to use for the base of the joystick",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "baseImage"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:objc(cs)UIImage",
+      "text" : "UIImage"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/baseImage",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "baseImage"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "baseImage",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/baseimage"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/colorFillHandleImage": {
+  "abstract" : [
+    {
+      "text" : "Control how the handle image is generated. When this is ",
+      "type" : "text"
+    },
+    {
+      "code" : "false",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " (default), a CIFilter will be used to tint",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "the handle image with the ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleTintColor",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : ". This results in a monochrome image of just one color, but with",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "lighter and darker areas depending on the original image. When this is ",
+      "type" : "text"
+    },
+    {
+      "code" : "true",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ", the handle image is just",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "used as a mask, and all pixels with an alpha = 1.0 will be colored with the ",
+      "type" : "text"
+    },
+    {
+      "code" : "handleTintColor",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " value.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "colorFillHandleImage"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/colorFillHandleImage",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "colorFillHandleImage"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "colorFillHandleImage",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/colorfillhandleimage"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/displacement": {
+  "abstract" : [
+    {
+      "text" : "The last-reported displacement from the joystick handle. Dimensionless, it is the ratio of movement over",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "the radius of the joystick base. Always falls between 0.0 and 1.0",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "displacement"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/displacement",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "displacement",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/displacement"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/enableDoubleTapForFrameReset": {
+  "abstract" : [
+    {
+      "text" : "Control whether view will recognize a double-tap gesture and move the joystick base to its original location",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "when it happens. Note that this is only useful if ",
+      "type" : "text"
+    },
+    {
+      "code" : "moveable",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " is true.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "enableDoubleTapForFrameReset"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/enableDoubleTapForFrameReset",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "enableDoubleTapForFrameReset"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "enableDoubleTapForFrameReset",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/enabledoubletapforframereset"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/handleAlpha": {
+  "abstract" : [
+    {
+      "text" : "The opacity of the handle of the joystick. Note that this is different than the view’s overall opacity setting.",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "The end result will be a handle image with an opacity of ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleAlpha",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : " * ",
+      "type" : "text"
+    },
+    {
+      "code" : "view.alpha",
+      "type" : "codeVoice"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "handleAlpha"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleAlpha",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "handleAlpha"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "handleAlpha",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/handlealpha"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/handleConstraint": {
+  "abstract" : [
+    {
+      "text" : "Optional rectangular region that restricts where the handle may move. The region should be defined in",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "this view’s coordinates. For instance, to constrain the handle in the Y direction with a UIView of size 100x100,",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "use ",
+      "type" : "text"
+    },
+    {
+      "code" : "CGRect(x: 50, y: 0, width: 1, height: 100)",
+      "type" : "codeVoice"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "handleConstraint"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@S@CGRect",
+      "text" : "CGRect"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleConstraint",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "handleConstraint",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/handleconstraint"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/handleHasMoved": {
+  "abstract" : [
+    {
+      "text" : "Returns ",
+      "type" : "text"
+    },
+    {
+      "code" : "true",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " if the handle has moved, where moving means the displacement in either coordinate is",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleMovedTolerance",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : " or greater.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "handleHasMoved"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleHasMoved",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "handleHasMoved",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/handlehasmoved"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/handleImage": {
+  "abstract" : [
+    {
+      "text" : "The image to use for the joystick handle",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "handleImage"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:objc(cs)UIImage",
+      "text" : "UIImage"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleImage",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "handleImage"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "handleImage",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/handleimage"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/handleMovedTolerance": {
+  "abstract" : [
+    {
+      "text" : "Minimum distance in either X or Y coordinate the handle must move for ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleHasMoved",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : " to return ",
+      "type" : "text"
+    },
+    {
+      "code" : "true",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "handleMovedTolerance"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleMovedTolerance",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "handleMovedTolerance",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/handlemovedtolerance"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/handlePositionMode-swift.property": {
+  "abstract" : [
+    {
+      "text" : "How the handle is moved with the initial touch",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "handlePositionMode"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:12JoyStickViewAAC18HandlePositionModeO",
+      "text" : "HandlePositionMode"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handlePositionMode-swift.property",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "handlePositionMode",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/handlepositionmode-swift.property"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/handleSizeRatio": {
+  "abstract" : [
+    {
+      "text" : "Scaling factor to apply to the joystick handle. A value of 1.0 will result in no scaling of the image,",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "however the default value is 0.85 due to historical reasons.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "handleSizeRatio"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleSizeRatio",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "handleSizeRatio"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "handleSizeRatio",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/handlesizeratio"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/handleTintColor": {
+  "abstract" : [
+    {
+      "text" : "The tintColor to apply to the handle. Changing it while joystick is visible will update the handle image.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "handleTintColor"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:objc(cs)UIColor",
+      "text" : "UIColor"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleTintColor",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "handleTintColor"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "handleTintColor",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/handletintcolor"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/init(coder:)": {
+  "abstract" : [
+    {
+      "text" : "Initialize new joystick view from a file.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "?("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "coder"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:objc(cs)NSCoder",
+      "text" : "NSCoder"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/init(coder:)",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "initWithCoder:"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "init(coder:)",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/init(coder:)"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/init(frame:)": {
+  "abstract" : [
+    {
+      "text" : "Initialize new joystick view using the given frame.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "frame"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@S@CGRect",
+      "text" : "CGRect"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/init(frame:)",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "initWithFrame:"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "init(frame:)",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/init(frame:)"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/layoutSubviews()": {
+  "abstract" : [
+    {
+      "text" : "This is the appropriate place to configure our internal views as we have our own geometry.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "layoutSubviews"
+    },
+    {
+      "kind" : "text",
+      "text" : "()"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/layoutSubviews()",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "layoutSubviews"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "layoutSubviews()",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/layoutsubviews()"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/monitor": {
+  "abstract" : [
+    {
+      "text" : "Optional monitor which will receive updates as the joystick position changes. Supports polar and cartesian",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "reporting. The function to call with a position report is held in the enumeration value.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "monitor"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:12JoyStickView0abC11MonitorKindO",
+      "text" : "JoyStickViewMonitorKind"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/monitor",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "monitor",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/monitor"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/movable": {
+  "abstract" : [
+    {
+      "text" : "If ",
+      "type" : "text"
+    },
+    {
+      "code" : "true",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " the joystick will move around in the parent’s view so that the joystick handle is always at a",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "displacement of 1.0. This is the default mode of operation. Setting to ",
+      "type" : "text"
+    },
+    {
+      "code" : "false",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " will keep the view fixed.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "movable"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/movable",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "movable"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "movable",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/movable"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/movableBounds": {
+  "abstract" : [
+    {
+      "text" : "Optional rectangular region that restricts where the base may move. The region should be defined in the",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "this view’s coordinates.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "movableBounds"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@S@CGRect",
+      "text" : "CGRect"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/movableBounds",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "movableBounds",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/movablebounds"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/movableCenter": {
+  "abstract" : [
+    {
+      "text" : "The original location of a movable joystick. Used to restore its position when user double-taps on it.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "movableCenter"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@S@CGPoint",
+      "text" : "CGPoint"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/movableCenter",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "movableCenter",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/movablecenter"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/resetFrame()": {
+  "abstract" : [
+    {
+      "text" : "Reset our base to the initial location before the user moved it. By default, this will take place",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "whenever the user double-taps on the joystick handle.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "resetFrame"
+    },
+    {
+      "kind" : "text",
+      "text" : "()"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/resetFrame()",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "resetFrame"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "resetFrame()",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/resetframe()"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/setPolarMonitor(_:)": {
+  "abstract" : [
+    {
+      "text" : "Install an Obj-C block that will receive the polar coordinates of the joystick.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "setPolarMonitor"
+    },
+    {
+      "kind" : "text",
+      "text" : "(("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:s4Voida",
+      "text" : "Void"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/setPolarMonitor(_:)",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "setPolarMonitor:"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "setPolarMonitor(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/setpolarmonitor(_:)"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/setXYMonitor(_:)": {
+  "abstract" : [
+    {
+      "text" : "Install an Obj-C block that will receive the XY unit coordinates of the joystick.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "setXYMonitor"
+    },
+    {
+      "kind" : "text",
+      "text" : "(("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:s4Voida",
+      "text" : "Void"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/setXYMonitor(_:)",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "setXYMonitor:"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "setXYMonitor(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/setxymonitor(_:)"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/tappedBlock": {
+  "abstract" : [
+    {
+      "text" : "Optional block to be called upon a tap.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "tappedBlock"
+    },
+    {
+      "kind" : "text",
+      "text" : ": (() -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:s4Voida",
+      "text" : "Void"
+    },
+    {
+      "kind" : "text",
+      "text" : ")?"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/tappedBlock",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "tappedBlock",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/tappedblock"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/touchesBegan(_:with:)": {
+  "abstract" : [
+    {
+      "text" : "A touch began in the joystick view",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "touchesBegan"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sh",
+      "text" : "Set"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:objc(cs)UITouch",
+      "text" : "UITouch"
+    },
+    {
+      "kind" : "text",
+      "text" : ">, "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "with"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:objc(cs)UIEvent",
+      "text" : "UIEvent"
+    },
+    {
+      "kind" : "text",
+      "text" : "?)"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/touchesBegan(_:with:)",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "touchesBegan:withEvent:"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "touchesBegan(_:with:)",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/touchesbegan(_:with:)"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/touchesCancelled(_:with:)": {
+  "abstract" : [
+    {
+      "text" : "An existing touch event has been cancelled (probably due to system event such as an alert). Move joystick to",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "center of base.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "touchesCancelled"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sh",
+      "text" : "Set"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:objc(cs)UITouch",
+      "text" : "UITouch"
+    },
+    {
+      "kind" : "text",
+      "text" : ">, "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "with"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:objc(cs)UIEvent",
+      "text" : "UIEvent"
+    },
+    {
+      "kind" : "text",
+      "text" : "?)"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/touchesCancelled(_:with:)",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "touchesCancelled:withEvent:"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "touchesCancelled(_:with:)",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/touchescancelled(_:with:)"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/touchesEnded(_:with:)": {
+  "abstract" : [
+    {
+      "text" : "User removed touch from display. Move joystick to center of base.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "touchesEnded"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sh",
+      "text" : "Set"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:objc(cs)UITouch",
+      "text" : "UITouch"
+    },
+    {
+      "kind" : "text",
+      "text" : ">, "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "with"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:objc(cs)UIEvent",
+      "text" : "UIEvent"
+    },
+    {
+      "kind" : "text",
+      "text" : "?)"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/touchesEnded(_:with:)",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "touchesEnded:withEvent:"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "touchesEnded(_:with:)",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/touchesended(_:with:)"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/touchesMoved(_:with:)": {
+  "abstract" : [
+    {
+      "text" : "An existing touch has moved.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "touchesMoved"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sh",
+      "text" : "Set"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:objc(cs)UITouch",
+      "text" : "UITouch"
+    },
+    {
+      "kind" : "text",
+      "text" : ">, "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "with"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:objc(cs)UIEvent",
+      "text" : "UIEvent"
+    },
+    {
+      "kind" : "text",
+      "text" : "?)"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/touchesMoved(_:with:)",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "touchesMoved:withEvent:"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "touchesMoved(_:with:)",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/touchesmoved(_:with:)"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickView/travel": {
+  "abstract" : [
+    {
+      "text" : "Controls how far the handle can travel along the radius of the base. A value of 1.0 (default) will let the",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "handle travel the full radius, with maximum travel leaving the center of the handle lying on the circumference",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "of the base. A value greater than 1.0 will let the handle travel beyond the circumference of the base, while a",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "value less than 1.0 will reduce the travel to values within the circumference. Note that regardless of this",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "value, handle movements will always report displacement values between 0.0 and 1.0 inclusive.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "travel"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/travel",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "travel"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "travel",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickview\/travel"
+},
+"doc://com.braysoft.JoyStickView/objc(cs)UIView": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/objc(cs)UIView",
+  "title" : "UIView",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/objc(pl)CALayerDelegate": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/objc(pl)CALayerDelegate",
+  "title" : "QuartzCore.CALayerDelegate",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/objc(pl)NSCoding": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/objc(pl)NSCoding",
+  "title" : "Foundation.NSCoding",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/objc(pl)NSObject": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/objc(pl)NSObject",
+  "title" : "ObjectiveC.NSObjectProtocol",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/objc(pl)UIAccessibilityIdentification": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIAccessibilityIdentification",
+  "title" : "UIKit.UIAccessibilityIdentification",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/objc(pl)UIActivityItemsConfigurationProviding": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIActivityItemsConfigurationProviding",
+  "title" : "UIKit.UIActivityItemsConfigurationProviding",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/objc(pl)UIAppearance": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIAppearance",
+  "title" : "UIKit.UIAppearance",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/objc(pl)UIAppearanceContainer": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIAppearanceContainer",
+  "title" : "UIKit.UIAppearanceContainer",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/objc(pl)UICoordinateSpace": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UICoordinateSpace",
+  "title" : "UIKit.UICoordinateSpace",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/objc(pl)UIDynamicItem": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIDynamicItem",
+  "title" : "UIKit.UIDynamicItem",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/objc(pl)UIFocusEnvironment": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIFocusEnvironment",
+  "title" : "UIKit.UIFocusEnvironment",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/objc(pl)UIFocusItem": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIFocusItem",
+  "title" : "UIKit.UIFocusItem",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/objc(pl)UIFocusItemContainer": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIFocusItemContainer",
+  "title" : "UIKit.UIFocusItemContainer",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/objc(pl)UIGestureRecognizerDelegate": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIGestureRecognizerDelegate",
+  "title" : "UIGestureRecognizerDelegate",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/objc(pl)UILargeContentViewerItem": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UILargeContentViewerItem",
+  "title" : "UIKit.UILargeContentViewerItem",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/objc(pl)UIPasteConfigurationSupporting": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIPasteConfigurationSupporting",
+  "title" : "UIKit.UIPasteConfigurationSupporting",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/objc(pl)UIPopoverPresentationControllerSourceItem": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIPopoverPresentationControllerSourceItem",
+  "title" : "UIKit.UIPopoverPresentationControllerSourceItem",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/objc(pl)UIResponderStandardEditActions": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIResponderStandardEditActions",
+  "title" : "UIKit.UIResponderStandardEditActions",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/objc(pl)UITraitEnvironment": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UITraitEnvironment",
+  "title" : "UIKit.UITraitEnvironment",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/objc(pl)UIUserActivityRestoring": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIUserActivityRestoring",
+  "title" : "UIKit.UIUserActivityRestoring",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/s23CustomStringConvertibleP": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/s23CustomStringConvertibleP",
+  "title" : "Swift.CustomStringConvertible",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/s28CustomDebugStringConvertibleP": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/s28CustomDebugStringConvertibleP",
+  "title" : "Swift.CustomDebugStringConvertible",
+  "type" : "unresolvable"
+},
+"doc://com.braysoft.JoyStickView/s7CVarArgP": {
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/s7CVarArgP",
+  "title" : "Swift.CVarArg",
+  "type" : "unresolvable"
+}
+}, 
+"variantOverrides":[
+  {
+    "patch" : [
+      {
+        "op" : "replace",
+        "path" : "\/identifier\/interfaceLanguage",
+        "value" : "occ"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/metadata\/roleHeading",
+        "value" : "Class"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/metadata\/title",
+        "value" : "JoyStickView"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/metadata\/symbolKind",
+        "value" : "class"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/metadata\/fragments",
+        "value" : [
+          {
+            "kind" : "identifier",
+            "text" : "JoyStickView"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/metadata\/navigatorTitle",
+        "value" : [
+          {
+            "kind" : "identifier",
+            "text" : "JoyStickView"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/topicSections",
+        "value" : [
+          {
+            "identifiers" : [
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/baseAlpha",
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/baseImage",
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/colorFillHandleImage",
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/enableDoubleTapForFrameReset",
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleAlpha",
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleImage",
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleSizeRatio",
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/handleTintColor",
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/movable",
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/travel"
+            ],
+            "title" : "Instance Properties"
+          },
+          {
+            "identifiers" : [
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/init(coder:)",
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/init(frame:)",
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/layoutSubviews()",
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/resetFrame()",
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/setPolarMonitor(_:)",
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/setXYMonitor(_:)",
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/touchesBegan(_:with:)",
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/touchesCancelled(_:with:)",
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/touchesEnded(_:with:)",
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/touchesMoved(_:with:)"
+            ],
+            "title" : "Instance Methods"
+          },
+          {
+            "generated" : true,
+            "identifiers" : [
+              "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickView\/UIGestureRecognizerDelegate-Implementations"
+            ],
+            "title" : "Default Implementations"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/relationshipsSections",
+        "value" : [
+          {
+            "identifiers" : [
+              "doc:\/\/com.braysoft.JoyStickView\/objc(cs)UIView"
+            ],
+            "kind" : "relationships",
+            "title" : "Inherits From",
+            "type" : "inheritsFrom"
+          },
+          {
+            "identifiers" : [
+              "doc:\/\/com.braysoft.JoyStickView\/objc(pl)UIGestureRecognizerDelegate"
+            ],
+            "kind" : "relationships",
+            "title" : "Conforms To",
+            "type" : "conformsTo"
+          }
+        ]
+      },
+      {
+        "op" : "add",
+        "path" : "\/seeAlsoSections",
+        "value" : null
+      },
+      {
+        "op" : "replace",
+        "path" : "\/primaryContentSections\/0",
+        "value" : {
+          "declarations" : [
+            {
+              "languages" : [
+                "occ"
+              ],
+              "platforms" : [
+                "iOS"
+              ],
+              "tokens" : [
+                {
+                  "kind" : "keyword",
+                  "text" : "@interface"
+                },
+                {
+                  "kind" : "text",
+                  "text" : " "
+                },
+                {
+                  "kind" : "identifier",
+                  "text" : "JoyStickView"
+                },
+                {
+                  "kind" : "text",
+                  "text" : " : "
+                },
+                {
+                  "kind" : "typeIdentifier",
+                  "preciseIdentifier" : "c:objc(cs)UIView",
+                  "text" : "UIView"
+                }
+              ]
+            }
+          ],
+          "kind" : "declarations"
+        }
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView\/title",
+        "value" : "JoyStickView"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView\/fragments",
+        "value" : [
+          {
+            "kind" : "identifier",
+            "text" : "JoyStickView"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1baseAlpha\/title",
+        "value" : "baseAlpha"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1baseAlpha\/fragments",
+        "value" : [
+          {
+            "kind" : "identifier",
+            "text" : "baseAlpha"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1baseImage\/title",
+        "value" : "baseImage"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1baseImage\/fragments",
+        "value" : [
+          {
+            "kind" : "identifier",
+            "text" : "baseImage"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1colorFillHandleImage\/title",
+        "value" : "colorFillHandleImage"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1colorFillHandleImage\/fragments",
+        "value" : [
+          {
+            "kind" : "identifier",
+            "text" : "colorFillHandleImage"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1enableDoubleTapForFrameReset\/title",
+        "value" : "enableDoubleTapForFrameReset"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1enableDoubleTapForFrameReset\/fragments",
+        "value" : [
+          {
+            "kind" : "identifier",
+            "text" : "enableDoubleTapForFrameReset"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1handleAlpha\/title",
+        "value" : "handleAlpha"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1handleAlpha\/fragments",
+        "value" : [
+          {
+            "kind" : "identifier",
+            "text" : "handleAlpha"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1handleImage\/title",
+        "value" : "handleImage"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1handleImage\/fragments",
+        "value" : [
+          {
+            "kind" : "identifier",
+            "text" : "handleImage"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1handleSizeRatio\/title",
+        "value" : "handleSizeRatio"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1handleSizeRatio\/fragments",
+        "value" : [
+          {
+            "kind" : "identifier",
+            "text" : "handleSizeRatio"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1handleTintColor\/title",
+        "value" : "handleTintColor"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1handleTintColor\/fragments",
+        "value" : [
+          {
+            "kind" : "identifier",
+            "text" : "handleTintColor"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1init(coder:)\/title",
+        "value" : "initWithCoder:"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1init(coder:)\/fragments",
+        "value" : [
+          {
+            "kind" : "text",
+            "text" : "- "
+          },
+          {
+            "kind" : "identifier",
+            "text" : "initWithCoder:"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1init(frame:)\/title",
+        "value" : "initWithFrame:"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1init(frame:)\/fragments",
+        "value" : [
+          {
+            "kind" : "text",
+            "text" : "- "
+          },
+          {
+            "kind" : "identifier",
+            "text" : "initWithFrame:"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1layoutSubviews()\/title",
+        "value" : "layoutSubviews"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1layoutSubviews()\/fragments",
+        "value" : [
+          {
+            "kind" : "text",
+            "text" : "- "
+          },
+          {
+            "kind" : "identifier",
+            "text" : "layoutSubviews"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1movable\/title",
+        "value" : "movable"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1movable\/fragments",
+        "value" : [
+          {
+            "kind" : "identifier",
+            "text" : "movable"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1resetFrame()\/title",
+        "value" : "resetFrame"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1resetFrame()\/fragments",
+        "value" : [
+          {
+            "kind" : "text",
+            "text" : "- "
+          },
+          {
+            "kind" : "identifier",
+            "text" : "resetFrame"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1setPolarMonitor(_:)\/title",
+        "value" : "setPolarMonitor:"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1setPolarMonitor(_:)\/fragments",
+        "value" : [
+          {
+            "kind" : "text",
+            "text" : "- "
+          },
+          {
+            "kind" : "identifier",
+            "text" : "setPolarMonitor:"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1setXYMonitor(_:)\/title",
+        "value" : "setXYMonitor:"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1setXYMonitor(_:)\/fragments",
+        "value" : [
+          {
+            "kind" : "text",
+            "text" : "- "
+          },
+          {
+            "kind" : "identifier",
+            "text" : "setXYMonitor:"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1touchesBegan(_:with:)\/title",
+        "value" : "touchesBegan:withEvent:"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1touchesBegan(_:with:)\/fragments",
+        "value" : [
+          {
+            "kind" : "text",
+            "text" : "- "
+          },
+          {
+            "kind" : "identifier",
+            "text" : "touchesBegan:withEvent:"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1touchesCancelled(_:with:)\/title",
+        "value" : "touchesCancelled:withEvent:"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1touchesCancelled(_:with:)\/fragments",
+        "value" : [
+          {
+            "kind" : "text",
+            "text" : "- "
+          },
+          {
+            "kind" : "identifier",
+            "text" : "touchesCancelled:withEvent:"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1touchesEnded(_:with:)\/title",
+        "value" : "touchesEnded:withEvent:"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1touchesEnded(_:with:)\/fragments",
+        "value" : [
+          {
+            "kind" : "text",
+            "text" : "- "
+          },
+          {
+            "kind" : "identifier",
+            "text" : "touchesEnded:withEvent:"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1touchesMoved(_:with:)\/title",
+        "value" : "touchesMoved:withEvent:"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1touchesMoved(_:with:)\/fragments",
+        "value" : [
+          {
+            "kind" : "text",
+            "text" : "- "
+          },
+          {
+            "kind" : "identifier",
+            "text" : "touchesMoved:withEvent:"
+          }
+        ]
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1travel\/title",
+        "value" : "travel"
+      },
+      {
+        "op" : "replace",
+        "path" : "\/references\/doc:~1~1com.braysoft.JoyStickView~1documentation~1JoyStickView~1JoyStickView~1travel\/fragments",
+        "value" : [
+          {
+            "kind" : "identifier",
+            "text" : "travel"
+          }
+        ]
+      }
+    ],
+    "traits" : [
+      {
+        "interfaceLanguage" : "occ"
+      }
+    ]
+  }
+]
+}

@@ -1,0 +1,366 @@
+{
+  "abstract" : [
+    {
+      "text" : "JoyStickView handle position as angle\/displacement values from the base center. Note that ",
+      "type" : "text"
+    },
+    {
+      "code" : "angle",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " is given in degrees,",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "with 0° pointing up (north) and 90° pointing right (east).",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewPolarReport"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:12JoyStickView0abC11PolarReportV",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "struct"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "JoyStickViewPolarReport"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "JoyStickView"
+      }
+    ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "JoyStickViewPolarReport"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Structure",
+    "symbolKind" : "struct",
+    "title" : "JoyStickViewPolarReport"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "iOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "struct"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "JoyStickViewPolarReport"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "topicSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewPolarReport\/init(angle:displacement:)"
+      ],
+      "title" : "Initializers"
+    },
+    {
+      "identifiers" : [
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewPolarReport\/angle",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewPolarReport\/displacement",
+        "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewPolarReport\/rectangular"
+      ],
+      "title" : "Instance Properties"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/joystickview\/joystickviewpolarreport"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "JoyStickView",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickViewPolarReport": {
+  "abstract" : [
+    {
+      "text" : "JoyStickView handle position as angle\/displacement values from the base center. Note that ",
+      "type" : "text"
+    },
+    {
+      "code" : "angle",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " is given in degrees,",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "with 0° pointing up (north) and 90° pointing right (east).",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewPolarReport"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewPolarReport",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "JoyStickViewPolarReport"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "JoyStickViewPolarReport",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickviewpolarreport"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickViewPolarReport/angle": {
+  "abstract" : [
+    {
+      "text" : "Clockwise angle of the handle with respect to north\/up of 0°.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "angle"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewPolarReport\/angle",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "angle",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickviewpolarreport\/angle"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickViewPolarReport/displacement": {
+  "abstract" : [
+    {
+      "text" : "Distance from the center of the base",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "displacement"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewPolarReport\/displacement",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "displacement",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickviewpolarreport\/displacement"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickViewPolarReport/init(angle:displacement:)": {
+  "abstract" : [
+    {
+      "text" : "Constructor of new polar report",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "angle"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "displacement"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewPolarReport\/init(angle:displacement:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init(angle:displacement:)",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickviewpolarreport\/init(angle:displacement:)"
+},
+"doc://com.braysoft.JoyStickView/documentation/JoyStickView/JoyStickViewPolarReport/rectangular": {
+  "abstract" : [
+    {
+      "text" : "Convert this report into XY format",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "rectangular"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:12JoyStickView0abC8XYReportV",
+      "text" : "JoyStickViewXYReport"
+    }
+  ],
+  "identifier" : "doc:\/\/com.braysoft.JoyStickView\/documentation\/JoyStickView\/JoyStickViewPolarReport\/rectangular",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "rectangular",
+  "type" : "topic",
+  "url" : "\/documentation\/joystickview\/joystickviewpolarreport\/rectangular"
+}
+}
+}
