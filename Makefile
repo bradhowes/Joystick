@@ -5,7 +5,7 @@ QUIET = -quiet
 WORKSPACE = $(PWD)/JoyStickView.xcworkspace
 SPM_WORKSPACE = $(PWD)/.workspace
 
-default: test
+default: post
 
 clean:
 	rm -rf "$(PWD)/.DerivedData-macos" "$(PWD)/.DerivedData-ios" "$(PWD)/.DerivedData-tvos" "$(SPM_WORKSPACE)"
