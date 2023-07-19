@@ -5,7 +5,7 @@ QUIET = -quiet
 WORKSPACE = $(PWD)/JoyStickView.xcworkspace
 SPM_WORKSPACE = $(PWD)/.workspace
 
-default: percentage
+default: test
 
 clean:
 	rm -rf "$(PWD)/.DerivedData-macos" "$(PWD)/.DerivedData-ios" "$(PWD)/.DerivedData-tvos" "$(SPM_WORKSPACE)"
@@ -43,13 +43,16 @@ test-ios: resolve-deps
 		-destination platform="$(PLATFORM_IOS)"
 
 coverage: test-ios
-	xcrun xccov view --report --only-targets $(PWD)/.DerivedData-ios/Logs/Test/*.xcresult > coverage.txt
-	cat coverage.txt
+	@xcrun xccov view --report --only-targets $(PWD)/.DerivedData-ios/Logs/Test/*.xcresult > coverage.txt
+	@cat coverage.txt
 
 percentage: coverage
-	awk '/ JoyStickView.framework / { if ($$3 > 0) print $$4; }' coverage.txt > percentage.txt
-	cat percentage.txt
+	@awk '/ JoyStickView.framework / { if ($$3 > 0) print $$4; }' coverage.txt > percentage.txt
+	@cat percentage.txt
 
-test: test-ios test-tvos percentage
+post: ppercentage
+	@if [[ -n "$$GITHUB_ENV" ]]; then \
+		echo "PERCENTAGE=$$(< percentage.txt)" >> $$GITHUB_ENV; \
+	fi
 
-.PHONY: test test-ios test-macos test-tvos coverage percentage test-linux test-swift
+.PHONY: test post percentage coverage test-ios resolve-deps clean
