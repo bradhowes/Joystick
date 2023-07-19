@@ -50,7 +50,7 @@ percentage: coverage
 	@awk '/ JoyStickView.framework / { if ($$3 > 0) print $$4; }' coverage.txt > percentage.txt
 	@cat percentage.txt
 
-post: ppercentage
+post: percentage
 	@if [[ -n "$$GITHUB_ENV" ]]; then \
 		echo "PERCENTAGE=$$(< percentage.txt)" >> $$GITHUB_ENV; \
 	fi
