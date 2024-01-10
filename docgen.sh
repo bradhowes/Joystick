@@ -10,5 +10,5 @@ JAZZY=$(type -p jazzy)
     ${JAZZY} --module JoyStickView \
              --min-acl internal \
              --build-tool-arguments \
-             -workspace,JoyStickView.xcworkspace,-scheme,JoyStickView,-destination,'name=iPhone 11' \
+             -workspace,JoyStickView.xcworkspace,-scheme,JoyStickView,-destination,'name=iPhone 15' \
              --root-url https://bradhowes.github.io/Joystick

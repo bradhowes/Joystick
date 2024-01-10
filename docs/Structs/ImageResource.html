@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>CGPoint Extension Reference</title>
+    <title>ImageResource Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Extension/CGPoint" class="dashAnchor"></a>
-    <a title="CGPoint Extension Reference"></a>
+    <a name="//apple_ref/swift/Struct/ImageResource" class="dashAnchor"></a>
+    <a title="ImageResource Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">JoyStickView 3.2.0 Docs</a> (96% documented)</p>
@@ -30,7 +30,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">JoyStickView Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        CGPoint Extension Reference
+        ImageResource Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -137,15 +137,15 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>CGPoint</h1>
+            <h1>ImageResource</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">extension</span> <span class="kt">CGPoint</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">ImageResource</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                 </div>
               </div>
-            <p>Convenience functions for CGPoint.</p>
+            <p>An image resource.</p>
 
           </section>
           <section class="section task-group-section">
@@ -154,9 +154,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:So7CGPointV12JoyStickViewE1poiyA2B_So8CGVectorVtFZ"></a>
-                    <a name="//apple_ref/swift/Method/+(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So7CGPointV12JoyStickViewE1poiyA2B_So8CGVectorVtFZ">+(_:<wbr>_:<wbr>)</a>
+                    <a name="/s:12JoyStickView13ImageResourceV4name6bundleACSS_So8NSBundleCtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(name:bundle:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12JoyStickView13ImageResourceV4name6bundleACSS_So8NSBundleCtcfc">init(name:<wbr>bundle:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -164,52 +164,56 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Add the components of a CGPoint and a CGVector</p>
+                        <p>Initialize an <code>ImageResource</code> with <code>name</code> and <code>bundle</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">static</span> <span class="kd">func</span> <span class="o">+</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">CGVector</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGPoint</span></code></pre>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">bundle</span><span class="p">:</span> <span class="kt">Bundle</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>lhs</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>the CGPoint to add</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>rhs</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>the CGVector to add</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Image%20Symbols"></a>
+                <a name="//apple_ref/swift/Section/Image Symbols" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Image%20Symbols"></a>
+                  <h3 class="section-name"><span>Image Symbols</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12JoyStickView13ImageResourceV11defaultBaseACvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/defaultBase" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12JoyStickView13ImageResourceV11defaultBaseACvpZ">defaultBase</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The &ldquo;DefaultBase&rdquo; asset catalog image resource.</p>
+
                       </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>new CGPoint representing the sum</p>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">defaultBase</span><span class="p">:</span> <span class="kt">ImageResource</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -217,9 +221,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:So7CGPointV12JoyStickViewE1poiyA2B_So6CGSizeVtFZ"></a>
-                    <a name="//apple_ref/swift/Method/+(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So7CGPointV12JoyStickViewE1poiyA2B_So6CGSizeVtFZ">+(_:<wbr>_:<wbr>)</a>
+                    <a name="/s:12JoyStickView13ImageResourceV13defaultHandleACvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/defaultHandle" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12JoyStickView13ImageResourceV13defaultHandleACvpZ">defaultHandle</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -227,52 +231,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Add the components of a CGPoint and a CGSize</p>
+                        <p>The &ldquo;DefaultHandle&rdquo; asset catalog image resource.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">static</span> <span class="kd">func</span> <span class="o">+</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGPoint</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">defaultHandle</span><span class="p">:</span> <span class="kt">ImageResource</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>lhs</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>the CGPoint to add</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>rhs</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>the CGSize to add</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>new CGPoint representing the sum</p>
                       </div>
                     </section>
                   </div>
@@ -280,9 +248,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:So7CGPointV12JoyStickViewE1soiyA2B_So8CGVectorVtFZ"></a>
-                    <a name="//apple_ref/swift/Method/-(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So7CGPointV12JoyStickViewE1soiyA2B_So8CGVectorVtFZ">-(_:<wbr>_:<wbr>)</a>
+                    <a name="/s:12JoyStickView13ImageResourceV9fancyBaseACvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/fancyBase" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12JoyStickView13ImageResourceV9fancyBaseACvpZ">fancyBase</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -290,52 +258,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Subtract the components of a CGPoint and a CGVector</p>
+                        <p>The &ldquo;FancyBase&rdquo; asset catalog image resource.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">static</span> <span class="kd">func</span> <span class="o">-</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">CGVector</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGPoint</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">fancyBase</span><span class="p">:</span> <span class="kt">ImageResource</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>lhs</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>the CGPoint to subtract</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>rhs</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>the CGVector to subtract</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>new CGPoint representing the difference</p>
                       </div>
                     </section>
                   </div>
@@ -343,9 +275,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:So7CGPointV12JoyStickViewE1soiySo8CGVectorVAB_ABtFZ"></a>
-                    <a name="//apple_ref/swift/Method/-(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So7CGPointV12JoyStickViewE1soiySo8CGVectorVAB_ABtFZ">-(_:<wbr>_:<wbr>)</a>
+                    <a name="/s:12JoyStickView13ImageResourceV11fancyHandleACvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/fancyHandle" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12JoyStickView13ImageResourceV11fancyHandleACvpZ">fancyHandle</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -353,52 +285,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Subtract the components of two CGPoint values</p>
+                        <p>The &ldquo;FancyHandle&rdquo; asset catalog image resource.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">static</span> <span class="kd">func</span> <span class="o">-</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGVector</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">fancyHandle</span><span class="p">:</span> <span class="kt">ImageResource</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>lhs</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>the CGPoint to subtract</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>rhs</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>the CGPoint to subtract</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>new CGVector representing the difference</p>
                       </div>
                     </section>
                   </div>
