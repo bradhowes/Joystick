@@ -33,6 +33,7 @@ WD.xcresult
 cov.txt
 coverage.txt
 percentage.txt
+.DerivedData-iOS
 
 ## Playgrounds
 timeline.xctimeline

@@ -8,13 +8,16 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-15
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Select Xcode 16.1
+      run: ls -l /Applications && sudo xcode-select -s /Applications/Xcode_16.1.app
     - name: Build, test, and code coverage
-      run: make
+      run: env && make
     - name: Create Coverage Badge
-      uses: schneegans/dynamic-badges-action@v1.1.0
+      uses: schneegans/dynamic-badges-action@v1.7.0
       with:
         auth: ${{ secrets.GIST_UPDATE }}
         gistID: 4739895cbf46573cc4b63ab776c74899

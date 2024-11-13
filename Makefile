@@ -1,4 +1,4 @@
-PLATFORM_IOS = iOS Simulator,name=iPhone 14 Pro
+PLATFORM_IOS = iOS Simulator,name=iPad mini (A17 Pro)
 SCHEME = JoyStickView App
 DOCC_DIR = ./docs
 QUIET = -quiet
