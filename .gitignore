@@ -27,6 +27,13 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 
+Package.resolved
+WD
+WD.xcresult
+cov.txt
+coverage.txt
+percentage.txt
+
 ## Playgrounds
 timeline.xctimeline
 playground.xcworkspace
